@@ -1,0 +1,15 @@
+# 臨時檔案
+tmpclaude-*
+nul
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
