@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>摩瑪智能電子鎖 業務教戰手冊</title>
+<style>
+  :root {
+    --primary: #1a2744;
+    --primary-light: #2a3f6b;
+    --accent: #c9a84c;
+    --accent-light: #e8d49a;
+    --danger: #c0392b;
+    --danger-bg: #fdf0ef;
+    --success: #27ae60;
+    --success-bg: #eafaf1;
+    --info: #2980b9;
+    --info-bg: #ebf5fb;
+    --warn: #f39c12;
+    --warn-bg: #fef9e7;
+    --bg: #f5f6fa;
+    --card: #ffffff;
+    --text: #2c3e50;
+    --text-light: #7f8c8d;
+    --border: #dfe6e9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  .confidential-bar {
+    background: linear-gradient(135deg, var(--danger) 0%, #922b21 100%);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 4px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(192,57,43,0.3);
+  }
+  .header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 48px 0 36px;
+    text-align: center;
+  }
+  .header h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
+  .header .badge {
+    display: inline-block;
+    background: var(--danger);
+    color: #fff;
+    padding: 4px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+  }
+  .header .subtitle { color: var(--accent-light); font-size: 15px; opacity: .9; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 60px; }
+  section {
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    padding: 32px;
+    margin-bottom: 28px;
+    border: 1px solid var(--border);
+  }
+  section.pricing-section { border-left: 4px solid var(--accent); }
+  section.compete-section { border-left: 4px solid var(--info); }
+  section.inventory-section { border-left: 4px solid var(--success); }
+  h2 {
+    font-size: 22px; color: var(--primary); margin-bottom: 18px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--accent);
+    display: flex; align-items: center; gap: 8px;
+  }
+  h3 { font-size: 17px; color: var(--primary); margin: 20px 0 12px; }
+  .emoji { font-size: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  th, td { padding: 10px 12px; border: 1px solid var(--border); text-align: left; }
+  th { background: var(--primary); color: #fff; font-weight: 600; font-size: 13px; white-space: nowrap; }
+  tr:nth-child(even) { background: #f8f9fc; }
+  tr:hover { background: #eef1f7; }
+  td.center, th.center { text-align: center; }
+  td.right, th.right { text-align: right; }
+  .price { color: var(--danger); font-weight: 700; }
+  .profit { color: var(--success); font-weight: 600; }
+  .highlight-row { background: #fef9e7 !important; }
+  .highlight-row:hover { background: #fdf2d0 !important; }
+  .note {
+    background: var(--info-bg); border-left: 4px solid var(--info);
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0; font-size: 14px;
+  }
+  .note.warn { background: var(--warn-bg); border-left-color: var(--warn); }
+  .note.danger { background: var(--danger-bg); border-left-color: var(--danger); }
+  .note.success { background: var(--success-bg); border-left-color: var(--success); }
+  .check { color: var(--success); font-weight: 700; }
+  .cross { color: var(--danger); font-weight: 700; }
+  .tier-table th { font-size: 12px; }
+  .tier-table td { text-align: center; font-size: 13px; }
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+  .swot-card { padding: 16px; border-radius: 10px; font-size: 14px; }
+  .swot-card h4 { font-size: 15px; margin-bottom: 10px; }
+  .swot-card ul { padding-left: 18px; }
+  .swot-card li { margin-bottom: 4px; }
+  .swot-s { background: #eafaf1; border: 1px solid #82e0aa; }
+  .swot-s h4 { color: #1e8449; }
+  .swot-w { background: #fdf0ef; border: 1px solid #f1948a; }
+  .swot-w h4 { color: #c0392b; }
+  .swot-o { background: #ebf5fb; border: 1px solid #85c1e9; }
+  .swot-o h4 { color: #2471a3; }
+  .swot-t { background: #fef9e7; border: 1px solid #f9e79f; }
+  .swot-t h4 { color: #b7950b; }
+  .faq-item { margin-bottom: 14px; }
+  .faq-q { font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+  .faq-a { padding-left: 16px; color: #555; font-size: 14px; }
+  .talk-box {
+    background: #f0f4ff; border-left: 4px solid var(--primary-light);
+    padding: 12px 16px; border-radius: 0 8px 8px 0;
+    margin: 10px 0; font-size: 14px; color: var(--primary); font-style: italic;
+  }
+  /* Product photo cards */
+  .product-grid { display: grid; gap: 20px; margin: 20px 0 12px; }
+  .product-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .product-card {
+    background: #f4f5f8; border-radius: 10px; padding: 16px 12px 14px;
+    text-align: center; border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .product-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,.1); }
+  .product-card .img-wrap {
+    width: 100%; height: 220px;
+    display: flex; align-items: center; justify-content: center;
+    background: #eaecf0; border-radius: 8px;
+    margin-bottom: 12px; overflow: hidden;
+  }
+  .product-card .img-wrap img { max-width: 92%; max-height: 200px; object-fit: contain; }
+  .product-card .card-name { font-weight: 700; color: var(--primary); font-size: 15px; margin-bottom: 4px; }
+  .product-card .card-sub { font-size: 12px; color: var(--text-light); margin-bottom: 6px; }
+  .product-card .card-price { color: var(--danger); font-weight: 700; font-size: 17px; margin-top: auto; }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin: 14px 0; }
+  .feature-item { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; }
+  .feature-item .icon { color: var(--success); font-weight: 700; font-size: 16px; }
+  .footer {
+    background: var(--primary); color: #fff; text-align: center; padding: 28px; font-size: 14px;
+  }
+  .footer .company { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .footer a { color: var(--accent-light); text-decoration: none; }
+  @media print {
+    .confidential-bar { position: static; }
+    section { break-inside: avoid; box-shadow: none; }
+    body { font-size: 12px; }
+  }
+  @media (max-width: 768px) {
+    .container { padding: 16px 10px; }
+    section { padding: 18px 14px; }
+    h2 { font-size: 18px; }
+    table { font-size: 12px; }
+    th, td { padding: 6px 8px; }
+    .swot-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 24px; }
+    .product-grid-3 { grid-template-columns: 1fr; max-width: 280px; margin-left: auto; margin-right: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="confidential-bar">⚠️ 機密文件 — 僅供內部使用，嚴禁外流 ⚠️</div>
+
+<div class="header">
+  <div class="badge">CONFIDENTIAL</div>
+  <h1>摩瑪智能電子鎖 業務教戰手冊</h1>
+  <div class="subtitle">樂莫集團 摩瑪建材 | www.themore-tw.com</div>
+</div>
+
+<div class="container">
+
+<!-- ====== LINE@ QR Code ====== -->
+<section>
+  <h2><span class="emoji">📱</span> 加入摩瑪建材 LINE@</h2>
+  <p style="margin-bottom:16px;">掃描 QR Code 加入好友，享最新優惠與產品資訊</p>
+  <div style="text-align:center;">
+    <img src="../../LINE@%20QR扣.jpg" alt="摩瑪建材 LINE@ QR Code" style="max-width:200px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.1);">
+    <div style="margin-top:8px; font-weight:700;">摩瑪建材 LINE@</div>
+  </div>
+  <div class="note warn">享有任何折扣前，須先加入 LINE@</div>
+</section>
+
+<!-- ====== 產品型號對照表（減：原廠型號） ====== -->
+<section>
+  <h2><span class="emoji">📊</span> 產品型號對照表</h2>
+  <table>
+    <tr><th>摩瑪型號</th><th>系列</th><th>定位</th></tr>
+    <tr><td><strong>商旅 M-H1</strong></td><td>飯店鎖</td><td>經濟首選</td></tr>
+    <tr><td><strong>菁英 M-H2</strong></td><td>飯店鎖</td><td>質感推薦</td></tr>
+    <tr><td><strong>發卡機</strong></td><td>配件</td><td>飯店鎖搭配</td></tr>
+    <tr><td><strong>慧眼 M-S1</strong></td><td>智能鎖</td><td>貓眼監控</td></tr>
+    <tr><td><strong>識界 M-F1</strong></td><td>智能鎖</td><td>3D人臉+掌紋</td></tr>
+    <tr><td><strong>識界 M-F2 旗艦款</strong></td><td>智能鎖</td><td>旗艦首選</td></tr>
+  </table>
+</section>
+
+<!-- ====== 飯店鎖系列 ====== -->
+<section>
+  <h2><span class="emoji">🏨</span> M-H 飯店鎖系列</h2>
+  <p style="margin-bottom:12px; color: var(--text-light);">專為飯店、民宿、商旅設計的專業刷卡門鎖系統</p>
+  <table>
+    <tr><th>產品型號</th><th>功能特色</th><th class="center">建議售價</th></tr>
+    <tr><td><strong>摩瑪 商旅 M-H1</strong></td><td>刷卡感應/鑰匙・分體式設計・安裝便利</td><td class="center price">$10,800</td></tr>
+    <tr><td><strong>摩瑪 菁英 M-H2</strong></td><td>刷卡感應/鑰匙・一體式設計・外觀優雅</td><td class="center price">$12,800</td></tr>
+  </table>
+  <div class="product-grid product-grid-3">
+    <div class="product-card">
+      <div class="img-wrap"><img src="../供應商_宇時和/家盾系列/產品圖片/摩瑪_商旅_M-H1.png" alt="商旅 M-H1"></div>
+      <div class="card-name">商旅 M-H1</div>
+      <div class="card-sub">分體式・經濟首選</div>
+      <div class="card-price">$10,800</div>
+    </div>
+    <div class="product-card">
+      <div class="img-wrap"><img src="../供應商_宇時和/家盾系列/產品圖片/摩瑪_菁英_M-H2.png" alt="菁英 M-H2"></div>
+      <div class="card-name">菁英 M-H2</div>
+      <div class="card-sub">一體式・質感推薦</div>
+      <div class="card-price">$12,800</div>
+    </div>
+    <div class="product-card">
+      <div class="img-wrap"><img src="../供應商_宇時和/家盾系列/產品圖片/發卡機.jpg" alt="發卡機"></div>
+      <div class="card-name">發卡機</div>
+      <div class="card-sub">飯店鎖搭配配件</div>
+      <div class="card-price">$7,800</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 智能鎖系列 ====== -->
+<section>
+  <h2><span class="emoji">🏠</span> M-S / M-F 智能鎖系列</h2>
+  <p style="margin-bottom:12px; color: var(--text-light);">居家智能門鎖，多重解鎖方式，安全便利兼具</p>
+  <table>
+    <tr><th>產品型號</th><th>功能特色</th><th class="center">建議售價</th></tr>
+    <tr><td><strong>摩瑪 慧眼 M-S1</strong></td><td>貓眼可視螢幕・指紋/密碼/刷卡/App/鑰匙・WiFi遠端控制</td><td class="center price">$20,800</td></tr>
+    <tr><td><strong>摩瑪 識界 M-F1</strong></td><td>貓眼可視螢幕・3D人臉辨識・掌紋・指紋/密碼/刷卡/App/鑰匙・WiFi遠端控制</td><td class="center price">$23,800</td></tr>
+    <tr><td><strong>摩瑪 識界 M-F2 旗艦款</strong></td><td>貓眼可視螢幕・3D人臉辨識・掌紋・指紋/密碼/刷卡/App/鑰匙・WiFi遠端控制・頂級配置</td><td class="center price">$26,800</td></tr>
+  </table>
+  <div class="product-grid product-grid-3">
+    <div class="product-card">
+      <div class="img-wrap"><img src="../供應商_宇時和/家盾系列/產品圖片/摩瑪_慧眼_M-S1.png" alt="慧眼 M-S1"></div>
+      <div class="card-name">慧眼 M-S1</div>
+      <div class="card-sub">貓眼監控・6種解鎖</div>
+      <div class="card-price">$20,800</div>
+    </div>
+    <div class="product-card">
+      <div class="img-wrap"><img src="../供應商_宇時和/家盾系列/產品圖片/摩瑪_識界_M-F1.png" alt="識界 M-F1"></div>
+      <div class="card-name">識界 M-F1</div>
+      <div class="card-sub">3D人臉+掌紋・8種解鎖</div>
+      <div class="card-price">$23,800</div>
+    </div>
+    <div class="product-card">
+      <div class="img-wrap"><img src="../供應商_宇時和/家盾系列/產品圖片/摩瑪_識界旗艦_M-F2.png" alt="識界 M-F2 旗艦款"></div>
+      <div class="card-name">識界 M-F2 旗艦款</div>
+      <div class="card-sub">旗艦首選・頂級配置</div>
+      <div class="card-price">$26,800</div>
+    </div>
+  </div>
+</section>
+
+<!-- 減：成本與定價分析 整段移除 -->
+
+<!-- ====== 各層級售價總表（減：成本欄、毛利分析） ====== -->
+<section class="pricing-section">
+  <h2><span class="emoji">💲</span> 各層級售價總表</h2>
+  <div class="note">依據【定價標準_基礎設定】統一定價體系，不設底價，最低實際折扣為經銷商 3.5 折。享有任何折扣前，須先加入 <strong>摩瑪建材 LINE@</strong></div>
+
+  <h3>客戶層級與折數</h3>
+  <table>
+    <tr><th class="center">#</th><th>層級名稱</th><th class="center">折數</th><th>消費門檻 / 資格條件</th></tr>
+    <tr><td class="center">1</td><td>牌價（一般消費者）</td><td class="center">10 折</td><td>無門檻</td></tr>
+    <tr><td class="center">2</td><td>門市滿額優惠 A</td><td class="center">—</td><td>單次消費滿 $5,000，折 $300</td></tr>
+    <tr><td class="center">3</td><td>門市滿額優惠 B</td><td class="center">—</td><td>單次消費滿 $10,000，折 $800</td></tr>
+    <tr><td class="center">4</td><td>門市滿額優惠 C</td><td class="center">9 折</td><td>單次消費滿 $15,000</td></tr>
+    <tr><td class="center">5</td><td>設計師 / 工程行</td><td class="center">7.5 折</td><td>憑乙級技術士證照裝修（設計 &amp; 裝修）</td></tr>
+    <tr><td class="center">6</td><td>建材 / 五金行 / BNI 會員</td><td class="center">6 折</td><td>憑營利事業登記證（建材或五金相關行業）或 BNI 大台中南區綠燈會員</td></tr>
+    <tr><td class="center">7</td><td>專案價</td><td class="center">5 折</td><td>單筆滿額 $500,000 以上（折後含稅價）</td></tr>
+    <tr><td class="center">8</td><td>建材行專案價</td><td class="center">4.5 折</td><td>建材 / 五金行資格 + 單筆滿額 $500,000 以上（折後含稅價）</td></tr>
+    <tr><td class="center">9</td><td>經銷商</td><td class="center">3.5 折</td><td>另作說明</td></tr>
+  </table>
+
+  <h3>各產品各層級售價明細（TWD）</h3>
+  <div style="overflow-x:auto;">
+  <table class="tier-table">
+    <tr>
+      <th>摩瑪型號</th><th class="center">牌價(10折)</th><th class="center">9折</th>
+      <th class="center">7.5折</th><th class="center">6折</th><th class="center">5折</th>
+      <th class="center">4.5折</th><th class="center">3.5折</th>
+    </tr>
+    <tr>
+      <td><strong>商旅 M-H1</strong></td>
+      <td class="center price">$10,800</td><td class="center">$9,720</td><td class="center">$8,100</td>
+      <td class="center">$6,480</td><td class="center">$5,400</td><td class="center">$4,860</td><td class="center">$3,780</td>
+    </tr>
+    <tr>
+      <td><strong>菁英 M-H2</strong></td>
+      <td class="center price">$12,800</td><td class="center">$11,520</td><td class="center">$9,600</td>
+      <td class="center">$7,680</td><td class="center">$6,400</td><td class="center">$5,760</td><td class="center">$4,480</td>
+    </tr>
+    <tr class="highlight-row">
+      <td><strong>發卡機</strong></td>
+      <td class="center price">$7,800</td><td class="center">$7,020</td><td class="center">$5,850</td>
+      <td class="center">$4,680</td><td class="center">$3,900</td><td class="center">$3,510</td><td class="center">$2,730</td>
+    </tr>
+    <tr>
+      <td><strong>慧眼 M-S1</strong></td>
+      <td class="center price">$20,800</td><td class="center">$18,720</td><td class="center">$15,600</td>
+      <td class="center">$12,480</td><td class="center">$10,400</td><td class="center">$9,360</td><td class="center">$7,280</td>
+    </tr>
+    <tr>
+      <td><strong>識界 M-F1</strong></td>
+      <td class="center price">$23,800</td><td class="center">$21,420</td><td class="center">$17,850</td>
+      <td class="center">$14,280</td><td class="center">$11,900</td><td class="center">$10,710</td><td class="center">$8,330</td>
+    </tr>
+    <tr>
+      <td><strong>識界 M-F2 旗艦款</strong></td>
+      <td class="center price">$26,800</td><td class="center">$24,120</td><td class="center">$20,100</td>
+      <td class="center">$16,080</td><td class="center">$13,400</td><td class="center">$12,060</td><td class="center">$9,380</td>
+    </tr>
+  </table>
+  </div>
+
+  <!-- 減：毛利分析 整段移除 -->
+
+  <h3>議價規則</h3>
+  <ul style="margin:8px 0 0 20px; font-size:14px;">
+    <li>享有任何折扣前，須先加入 <strong>摩瑪建材 LINE@</strong></li>
+    <li>一般客人先報 <strong>牌價</strong> → 滿 $5,000 折 $300 / 滿 $10,000 折 $800 / 滿 $15,000 享 9 折</li>
+    <li>設計師 / 工程行須出示<strong>乙級技術士證照裝修</strong>（設計 &amp; 裝修），方可享 7.5 折</li>
+    <li>建材 / 五金行須憑<strong>營利事業登記證</strong>（建材或五金相關行業），或為 <strong>BNI 大台中南區綠燈會員</strong>，方可享 6 折</li>
+    <li>專案價須 <strong>單筆滿額 $500,000 以上</strong> 方可適用 5 折</li>
+    <li>建材 / 五金行具備資格者，<strong>單筆滿額 $500,000 以上</strong>（折後含稅價）可享建材行專案價 <strong>4.5 折</strong></li>
+    <li>經銷商期間以 <strong>5 折</strong> 叫貨，達標後退 <strong>1.5 折</strong> 價差（最終 <strong>3.5 折</strong>）</li>
+    <li><strong>不設底價，最低實際折扣為經銷商 3.5 折</strong></li>
+  </ul>
+</section>
+
+<!-- ====== 產品規格總覽 ====== -->
+<section>
+  <h2><span class="emoji">📋</span> 產品規格總覽</h2>
+  <div style="overflow-x:auto;">
+  <table>
+    <tr><th>產品型號</th><th>解鎖方式</th><th class="center">指紋/人臉容量</th><th class="center">App控制</th><th class="center">建議售價</th></tr>
+    <tr><td>商旅 M-H1</td><td>刷卡/鑰匙（2種）</td><td class="center">-</td><td class="center">-</td><td class="center price">$10,800</td></tr>
+    <tr><td>菁英 M-H2</td><td>刷卡/鑰匙（2種）</td><td class="center">-</td><td class="center">-</td><td class="center price">$12,800</td></tr>
+    <tr><td>慧眼 M-S1</td><td>貓眼/指紋/密碼/刷卡/App/鑰匙（6種）</td><td class="center">指紋100組</td><td class="center">WiFi遠端</td><td class="center price">$20,800</td></tr>
+    <tr><td>識界 M-F1</td><td>貓眼/人臉/掌紋/指紋/密碼/刷卡/App/鑰匙（8種）</td><td class="center">指紋100組・人臉50組</td><td class="center">WiFi遠端</td><td class="center price">$23,800</td></tr>
+    <tr><td>識界 M-F2 旗艦款</td><td>貓眼/人臉/掌紋/指紋/密碼/刷卡/App/鑰匙（8種）</td><td class="center">指紋100組・人臉50組</td><td class="center">WiFi遠端</td><td class="center price">$26,800</td></tr>
+  </table>
+  </div>
+  <p style="font-size:13px; color: var(--text-light); margin-top:8px;">以上售價含稅</p>
+</section>
+
+<!-- ====== 功能比較表 ====== -->
+<section>
+  <h2><span class="emoji">✅</span> 功能比較表</h2>
+  <div style="overflow-x:auto;">
+  <table>
+    <tr><th>功能</th><th class="center">商旅 M-H1</th><th class="center">菁英 M-H2</th><th class="center">慧眼 M-S1</th><th class="center">識界 M-F1</th><th class="center">識界 M-F2</th></tr>
+    <tr><td>刷卡解鎖</td><td class="center check">✓</td><td class="center check">✓</td><td class="center check">✓</td><td class="center check">✓</td><td class="center check">✓</td></tr>
+    <tr><td>指紋解鎖</td><td class="center cross">-</td><td class="center cross">-</td><td class="center check">✓</td><td class="center check">✓</td><td class="center check">✓</td></tr>
+    <tr><td>密碼解鎖</td><td class="center cross">-</td><td class="center cross">-</td><td class="center check">✓</td><td class="center check">✓</td><td class="center check">✓</td></tr>
+    <tr><td>鑰匙解鎖</td><td class="center check">✓</td><td class="center check">✓</td><td class="center check">✓</td><td class="center check">✓</td><td class="center check">✓</td></tr>
+    <tr><td>App遠端控制</td><td class="center cross">-</td><td class="center cross">-</td><td class="center check">✓</td><td class="center check">✓</td><td class="center check">✓</td></tr>
+    <tr><td>貓眼可視螢幕</td><td class="center cross">-</td><td class="center cross">-</td><td class="center check">✓</td><td class="center check">✓</td><td class="center check">✓</td></tr>
+    <tr><td>3D人臉辨識</td><td class="center cross">-</td><td class="center cross">-</td><td class="center cross">-</td><td class="center check">✓</td><td class="center check">✓</td></tr>
+    <tr><td>掌紋辨識</td><td class="center cross">-</td><td class="center cross">-</td><td class="center cross">-</td><td class="center check">✓</td><td class="center check">✓</td></tr>
+    <tr style="font-weight:700; background:#eef1f7;">
+      <td><strong>解鎖方式總數</strong></td><td class="center">2種</td><td class="center">2種</td><td class="center">6種</td><td class="center">8種</td><td class="center">8種</td>
+    </tr>
+  </table>
+  </div>
+</section>
+
+<!-- ====== 標配配件清單 ====== -->
+<section>
+  <h2><span class="emoji">📦</span> 標配配件清單</h2>
+  <div style="overflow-x:auto;">
+  <table>
+    <tr><th>配件項目</th><th class="center">商旅 M-H1</th><th class="center">菁英 M-H2</th><th class="center">慧眼 M-S1</th><th class="center">識界 M-F1</th><th class="center">識界 M-F2</th></tr>
+    <tr><td>鎖體主機</td><td class="center">1組</td><td class="center">1組</td><td class="center">1組</td><td class="center">1組</td><td class="center">1組</td></tr>
+    <tr><td>感應卡片</td><td class="center">2張</td><td class="center">2張</td><td class="center">2張</td><td class="center">2張</td><td class="center">2張</td></tr>
+    <tr><td>機械鑰匙</td><td class="center">2把</td><td class="center">2把</td><td class="center">2把</td><td class="center">2把</td><td class="center">2把</td></tr>
+    <tr><td>電池</td><td class="center">乾電池 2組</td><td class="center">乾電池 2組</td><td class="center">BSMI鋰電池 2顆</td><td class="center">BSMI鋰電池 2顆</td><td class="center">BSMI鋰電池 2顆</td></tr>
+    <tr><td>安裝螺絲包</td><td class="center">1組</td><td class="center">1組</td><td class="center">1組</td><td class="center">1組</td><td class="center">1組</td></tr>
+    <tr><td>安裝說明書</td><td class="center">1份</td><td class="center">1份</td><td class="center">1份</td><td class="center">1份</td><td class="center">1份</td></tr>
+    <tr><td>使用說明書</td><td class="center">1份</td><td class="center">1份</td><td class="center">1份</td><td class="center">1份</td><td class="center">1份</td></tr>
+    <tr><td>保固卡</td><td class="center">1張</td><td class="center">1張</td><td class="center">1張</td><td class="center">1張</td><td class="center">1張</td></tr>
+    <tr><td>USB緊急充電線</td><td class="center cross">-</td><td class="center cross">-</td><td class="center">1條</td><td class="center">1條</td><td class="center">1條</td></tr>
+  </table>
+  </div>
+  <div class="note">💡 <strong>電池續航：</strong>飯店鎖（M-H1/M-H2）使用乾電池；智能鎖（M-S1/M-F1/M-F2）使用 BSMI 認證鋰電池，正常使用約可維持 8~12 個月，低電量時鎖具會發出語音提醒</div>
+</section>
+
+<!-- ====== 服務與安裝 ====== -->
+<section>
+  <h2><span class="emoji">🛠</span> 服務與安裝</h2>
+  <h3>服務保障</h3>
+  <table>
+    <tr><th>服務項目</th><th>內容說明</th></tr>
+    <tr><td>🛡 <strong>兩年保固</strong></td><td>全產品享有兩年原廠保固服務</td></tr>
+    <tr><td>🔧 <strong>專業安裝</strong></td><td>自有工班安裝，信任可靠有保障</td></tr>
+    <tr><td>📞 <strong>售後服務</strong></td><td>專人技術支援，快速回應處理</td></tr>
+    <tr><td>🏠 <strong>到府評估</strong></td><td>免費現場丈量，專業安裝建議</td></tr>
+  </table>
+  <h3>安裝費用</h3>
+  <table>
+    <tr><th>門類型</th><th class="center">安裝費</th><th>備註</th></tr>
+    <tr><td>木門</td><td class="center price">$4,200</td><td>標準安裝</td></tr>
+    <tr><td>硫化銅門</td><td class="center price">$5,000</td><td>需額外工時</td></tr>
+  </table>
+</section>
+
+<!-- ====== 安裝規格要求 ====== -->
+<section>
+  <h2><span class="emoji">📐</span> 安裝規格要求</h2>
+  <h3>門厚度要求</h3>
+  <table>
+    <tr><th>產品系列</th><th class="center">適用門厚</th><th>備註</th></tr>
+    <tr><td>M-H1 / M-H2 飯店鎖</td><td class="center"><strong>38~60mm</strong></td><td>適用標準硫化銅門及木門，其餘門厚請洽業務確認</td></tr>
+    <tr><td>M-S1 / M-F1 / M-F2 智能鎖</td><td class="center"><strong>38~60mm</strong></td><td>適用標準硫化銅門及木門，其餘門厚請洽業務確認</td></tr>
+  </table>
+  <div class="note warn">⚠️ 上列門厚數據以供應商叫貨單實際出貨紀錄為準，尚未取得完整規格書，安裝前請向業務確認</div>
+
+  <h3>開孔尺寸</h3>
+  <table>
+    <tr><th>項目</th><th class="center">尺寸</th></tr>
+    <tr><td>智能鎖鎖體開孔（寬×高）</td><td class="center"><strong>24×240mm</strong></td></tr>
+    <tr><td>其餘開孔尺寸</td><td class="center"><strong>依實際鎖體型號而定，安裝前請確認</strong></td></tr>
+  </table>
+  <div class="note warn">⚠️ 飯店鎖（M-H1/M-H2）與智能鎖使用不同規格鎖體，開孔尺寸不通用。安裝前請向業務確認或安排到府丈量</div>
+  <h3>適用門種</h3>
+  <table>
+    <tr><th>門種</th><th class="center">M-H 飯店鎖</th><th class="center">M-S/M-F 智能鎖</th><th>備註</th></tr>
+    <tr><td>木門</td><td class="center check">✓ 適用</td><td class="center check">✓ 適用</td><td>最佳選擇，安裝簡便</td></tr>
+    <tr><td>硫化銅門</td><td class="center check">✓ 適用</td><td class="center check">✓ 適用</td><td>需專業工具開孔</td></tr>
+    <tr><td>鋁門</td><td class="center check">✓ 適用</td><td class="center check">✓ 適用</td><td>需確認門框厚度</td></tr>
+    <tr><td>鋁框玻璃門</td><td class="center check">✓ 適用</td><td class="center check">✓ 適用</td><td>需確認鋁框厚度</td></tr>
+    <tr><td>純玻璃門</td><td class="center cross">✗ 不適用</td><td class="center cross">✗ 不適用</td><td>無法安裝</td></tr>
+    <tr><td>鐵捲門</td><td class="center cross">✗ 不適用</td><td class="center cross">✗ 不適用</td><td>結構不適合</td></tr>
+  </table>
+  <div class="note warn">⚠️ <strong>安裝前確認：</strong>請於安裝前確認門厚度、門框結構，建議預約到府評估</div>
+</section>
+
+<!-- ====== 為什麼選擇摩瑪 ====== -->
+<section>
+  <h2><span class="emoji">💡</span> 為什麼選擇摩瑪智能鎖？</h2>
+  <div class="feature-grid">
+    <div class="feature-item"><span class="icon">✓</span><span>多達8種解鎖方式，滿足各種使用情境</span></div>
+    <div class="feature-item"><span class="icon">✓</span><span>WiFi遠端控制標配，隨時掌握門鎖狀態</span></div>
+    <div class="feature-item"><span class="icon">✓</span><span>3D人臉辨識+掌紋技術，安全防偽更放心</span></div>
+    <div class="feature-item"><span class="icon">✓</span><span>智能鎖全系列標配貓眼監控功能</span></div>
+    <div class="feature-item"><span class="icon">✓</span><span>自有專業工班安裝，品質服務有保障</span></div>
+    <div class="feature-item"><span class="icon">✓</span><span>兩年保固，售後無憂</span></div>
+    <div class="feature-item"><span class="icon">✓</span><span>識界 M-F1 同級人臉鎖比W品牌省 $4,200，M-S1 含WiFi比W品牌省 $2,100</span></div>
+  </div>
+</section>
+
+<!-- ====== 競品比較分析 ====== -->
+<section class="compete-section">
+  <h2><span class="emoji">⚔️</span> 競品比較分析</h2>
+
+  <h3>主要競品：W品牌</h3>
+  <p style="font-size:14px; color: var(--text-light); margin-bottom:16px;">台灣智慧電子鎖領導品牌，擁有銀行等級3D安全辨識晶片、美國BHMA/ANSI一級鎖匣認證，並通過台灣CNS60A防火認證。</p>
+
+  <h3>價格對比</h3>
+  <div style="overflow-x:auto;">
+  <table>
+    <tr><th>摩瑪產品</th><th class="center">摩瑪售價</th><th class="center">vs</th><th>W品牌產品</th><th class="center">W品牌售價</th><th class="center">比較</th></tr>
+    <tr><td>慧眼 M-S1</td><td class="center price">$20,800</td><td class="center">vs</td><td>W品牌指紋款（+WiFi）</td><td class="center">$19,900（+WiFi $3,000=$22,900）</td><td class="center profit">含WiFi省 $2,100，多貓眼+指紋容量翻倍</td></tr>
+    <tr><td>識界 M-F1</td><td class="center price">$23,800</td><td class="center">vs</td><td>W品牌人臉款</td><td class="center">$28,000</td><td class="center profit">省 $4,200</td></tr>
+    <tr><td>識界 M-F2 旗艦款</td><td class="center price">$26,800</td><td class="center">vs</td><td>W品牌人臉款</td><td class="center">$28,000</td><td class="center profit">省 $1,200，多掌紋+貓眼</td></tr>
+  </table>
+  </div>
+
+  <h3>規格對比</h3>
+  <div style="overflow-x:auto;">
+  <table>
+    <tr><th>比較項目</th><th class="center">摩瑪 慧眼 M-S1</th><th class="center">W品牌指紋款</th><th class="center">摩瑪 識界 M-F1/F2</th><th class="center">W品牌人臉款</th></tr>
+    <tr><td>建議售價</td><td class="center price">$20,800</td><td class="center">$19,900</td><td class="center price">$23,800/$26,800</td><td class="center">$28,000</td></tr>
+    <tr><td>解鎖方式</td><td class="center"><strong>6種</strong></td><td class="center">5種</td><td class="center"><strong>8種（含掌紋）</strong></td><td class="center">5種</td></tr>
+    <tr><td>貓眼監控</td><td class="center check">✓ 有</td><td class="center cross">✗ 無</td><td class="center check">✓ 有</td><td class="center cross">✗ 無</td></tr>
+    <tr><td>指紋容量</td><td class="center"><strong>100組</strong></td><td class="center">50組</td><td class="center"><strong>100組</strong></td><td class="center">-</td></tr>
+    <tr><td>App遠端</td><td class="center check">✓ 標配</td><td class="center">選配</td><td class="center check">✓ 標配</td><td class="center">選配</td></tr>
+    <tr><td>產地</td><td class="center">中國</td><td class="center">台灣</td><td class="center">中國</td><td class="center">台灣</td></tr>
+    <tr><td>認證</td><td class="center">CE/FCC（CNS申請中）</td><td class="center">BHMA/ANSI・CNS60A</td><td class="center">CE/FCC（CNS申請中）</td><td class="center">CNS60A</td></tr>
+  </table>
+  </div>
+</section>
+
+<!-- ====== 多品牌競品全面對比 ====== -->
+<section class="compete-section">
+  <h2><span class="emoji">🆚</span> 多品牌競品全面對比</h2>
+  <p style="font-size:14px; color: var(--text-light); margin-bottom:12px;">市場主要品牌比較，知己知彼百戰百勝</p>
+  <div style="overflow-x:auto;">
+  <table>
+    <tr><th>品牌</th><th class="center">指紋鎖價位</th><th class="center">人臉鎖價位</th><th class="center">WiFi遠端</th><th>產地</th><th>市場定位</th></tr>
+    <tr style="background:#eafaf1;">
+      <td><strong>摩瑪 MOMA</strong></td><td class="center price">$20,800</td><td class="center price">$23,800~$26,800</td><td class="center check">✓ 標配</td><td>中國</td><td><strong>高CP值首選</strong></td>
+    </tr>
+    <tr><td>W品牌</td><td class="center">$19,900</td><td class="center">$28,000</td><td class="center">選配 +$3,000</td><td>台灣</td><td>台灣本土品牌</td></tr>
+    <tr><td>S品牌</td><td class="center">$25,000~$32,000</td><td class="center">$35,000~$45,000</td><td class="center check">✓ 標配</td><td>韓國</td><td>國際大廠、價格最高</td></tr>
+    <tr><td>Y品牌</td><td class="center">$22,000~$28,000</td><td class="center">$30,000~$38,000</td><td class="center">選配 +$2,500</td><td>美國設計/中國製</td><td>百年品牌、傳統鎖具</td></tr>
+    <tr><td>P品牌</td><td class="center">$18,000~$24,000</td><td class="center">$28,000~$35,000</td><td class="center check">✓ 標配</td><td>中國（授權）</td><td>家電品牌延伸</td></tr>
+    <tr><td>X品牌</td><td class="center">$8,000~$12,000</td><td class="center">$15,000~$20,000</td><td class="center check">✓ 標配</td><td>中國</td><td>低價入門、無售後</td></tr>
+  </table>
+  </div>
+  <div class="note success">📊 <strong>結論：</strong>摩瑪全系列標配貓眼+WiFi+掌紋，功能規格為同級最完整；M-S1 含WiFi比W品牌便宜 $2,100，人臉鎖 M-F1 比W品牌便宜 $4,200，比S品牌便宜 $11,000 以上</div>
+</section>
+
+<!-- ====== 銷售話術建議 ====== -->
+<section>
+  <h2><span class="emoji">💬</span> 銷售話術建議</h2>
+  <h3>功能優勢</h3>
+  <div class="talk-box">「摩瑪識界系列提供8種解鎖方式，包含獨家掌紋辨識，比W品牌多3種，更方便更安全」</div>
+  <h3>貓眼功能</h3>
+  <div class="talk-box">「摩瑪智能鎖全系列標配貓眼監控功能，W品牌沒有這個功能」</div>
+  <h3>App整合</h3>
+  <div class="talk-box">「摩瑪標配WiFi遠端控制，W品牌要加價 $3,000 選配」</div>
+  <h3>人臉鎖價格</h3>
+  <div class="talk-box">「識界 M-F1 人臉鎖只要 $23,800，W品牌人臉款要 $28,000，同級省 $4,200，還多貓眼和掌紋」</div>
+  <h3>品牌定位</h3>
+  <div class="talk-box">「摩瑪是高CP值首選，貓眼、WiFi、掌紋全部標配，不需要額外加購，還比W品牌便宜」</div>
+</section>
+
+<!-- ====== 客戶異議處理話術 ====== -->
+<section>
+  <h2><span class="emoji">🎯</span> 客戶異議處理話術</h2>
+  <p style="font-size:14px; color: var(--text-light); margin-bottom:12px;">常見客戶疑慮與應對方式</p>
+  <table>
+    <tr><th style="width:25%;">客戶說</th><th>你這樣回應</th></tr>
+    <tr><td><strong>「中國製的品質不放心」</strong></td><td>「理解您的顧慮。其實 iPhone、Nike 也都是中國製造，重點是品牌的品管把關。摩瑪提供<strong>兩年保固</strong>，有任何問題我們負責到底，而且是在地服務，不用寄回原廠等。」</td></tr>
+    <tr><td><strong>「W品牌/S品牌比較有名」</strong></td><td>「品牌知名度高是因為廣告打很兇，但這些廣告費最後都反映在售價上。摩瑪的功能規格比W品牌更完整——<strong>貓眼、WiFi、掌紋全部標配</strong>，W品牌WiFi還要加 $3,000。」</td></tr>
+    <tr><td><strong>「沒有 CNS 防火認證」</strong></td><td>「我們的 <strong>CNS 防火認證正在申請中</strong>，很快就會取得。目前已通過 CE 和 FCC 國際認證，安全性是有保障的。而且防火主要是門的責任，鎖具有國際認證就很完整了。」</td></tr>
+    <tr><td><strong>「價格太貴了」</strong></td><td>「以 M-S1 來算，$20,800 用 5 年，<strong>一天不到 $12 塊</strong>，換來的是 24 小時的居家安全、不用帶鑰匙的便利。比起請保全或裝監視器，CP 值高太多了。」</td></tr>
+    <tr><td><strong>「我再考慮看看」</strong></td><td>「沒問題，安全是大事，慎重考慮是對的。不過提醒您，現在有<strong>免費到府丈量</strong>的服務，反正不用錢，看看適不適合再決定？」</td></tr>
+    <tr><td><strong>「網路上有更便宜的」</strong></td><td>「網路便宜貨通常是水貨或仿冒品，沒有保固、沒有售後。電子鎖是安全設備，壞了打不開門、或被駭客破解，損失的不只是錢。我們是<strong>原廠授權、兩年保固、在地服務</strong>。」</td></tr>
+  </table>
+</section>
+
+<!-- ====== 常見問題 FAQ ====== -->
+<section>
+  <h2><span class="emoji">❓</span> 常見問題 FAQ</h2>
+  <div class="faq-item"><div class="faq-q">Q1：電子鎖沒電了怎麼辦？</div><div class="faq-a">智能鎖系列（M-S1/M-F1/M-F2）底部有 USB 緊急充電孔，可用行動電源臨時供電開門。採用 BSMI 認證鋰電池，低電量時鎖具會語音提醒，請及時更換。</div></div>
+  <div class="faq-item"><div class="faq-q">Q2：指紋辨識失敗怎麼處理？</div><div class="faq-a">請保持手指乾淨乾燥，若手指有傷口或脫皮可能影響辨識。建議同時註冊多根手指備用，也可使用密碼、卡片等其他方式開鎖。</div></div>
+  <div class="faq-item"><div class="faq-q">Q3：停電時電子鎖還能用嗎？</div><div class="faq-a">可以。電子鎖使用電池供電（飯店鎖為乾電池、智能鎖為 BSMI 認證鋰電池），不受市電停電影響。智能鎖系列另有機械鑰匙作為備用開鎖方式。</div></div>
+  <div class="faq-item"><div class="faq-q">Q4：WiFi 功能需要額外付費嗎？</div><div class="faq-a">不需要。摩瑪智能鎖（M-S1/M-F1/M-F2）WiFi 遠端控制為標配功能，下載 App 即可使用，無需額外付費。</div></div>
+  <div class="faq-item"><div class="faq-q">Q5：可以自己安裝嗎？</div><div class="faq-a">建議由專業人員安裝。若門上已有標準鎖孔可嘗試自行更換，但新門開孔建議交由專業師傅處理，以確保安裝品質及保固權益。</div></div>
+  <div class="faq-item"><div class="faq-q">Q6：人臉辨識安全嗎？會被照片騙過嗎？</div><div class="faq-a">摩瑪識界系列採用 3D 結構光人臉辨識技術，可辨別真人與照片/影片的差異，具備活體檢測功能，安全性高。</div></div>
+  <div class="faq-item"><div class="faq-q">Q7：保固範圍包含哪些？</div><div class="faq-a">兩年保固涵蓋鎖體主機、電子元件故障。不含人為損壞、電池、外觀磨損、天災等因素。詳細條款請參閱保固卡說明。</div></div>
+  <div class="faq-item"><div class="faq-q">Q8：飯店鎖可以統一管理多個房間嗎？</div><div class="faq-a">可以。M-H 飯店鎖系列支援發卡系統，可設定主卡、樓層卡、房間卡等不同權限，適合飯店、民宿統一管理。（發卡機需另購）</div></div>
+</section>
+
+<!-- ====== SWOT 分析（減：超高毛利） ====== -->
+<section>
+  <h2><span class="emoji">📈</span> SWOT 分析</h2>
+  <div class="swot-grid">
+    <div class="swot-card swot-s">
+      <h4>✅ Strengths 優勢</h4>
+      <ul>
+        <li><strong>高CP值首選</strong> — 功能最完整且價格有競爭力，全系列標配貓眼+WiFi+掌紋</li>
+        <li><strong>價格競爭力</strong> — M-S1 含WiFi比W品牌省 $2,100，M-F1 比W品牌省 $4,200</li>
+        <li><strong>產品線完整</strong> — 飯店鎖+智能鎖皆有</li>
+      </ul>
+    </div>
+    <div class="swot-card swot-w">
+      <h4>⚠️ Weaknesses 劣勢</h4>
+      <ul>
+        <li><strong>品牌知名度低</strong> — 相較W品牌認知度不足</li>
+        <li><strong>產地中國</strong> — 部分客戶有產地偏好</li>
+        <li><strong>CNS防火認證</strong> — 申請中，取得後更完美</li>
+      </ul>
+    </div>
+    <div class="swot-card swot-o">
+      <h4>🚀 Opportunities 機會</h4>
+      <ul>
+        <li><strong>旅宿業需求</strong> — 飯店/民宿智能化升級</li>
+        <li><strong>價格敏感客群</strong> — 預算有限但需要智能鎖</li>
+        <li><strong>建案配套</strong> — 建設公司批量採購</li>
+        <li><strong>智能家居趨勢</strong> — 市場需求持續成長</li>
+      </ul>
+    </div>
+    <div class="swot-card swot-t">
+      <h4>⛔ Threats 威脅</h4>
+      <ul>
+        <li><strong>品牌競爭</strong> — W品牌、S品牌、Y品牌市占高</li>
+        <li><strong>低價競爭</strong> — 中國直購低價產品衝擊</li>
+        <li><strong>消費者信任</strong> — 新品牌需時間建立口碑</li>
+        <li><strong>技術更新</strong> — 需跟上市場技術發展</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 競品攻擊點 ====== -->
+<section class="compete-section">
+  <h2><span class="emoji">⚔️</span> 競品攻擊點（僅限內部話術）</h2>
+  <div class="note danger">⚠️ <strong>攻擊要點，對外請委婉表達。記住：點到為止，重點是帶回摩瑪的優勢</strong></div>
+  <table>
+    <tr><th>競品品牌</th><th>主要弱點</th><th>內部攻擊話術</th></tr>
+    <tr><td><strong>W品牌</strong></td><td>WiFi 要加價、無貓眼</td><td>「WiFi 模組加購要 $3,000，摩瑪標配就有。而且貓眼監控W品牌沒有，摩瑪全系列標配。人臉鎖 M-F1 還比W品牌便宜 $4,200。」</td></tr>
+    <tr><td><strong>S品牌</strong></td><td>價格最高、維修等待久</td><td>「S品牌一台 $35,000 起跳，壞了要寄回韓國原廠，等 2~4 週。我們在地維修隔天到。」</td></tr>
+    <tr><td><strong>Y品牌</strong></td><td>電池續航差、WiFi要加購</td><td>「Y品牌 4顆電池只能用3個月，摩瑪BSMI鋰電池用1年。而且 Y品牌 的 WiFi 也是選配要加錢。」</td></tr>
+    <tr><td><strong>P品牌</strong></td><td>品牌授權非原廠、售後不明</td><td>「P品牌電子鎖是品牌授權，不是P品牌自己做的。出問題找誰負責都不清楚。」</td></tr>
+    <tr><td><strong>X品牌</strong></td><td>無實體售後、App全簡體</td><td>「X品牌便宜是真的，但壞了沒人修、App全簡體、客服打不通。安全的東西不能省。」</td></tr>
+  </table>
+</section>
+
+<!-- 減：供應商資訊 整段移除 -->
+
+<!-- ====== 庫存與訂單狀態（減：原廠型號、訂單編號、RMB金額） ====== -->
+<section class="inventory-section">
+  <h2><span class="emoji">📦</span> 庫存與訂單狀態</h2>
+
+  <h3>台灣現有庫存（截至 2026-01-28）</h3>
+  <div style="overflow-x:auto;">
+  <table>
+    <tr><th>摩瑪型號</th><th class="center">樣板（展示）</th><th class="center">庫存（可售）</th><th>待到貨</th><th>備註</th></tr>
+    <tr><td>商旅 M-H1</td><td class="center">1 把</td><td class="center"><strong>1 把</strong></td><td>—</td><td>右開(樣板)／左開(庫存)</td></tr>
+    <tr><td>菁英 M-H2</td><td class="center">1 把</td><td class="center"><strong>1 把</strong></td><td>—</td><td>右開(樣板)／左開(庫存)</td></tr>
+    <tr><td>慧眼 M-S1</td><td class="center">1 把</td><td class="center"><strong>1 把</strong></td><td>—</td><td></td></tr>
+    <tr><td>識界 M-F1</td><td class="center">1 把</td><td class="center"><strong>1 把</strong></td><td>+1 把(樣板)</td><td>待到貨約3月20日</td></tr>
+    <tr><td>識界 M-F2 旗艦款</td><td class="center">1 把</td><td class="center"><strong>1 把</strong></td><td>+1 把(樣板) +14 把(庫存)</td><td>待到貨約3月20日</td></tr>
+    <tr style="font-weight:700; background:#eef1f7;"><td><strong>合計</strong></td><td class="center">5 把</td><td class="center">5 把</td><td>+16 把</td><td></td></tr>
+  </table>
+  </div>
+  <div class="note">💡 <strong>配件庫存：</strong>發卡機 1 台、木紋展架 5 套（第一批隨貨）</div>
+
+  <h3>已出貨</h3>
+  <table>
+    <tr><th>訂單日期</th><th>內容</th><th class="center">狀態</th></tr>
+    <tr><td>2025-12-01</td><td>樣板10件+庫存5把</td><td class="center check">✅ 已出貨</td></tr>
+  </table>
+
+  <h3>待出貨</h3>
+  <table>
+    <tr><th>訂單日期</th><th>內容</th><th>預計出貨</th><th class="center">狀態</th></tr>
+    <tr><td>2026-01-21</td><td>識界 M-F1×1(樣板) + 識界 M-F2×1(樣板) + 識界 M-F2×14</td><td>約3月20日</td><td class="center">⏳ 待出貨</td></tr>
+  </table>
+</section>
+
+<!-- ====== 旅宿業 ROI 試算 ====== -->
+<section>
+  <h2><span class="emoji">📊</span> 旅宿業 ROI 試算</h2>
+  <p style="font-size:14px; color: var(--text-light); margin-bottom:16px;">用數字說服飯店/民宿老闆</p>
+
+  <h3>❌ 傳統鑰匙管理</h3>
+  <table>
+    <tr><th>項目</th><th class="right">年度成本</th></tr>
+    <tr><td>年度換鎖費用</td><td class="right price">$30,000</td></tr>
+    <tr><td>鑰匙遺失賠償</td><td class="right price">$20,000/年</td></tr>
+    <tr><td>櫃檯人力成本</td><td class="right price">$360,000/年</td></tr>
+    <tr><td>鑰匙管理時間</td><td class="right">無法量化</td></tr>
+    <tr style="font-weight:700; background:#fdf0ef;"><td><strong>年度隱形成本</strong></td><td class="right price">$410,000+</td></tr>
+  </table>
+
+  <h3>✅ 摩瑪電子鎖方案</h3>
+  <table>
+    <tr><th>項目</th><th class="right">金額</th></tr>
+    <tr><td>20間房 × M-H1</td><td class="right profit">$216,000</td></tr>
+    <tr><td>年度換鎖費用</td><td class="right profit">$0</td></tr>
+    <tr><td>遺失處理費用</td><td class="right profit">$0（換卡即可）</td></tr>
+    <tr><td>可省櫃檯人力</td><td class="right profit">$120,000/年</td></tr>
+    <tr style="font-weight:700; background:#eafaf1;"><td><strong>回本時間</strong></td><td class="right profit">約 1.5 年</td></tr>
+  </table>
+  <div class="talk-box">💡 「老闆，您現在每年花在鑰匙管理的錢，不到2年就能換一整套電子鎖，之後每年都在省錢！」</div>
+</section>
+
+<!-- ====== 目標客群 TA 分析 ====== -->
+<section>
+  <h2><span class="emoji">🎯</span> 目標客群 TA 分析</h2>
+  <div style="overflow-x:auto;">
+  <table>
+    <tr><th>客群類型</th><th>推薦產品</th><th>痛點</th><th>銷售切入點</th></tr>
+    <tr><td>🏨 民宿/旅館</td><td>M-H1、M-H2</td><td>鑰匙管理麻煩、換房客要換鎖</td><td>「省人力、免換鎖、遠端發卡給房客」</td></tr>
+    <tr><td>👨‍👩‍👧 小家庭</td><td>M-S1 慧眼</td><td>擔心小孩安全、老人忘帶鑰匙</td><td>「貓眼監控看門口、指紋開門不怕忘」</td></tr>
+    <tr><td>🏰 豪宅/別墅</td><td>M-F2 旗艦</td><td>安全需求高、重視科技感</td><td>「3D人臉+掌紋雙重辨識、8種解鎖最高規」</td></tr>
+    <tr><td>🏗️ 建設公司</td><td>M-F1 批量</td><td>建案需要賣點、成本控制</td><td>「量大折扣、提升建案科技感與售價」</td></tr>
+    <tr><td>🚪 出租套房</td><td>M-H1</td><td>房客換人要換鎖、鑰匙被複製</td><td>「成本最低、換房客只要換卡不換鎖」</td></tr>
+    <tr><td>🏢 辦公室</td><td>M-H2、M-S1</td><td>員工進出管理、門禁記錄</td><td>「刷卡記錄誰幾點進出、離職收回卡片即可」</td></tr>
+    <tr><td>🎨 設計師</td><td>M-H2、M-F1、M-F2</td><td>美觀搭配、客戶推薦</td><td>「設計感外觀、帶客回饋機制」</td></tr>
+  </table>
+  </div>
+</section>
+
+</div><!-- .container -->
+
+<div class="footer">
+  <div class="company">樂莫集團 - 摩瑪建材</div>
+  <div>統一編號：45880923</div>
+  <div>台中市北屯區軍福十九路476號 台中南興店</div>
+  <div><a href="https://www.themore-tw.com">www.themore-tw.com</a></div>
+  <div style="margin-top:12px; font-size:12px; color: #aaa;">文件更新日期：2026-01-28 | 版本：v3.0 業務教戰手冊（母表減法） | ⚠️ 機密文件 僅供內部使用</div>
+</div>
+
+</body>
+</html>

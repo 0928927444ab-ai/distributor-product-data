@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飛翔物流 - 運費分析表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft JhengHei", "微軟正黑體", sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        h2 {
+            color: #34495e;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e74c3c;
+            font-size: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 10px;
+            text-align: center;
+        }
+        th {
+            background: #e74c3c;
+            color: #fff;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        tr:hover {
+            background: #fce4e4;
+        }
+        .highlight {
+            background: #fff3cd !important;
+            font-weight: bold;
+        }
+        .price {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .formula-box {
+            background: #fdf2f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e74c3c;
+        }
+        .formula-box h3 {
+            color: #c0392b;
+            margin-bottom: 10px;
+        }
+        .formula {
+            font-size: 18px;
+            color: #e74c3c;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            background: #fff;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .summary-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .summary-item {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .summary-item.alt {
+            background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
+        }
+        .summary-item .value {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .summary-item .label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        .compare-table th {
+            background: #9b59b6;
+        }
+        .note {
+            background: #ffeaa7;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        .text-left {
+            text-align: left;
+        }
+        .rate-box {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        .rate-card {
+            background: #fff;
+            border: 2px solid #e74c3c;
+            border-radius: 8px;
+            padding: 20px 40px;
+            text-align: center;
+        }
+        .rate-card.alt {
+            border-color: #f39c12;
+        }
+        .rate-card .type {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .rate-card .rate {
+            font-size: 32px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .rate-card.alt .rate {
+            color: #f39c12;
+        }
+        .rate-card .unit {
+            font-size: 14px;
+            color: #999;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #95a5a6;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>飛翔物流 - 運費分析表</h1>
+        <p class="subtitle">分析日期：2025-01-14 ｜ 資料來源：到貨收款單及出貨資料</p>
+
+        <!-- 計費公式 -->
+        <div class="formula-box">
+            <h3>運費計算公式</h3>
+            <div class="formula">
+                總運費 = 重量(KG) × 單價(NT/KG) + 台灣派送費
+            </div>
+            <p style="text-align:center; color:#666; margin-top:10px;">
+                計費方式：按重量計算 ｜ 物流商：飛翔物流
+            </p>
+        </div>
+
+        <!-- 運費單價 -->
+        <h2>一、運費單價標準</h2>
+        <div class="rate-box">
+            <div class="rate-card">
+                <div class="type">FAC / FAH 系列</div>
+                <div class="rate">25</div>
+                <div class="unit">NT / KG</div>
+            </div>
+            <div class="rate-card alt">
+                <div class="type">XB 系列</div>
+                <div class="rate">55</div>
+                <div class="unit">NT / KG</div>
+            </div>
+        </div>
+        <div class="note">
+            <strong>單價差異說明：</strong>XB系列單價為FAC/FAH系列的 <strong>2.2倍</strong>，可能因運輸方式或時效不同。
+        </div>
+
+        <!-- 統計摘要 -->
+        <h2>二、統計摘要</h2>
+        <div class="summary-box">
+            <div class="summary-item">
+                <div class="label">總批次</div>
+                <div class="value">5</div>
+                <div class="label">批</div>
+            </div>
+            <div class="summary-item">
+                <div class="label">總件數</div>
+                <div class="value">17</div>
+                <div class="label">件</div>
+            </div>
+            <div class="summary-item">
+                <div class="label">總重量</div>
+                <div class="value">349</div>
+                <div class="label">KG</div>
+            </div>
+            <div class="summary-item alt">
+                <div class="label">基礎運費</div>
+                <div class="value">9,565</div>
+                <div class="label">NT</div>
+            </div>
+            <div class="summary-item alt">
+                <div class="label">附加費用</div>
+                <div class="value">3,000</div>
+                <div class="label">NT</div>
+            </div>
+            <div class="summary-item">
+                <div class="label">總運費</div>
+                <div class="value">12,565</div>
+                <div class="label">NT</div>
+            </div>
+        </div>
+
+        <!-- 各批次明細 -->
+        <h2>三、各批次運費明細</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>單號</th>
+                    <th>日期</th>
+                    <th>客戶</th>
+                    <th>品名</th>
+                    <th>件數</th>
+                    <th>重量(KG)</th>
+                    <th>單價</th>
+                    <th>基礎運費</th>
+                    <th>派送費</th>
+                    <th>合計(NT)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>FAC0106-11</td>
+                    <td>2026-01-06</td>
+                    <td>澄墨(昌平)</td>
+                    <td class="text-left">合頁</td>
+                    <td>5</td>
+                    <td>80</td>
+                    <td>25/KG</td>
+                    <td>2,000</td>
+                    <td>-</td>
+                    <td class="price">2,000</td>
+                </tr>
+                <tr>
+                    <td>FAH1218-24</td>
+                    <td>2025-12-18</td>
+                    <td>國鑫-澄墨(軍福)</td>
+                    <td class="text-left">4.1米鋁材</td>
+                    <td>1</td>
+                    <td>20</td>
+                    <td>25/KG</td>
+                    <td>500</td>
+                    <td>1,200</td>
+                    <td class="price">1,700</td>
+                </tr>
+                <tr>
+                    <td>FAH1218-28</td>
+                    <td>2025-12-18</td>
+                    <td>國鑫-澄墨(昌平)</td>
+                    <td class="text-left">淋浴門配件</td>
+                    <td>8</td>
+                    <td>221</td>
+                    <td>25/KG</td>
+                    <td>5,525</td>
+                    <td>-</td>
+                    <td class="price">5,525</td>
+                </tr>
+                <tr>
+                    <td>XB1213-1</td>
+                    <td>2025-12-18</td>
+                    <td>國鑫-澄墨</td>
+                    <td class="text-left">鋁材</td>
+                    <td>2</td>
+                    <td>18</td>
+                    <td>55/KG</td>
+                    <td>990</td>
+                    <td>1,000</td>
+                    <td class="price">1,990</td>
+                </tr>
+                <tr>
+                    <td>XB1214-1</td>
+                    <td>2025-12-19</td>
+                    <td>國鑫-澄墨</td>
+                    <td class="text-left">2.1米鋁材</td>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>55/KG</td>
+                    <td>550</td>
+                    <td>800</td>
+                    <td class="price">1,350</td>
+                </tr>
+                <tr class="highlight">
+                    <td colspan="4"><strong>合計</strong></td>
+                    <td><strong>17</strong></td>
+                    <td><strong>349</strong></td>
+                    <td>-</td>
+                    <td><strong>9,565</strong></td>
+                    <td><strong>3,000</strong></td>
+                    <td class="price"><strong>12,565</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 費率比較 -->
+        <h2>四、費率類型比較</h2>
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th>類型</th>
+                    <th>單價(NT/KG)</th>
+                    <th>批次數</th>
+                    <th>總重量(KG)</th>
+                    <th>基礎運費(NT)</th>
+                    <th>佔比</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>FAC / FAH 系列</td>
+                    <td class="price">25</td>
+                    <td>3</td>
+                    <td>321</td>
+                    <td>8,025</td>
+                    <td>83.9%</td>
+                </tr>
+                <tr>
+                    <td>XB 系列</td>
+                    <td class="price">55</td>
+                    <td>2</td>
+                    <td>28</td>
+                    <td>1,540</td>
+                    <td>16.1%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 附加費用 -->
+        <h2>五、附加費用說明</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>費用項目</th>
+                    <th>說明</th>
+                    <th>參考金額</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>台灣派送費</td>
+                    <td class="text-left">從港口配送至指定地點</td>
+                    <td>800 ~ 1,200 NT</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>備註：</strong>
+            <ul style="margin-top:10px; padding-left:20px;">
+                <li>計費方式：<strong>按重量(KG)</strong>計算</li>
+                <li>FAC/FAH 與 XB 系列單價差異明顯，建議確認運輸方式差異</li>
+                <li>長型鋁材（4.1米、2.1米）可能需額外派送費</li>
+                <li>附加費用佔總運費約 <strong>23.9%</strong></li>
+            </ul>
+        </div>
+
+        <footer>
+            樂莫集團 - 內部教育訓練資料 ｜ 製表日期：2025-01-14
+        </footer>
+    </div>
+</body>
+</html>

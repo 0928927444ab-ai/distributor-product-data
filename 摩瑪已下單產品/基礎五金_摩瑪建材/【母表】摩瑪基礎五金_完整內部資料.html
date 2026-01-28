@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摩瑪基礎五金 完整內部資料【母表】</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e8e8e8;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header {
+            background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(45, 106, 79, 0.3);
+        }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .warning-badge {
+            background: rgba(0,0,0,0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+        .section h2 {
+            color: #ffd700;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+        }
+        .section h3 {
+            color: #87ceeb;
+            font-size: 1.2em;
+            margin: 20px 0 15px 0;
+        }
+        .section h4 {
+            color: #b8b8ff;
+            font-size: 1.05em;
+            margin: 15px 0 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        th {
+            background: rgba(255,215,0,0.15);
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        tr:hover { background: rgba(255,255,255,0.05); }
+        .highlight { color: #00ff88; font-weight: bold; }
+        .price { color: #ffd700; font-weight: bold; }
+        .cost { color: #ff6b6b; }
+        .profit { color: #00ff88; }
+        .cost-table th { background: rgba(255,107,107,0.2); color: #ff6b6b; }
+        .price-table th { background: rgba(0,255,136,0.15); color: #00ff88; }
+
+        .formula-box {
+            background: rgba(0,0,0,0.3);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ffd700;
+        }
+        .tip-box {
+            background: rgba(0,255,136,0.1);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #00ff88;
+        }
+        .warning-box {
+            background: rgba(255,107,107,0.1);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+        .info-box {
+            background: rgba(135,206,235,0.1);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #87ceeb;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .card h4 { color: #87ceeb; margin-bottom: 15px; font-size: 1.1em; }
+        .card ul { list-style: none; padding: 0; }
+        .card li { padding: 8px 0; padding-left: 25px; position: relative; }
+        .card li::before { content: "•"; position: absolute; left: 0; color: #ffd700; }
+
+        .supplier-info {
+            background: rgba(45,106,79,0.15);
+            border: 1px solid rgba(45,106,79,0.3);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        .status-shipped { background: #00ff88; color: #000; }
+        .status-pending { background: #ffd700; color: #000; }
+        .status-stock { background: #87ceeb; color: #000; }
+
+        .toc {
+            background: rgba(0,0,0,0.3);
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+        .toc h3 { color: #ffd700; margin-bottom: 15px; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc li { padding: 6px 0; }
+        .toc a { color: #87ceeb; text-decoration: none; }
+        .toc a:hover { color: #ffd700; text-decoration: underline; }
+        .toc .sub { padding-left: 25px; font-size: 0.9em; }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #888;
+        }
+        .footer .company { font-size: 1.2em; color: #ffd700; margin-bottom: 10px; }
+
+        td.right, th.right { text-align: right; }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            table { font-size: 0.85em; }
+            th, td { padding: 8px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ====== HEADER ====== -->
+        <div class="header">
+            <h1>摩瑪基礎五金 完整內部資料</h1>
+            <p>樂莫集團 摩瑪建材 | www.themore-tw.com</p>
+            <div class="warning-badge">機密文件 - 僅供內部使用，嚴禁外流</div>
+        </div>
+
+        <!-- ====== 統計卡片 ====== -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 30px;">
+            <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,255,136,0.1)); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,215,0,0.3);">
+                <div style="font-size: 2em; color: #ffd700; font-weight: bold;">4</div>
+                <div style="color: #888; margin-top: 5px;">供應商</div>
+            </div>
+            <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,255,136,0.1)); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,215,0,0.3);">
+                <div style="font-size: 2em; color: #00ff88; font-weight: bold;">7大類</div>
+                <div style="color: #888; margin-top: 5px;">產品分類</div>
+            </div>
+            <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,255,136,0.1)); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,215,0,0.3);">
+                <div style="font-size: 2em; color: #87ceeb; font-weight: bold;">80+</div>
+                <div style="color: #888; margin-top: 5px;">SKU品項</div>
+            </div>
+            <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,255,136,0.1)); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,215,0,0.3);">
+                <div style="font-size: 2em; color: #ffd700; font-weight: bold;">$19起</div>
+                <div style="color: #888; margin-top: 5px;">最低單價(TWD)</div>
+            </div>
+        </div>
+
+        <!-- ====== LINE@ QR Code ====== -->
+        <div class="section">
+            <h2>📱 加入摩瑪建材 LINE@</h2>
+            <p style="margin-bottom:16px;">掃描 QR Code 加入好友，享最新優惠與產品資訊</p>
+            <div style="text-align:center;">
+                <img src="../LINE@%20QR扣.jpg" alt="摩瑪建材 LINE@ QR Code" style="max-width:200px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.1);">
+                <div style="margin-top:8px; font-weight:700;">摩瑪建材 LINE@</div>
+            </div>
+            <div class="warning-box">享有任何折扣前，須先加入 LINE@</div>
+        </div>
+
+        <!-- ====== 目錄 ====== -->
+        <div class="toc">
+            <h3>目錄</h3>
+            <ul>
+                <li><a href="#suppliers">一、供應商總覽</a></li>
+                <li><a href="#pricing">二、定價體系說明</a></li>
+                <li><a href="#cat-a">三、A. 門用隱藏鉸鏈</a></li>
+                <li class="sub"><a href="#cat-a1">A1. 高階3D調節鉸鏈（威斯特 VSTE）→ 詳見門用五金母表</a></li>
+                <li class="sub"><a href="#cat-a2">A2. 60KG隱藏鉸鏈（威斯特 VSTE）→ 詳見門用五金母表</a></li>
+                <li class="sub"><a href="#cat-a3">A3. 十字暗絞鏈（志盛門控）</a></li>
+                <li class="sub"><a href="#cat-a4">A4. 隱形門液壓合頁（百妥適）</a></li>
+                <li><a href="#cat-b">四、B. 門用外露合頁（威斯特 VSTE）→ 詳見門用五金母表</a></li>
+                <li><a href="#cat-c">五、C. 櫃用鉸鏈</a></li>
+                <li class="sub"><a href="#cat-c1">C1. 標準鉸鏈 E/K系列（宇時和）</a></li>
+                <li class="sub"><a href="#cat-c2">C2. 特殊角度鉸鏈 T系列（宇時和）</a></li>
+                <li class="sub"><a href="#cat-c3">C3. 短腿特殊鉸鏈 BG系列（百妥適）</a></li>
+                <li><a href="#cat-d">六、D. 滑軌類（宇時和）</a></li>
+                <li><a href="#cat-e">七、E. 門用配件 - 門吸/地吸/門檔/靜音條（威斯特 VSTE）→ 詳見門用五金母表</a></li>
+                <li><a href="#cat-f">八、F. 櫃用配件（宇時和）</a></li>
+                <li><a href="#cat-g">九、G. 手動偏軸系統（志盛門控）</a></li>
+                <li><a href="#inventory">十、庫存統計總覽</a></li>
+                <li><a href="#orders">十一、訂單紀錄</a></li>
+                <li><a href="#formulas">十二、成本計算公式</a></li>
+            </ul>
+        </div>
+
+        <!-- ====== 一、供應商總覽 ====== -->
+        <div class="section" id="suppliers">
+            <h2>一、供應商總覽</h2>
+            <table>
+                <tr>
+                    <th>供應商</th>
+                    <th>品牌</th>
+                    <th>主力產品</th>
+                    <th>付款方式</th>
+                    <th>運費</th>
+                    <th>定價體系</th>
+                </tr>
+                <tr>
+                    <td class="highlight">宇時和（威斯特平行代理）</td>
+                    <td>威斯特 VSTE</td>
+                    <td>門用隱藏鉸鏈、外露合頁、門吸/地吸/門檔<br><span style="color:#ff6b6b;font-size:0.85em;">→ 詳見【門用五金母表】</span></td>
+                    <td>微信</td>
+                    <td>含在成本內</td>
+                    <td>4級：牌價→同行→BNI→經銷</td>
+                </tr>
+                <tr>
+                    <td class="highlight">宇時和</td>
+                    <td>自有品牌</td>
+                    <td>櫃用鉸鏈(E/K/T系列)、滑軌、配件</td>
+                    <td>微信</td>
+                    <td>40元/kg</td>
+                    <td>3級：門市牌價→協力價→箱裝價</td>
+                </tr>
+                <tr>
+                    <td class="highlight">百妥適</td>
+                    <td>百妥適</td>
+                    <td>短腿特殊鉸鏈(BG系列)、隱形門液壓合頁</td>
+                    <td>微信</td>
+                    <td>40元/kg</td>
+                    <td>3級：門市牌價→協力價→箱裝價</td>
+                </tr>
+                <tr>
+                    <td class="highlight">志盛門控</td>
+                    <td>志盛</td>
+                    <td>十字暗絞鏈、手動偏軸系統</td>
+                    <td>微信</td>
+                    <td>待確認</td>
+                    <td>叫貨價(RMB)，零售價待建立</td>
+                </tr>
+            </table>
+
+            <h3>供應商聯絡資訊</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>宇時和（威斯特平行代理）</h4>
+                    <ul>
+                        <li>公司：（待補充）</li>
+                        <li>聯絡人：（待補充）</li>
+                        <li>微信：（待補充）</li>
+                        <li>電話：（待補充）</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>百妥適</h4>
+                    <ul>
+                        <li>公司：廣州盛世銘鑫五金有限公司</li>
+                        <li>聯絡人：（待補充）</li>
+                        <li>微信：（待補充）</li>
+                        <li>電話：（待補充）</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>志盛門控</h4>
+                    <ul>
+                        <li>公司：肇慶市志盛門控五金有限公司</li>
+                        <li>英文：ZHAOQING CITY ZHISHENG DOOR CONTROL HARDWARE CO., LTD.</li>
+                        <li>地址：122 district, Duanzhou west Avenue, Qiancun south road, Zhaoqing city, Guangdong province</li>
+                        <li>電話：86-2736655</li>
+                        <li>傳真：86-758-2703926</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== 二、定價體系說明 ====== -->
+        <div class="section" id="pricing">
+            <h2>二、定價體系說明</h2>
+            <p style="color: #aaa; margin-bottom: 15px;">本產品線涵蓋兩套定價體系，依供應商不同分別適用</p>
+
+            <h3>體系一：威斯特 VSTE（4級折扣制）</h3>
+            <div class="warning-box">
+                威斯特4級定價體系（牌價/同行7折/BNI 6折/經銷3.5折）完整說明，請參見<br>
+                <strong>【門用五金母表】摩瑪門用五金_完整內部資料.html → 定價體系</strong>
+            </div>
+
+            <h3>體系二：宇時和 / 百妥適（3級制）</h3>
+            <div class="formula-box">
+                <strong>成本公式：</strong>產品成本(TWD) = 叫貨價(RMB) × 5<br>
+                <strong>總成本：</strong>產品成本 + 運費(重量×40) + 打標(1.5) + 包裝(1) + 螺絲(1)
+            </div>
+            <table>
+                <tr>
+                    <th>價格類型</th>
+                    <th>適用對象</th>
+                    <th>備註</th>
+                </tr>
+                <tr><td>門市牌價</td><td>終端零售價</td><td>一般消費者</td></tr>
+                <tr><td>協力價</td><td>設計師 / 裝修公司</td><td>約牌價 70%</td></tr>
+                <tr><td>箱裝價</td><td>大量採購</td><td>100顆/箱起</td></tr>
+            </table>
+
+            <h3>體系三：志盛門控</h3>
+            <div class="warning-box">
+                目前僅有叫貨價(RMB)，尚未建立零售定價體系。待建立後統一更新。
+            </div>
+        </div>
+
+        <!-- ====== 三、A. 門用隱藏鉸鏈 ====== -->
+        <div class="section" id="cat-a">
+            <h2>三、A. 門用隱藏鉸鏈</h2>
+            <p style="color: #aaa; margin-bottom: 20px;">門板專用、安裝後不可見、高端設計適用</p>
+
+            <!-- A1. 高階3D調節 → 已移至門用五金母表 -->
+            <div id="cat-a1">
+                <h3>A1. 高階3D調節鉸鏈 ─ 威斯特 VSTE</h3>
+                <div class="warning-box">
+                    <strong>資料已整合：</strong>V-N3D / V-S3D / V-H3D 完整價目表、成本、庫存等資料，請參見<br>
+                    <strong>【門用五金母表】摩瑪門用五金_完整內部資料.html → 二、鉸鏈完整價目表</strong><br>
+                    <span style="color:#aaa;">涵蓋：V-N3D 極窄(6品項) / V-S3D 標準(2品項) / V-H3D 重型(2品項)，共6 SKU / 6件庫存</span>
+                </div>
+            </div>
+
+            <!-- A2. 60KG 隱藏鉸鏈 → 已移至門用五金母表 -->
+            <div id="cat-a2">
+                <h3>A2. 60KG 三維調節隱藏鉸鏈 ─ 威斯特 VSTE</h3>
+                <div class="warning-box">
+                    <strong>資料已整合：</strong>V-60K 完整價目表、成本、庫存等資料，請參見<br>
+                    <strong>【門用五金母表】摩瑪門用五金_完整內部資料.html → 二、鉸鏈完整價目表</strong><br>
+                    <span style="color:#aaa;">涵蓋：V-60K 卡其/金拉絲/黑鎳拉絲/藝術黑，共4 SKU / 16件庫存</span>
+                </div>
+            </div>
+
+            <!-- A3. 十字暗絞鏈 -->
+            <div id="cat-a3">
+                <h3>A3. 十字暗絞鏈 ─ 供應商：志盛門控</h3>
+                <div class="warning-box">志盛門控產品目前僅有叫貨價(RMB)，零售定價體系待建立。</div>
+
+                <h4>小十字暗絞鏈（承重12KG）</h4>
+                <table class="cost-table">
+                    <tr>
+                        <th>型號</th>
+                        <th>英文名稱</th>
+                        <th>規格</th>
+                        <th class="right">叫貨價(RMB)</th>
+                        <th>可選顏色</th>
+                    </tr>
+                    <tr>
+                        <td class="highlight">ZCG12 / ZCG12KG</td>
+                        <td>Concealed Hinge</td>
+                        <td>一對承重 12KG</td>
+                        <td class="right cost">￥16/只</td>
+                        <td>槍灰色、銀色</td>
+                    </tr>
+                </table>
+
+                <h4>80KG十字暗絞鏈（承重80KG）</h4>
+                <table class="cost-table">
+                    <tr>
+                        <th>型號</th>
+                        <th>英文名稱</th>
+                        <th>類型</th>
+                        <th class="right">叫貨價(RMB)</th>
+                        <th>可選顏色</th>
+                    </tr>
+                    <tr>
+                        <td class="highlight">ZCG80KG-A</td>
+                        <td>Concealed Hinge</td>
+                        <td>三維調節</td>
+                        <td class="right cost">￥46/只</td>
+                        <td>槍灰色、銀色</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">ZCG80KG-I</td>
+                        <td>Concealed Hinge</td>
+                        <td>二維調節</td>
+                        <td class="right cost">￥43/只</td>
+                        <td>銀色</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- A4. 隱形門液壓合頁 -->
+            <div id="cat-a4">
+                <h3>A4. 隱形門液壓合頁 ─ 供應商：百妥適</h3>
+                <table class="cost-table">
+                    <tr>
+                        <th>顏色</th>
+                        <th class="right">叫貨價(RMB)</th>
+                        <th>狀態</th>
+                        <th>備註</th>
+                    </tr>
+                    <tr>
+                        <td>黑色</td>
+                        <td class="right cost">（待補充）</td>
+                        <td><span class="status-badge status-pending">2026/01/10 已下單</span></td>
+                        <td>各24個</td>
+                    </tr>
+                    <tr>
+                        <td>鐵灰</td>
+                        <td class="right cost">（待補充）</td>
+                        <td><span class="status-badge status-pending">2026/01/10 已下單</span></td>
+                        <td>各24個</td>
+                    </tr>
+                    <tr>
+                        <td>銀色</td>
+                        <td class="right cost">（待補充）</td>
+                        <td><span class="status-badge status-pending">2026/01/10 已下單</span></td>
+                        <td>各24個</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ====== 四、B. 門用外露合頁 → 已移至門用五金母表 ====== -->
+        <div class="section" id="cat-b">
+            <h2>四、B. 門用外露合頁（威斯特 VSTE）</h2>
+            <div class="warning-box">
+                <strong>資料已整合：</strong>ST-5H / ST-5B / ST-4I 完整價目表、成本、庫存等資料，請參見<br>
+                <strong>【門用五金母表】摩瑪門用五金_完整內部資料.html → 二、鉸鏈完整價目表</strong><br>
+                <span style="color:#aaa;">涵蓋：ST-5H 液壓緩衝(2色) / ST-5B 承重(2色) / ST-4I 意式平開(5色)，共9 SKU / 81件庫存</span>
+            </div>
+        </div>
+
+        <!-- ====== 五、C. 櫃用鉸鏈 ====== -->
+        <div class="section" id="cat-c">
+            <h2>五、C. 櫃用鉸鏈</h2>
+            <p style="color: #aaa; margin-bottom: 20px;">櫥櫃專用、隱藏式鉸鏈、標準與特殊規格</p>
+
+            <!-- C1. 標準鉸鏈 -->
+            <div id="cat-c1">
+                <h3>C1. 標準鉸鏈 E/K系列 ─ 供應商：宇時和</h3>
+                <div class="info-box">單顆價格(TWD)。17=全蓋、18=半蓋、19=入柱。</div>
+                <table class="price-table">
+                    <tr>
+                        <th>產品</th>
+                        <th>型號</th>
+                        <th>特性</th>
+                        <th class="right">門市牌價</th>
+                        <th class="right">協力價</th>
+                        <th class="right">箱裝價</th>
+                        <th class="right">叫貨價(RMB)</th>
+                    </tr>
+                    <tr>
+                        <td class="highlight">E1系列</td>
+                        <td>E1-17/18/19-1-EF</td>
+                        <td>快拆兩孔底座</td>
+                        <td class="right price">$48</td>
+                        <td class="right">$34</td>
+                        <td class="right">$27</td>
+                        <td class="right cost">￥3.3</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">K1系列</td>
+                        <td>K1-17/18/19A</td>
+                        <td>快拆四孔底座</td>
+                        <td class="right price">$46</td>
+                        <td class="right">$33</td>
+                        <td class="right">$27</td>
+                        <td class="right cost">￥3.1</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">K2固裝</td>
+                        <td>K2-07/08/09A-1</td>
+                        <td>固定四孔底座</td>
+                        <td class="right price">$35</td>
+                        <td class="right">$25</td>
+                        <td class="right">$19</td>
+                        <td class="right cost">￥2.0</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">K2快拆</td>
+                        <td>K2-17/18/19A</td>
+                        <td>快拆四孔底座</td>
+                        <td class="right price">$42</td>
+                        <td class="right">$30</td>
+                        <td class="right">$23</td>
+                        <td class="right cost">￥2.7</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- C2. 特殊角度鉸鏈 -->
+            <div id="cat-c2">
+                <h3>C2. 特殊角度鉸鏈 T系列 ─ 供應商：宇時和</h3>
+                <div class="info-box">單顆價格(TWD)。適用於非標準開合角度的櫃門。</div>
+
+                <h4>標準角度 T系列</h4>
+                <table class="price-table">
+                    <tr>
+                        <th>產品</th>
+                        <th>型號</th>
+                        <th class="right">門市牌價</th>
+                        <th class="right">協力價</th>
+                        <th class="right">箱裝價</th>
+                        <th class="right">叫貨價(RMB)</th>
+                    </tr>
+                    <tr>
+                        <td class="highlight">T135度</td>
+                        <td>T135-117A-ET</td>
+                        <td class="right price">$150</td>
+                        <td class="right">$100</td>
+                        <td class="right">$75</td>
+                        <td class="right cost">￥4.3~4.4</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">T90度</td>
+                        <td>T90-117A-ET</td>
+                        <td class="right price">$150</td>
+                        <td class="right">$100</td>
+                        <td class="right">$75</td>
+                        <td class="right cost">￥4.3~4.4</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">T45度</td>
+                        <td>T45-117A-ET</td>
+                        <td class="right price">$150</td>
+                        <td class="right">$100</td>
+                        <td class="right">$75</td>
+                        <td class="right cost">￥4.3~4.4</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">T30度</td>
+                        <td>T30-117A-ET</td>
+                        <td class="right price">$150</td>
+                        <td class="right">$100</td>
+                        <td class="right">$75</td>
+                        <td class="right cost">￥4.3~4.4</td>
+                    </tr>
+                </table>
+
+                <h4>大角度 T系列</h4>
+                <table class="price-table">
+                    <tr>
+                        <th>產品</th>
+                        <th>型號</th>
+                        <th class="right">門市牌價</th>
+                        <th class="right">協力價</th>
+                        <th class="right">箱裝價</th>
+                        <th class="right">叫貨價(RMB)</th>
+                    </tr>
+                    <tr>
+                        <td class="highlight">T155度</td>
+                        <td>T155-117A-ET</td>
+                        <td class="right price">$190</td>
+                        <td class="right">$130</td>
+                        <td class="right">$90</td>
+                        <td class="right cost">￥7.1</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">T155無力</td>
+                        <td>T155-117A-ET-S</td>
+                        <td class="right price">$190</td>
+                        <td class="right">$130</td>
+                        <td class="right">$90</td>
+                        <td class="right cost">￥7.1</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">T180度</td>
+                        <td>T180-117A-ET</td>
+                        <td class="right price">$200</td>
+                        <td class="right">$140</td>
+                        <td class="right">$100</td>
+                        <td class="right cost">￥9.5</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">T125度(可斜切)</td>
+                        <td>T125-117A-ET</td>
+                        <td class="right price">$200</td>
+                        <td class="right">$140</td>
+                        <td class="right">$100</td>
+                        <td class="right cost">￥9.5</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- C3. 短腿特殊鉸鏈 -->
+            <div id="cat-c3">
+                <h3>C3. 短腿特殊鉸鏈 BG系列 ─ 供應商：百妥適</h3>
+                <div class="info-box">單顆價格(TWD)。適用於窄框、淺櫃等特殊安裝需求。</div>
+                <table class="price-table">
+                    <tr>
+                        <th>產品</th>
+                        <th>型號</th>
+                        <th>特性</th>
+                        <th class="right">門市牌價</th>
+                        <th class="right">協力價</th>
+                        <th class="right">箱裝價</th>
+                        <th class="right">叫貨價(RMB)</th>
+                    </tr>
+                    <tr>
+                        <td class="highlight">美式內開門鉸鏈</td>
+                        <td>BG112</td>
+                        <td>內開門專用</td>
+                        <td class="right price">$75</td>
+                        <td class="right">$53</td>
+                        <td class="right">$40</td>
+                        <td class="right cost">￥3.7</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">極窄2cm淺櫃超短腿</td>
+                        <td>BG059</td>
+                        <td>極窄框適用</td>
+                        <td class="right price">$55</td>
+                        <td class="right">$43</td>
+                        <td class="right">$33</td>
+                        <td class="right cost">￥2.2</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">4.3cm短腿(蓋六)</td>
+                        <td>BG069</td>
+                        <td>蓋六分</td>
+                        <td class="right price">$50</td>
+                        <td class="right">$35</td>
+                        <td class="right">$24</td>
+                        <td class="right cost">￥1.55</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">4.3cm短腿(蓋三)</td>
+                        <td>BG069</td>
+                        <td>蓋三分</td>
+                        <td class="right price">$50</td>
+                        <td class="right">$35</td>
+                        <td class="right">$24</td>
+                        <td class="right cost">￥1.35</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">4.3cm短腿(入柱)</td>
+                        <td>BG069</td>
+                        <td>入柱</td>
+                        <td class="right price">$50</td>
+                        <td class="right">$35</td>
+                        <td class="right">$24</td>
+                        <td class="right cost">￥1.75</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ====== 六、D. 滑軌類 ====== -->
+        <div class="section" id="cat-d">
+            <h2>六、D. 滑軌類（宇時和）</h2>
+            <p style="color: #aaa; margin-bottom: 20px;">抽屜滑軌，單付價格(TWD)</p>
+
+            <h3>4510 三節式緩衝滑軌</h3>
+            <table class="price-table">
+                <tr>
+                    <th>尺寸</th>
+                    <th class="right">門市牌價</th>
+                    <th class="right">協力價</th>
+                    <th class="right">箱裝價</th>
+                    <th class="right">叫貨價(RMB)</th>
+                </tr>
+                <tr><td>25cm</td><td class="right price">$270</td><td class="right">$225</td><td class="right">$185</td><td class="right cost">￥16.2</td></tr>
+                <tr><td>30cm</td><td class="right price">$280</td><td class="right">$235</td><td class="right">$195</td><td class="right cost">￥17.3</td></tr>
+                <tr><td>35cm</td><td class="right price">$290</td><td class="right">$245</td><td class="right">$205</td><td class="right cost">￥18.4</td></tr>
+                <tr><td>40cm</td><td class="right price">$300</td><td class="right">$255</td><td class="right">$215</td><td class="right cost">￥19.4</td></tr>
+                <tr><td>45cm</td><td class="right price">$310</td><td class="right">$265</td><td class="right">$225</td><td class="right cost">￥20.5</td></tr>
+                <tr><td>50cm</td><td class="right price">$320</td><td class="right">$275</td><td class="right">$235</td><td class="right cost">￥21.6</td></tr>
+            </table>
+
+            <h3>3118 座式緩衝滑軌</h3>
+            <table class="price-table">
+                <tr>
+                    <th>尺寸</th>
+                    <th class="right">門市牌價</th>
+                    <th class="right">協力價</th>
+                    <th class="right">箱裝價</th>
+                    <th class="right">叫貨價(RMB)</th>
+                </tr>
+                <tr><td>25cm</td><td class="right price">$460</td><td class="right">$380</td><td class="right">$320</td><td class="right cost">￥28.4</td></tr>
+                <tr><td>30cm</td><td class="right price">$480</td><td class="right">$400</td><td class="right">$340</td><td class="right cost">￥30.0</td></tr>
+                <tr><td>35cm</td><td class="right price">$500</td><td class="right">$420</td><td class="right">$360</td><td class="right cost">￥31.5</td></tr>
+                <tr><td>40cm</td><td class="right price">$520</td><td class="right">$440</td><td class="right">$380</td><td class="right cost">￥33.1</td></tr>
+                <tr><td>45cm</td><td class="right price">$540</td><td class="right">$460</td><td class="right">$400</td><td class="right cost">￥34.6</td></tr>
+                <tr><td>50cm</td><td class="right price">$560</td><td class="right">$480</td><td class="right">$420</td><td class="right cost">￥36.2</td></tr>
+                <tr><td>55cm</td><td class="right price">$580</td><td class="right">$500</td><td class="right">$440</td><td class="right cost">￥37.8</td></tr>
+            </table>
+        </div>
+
+        <!-- ====== 七、E. 門用配件 → 已移至門用五金母表 ====== -->
+        <div class="section" id="cat-e">
+            <h2>七、E. 門用配件 - 門吸/地吸/門檔/靜音條（威斯特 VSTE）</h2>
+            <div class="warning-box">
+                <strong>資料已整合：</strong>W-829 / W-806 / W-828 / W-Y02 / W-104 / W-008 / JYT 完整價目表、成本、庫存等資料，請參見<br>
+                <strong>【門用五金母表】摩瑪門用五金_完整內部資料.html → 三、門吸/門檔完整價目表</strong><br>
+                <span style="color:#aaa;">涵蓋：W-829高級門吸(3色) / W-806經典門吸(5色) / W-828磁吸門檔(4色) / W-Y02地吸(5色) / W-104基礎門吸(6色) / W-008迷你門吸(4色) / JYT靜音條(1色)，共28 SKU / 210件庫存</span>
+            </div>
+        </div>
+
+
+        <!-- ====== 八、F. 櫃用配件 ====== -->
+        <div class="section" id="cat-f">
+            <h2>八、F. 櫃用配件（宇時和）</h2>
+            <p style="color: #aaa; margin-bottom: 20px;">櫥櫃用周邊配件，宇時和3級定價體系</p>
+            <table class="price-table">
+                <tr>
+                    <th>產品</th>
+                    <th class="right">門市牌價</th>
+                    <th class="right">協力價</th>
+                    <th class="right">箱裝價</th>
+                    <th class="right">叫貨價(RMB)</th>
+                    <th>備註</th>
+                </tr>
+                <tr>
+                    <td class="highlight">拍拍手</td>
+                    <td class="right price">$80</td><td class="right">$50</td><td class="right">$35</td>
+                    <td class="right cost">￥4.0</td>
+                    <td>免把手開關</td>
+                </tr>
+                <tr>
+                    <td class="highlight">甲蟲（碰珠）</td>
+                    <td class="right price">$250</td><td class="right">$215</td><td class="right">$195</td>
+                    <td class="right cost">￥33.6</td>
+                    <td>門板定位</td>
+                </tr>
+                <tr>
+                    <td class="highlight">上掀油壓桿</td>
+                    <td class="right price">$270</td><td class="right">$210</td><td class="right">$150</td>
+                    <td class="right cost">￥11.3</td>
+                    <td>上掀門板用</td>
+                </tr>
+                <tr>
+                    <td class="highlight">下翻油壓桿</td>
+                    <td class="right price">$330</td><td class="right">$270</td><td class="right">$200</td>
+                    <td class="right cost">￥13.7</td>
+                    <td>下翻門板用</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ====== 九、G. 手動偏軸系統 ====== -->
+        <div class="section" id="cat-g">
+            <h2>九、G. 手動偏軸系統（志盛門控）</h2>
+            <p style="color: #aaa; margin-bottom: 20px;">大門/隱形門旋轉系統</p>
+            <div class="warning-box">志盛門控產品目前僅有叫貨價(RMB)，零售定價體系待建立。</div>
+            <table class="cost-table">
+                <tr>
+                    <th>產品</th>
+                    <th>型號</th>
+                    <th class="right">叫貨價(RMB)</th>
+                    <th>顏色</th>
+                    <th>備註</th>
+                </tr>
+                <tr>
+                    <td class="highlight">手動偏軸系統</td>
+                    <td>ZC96B3</td>
+                    <td class="right cost">￥210/套</td>
+                    <td>銀色</td>
+                    <td>Door Closer</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ====== 十、庫存統計總覽 ====== -->
+        <div class="section" id="inventory">
+            <h2>十、庫存統計總覽</h2>
+
+            <h3>威斯特 VSTE 產品庫存</h3>
+            <div class="warning-box">
+                威斯特 VSTE 鉸鏈（V系列/ST系列）及門吸/門檔（W系列/JYT）庫存明細，請參見<br>
+                <strong>【門用五金母表】摩瑪門用五金_完整內部資料.html → 庫存價值總覽</strong><br>
+                <span style="color:#aaa;">威斯特小計：47 SKU / 313 件庫存</span>
+            </div>
+
+            <h3>志盛門控 產品庫存</h3>
+            <table>
+                <tr>
+                    <th>類別</th>
+                    <th>產品</th>
+                    <th class="right">數量</th>
+                    <th>備註</th>
+                </tr>
+                <tr><td>小十字暗絞鏈</td><td>ZCG12KG 槍灰色</td><td class="right">120</td><td>已收貨</td></tr>
+                <tr><td>80KG十字暗絞鏈（二維）</td><td>ZCG80KG-I 銀色</td><td class="right">24</td><td>已收貨</td></tr>
+                <tr><td>80KG十字暗絞鏈（三維）</td><td>ZCG80KG-A 銀色</td><td class="right">24</td><td>已收貨</td></tr>
+                <tr><td>80KG十字暗絞鏈（三維）</td><td>ZCG80KG-A 槍灰色</td><td class="right">24</td><td>已收貨</td></tr>
+                <tr><td>手動偏軸系統</td><td>ZC96B3 銀色</td><td class="right">10</td><td>已收貨</td></tr>
+                <tr style="background: rgba(255,215,0,0.1); font-weight: bold;">
+                    <td colspan="2">志盛門控小計</td><td class="right">202</td><td></td>
+                </tr>
+            </table>
+
+            <h3>百妥適 產品庫存</h3>
+            <table>
+                <tr>
+                    <th>類別</th>
+                    <th>產品</th>
+                    <th class="right">數量</th>
+                    <th>備註</th>
+                </tr>
+                <tr><td>短腿鉸鏈</td><td>BG112 / BG059 / BG069</td><td class="right">依訂單</td><td>2025-12-16 訂單已收貨</td></tr>
+                <tr><td>隱形門液壓合頁</td><td>黑/鐵灰/銀 各24個</td><td class="right">72</td><td>2026-01-10 已下單，待出貨</td></tr>
+                <tr style="background: rgba(255,215,0,0.1); font-weight: bold;">
+                    <td colspan="2">百妥適小計</td><td class="right">72+</td><td></td>
+                </tr>
+            </table>
+
+            <div class="tip-box">
+                <strong>宇時和（櫃用鉸鏈/滑軌/配件）：</strong>為叫貨制，無固定庫存，依需求向供應商下單。
+            </div>
+        </div>
+
+        <!-- ====== 十一、訂單紀錄 ====== -->
+        <div class="section" id="orders">
+            <h2>十一、訂單紀錄</h2>
+
+            <h3>志盛門控 - 發票 W25547（2025-12-30）</h3>
+            <div class="info-box">狀態：<span class="status-badge status-shipped">已收貨（2025-01）</span></div>
+            <table>
+                <tr>
+                    <th>產品</th>
+                    <th>型號</th>
+                    <th>顏色</th>
+                    <th class="right">數量</th>
+                    <th class="right">單價(RMB)</th>
+                    <th class="right">金額(RMB)</th>
+                </tr>
+                <tr>
+                    <td>小十字暗絞鏈</td><td>ZCG12KG</td><td>槍灰色</td>
+                    <td class="right">120 pcs</td><td class="right">￥16</td><td class="right">￥1,920</td>
+                </tr>
+                <tr>
+                    <td>80KG十字暗絞鏈（二維）</td><td>ZCG80KG-I</td><td>銀色</td>
+                    <td class="right">24 pcs</td><td class="right">￥43</td><td class="right">￥1,032</td>
+                </tr>
+                <tr>
+                    <td>80KG十字暗絞鏈（三維）</td><td>ZCG80KG-A</td><td>銀色</td>
+                    <td class="right">24 pcs</td><td class="right">￥46</td><td class="right">￥1,104</td>
+                </tr>
+                <tr>
+                    <td>80KG十字暗絞鏈（三維）</td><td>ZCG80KG-A</td><td>槍灰色</td>
+                    <td class="right">24 pcs</td><td class="right">￥46</td><td class="right">￥1,104</td>
+                </tr>
+                <tr>
+                    <td>手動偏軸系統</td><td>ZC96B3</td><td>銀色</td>
+                    <td class="right">10 套</td><td class="right">￥210</td><td class="right">￥2,100</td>
+                </tr>
+                <tr style="background: rgba(255,215,0,0.1); font-weight: bold;">
+                    <td colspan="3">合計</td>
+                    <td class="right">202 只</td><td></td><td class="right price">￥7,260</td>
+                </tr>
+            </table>
+            <div class="formula-box">
+                <strong>裝箱：</strong>5箱 / 毛重 82.1kg / 淨重 76.4kg / 體積 0.076 CBM
+            </div>
+
+            <h3>百妥適 - 訂單一（2025-12-16）</h3>
+            <div class="info-box">狀態：<span class="status-badge status-shipped">已收貨</span></div>
+            <table>
+                <tr>
+                    <th>內容</th>
+                    <th class="right">金額(RMB)</th>
+                </tr>
+                <tr>
+                    <td>BG112 / BG059 / BG069 + YG231上軌</td>
+                    <td class="right price">￥2,270</td>
+                </tr>
+            </table>
+
+            <h3>百妥適 - 訂單二（2026-01-10）</h3>
+            <div class="info-box">狀態：<span class="status-badge status-pending">待出貨</span></div>
+            <table>
+                <tr>
+                    <th>內容</th>
+                    <th class="right">金額(RMB)</th>
+                </tr>
+                <tr>
+                    <td>隱形門液壓合頁（黑色/鐵灰/銀色）各24個</td>
+                    <td class="right price">￥5,616</td>
+                </tr>
+            </table>
+
+            <h3>威斯特 VSTE - 進貨紀錄</h3>
+            <div class="warning-box">
+                威斯特進貨批次明細，請參見<strong>【門用五金母表】→ 供應商資訊 → 訂購記錄</strong><br>
+                <span style="color:#aaa;">共3批（2025-11-05 / 2025-11-14 / 2025-12-01），全數已到貨</span>
+            </div>
+        </div>
+
+        <!-- ====== 十二、成本計算公式 ====== -->
+        <div class="section" id="formulas">
+            <h2>十二、成本計算公式</h2>
+
+            <h3>威斯特 VSTE 定價公式</h3>
+            <div class="warning-box">
+                威斯特4級定價體系完整說明，請參見<strong>【門用五金母表】→ 定價體系</strong><br>
+                <span style="color:#aaa;">公式：成本(￥) × 5 × 5.2 = 牌價 → 同行7折 → BNI 6折 → 經銷3.5折</span>
+            </div>
+
+            <h3>宇時和 / 百妥適 成本公式</h3>
+            <div class="formula-box">
+                <strong>產品成本(TWD)</strong> = 叫貨價(RMB) × 5（匯率）<br>
+                <strong>總成本</strong> = 產品成本 + 運費(重量×40) + 打標(1.5) + 包裝(1) + 螺絲(1)
+            </div>
+
+            <h3>重量參考</h3>
+            <table>
+                <tr>
+                    <th>產品類型</th>
+                    <th>單位重量</th>
+                </tr>
+                <tr><td>一般鉸鏈</td><td>0.1 kg/只</td></tr>
+                <tr><td>大角度鉸鏈</td><td>0.25 kg/只</td></tr>
+                <tr><td>三節式滑軌</td><td>0.5~1.2 kg/付</td></tr>
+                <tr><td>座式滑軌</td><td>0.5~2 kg/付</td></tr>
+            </table>
+
+            <h3>志盛門控 各產品重量</h3>
+            <table>
+                <tr>
+                    <th>產品</th>
+                    <th>毛重</th>
+                    <th>淨重</th>
+                    <th>體積</th>
+                </tr>
+                <tr><td>ZCG12KG 槍灰色 (120pcs)</td><td>13.6 kg</td><td>12.6 kg</td><td>0.3×0.283×0.205</td></tr>
+                <tr><td>ZCG80KG-I 銀色 (24pcs)</td><td>9.6 kg</td><td>8.4 kg</td><td>0.29×0.225×0.21</td></tr>
+                <tr><td>ZCG80KG-A 銀色 (24pcs)</td><td>19.8 kg</td><td>18.7 kg</td><td>0.29×0.225×0.21</td></tr>
+                <tr><td>ZCG80KG-A 槍灰色 (24pcs)</td><td>19.8 kg</td><td>18.7 kg</td><td>0.29×0.225×0.21</td></tr>
+                <tr><td>ZC96B3 銀色 (10套)</td><td>19.3 kg</td><td>18 kg</td><td>0.37×0.22×0.195</td></tr>
+            </table>
+        </div>
+
+        <!-- ====== FOOTER ====== -->
+        <div class="footer">
+            <div class="company">樂莫集團 摩瑪建材</div>
+            <p>本文件為內部機密資料，未經授權不得複製、轉發或外流</p>
+            <p style="margin-top: 10px;">更新日期：2026-01-26</p>
+        </div>
+
+    </div>
+</body>
+</html>

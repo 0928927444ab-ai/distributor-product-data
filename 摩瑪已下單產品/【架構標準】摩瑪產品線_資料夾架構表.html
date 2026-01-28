@@ -1,0 +1,658 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>摩瑪建材產品線 - 資料夾架構標準</title>
+<style>
+  @media print {
+    body { font-size: 9pt; }
+    .category { page-break-inside: avoid; }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft JhengHei", sans-serif;
+    padding: 18px 24px;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.45;
+  }
+  h1 { font-size: 18pt; text-align: center; margin-bottom: 2px; letter-spacing: 2px; }
+  .subtitle {
+    text-align: center; color: #666; font-size: 9.5pt;
+    margin-bottom: 14px; border-bottom: 2px solid #333; padding-bottom: 8px;
+  }
+
+  /* 圖例 */
+  .legend {
+    display: flex; gap: 16px; justify-content: center;
+    margin-bottom: 12px; font-size: 9pt; flex-wrap: wrap;
+  }
+  .legend-item { display: flex; align-items: center; gap: 4px; }
+  .dot { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+
+  /* 規則框 */
+  .rule-box {
+    background: #eaf2f8; border: 1px solid #2980b9; border-radius: 6px;
+    padding: 8px 12px; margin-bottom: 12px; font-size: 9pt;
+  }
+  .rule-box h3 { color: #2c3e50; margin-bottom: 3px; font-size: 10pt; }
+  .rule-box ul { margin-left: 16px; }
+  .rule-box li { margin-bottom: 1px; }
+  .rule-box code { background: #d5e8f5; padding: 1px 4px; border-radius: 3px; font-family: Consolas, monospace; }
+
+  /* 分類卡片 */
+  .category { border: 1.5px solid #333; border-radius: 6px; margin-bottom: 12px; overflow: hidden; }
+  .cat-header {
+    background: #2c3e50; color: #fff; padding: 5px 12px;
+    font-size: 11pt; font-weight: bold; display: flex; align-items: center; gap: 8px;
+  }
+  .cat-header .num {
+    background: #fff; color: #2c3e50; border-radius: 50%;
+    width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;
+    font-size: 9.5pt; flex-shrink: 0;
+  }
+  .badge {
+    display: inline-block; padding: 1px 7px; border-radius: 10px;
+    font-size: 7.5pt; font-weight: bold; margin-left: auto;
+  }
+  .badge-ok { background: #d5f5e3; color: #1e8449; }
+  .badge-no { background: #fadbd8; color: #c0392b; }
+  .cat-body { padding: 6px 12px 8px; }
+
+  /* 供應商資訊列 */
+  .supplier-info {
+    display: inline-block; font-size: 8pt; color: #888;
+    margin-left: 6px; font-weight: normal;
+  }
+
+  /* 樹狀清單 */
+  .tree, .tree ul { list-style: none; margin: 0; padding: 0; }
+  .tree ul { margin-left: 20px; border-left: 1.5px solid #ddd; }
+  .tree li {
+    position: relative; padding: 1px 0 1px 14px; font-size: 9pt;
+  }
+  .tree li::before {
+    content: "";
+    position: absolute; left: -1.5px; top: 0;
+    width: 12px; height: 50%;
+    border-bottom: 1.5px solid #ddd; border-left: 1.5px solid transparent;
+  }
+  .tree > li { padding-left: 0; }
+  .tree > li::before { display: none; }
+
+  /* 節點樣式 */
+  .n { font-weight: bold; display: inline-block; padding: 0 1px; }
+  .n-root { color: #2c3e50; font-size: 10pt; }
+  .n-mother { color: #c0392b; }
+  .n-supplier { color: #2980b9; }
+  .n-product { color: #27ae60; }
+  .n-core { color: #8e44ad; }
+  .n-extra { color: #7f8c8d; font-weight: normal; }
+  .n-output { color: #e67e22; }
+  .n-pending { color: #c0392b; opacity: 0.4; }
+  .hint { color: #aaa; font-size: 8pt; font-style: italic; margin-left: 3px; }
+  .cnt { color: #e67e22; font-size: 8pt; font-weight: bold; margin-left: 2px; }
+  .file { color: #555; font-weight: normal; font-size: 8.5pt; }
+  .file-dim { color: #aaa; font-size: 8pt; }
+
+  /* 同層合併 */
+  .sep { color: #ccc; margin: 0 3px; }
+
+  /* 訂單批次 */
+  .batch {
+    display: inline-block; padding: 0px 5px; border-radius: 8px;
+    font-size: 7.5pt; font-weight: bold; margin-right: 3px;
+  }
+  .batch-shipped { background: #d5f5e3; color: #1e8449; }
+  .batch-pending { background: #fef9e7; color: #b7950b; }
+  .batch-draft { background: #f2f3f4; color: #7f8c8d; }
+
+  /* 備註 */
+  .note {
+    margin-top: 3px; padding: 3px 8px; background: #fef9e7;
+    border-left: 3px solid #f39c12; font-size: 8pt; color: #7d6608;
+  }
+
+  /* 頁尾 */
+  .footer {
+    margin-top: 14px; padding-top: 8px; border-top: 2px solid #333;
+    font-size: 8.5pt; color: #666; text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h1>摩瑪建材產品線 - 資料夾架構標準</h1>
+<div class="subtitle">最後更新：2026-01-27 | 共 8 大產品分類 | 列印後作為建檔標準</div>
+
+<div class="rule-box">
+  <h3>統一架構規則</h3>
+  <ul>
+    <li><b>第一層（根目錄）：</b>【母表】HTML/MD + 衍生版本資料夾（選用）+ 供應商資料夾</li>
+    <li><b>第二層（供應商）：</b>命名格式 <code>供應商_廠商名</code>，可加聯絡人如 <code>供應商_信德成_梅景欣</code></li>
+    <li><b>第三層（產品系列）：</b>依產品類型分資料夾，如 <code>門鎖系列/</code>、<code>家盾系列/</code></li>
+    <li><b>第四層（核心資料夾）：</b><code>報價單/</code> | <code>產品圖片/</code> | <code>訂單/</code></li>
+    <li><b>訂單子層：</b>依日期建批次 <code>YYYYMMDD下單/</code>，可加 <code>草稿-待確認/</code>、<code>已出貨/</code></li>
+    <li><b>衍生版本（根目錄）：</b>由母表衍生的對外/對內文件，命名格式 <code>內部_業務作戰手冊/</code>（含折扣、話術、庫存等機密）、<code>對外_產品型錄/</code>（可給客戶）</li>
+    <li><b>額外資料夾：</b><code>合約文件/</code> <code>型錄/</code> <code>實績案例/</code> <code>檢驗報告/</code> <code>公司形象/</code>  視需要添加</li>
+    <li><b>空資料夾規則：</b>不建立空資料夾，有資料才建</li>
+  </ul>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:#c0392b"></span> 母表</div>
+  <div class="legend-item"><span class="dot" style="background:#2980b9"></span> 供應商</div>
+  <div class="legend-item"><span class="dot" style="background:#27ae60"></span> 產品系列</div>
+  <div class="legend-item"><span class="dot" style="background:#8e44ad"></span> 核心資料夾</div>
+  <div class="legend-item"><span class="dot" style="background:#e67e22"></span> 衍生版本</div>
+  <div class="legend-item"><span class="dot" style="background:#7f8c8d"></span> 額外資料</div>
+  <div class="legend-item"><span class="batch batch-shipped">已出貨</span> <span class="batch batch-pending">待確認</span> <span class="batch batch-draft">草稿</span> 訂單狀態</div>
+</div>
+
+<!-- ============ 1. 基礎五金 ============ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="num">1</span> 基礎五金_摩瑪建材
+    <span class="badge badge-ok">有母表</span>
+  </div>
+  <div class="cat-body"><ul class="tree">
+    <li><span class="n n-root">基礎五金_摩瑪建材/</span>
+      <ul>
+        <li><span class="n n-mother">【母表】摩瑪基礎五金_完整內部資料.html</span></li>
+
+        <!-- 供應商_宇時和 -->
+        <li><span class="n n-supplier">供應商_宇時和/</span>
+          <ul>
+            <li><span class="n n-product">鉸鏈_EKT系列/</span>
+              <ul>
+                <li><span class="n n-core">產品圖片/</span><span class="cnt">(11張)</span>
+                  <span class="hint">大角度鉸鏈_T系列 | 鉸鏈_K系列 | 鉸鏈底座 | 特殊西德絞鍊 等</span>
+                </li>
+              </ul>
+            </li>
+            <li><span class="n n-product">滑軌_三節式+座式/</span>
+              <ul>
+                <li><span class="n n-core">產品圖片/</span><span class="cnt">(3張)</span>
+                  <span class="hint">座式滑軌_3118 | 調整底座 | 鋼珠三節軌_4510</span>
+                </li>
+              </ul>
+            </li>
+            <li><span class="n n-product">配件_拍拍手+油壓桿/</span>
+              <ul>
+                <li><span class="n n-core">產品圖片/</span><span class="cnt">(4張)</span>
+                  <span class="hint">上掀油壓桿 | 下翻油壓桿 | 甲蟲碰珠 | 拍拍手</span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- 供應商_志盛門控 -->
+        <li><span class="n n-supplier">供應商_志盛門控/</span>
+          <ul>
+            <li><span class="n n-product">80KG十字暗絞鏈/</span>
+              <ul>
+                <li><span class="n n-core">報價單/</span><span class="hint">台湾摩玛建材 25-12-16.xls</span></li>
+                <li><span class="n n-core">產品圖片/</span><span class="cnt">(6張)</span></li>
+                <li><span class="n n-core">訂單/</span>
+                  <ul>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">20251230下單資料/</span><span class="cnt">(4檔)</span><span class="hint">發票+裝箱單+照片</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><span class="n n-product">中偏軸/</span>
+              <ul>
+                <li><span class="n n-core">報價單/</span><span class="hint">台湾摩玛建材 25-12-16.xls</span></li>
+                <li><span class="n n-core">產品圖片/</span><span class="cnt">(6張)</span></li>
+                <li><span class="n n-core">訂單/</span>
+                  <ul>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">20251230下單資料/</span><span class="cnt">(4檔)</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><span class="n n-product">小十字暗絞鏈/</span>
+              <ul>
+                <li><span class="n n-core">訂單/</span>
+                  <ul><li><span class="batch batch-shipped">已出貨</span> <span class="file">20251230下單資料/</span></li></ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- 供應商_百妥適 -->
+        <li><span class="n n-supplier">供應商_百妥適/</span>
+          <ul>
+            <li><span class="n n-product">短腿鉸鏈_BG系列/</span>
+              <ul>
+                <li><span class="n n-core">報價單/</span><span class="hint">台湾设计师团队.xlsx</span></li>
+                <li><span class="n n-core">訂單/</span>
+                  <ul><li><span class="batch batch-shipped">已出貨</span> <span class="file">20251216下單/</span></li></ul>
+                </li>
+              </ul>
+            </li>
+            <li><span class="n n-product">隱形門液壓合頁/</span>
+              <ul>
+                <li><span class="n n-core">訂單/</span>
+                  <ul><li><span class="batch batch-shipped">已出貨</span> <span class="file">20260110下單/</span></li></ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+  </ul></div>
+</div>
+
+<!-- ============ 2. 電子鎖 ============ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="num">2</span> 電子鎖_摩瑪建材
+    <span class="badge badge-ok">有母表</span>
+  </div>
+  <div class="cat-body"><ul class="tree">
+    <li><span class="n n-root">電子鎖_摩瑪建材/</span>
+      <ul>
+        <li><span class="n n-mother">【母表】摩瑪電子鎖_完整內部資料.html</span></li>
+        <li><span class="n n-mother">【母表】摩瑪電子鎖_完整內部資料.md</span></li>
+
+        <!-- 衍生版本 -->
+        <li><span class="n n-output">內部_業務作戰手冊/</span><span class="hint">含折扣體系、經銷制度、話術、SWOT、庫存（機密）</span>
+          <ul>
+            <li><span class="file">摩瑪電子鎖_業務作戰手冊.html</span></li>
+            <li><span class="file">摩瑪電子鎖_業務作戰手冊.md</span></li>
+          </ul>
+        </li>
+        <li><span class="n n-output">對外_產品型錄/</span><span class="hint">可提供客戶，不含任何成本與機密</span>
+          <ul>
+            <li><span class="file">摩瑪電子鎖_產品型錄.html</span></li>
+            <li><span class="file">摩瑪電子鎖_產品型錄.md</span></li>
+          </ul>
+        </li>
+
+        <li><span class="n n-supplier">供應商_宇時和/</span>
+          <ul>
+            <li><span class="n n-product">家盾系列/</span>
+              <ul>
+                <li><span class="n n-core">報價單/</span><span class="hint">智能鎖+酒店鎖 報價 2025-12-01.xlsx</span></li>
+                <li><span class="n n-core">產品圖片/</span>
+                  <ul>
+                    <li><span class="n n-extra">圖片/</span><span class="cnt">(5張)</span><span class="hint">摩瑪_商旅M-H1 | 菁英M-H2 | 慧眼M-S1 | 識界M-F1 | 識界旗艦M-F2</span></li>
+                  </ul>
+                </li>
+                <li><span class="n n-core">訂單/</span>
+                  <ul>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">已出貨/</span><span class="hint">2025-01-12 智能鎖酒店鎖叫貨單.md</span></li>
+                    <li><span class="batch batch-pending">待出貨</span> <span class="file">待出貨/</span><span class="hint">20260121 家盾智能鎖報價單.png</span></li>
+                  </ul>
+                </li>
+                <li><span class="n n-extra">型錄/</span><span class="hint">YSH Hotel smart Lock Full Catalog 2025.pdf</span></li>
+              </ul>
+            </li>
+            <li><span class="n n-product">凱恩斯系列/</span>
+              <ul>
+                <li><span class="file">KA酒店锁图册修订版.pdf</span><span class="hint">（型錄PDF直接放）</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul></div>
+</div>
+
+<!-- ============ 3. 門用五金 ============ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="num">3</span> 門用五金_摩瑪建材
+    <span class="badge badge-ok">有母表</span>
+  </div>
+  <div class="cat-body"><ul class="tree">
+    <li><span class="n n-root">門用五金_摩瑪建材/</span>
+      <ul>
+        <li><span class="n n-mother">【母表】摩瑪門用五金_完整內部資料.html</span></li>
+        <li><span class="n n-mother">【母表】摩瑪門用五金_完整內部資料.md</span></li>
+
+        <li><span class="n n-supplier">供應商_宇時和(威斯特)/</span>
+          <ul>
+            <li><span class="n n-product">門鎖系列/</span>
+              <ul>
+                <li><span class="n n-core">報價單/</span><span class="cnt">(3檔)</span>
+                  <span class="hint">分銷單價表2025 | 報價2025-11-04 | 報價單2025-11-14</span>
+                </li>
+                <li><span class="n n-core">產品資料/</span>
+                  <ul>
+                    <li><span class="n n-extra">展廳照片/</span><span class="cnt">(10張)</span><span class="hint">含3D效果圖+實體展廳</span></li>
+                    <li><span class="n n-extra">產品圖片/</span><span class="cnt">(2張)</span><span class="hint">水晶A29-231 | 新品A3-121</span></li>
+                    <li><span class="n n-extra">影片/</span><span class="cnt">(2支)</span><span class="hint">產品展示 | 展廳樣板</span></li>
+                  </ul>
+                </li>
+                <li><span class="n n-core">訂單/</span>
+                  <ul>
+                    <li><span class="file">叫貨單_第一二批合併_門用五金及門鎖明細.md</span></li>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">2025-11-05_第一批庫存_門鎖圖片及報價/</span><span class="cnt">(11檔)</span></li>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">2025-11-14_第二批庫存_報價單/</span><span class="cnt">(1檔)</span></li>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">2025-12-01_第三批下單_報價及裝箱單/</span><span class="cnt">(2檔)</span></li>
+                    <li><span class="n n-extra">空白模板/</span><span class="hint">叫貨單_Excel版_空白模板.xlsx</span></li>
+                    <li><span class="n n-extra">集運單/</span><span class="cnt">(2檔)</span><span class="hint">樂莫-詹家騏集運單</span></li>
+                  </ul>
+                </li>
+                <li><span class="n n-extra">合約文件/</span><span class="cnt">(5檔)</span><span class="hint">2025年度戰略合作協議 | 經銷商簽約合同</span></li>
+                <li><span class="n n-extra">型錄/</span><span class="cnt">(3檔)</span><span class="hint">常規款圖冊 | VSTE繁體 | 樂莫集團門用五金型錄</span></li>
+                <li><span class="n n-extra">公司形象/</span><span class="cnt">(17檔)</span>
+                  <ul>
+                    <li><span class="file-dim">含專區效果圖、五金箱照片、展示台、品牌照片、影片</span></li>
+                    <li><span class="n n-extra">活動資料/</span>
+                      <ul><li><span class="file">雙11淘寶活動/</span><span class="cnt">(2檔)</span></li></ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><span class="n n-extra">分析資料/</span><span class="cnt">(6檔)</span>
+                  <ul>
+                    <li><span class="file-dim">內部價格分析表 | 台灣牌價表(Excel+HTML) | 產品價格表(MD+HTML)</span></li>
+                    <li><span class="n n-extra">_主資料/</span><span class="hint">MOMA門用五金_產品主檔.md</span></li>
+                  </ul>
+                </li>
+                <li><span class="n n-extra">原始資料/</span><span class="hint">BNI產品報價20250816.pdf</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul></div>
+</div>
+
+<!-- ============ 4. 淋浴門 ============ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="num">4</span> 淋浴門_摩瑪建材
+    <span class="badge badge-ok">有母表</span>
+  </div>
+  <div class="cat-body"><ul class="tree">
+    <li><span class="n n-root">淋浴門_摩瑪建材/</span>
+      <ul>
+        <li><span class="n n-mother">【母表】摩瑪淋浴門_完整內部資料.html</span></li>
+
+        <li><span class="n n-supplier">供應商_伊米特/</span>
+          <ul>
+            <li><span class="n n-product">淋浴門組/</span>
+              <ul>
+                <li><span class="n n-core">報價單/</span><span class="hint">11-15台湾詹总.xlsx</span></li>
+                <li><span class="n n-core">訂單/</span>
+                  <ul>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">20251201下單資料/</span><span class="cnt">(2檔)</span><span class="hint">11.28号台湾詹总.xlsx + 照片</span></li>
+                    <li><span class="batch batch-draft">草稿</span> <span class="file">草稿-待確認/</span><span class="hint">11月集團至大陸選定產品.xlsx</span></li>
+                  </ul>
+                </li>
+                <li><span class="n n-extra">合約文件/</span><span class="cnt">(2檔)</span><span class="hint">伊米特經銷合同(中/繁)</span></li>
+                <li><span class="n n-extra">型錄/</span>
+                  <ul>
+                    <li><span class="file">型錄-全屋訂製/</span><span class="hint">德御整屋定制.pdf</span></li>
+                    <li><span class="file">型錄-浴櫃鏡櫃/</span><span class="hint">伊米特-2023-7.pdf</span></li>
+                    <li><span class="file">型錄-淋浴門/</span><span class="cnt">(5檔)</span><span class="hint">25圓管系列 | 伊米特圖冊2024 | 促銷款</span></li>
+                    <li><span class="file">型錄-鋁櫃訂製/</span><span class="hint">伊米特铝柜电子图册.pdf</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul></div>
+</div>
+
+<!-- ============ 5. 滑門五金 ============ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="num">5</span> 滑門五金_摩瑪建材
+    <span class="badge badge-ok">有母表</span>
+  </div>
+  <div class="cat-body"><ul class="tree">
+    <li><span class="n n-root">滑門五金_摩瑪建材/</span>
+      <ul>
+        <li><span class="n n-mother">【母表】摩瑪滑門五金_完整內部資料.html</span></li>
+        <li><span class="n n-mother">【母表】摩瑪滑門五金_完整內部資料.md</span></li>
+        <li><span class="file">摩瑪滑門五金_三大系統.xlsx</span><span class="hint">（Excel產品表）</span></li>
+        <li><span class="file">摩瑪滑門五金_三大系統報告.html</span><span class="hint">（視覺化報告）</span></li>
+        <li><span class="file">產品分類與庫存建議.md</span></li>
+
+        <!-- 供應商_百妥適 -->
+        <li><span class="n n-supplier">供應商_百妥適/</span>
+          <ul>
+            <li><span class="n n-product">幽靈門_摺疊門系列/</span>
+              <ul>
+                <li><span class="n n-core">報價單/</span><span class="hint">百妥适&amp;乐莫2025.xlsx</span></li>
+                <li><span class="n n-core">產品圖片/</span><span class="cnt">(5張)</span></li>
+                <li><span class="n n-core">訂單/</span>
+                  <ul>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">20251210下單/</span><span class="cnt">(2檔)</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- 供應商_歐派克 -->
+        <li><span class="n n-supplier">供應商_歐派克/</span>
+          <ul>
+            <li><span class="n n-product">雙緩衝_彈壓_聯動系列/</span>
+              <ul>
+                <li><span class="n n-core">產品圖片/</span><span class="cnt">(10張)</span><span class="hint">2026-01-20 拍攝</span></li>
+                <li><span class="n n-extra">設計圖/</span><span class="cnt">(2檔)</span><span class="hint">完美系統型材開模總圖 | 方案圖 (.dwg)</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- 原始資料 -->
+        <li><span class="n n-extra">原始資料_價格參考/</span>
+          <ul>
+            <li><span class="file">AAS美爵_滑門五金/</span><span class="cnt">(8子類)</span>
+              <ul>
+                <li><span class="file-dim">一般雙緩衝/ | 口袋門/ | 中軸&amp;偏軸門(含電動)/ | 巴士門/</span></li>
+                <li><span class="file-dim">幽靈門/ | 側拉收納門(單雙折疊)/ | 摺疊門/ | 磁懸浮門/ | 鋁框門型材/</span></li>
+                <li><span class="file-dim">+ 報價表xlsx | 安裝說明pdf | 瑞士註冊文件 | U寯展廳配置圖 等</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul></div>
+</div>
+
+<!-- ============ 6. 輕奢石 ============ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="num">6</span> 輕奢石_摩瑪建材
+    <span class="badge badge-ok">有母表</span>
+  </div>
+  <div class="cat-body"><ul class="tree">
+    <li><span class="n n-root">輕奢石_摩瑪建材/</span>
+      <ul>
+        <li><span class="n n-mother">【母表】摩瑪輕奢石_完整內部資料.html</span></li>
+        <li><span class="n n-mother">【母表】摩瑪輕奢石_完整內部資料.md</span></li>
+
+        <!-- 供應商_信德成 -->
+        <li><span class="n n-supplier">供應商_信德成_梅景欣/</span>
+          <ul>
+            <li><span class="n n-extra">公司形象/</span><span class="cnt">(44檔)</span><span class="hint">4支影片 + 40張公司照片</span></li>
+            <li><span class="n n-extra">品欣丟過來資料/</span><span class="cnt">(2檔)</span><span class="hint">輕奢石名稱xlsx | 產品目錄html</span></li>
+            <li><span class="n n-product">軟瓷系列/</span>
+              <ul>
+                <li><span class="n n-core">報價單/</span><span class="hint">信德成软瓷台湾报价单20250806.xlsx</span></li>
+                <li><span class="n n-core">產品圖片/</span>
+                  <ul>
+                    <li><span class="n n-extra">圖片/</span><span class="cnt">(14張)</span><span class="hint">義大利白花金 等實品照片</span></li>
+                    <li><span class="n n-extra">影片/</span><span class="cnt">(5支)</span><span class="hint">產品展示mp4</span></li>
+                  </ul>
+                </li>
+                <li><span class="n n-core">訂單/</span>
+                  <ul>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">已出貨/</span><span class="cnt">(16檔)</span>
+                      <ul>
+                        <li><span class="file-dim">20250905第一次叫貨 | 20251201大板+小樣清單 | 20251208大板清單 | 20251211兩木箱</span></li>
+                        <li><span class="file-dim">樣板單20250913~20251121 | 集運單JY251024 | 裝箱單</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><span class="n n-extra">合約文件/</span><span class="cnt">(2檔)</span><span class="hint">台灣地區代理合約(中/繁)</span></li>
+                <li><span class="n n-extra">型錄/</span><span class="cnt">(6本)</span>
+                  <ul>
+                    <li><span class="file-dim">3D大板 | 所有系列2025 | 環保再生石 | 罗马大洞石 | 膚感系列 | 軟石工程系列</span></li>
+                  </ul>
+                </li>
+                <li><span class="n n-extra">實績案例/</span><span class="cnt">(4檔)</span><span class="hint">線石實拍圖 | MCM cladding | 功能優勢 | 系統介紹</span></li>
+                <li><span class="n n-extra">檢驗報告/</span><span class="cnt">(5份)</span>
+                  <ul>
+                    <li><span class="file-dim">CE EN15286 | MCM STONE TEST | A2防火 | MSDS | CLAYSTONE功能</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- 供應商_新舟魚 -->
+        <li><span class="n n-supplier">供應商_新舟魚_鳳姐/</span>
+          <ul>
+            <li><span class="n n-product">軟瓷系列/</span>
+              <ul>
+                <li><span class="n n-extra">型錄/</span><span class="hint">软瓷设计图分类.pdf</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul></div>
+</div>
+
+<!-- ============ 7. 鋁木門 ============ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="num">7</span> 鋁木門_摩瑪建材
+    <span class="badge badge-ok">有母表</span>
+  </div>
+  <div class="cat-body"><ul class="tree">
+    <li><span class="n n-root">鋁木門_摩瑪建材/</span>
+      <ul>
+        <li><span class="n n-mother">【母表】摩瑪鋁木門_完整內部資料.html</span></li>
+
+        <!-- 供應商_潤創威 -->
+        <li><span class="n n-supplier">供應商_潤創威/</span>
+          <ul>
+            <li><span class="n n-product">木門組/</span>
+              <ul>
+                <li><span class="n n-core">報價單/</span><span class="hint">詹总-報價單.pdf</span></li>
+                <li><span class="n n-core">產品圖片/</span><span class="cnt">(8張)</span>
+                  <ul>
+                    <li><span class="n n-extra">工廠做門內容/</span><span class="cnt">(8張)</span><span class="hint">製程照片.jpg/.JPG</span></li>
+                  </ul>
+                </li>
+                <li><span class="n n-core">訂單/</span>
+                  <ul>
+                    <li><span class="file">門組樣品.docx/.pdf + 門組樣品-1.docx/.pdf</span></li>
+                    <li><span class="file">樂莫-詹家騏集運單JY251118.xlsx</span></li>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">20251201下單資料/</span><span class="hint">台湾铝木门20251206.xlsx</span></li>
+                    <li><span class="batch batch-draft">草稿</span> <span class="file">草稿-待確認/</span><span class="cnt">(4檔)</span><span class="hint">樣品訂單9-13~9-14版本</span></li>
+                  </ul>
+                </li>
+                <li><span class="n n-extra">合約文件/</span><span class="cnt">(5檔)</span><span class="hint">授權代理合同(中/繁) + 合同頁面照片</span></li>
+                <li><span class="n n-extra">型錄/</span>
+                  <ul>
+                    <li><span class="file">目錄本.jpg</span></li>
+                    <li><span class="file">型錄-1300/</span><span class="cnt">(2檔)</span><span class="hint">高端旗艦版 | 2025中英國際版</span></li>
+                    <li><span class="file">型錄-1800/</span><span class="cnt">(2檔)</span><span class="hint">木門+全屋定制 | 極簡家居木門</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- 供應商_致凱美學 -->
+        <li><span class="n n-supplier">供應商_致凱美學/</span>
+          <ul>
+            <li><span class="n n-product">木門組/</span>
+              <ul>
+                <li><span class="n n-core">產品圖片/</span><span class="cnt">(1張)</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul></div>
+</div>
+
+<!-- ============ 8. 鋁型材 ============ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="num">8</span> 鋁型材_摩瑪建材
+    <span class="badge badge-ok">有母表</span>
+  </div>
+  <div class="cat-body"><ul class="tree">
+    <li><span class="n n-root">鋁型材_摩瑪建材/</span>
+      <ul>
+        <li><span class="n n-mother">【母表】摩瑪鋁型材_完整內部資料.html</span></li>
+
+        <!-- 供應商_天邁鋁材 -->
+        <li><span class="n n-supplier">供應商_天邁鋁材_胡總/</span>
+          <ul>
+            <li><span class="n n-product">OPK裝飾蓋系列/</span>
+              <ul>
+                <li><span class="n n-core">訂單/</span>
+                  <ul>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">20260122下單/</span><span class="cnt">(4檔)</span><span class="hint">台湾摩瑪.xls + 照片</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- 供應商_新河鋁業 -->
+        <li><span class="n n-supplier">供應商_新河鋁業_歐總/</span>
+          <ul>
+            <li><span class="n n-product">GJ極窄系統/</span>
+              <ul>
+                <li><span class="n n-extra">設計圖/</span><span class="cnt">(2檔)</span><span class="hint">GJ-H088.dwg | GJ-H089.dwg</span></li>
+              </ul>
+            </li>
+            <li><span class="n n-product">YZ軌道系統/</span>
+              <ul>
+                <li><span class="n n-core">產品圖片/</span><span class="cnt">(1張)</span></li>
+                <li><span class="n n-core">訂單/</span>
+                  <ul>
+                    <li><span class="batch batch-shipped">已出貨</span> <span class="file">20260120下單/</span><span class="cnt">(3檔)</span><span class="hint">工作簿 + 銷售出倉單</span></li>
+                    <li><span class="batch batch-draft">草稿</span> <span class="file">草稿待確認/</span><span class="hint">20251226新河下料單.xls</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><span class="n n-extra">型錄與設計圖/</span><span class="cnt">(3檔)</span><span class="hint">完美系列出口專用.pdf | 40系列.dwg | 方案圖.dwg</span></li>
+            <li><span class="n n-extra">報價單/</span><span class="cnt">(3檔)</span><span class="hint">台灣經銷價 | 完美系統配置報價 | 雅太門業</span></li>
+            <li><span class="n n-extra">訂單範本/</span><span class="hint">新河下料單(空白).xls</span></li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+  </ul></div>
+</div>
+
+<div class="footer">
+  摩瑪建材有限公司 | 產品線資料夾架構標準 | 列印日期：________ | 核准：________
+</div>
+
+</body>
+</html>

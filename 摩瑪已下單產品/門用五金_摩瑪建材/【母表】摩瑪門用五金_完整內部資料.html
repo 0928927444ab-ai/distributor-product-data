@@ -83,6 +83,12 @@
         .product-row .product-img img { width: 140px; height: 140px; object-fit: contain; border-radius: 8px; border: 1px solid #e0e0e0; background: #fafafa; padding: 4px; }
         .product-row .product-table { flex: 1; overflow-x: auto; }
 
+        /* Lightbox */
+        .lightbox { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.85); z-index:9999; cursor:pointer; justify-content:center; align-items:center; }
+        .lightbox.active { display:flex; }
+        .lightbox img { max-width:90%; max-height:90%; object-fit:contain; border-radius:8px; box-shadow:0 8px 32px rgba(0,0,0,.4); }
+        .lightbox .lb-close { position:absolute; top:18px; right:24px; color:#fff; font-size:32px; font-weight:bold; cursor:pointer; line-height:1; }
+
         @media print {
             body { background: white; padding: 0; }
             .section { box-shadow: none; border: 1px solid #ddd; }
@@ -159,7 +165,7 @@
                 <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/隱形門鎖-AY61.png" alt="AY61"><div class="cap">AY-61 隱藏門鎖</div></div>
                 <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/隱形門鎖-AY58.png" alt="AY58"><div class="cap">AY-T58 隱藏門鎖</div></div>
                 <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/隱形門鎖-AY119.jpg" alt="AY119"><div class="cap">AY-119 隱藏門鎖</div></div>
-                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/滑門鎖-WY11.png" alt="WY11"><div class="cap">WY11 滑門鎖</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/移門鎖-WY11.png" alt="WY11"><div class="cap">WY11 滑門鎖</div></div>
             </div>
             <h3>其他產品圖片</h3>
             <div class="gallery">
@@ -241,6 +247,29 @@
                 <div class="product-img"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/一體鎖-T86.png" alt="T86"></div>
                 <div style="flex:1"><h3 style="margin-top:0">T86 系列（旗艦・可換色片）</h3></div>
             </div>
+            <h3>T86 本體</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-YN，HL/12.png" alt="T86-YN"><div class="cap">YN 啞鎳單色</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-YN，HL/13.png" alt="T86-HL"><div class="cap">HL 羅馬金拉絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-YN，HL/14.png" alt="T86-黑鎳"><div class="cap">黑鎳拉絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-YN，HL/截圖 2025-12-06 上午10.14.58.png" alt="T86 實裝情境"><div class="cap">實裝情境照</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-YN，HL/截圖 2025-12-06 上午10.29.32.png" alt="T86 規格尺寸"><div class="cap">規格尺寸圖</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/T1-02-SYB.jpg" alt="T86 型錄 霧銀白"><div class="cap">型錄｜霧銀+白</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/T1-02-SYH.jpg" alt="T86 型錄 霧銀黑"><div class="cap">型錄｜霧銀+黑</div></div>
+            </div>
+            <h3>T86 可換色片</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-色片款/5.png" alt="T86 啞鎳+浪花白"><div class="cap">啞鎳+浪花白</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-色片款/6.png" alt="T86 啞鎳+浪花綠"><div class="cap">啞鎳+浪花綠</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-色片款/7.png" alt="T86 啞鎳+浪花粉"><div class="cap">啞鎳+浪花粉</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-色片款/8.png" alt="T86 黑鎳+浪花白"><div class="cap">黑鎳+浪花白</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-色片款/9.png" alt="T86 黑鎳+浪花綠"><div class="cap">黑鎳+浪花綠</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-色片款/10.png" alt="T86 黑鎳+浪花粉"><div class="cap">黑鎳+浪花粉</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T86-色片款/截圖 2025-12-06 上午10.29.39.png" alt="T86 色片款規格"><div class="cap">色片款規格尺寸圖</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/T8-CUSH.jpg" alt="T86 型錄 金框黑面板"><div class="cap">型錄｜金框+黑面板</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/T8-03-HYC.jpg" alt="T86 型錄 黑框橙皮革"><div class="cap">型錄｜黑框+橙皮革</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/T1-03-HYC.jpg" alt="T86 型錄 啞黑橙"><div class="cap">型錄｜啞黑+橙</div></div>
+            </div>
             <table>
                 <thead><tr><th>型號</th><th>顏色</th><th class="amt">重量</th><th class="amt">成本(￥)</th><th class="amt">成本($)</th><th class="amt">運費</th><th class="amt">牌價</th><th class="amt">設計師 7.5折</th><th class="amt">建材五金行BNI 6折</th><th class="amt">專案價 5折</th><th class="amt">建材行專案 4.5折</th><th class="amt">經銷3.5折</th><th class="amt">庫存</th></tr></thead>
                 <tbody>
@@ -257,6 +286,16 @@
                 <div class="product-img"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/一體鎖-T80.png" alt="T80"></div>
                 <div style="flex:1"><h3 style="margin-top:0">T80 系列（經典）</h3></div>
             </div>
+            <h3>產品照片</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T80/17.png" alt="T80 羅馬金"><div class="cap">羅馬金拉絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T80/18.png" alt="T80 黑鎳"><div class="cap">黑鎳拉絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T80/19.png" alt="T80 藝術黑"><div class="cap">藝術黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T80/截圖 2025-12-06 上午11.09.10.png" alt="T80 實裝情境"><div class="cap">實裝情境照</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T80/截圖 2025-12-07 下午2.21.39.png" alt="T80 規格尺寸"><div class="cap">規格尺寸圖</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/T8-CBB.jpg" alt="T80 型錄 銀"><div class="cap">型錄｜銀</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/T8-HLH.jpg" alt="T80 型錄 黑鎳"><div class="cap">型錄｜黑鎳</div></div>
+            </div>
             <table>
                 <thead><tr><th>型號</th><th>顏色</th><th class="amt">重量</th><th class="amt">成本(￥)</th><th class="amt">成本($)</th><th class="amt">運費</th><th class="amt">牌價</th><th class="amt">設計師 7.5折</th><th class="amt">建材五金行BNI 6折</th><th class="amt">專案價 5折</th><th class="amt">建材行專案 4.5折</th><th class="amt">經銷3.5折</th><th class="amt">庫存</th></tr></thead>
                 <tbody>
@@ -271,6 +310,14 @@
                 <div class="product-img"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/一體鎖-T61.png" alt="T61"></div>
                 <div style="flex:1"><h3 style="margin-top:0">T61 系列（簡約）</h3></div>
             </div>
+            <h3>產品照片</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T61/20.png" alt="T61 霧銀"><div class="cap">霧銀</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T61/21.png" alt="T61 黑鋼"><div class="cap">黑鋼</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T61/截圖 2025-12-07 下午2.22.56.png" alt="T61 實裝情境"><div class="cap">實裝情境照</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T61/截圖 2025-12-07 下午2.23.21.png" alt="T61 規格尺寸"><div class="cap">規格尺寸圖</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/T1-03-SYH.jpg" alt="T61 型錄 霧銀黑"><div class="cap">型錄｜霧銀+黑</div></div>
+            </div>
             <table>
                 <thead><tr><th>型號</th><th>顏色</th><th class="amt">重量</th><th class="amt">成本(￥)</th><th class="amt">成本($)</th><th class="amt">運費</th><th class="amt">牌價</th><th class="amt">設計師 7.5折</th><th class="amt">建材五金行BNI 6折</th><th class="amt">專案價 5折</th><th class="amt">建材行專案 4.5折</th><th class="amt">經銷3.5折</th><th class="amt">庫存</th></tr></thead>
                 <tbody>
@@ -282,6 +329,17 @@
             <div class="product-row">
                 <div class="product-img"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/一體鎖-T8A.png" alt="T8A"></div>
                 <div style="flex:1"><h3 style="margin-top:0">T8A 系列（標準）</h3></div>
+            </div>
+            <h3>產品照片</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T8A/22.png" alt="T8A 啞鎳"><div class="cap">啞鎳拉絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T8A/23.png" alt="T8A 黑鎳"><div class="cap">黑鎳拉絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T8A/24.png" alt="T8A 藝術黑"><div class="cap">藝術黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T8A/截圖 2025-12-07 下午2.24.15.png" alt="T8A 實裝情境"><div class="cap">實裝情境照</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/T8A/截圖 2025-12-07 下午2.24.30.png" alt="T8A 規格尺寸"><div class="cap">規格尺寸圖</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/T2-03-HLH.jpg" alt="T8A 型錄 黑鎳"><div class="cap">型錄｜黑鎳</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/T2-03-SYH.jpg" alt="T8A 型錄 霧銀"><div class="cap">型錄｜霧銀</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/T5-03-HYZ.jpg" alt="T8A 型錄 啞黑皮革"><div class="cap">型錄｜啞黑+皮革</div></div>
             </div>
             <table>
                 <thead><tr><th>型號</th><th>顏色</th><th class="amt">重量</th><th class="amt">成本(￥)</th><th class="amt">成本($)</th><th class="amt">運費</th><th class="amt">牌價</th><th class="amt">設計師 7.5折</th><th class="amt">建材五金行BNI 6折</th><th class="amt">專案價 5折</th><th class="amt">建材行專案 4.5折</th><th class="amt">經銷3.5折</th><th class="amt">庫存</th></tr></thead>
@@ -319,21 +377,33 @@
                 <div class="product-img"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/分體鎖-A6-529.png" alt="A6-529"></div>
                 <div style="flex:1"><h3 style="margin-top:0">A6-529 系列（分體鎖・金屬+木紋）</h3></div>
             </div>
+            <h3>產品照片</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/A6-529-/1.png" alt="A6-529-YLJ"><div class="cap">YLJ 銀絲+橄欖木</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/A6-529-/3.png" alt="A6-529-HLH"><div class="cap">HLH 黑鎳絲+胡桃木</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/A6-529-/4.png" alt="A6-529-HYH"><div class="cap">HYH 啞黑+胡桃木</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/A6-529-/截圖 2025-12-06 上午10.15.55.png" alt="A6-529 實裝情境"><div class="cap">實裝情境照</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/A6-529-/截圖 2025-12-06 上午10.30.13.png" alt="A6-529 規格尺寸"><div class="cap">規格尺寸圖</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/A3-269-HLM.jpg" alt="A6-529 型錄 黑鎳木紋"><div class="cap">型錄｜黑鎳+木紋</div></div>
+            </div>
             <table>
                 <thead><tr><th>型號</th><th>顏色</th><th class="amt">重量</th><th class="amt">成本(￥)</th><th class="amt">成本($)</th><th class="amt">運費</th><th class="amt">牌價</th><th class="amt">設計師 7.5折</th><th class="amt">建材五金行BNI 6折</th><th class="amt">專案價 5折</th><th class="amt">建材行專案 4.5折</th><th class="amt">經銷3.5折</th><th class="amt">庫存</th></tr></thead>
                 <tbody>
-                    <tr><td>A6-529-YLJ</td><td>銀絲+橄欖木</td><td class="amt">2.5 kg</td><td class="amt">￥168</td><td class="amt">$840</td><td class="amt">$162</td><td class="amt">$3,860</td><td class="amt">$2,895</td><td class="amt">$2,316</td><td class="amt">$1,930</td><td class="amt">$1,737</td><td class="amt">$1,351</td><td class="amt">8</td></tr>
+                    <tr><td>A6-529-YLJ</td><td>銀絲+橄欖木</td><td class="amt">2.5 kg</td><td class="amt">￥168</td><td class="amt">$840</td><td class="amt">$162</td><td class="amt">$3,860</td><td class="amt">$2,895</td><td class="amt">$2,316</td><td class="amt">$1,930</td><td class="amt">$1,737</td><td class="amt">$1,351</td><td class="amt">10</td></tr>
                     <tr><td>A6-529-HLH</td><td>黑鎳絲+胡桃木</td><td class="amt">2.5 kg</td><td class="amt">￥168</td><td class="amt">$840</td><td class="amt">$162</td><td class="amt">$3,860</td><td class="amt">$2,895</td><td class="amt">$2,316</td><td class="amt">$1,930</td><td class="amt">$1,737</td><td class="amt">$1,351</td><td class="amt">10</td></tr>
                     <tr><td>A6-529-HYH</td><td>啞黑+胡桃木</td><td class="amt">2.5 kg</td><td class="amt">￥168</td><td class="amt">$840</td><td class="amt">$162</td><td class="amt">$3,860</td><td class="amt">$2,895</td><td class="amt">$2,316</td><td class="amt">$1,930</td><td class="amt">$1,737</td><td class="amt">$1,351</td><td class="amt">5</td></tr>
                 </tbody>
             </table>
-            <div class="alert-box">
-                <b>※</b> A6-529-YLJ 原進貨 10 把，2026-01-17 出貨 2 把予<b>七澄建築</b>，現庫存 8 把。
-            </div>
-
             <div class="product-row">
                 <div class="product-img"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/隱形門鎖-AY61.png" alt="AY-61"></div>
                 <div style="flex:1"><h3 style="margin-top:0">AY-61 系列（隱藏門鎖）</h3></div>
+            </div>
+            <h3>產品照片</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-61/27.png" alt="AY-61 霧銀"><div class="cap">霧銀</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-61/28.png" alt="AY-61 黑鋼"><div class="cap">黑鋼</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-61/截圖 2025-12-07 下午2.28.45.png" alt="AY-61 三色展示"><div class="cap">三色展示</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-61/截圖 2025-12-07 下午2.29.28.png" alt="AY-61 規格尺寸"><div class="cap">規格尺寸圖</div></div>
             </div>
             <table>
                 <thead><tr><th>型號</th><th>顏色</th><th class="amt">重量</th><th class="amt">成本(￥)</th><th class="amt">成本($)</th><th class="amt">運費</th><th class="amt">牌價</th><th class="amt">設計師 7.5折</th><th class="amt">建材五金行BNI 6折</th><th class="amt">專案價 5折</th><th class="amt">建材行專案 4.5折</th><th class="amt">經銷3.5折</th><th class="amt">庫存</th></tr></thead>
@@ -350,6 +420,20 @@
                 </div>
                 <div style="flex:1"><h3 style="margin-top:0">AY-119 / AY-T58 / AY-40 系列（隱藏門鎖）</h3></div>
             </div>
+            <h3>AY-119 產品照片</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-119/25.png" alt="AY-119 啞鎳"><div class="cap">啞鎳拉絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-119/26.png" alt="AY-119 黑鎳"><div class="cap">黑鎳拉絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-119/截圖 2025-12-07 下午2.27.21.png" alt="AY-119 雙色展示"><div class="cap">雙色展示</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-119/截圖 2025-12-07 下午2.27.40.png" alt="AY-119 規格尺寸"><div class="cap">規格尺寸圖</div></div>
+            </div>
+            <h3>AY-T58 產品照片</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-T58/29.png" alt="AY-T58 黑鎳"><div class="cap">黑鎳拉絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-T58/30.png" alt="AY-T58 藝術黑"><div class="cap">藝術黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-T58/截圖 2025-12-07 下午2.30.12.png" alt="AY-T58 規格尺寸"><div class="cap">規格尺寸圖</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/AY-T58/截圖 2025-12-07 下午2.30.22.png" alt="AY-T58 室內外效果"><div class="cap">室內外效果圖</div></div>
+            </div>
             <table>
                 <thead><tr><th>型號</th><th>顏色</th><th class="amt">重量</th><th class="amt">成本(￥)</th><th class="amt">成本($)</th><th class="amt">運費</th><th class="amt">牌價</th><th class="amt">設計師 7.5折</th><th class="amt">建材五金行BNI 6折</th><th class="amt">專案價 5折</th><th class="amt">建材行專案 4.5折</th><th class="amt">經銷3.5折</th><th class="amt">庫存</th></tr></thead>
                 <tbody>
@@ -362,8 +446,19 @@
             </table>
 
             <div class="product-row">
-                <div class="product-img"><img src="./供應商_宇時和(威斯特)/門鎖系列/訂單/2025-11-05_第一批庫存_門鎖圖片及報價/滑門鎖-WY11.png" alt="WY11"></div>
+                <div class="product-img"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-214.jpg" alt="WY11"></div>
                 <div style="flex:1"><h3 style="margin-top:0">WY11 系列（滑門鎖）</h3></div>
+            </div>
+            <h3>產品照片</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/WY11/31.png" alt="WY11 金絲"><div class="cap">金絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/WY11/32.png" alt="WY11 啞黑"><div class="cap">啞黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/WY11/33.png" alt="WY11 黑鎳絲"><div class="cap">黑鎳絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-213.jpg" alt="WY11 白底型錄 金"><div class="cap">白底型錄｜金</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-211.jpg" alt="WY11 白底型錄 銀"><div class="cap">白底型錄｜銀</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-214.jpg" alt="WY11 白底型錄 黑"><div class="cap">白底型錄｜啞黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/WY11/截圖 2025-12-07 下午2.31.31.png" alt="WY11 實裝情境"><div class="cap">實裝情境照</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/WY11/截圖 2025-12-07 下午2.31.10.png" alt="WY11 規格尺寸"><div class="cap">規格尺寸圖</div></div>
             </div>
             <table>
                 <thead><tr><th>型號</th><th>顏色</th><th class="amt">重量</th><th class="amt">成本(￥)</th><th class="amt">成本($)</th><th class="amt">運費</th><th class="amt">牌價</th><th class="amt">設計師 7.5折</th><th class="amt">建材五金行BNI 6折</th><th class="amt">專案價 5折</th><th class="amt">建材行專案 4.5折</th><th class="amt">經銷3.5折</th><th class="amt">庫存</th></tr></thead>
@@ -375,6 +470,13 @@
             </table>
 
             <h3>Y09 系列（旗艦）</h3>
+            <h3>產品照片</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/Y09移门锁-HY/15.png" alt="Y09 藝術黑"><div class="cap">藝術黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/Y09移门锁-HY/16.png" alt="Y09 黑鎳"><div class="cap">黑鎳拉絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/Y09移门锁-HY/截圖 2025-12-06 上午11.09.58.png" alt="Y09 實裝情境"><div class="cap">實裝情境照</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/Y09移门锁-HY/截圖 2025-12-06 上午11.10.39.png" alt="Y09 規格尺寸"><div class="cap">規格尺寸圖</div></div>
+            </div>
             <table>
                 <thead><tr><th>型號</th><th>顏色</th><th class="amt">重量</th><th class="amt">成本(￥)</th><th class="amt">成本($)</th><th class="amt">運費</th><th class="amt">牌價</th><th class="amt">設計師 7.5折</th><th class="amt">建材五金行BNI 6折</th><th class="amt">專案價 5折</th><th class="amt">建材行專案 4.5折</th><th class="amt">經銷3.5折</th><th class="amt">庫存</th></tr></thead>
                 <tbody>
@@ -394,6 +496,9 @@
         <div class="section-body">
 
             <h3>V-N3D / V-S3D / V-H3D 系列（3D大鉸鏈）</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-235.jpg" alt="3D隱藏鉸鏈"><div class="cap">3D隱藏鉸鏈</div></div>
+            </div>
             <div class="feature-box">
                 <b>單顆計價</b> — 每門標配 2 顆液壓 + 1 顆承重。進貨以套計（1套 = 2液壓 + 1承重）。
             </div>
@@ -416,6 +521,16 @@
             </table>
 
             <h3>V-60K / ST-5H / ST-5B / ST-4I 系列</h3>
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-234.jpg" alt="V-60K 三維調節隱藏合頁"><div class="cap">V-60K 隱藏合頁</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-237.jpg" alt="ST-5H 太空黑"><div class="cap">ST-5H 液壓｜太空黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-236.jpg" alt="ST-5H 太空灰"><div class="cap">ST-5H 液壓｜太空灰</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-255.jpg" alt="ST-5B 太空黑"><div class="cap">ST-5B 承重｜太空黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-251.jpg" alt="ST-5B 太空灰"><div class="cap">ST-5B 承重｜太空灰</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-245.jpg" alt="ST-4I 鋼絲"><div class="cap">ST-4I 意式｜鋼絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-247.jpg" alt="ST-4I 啞黑"><div class="cap">ST-4I 意式｜啞黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-246.jpg" alt="ST-4I 金絲"><div class="cap">ST-4I 意式｜金絲</div></div>
+            </div>
             <table>
                 <thead><tr><th>型號</th><th>品名</th><th>顏色</th><th class="amt">重量</th><th class="amt">成本(￥)</th><th class="amt">成本($)</th><th class="amt">運費</th><th class="amt">牌價</th><th class="amt">設計師 7.5折</th><th class="amt">建材五金行BNI 6折</th><th class="amt">專案價 5折</th><th class="amt">建材行專案 4.5折</th><th class="amt">經銷3.5折</th><th class="amt">庫存</th></tr></thead>
                 <tbody>
@@ -444,6 +559,21 @@
             <p>W-829 高級 / W-806 經典 / W-828 磁吸 / W-Y02 地吸 / W-104 基礎 / W-008 迷你 / 靜音條</p>
         </div>
         <div class="section-body">
+            <div class="gallery">
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-280.jpg" alt="W-829 液壓門吸"><div class="cap">W-829 液壓門吸</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-265.jpg" alt="W-806 鋼絲"><div class="cap">W-806 經典｜鋼絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-266.jpg" alt="W-806 啞黑"><div class="cap">W-806 經典｜啞黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-261.jpg" alt="W-806 金絲"><div class="cap">W-806 經典｜金絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-274.jpg" alt="W-828 鋼絲"><div class="cap">W-828 防風｜鋼絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-271.jpg" alt="W-828 啞黑"><div class="cap">W-828 防風｜啞黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-273.jpg" alt="W-828 金絲"><div class="cap">W-828 防風｜金絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-276.jpg" alt="W-Y02 鋼絲"><div class="cap">W-Y02 地吸｜鋼絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-275.jpg" alt="W-Y02 啞黑"><div class="cap">W-Y02 地吸｜啞黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-270.jpg" alt="W-104 鋼絲"><div class="cap">W-104 暗孔｜鋼絲</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-267.jpg" alt="W-104 啞黑"><div class="cap">W-104 暗孔｜啞黑</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-283.jpg" alt="W-008 門擋"><div class="cap">W-008 迷你門擋</div></div>
+                <div class="gallery-item"><img src="./供應商_宇時和(威斯特)/門鎖系列/產品照片/白底圖/威思特画册产品02-无水印-285.jpg" alt="靜音條"><div class="cap">JYT 靜音條</div></div>
+            </div>
             <table>
                 <thead><tr><th>型號</th><th>品名</th><th>顏色</th><th>系列</th><th class="amt">重量</th><th class="amt">成本(￥)</th><th class="amt">成本($)</th><th class="amt">運費</th><th class="amt">牌價</th><th class="amt">設計師 7.5折</th><th class="amt">建材五金行BNI 6折</th><th class="amt">專案價 5折</th><th class="amt">建材行專案 4.5折</th><th class="amt">經銷3.5折</th><th class="amt">庫存</th></tr></thead>
                 <tbody>
@@ -557,18 +687,15 @@
                         <li><b>超高CP值</b> — 售價僅歐系品牌的1/3~1/2</li>
                         <li><b>全系列統一色系</b> — 黑鎳絲/啞黑/金絲全品類通用</li>
                         <li><b>90品項齊全</b> — 門鎖+鉸鏈+門吸+配件完整產品線</li>
-                        <li><b>超高毛利</b> — 平均毛利率約420%</li>
                         <li><b>庫存已備</b> — 580 件現貨，隨時出貨</li>
                     </ul>
                 </div>
                 <div class="swot-card swot-w">
                     <h4>Weaknesses 劣勢</h4>
                     <ul>
-                        <li><b>品牌知名度低</b> — VSTE威斯特在台灣無知名度</li>
                         <li><b>產地中國</b> — 部分高端客戶有品牌偏好</li>
                         <li><b>3D鉸鏈庫存少</b> — V系列3D鉸鏈每色僅1套（2液壓+1承重），需即時補貨</li>
                         <li><b>售後體系</b> — 需建立零件備品與維修體系</li>
-                        <li><b>安裝教育</b> — 本地師傅對VSTE不熟悉</li>
                     </ul>
                 </div>
                 <div class="swot-card swot-o">
@@ -576,7 +703,7 @@
                     <ul>
                         <li><b>隱形門趨勢</b> — 設計門鎖需求成長</li>
                         <li><b>換門潮</b> — 老屋翻新換鎖需求增加</li>
-                        <li><b>BNI設計師群</b> — 對新品牌接受度高</li>
+                        <li><b>設計師群</b> — 對新品牌接受度高</li>
                         <li><b>T86色片</b> — 獨特賣點可做話題行銷</li>
                         <li><b>建案配套</b> — 整批採購門鎖+鉸鏈+門吸</li>
                     </ul>
@@ -718,18 +845,18 @@
             <table>
                 <thead><tr><th>系列</th><th>類型</th><th>材質</th><th>適用門厚</th><th>鎖體規格</th><th>可選色系</th></tr></thead>
                 <tbody>
-                    <tr><td>T86</td><td>一體鎖</td><td>鋅合金</td><td>38~55mm</td><td>標準5050鎖體</td><td>霧銀、黑鎳絲、金絲（原色+3色片共4種風格，色片另購）</td></tr>
-                    <tr><td>T80</td><td>一體鎖</td><td>鋅合金</td><td>38~55mm</td><td>標準5050鎖體</td><td>霧銀、黑鎳絲、金絲、啞黑</td></tr>
-                    <tr><td>T61</td><td>一體鎖</td><td>鋅合金</td><td>38~55mm</td><td>標準5050鎖體</td><td>霧銀、黑鋼</td></tr>
-                    <tr><td>T8A</td><td>一體鎖</td><td>鋅合金</td><td>38~55mm</td><td>標準5050鎖體</td><td>銀絲、黑鎳絲、啞黑</td></tr>
-                    <tr><td>T52</td><td>一體鎖（帶鑰匙）</td><td>鋅合金</td><td>38~55mm</td><td>5050鎖體（帶鑰匙孔）</td><td>黑鎳絲、啞黑、金絲</td></tr>
-                    <tr><td>A6-529</td><td>分體鎖</td><td>鋅合金 + 實木握把</td><td>38~55mm</td><td>標準5050鎖體</td><td>銀絲+橄欖木、黑鎳絲+胡桃木、啞黑+胡桃木</td></tr>
-                    <tr><td>Y09</td><td>旗艦把手</td><td>鋅合金</td><td>38~55mm</td><td>標準5050鎖體</td><td>啞黑、黑鎳絲</td></tr>
-                    <tr><td>AY-61</td><td>隱藏門鎖（帶把手）</td><td>鋅合金</td><td>38~55mm</td><td>隱藏門鎖體</td><td>霧銀、黑鋼</td></tr>
-                    <tr><td>AY-T58</td><td>隱藏門鎖（帶把手）</td><td>鋅合金</td><td>38~55mm</td><td>隱藏門鎖體</td><td>啞黑、黑鎳絲</td></tr>
-                    <tr><td>AY-119</td><td>隱藏門鎖（純隱形）</td><td>鋅合金</td><td>38~55mm</td><td>隱藏門鎖體</td><td>銀絲、黑鎳絲</td></tr>
-                    <tr><td>AY-40</td><td>隱藏門鎖（純隱形）</td><td>鋅合金</td><td>38~55mm</td><td>隱藏門鎖體</td><td>啞黑</td></tr>
-                    <tr><td>WY11</td><td>滑門鎖</td><td>鋅合金</td><td>38~55mm</td><td>勾型鎖體</td><td>金絲、黑鎳絲、啞黑</td></tr>
+                    <tr><td>T86</td><td>一體鎖</td><td>鋅合金</td><td>38~50mm</td><td>意式60免釘鎖體</td><td>霧銀、黑鎳絲、金絲（原色+3色片共4種風格，色片另購）</td></tr>
+                    <tr><td>T80</td><td>一體鎖</td><td>鋅合金</td><td>38~50mm</td><td>意式60免釘鎖體</td><td>霧銀、黑鎳絲、金絲、啞黑</td></tr>
+                    <tr><td>T61</td><td>一體鎖</td><td>鋅合金</td><td>38~50mm</td><td>意式60免釘鎖體</td><td>霧銀、黑鋼</td></tr>
+                    <tr><td>T8A</td><td>一體鎖</td><td>不銹鋼</td><td>38~50mm</td><td>意式60免釘鎖體</td><td>銀絲、黑鎳絲、啞黑</td></tr>
+                    <tr><td>T52</td><td>一體鎖（帶鑰匙）</td><td>鋅合金</td><td>38~50mm</td><td>意式60免釘鎖體（帶鑰匙孔）</td><td>黑鎳絲、啞黑、金絲</td></tr>
+                    <tr><td>A6-529</td><td>分體鎖</td><td>鋅合金 + 實木握把</td><td>38~50mm</td><td>7255靜音鎖體</td><td>銀絲+橄欖木、黑鎳絲+胡桃木、啞黑+胡桃木</td></tr>
+                    <tr><td>Y09</td><td>平面鎖</td><td>鋅合金</td><td>38~50mm</td><td>專配鎖體</td><td>啞黑、黑鎳絲</td></tr>
+                    <tr><td>AY-61</td><td>隱藏門鎖（帶把手）</td><td>鋅合金</td><td>38~50mm</td><td>隱形鎖體</td><td>霧銀、黑鋼</td></tr>
+                    <tr><td>AY-T58</td><td>隱藏門鎖（帶把手）</td><td>鋅合金</td><td>38~50mm</td><td>隱形門鎖體</td><td>啞黑、黑鎳絲</td></tr>
+                    <tr><td>AY-119</td><td>隱藏門鎖（純隱形）</td><td>鋁合金</td><td>38~50mm</td><td>隱形鎖體</td><td>銀絲、黑鎳絲</td></tr>
+                    <tr><td>AY-40</td><td>隱藏門鎖（純隱形）</td><td>鋅合金</td><td>38~50mm</td><td>隱形鎖體</td><td>啞黑</td></tr>
+                    <tr><td>WY11</td><td>滑門鎖</td><td>鋅合金</td><td>38~50mm</td><td>專配鎖體</td><td>金絲、黑鎳絲、啞黑</td></tr>
                 </tbody>
             </table>
             <h3>鉸鏈規格</h3>
@@ -893,8 +1020,8 @@
             <table>
                 <thead><tr><th>項目</th><th>規格</th><th>備註</th></tr></thead>
                 <tbody>
-                    <tr><td>適用門厚</td><td><b>38~55mm</b></td><td>木門、鋁木門、鋼木門均適用</td></tr>
-                    <tr><td>鎖體開孔</td><td>標準5050鎖體：開孔 50×50mm</td><td>面板覆蓋範圍大，可遮蓋舊鎖孔</td></tr>
+                    <tr><td>適用門厚</td><td><b>38~50mm</b></td><td>木門、鋁木門、鋼木門均適用</td></tr>
+                    <tr><td>鎖體開孔</td><td>意式60免釘鎖體（各系列鎖體規格不同，詳見規格表）</td><td>面板覆蓋範圍大，可遮蓋舊鎖孔</td></tr>
                     <tr><td>方棒規格</td><td>7×7mm 標準方棒</td><td>隨鎖附帶，通用規格</td></tr>
                     <tr><td>把手中心距</td><td>固定孔距，面板覆蓋</td><td>安裝前確認舊孔位是否可覆蓋</td></tr>
                 </tbody>
@@ -938,7 +1065,7 @@
             </div>
             <div class="talk-box">
                 <div class="label">Q：門鎖適用什麼類型的門？</div>
-                <div class="quote">A：適用門厚38~55mm的木門、鋁木門、鋼木門。標準5050鎖體，台灣絕大多數室內門都可安裝。如果是舊鎖更換，面板能覆蓋原有開孔。</div>
+                <div class="quote">A：適用門厚38~50mm的木門、鋁木門、鋼木門。意式60免釘鎖體，台灣絕大多數室內門都可安裝。如果是舊鎖更換，面板能覆蓋原有開孔。</div>
             </div>
             <div class="talk-box">
                 <div class="label">Q：T86的色片怎麼換？</div>
@@ -1000,7 +1127,7 @@
             <table>
                 <thead><tr><th>日期</th><th>型號</th><th>顏色</th><th class="amt">數量</th><th>客戶</th><th>備註</th></tr></thead>
                 <tbody>
-                    <tr><td>2026-01-17</td><td>A6-529-YLJ</td><td>銀絲+橄欖木</td><td class="amt">2</td><td>七澄建築</td><td></td></tr>
+                    <tr><td colspan="6" class="center" style="color:#999;">尚無出貨記錄</td></tr>
                 </tbody>
             </table>
         </div>
@@ -1053,5 +1180,20 @@
     </div>
 
 </div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+    <span class="lb-close">&times;</span>
+    <img id="lb-img" src="" alt="">
+</div>
+<script>
+document.querySelectorAll('.gallery-item img, .product-row img').forEach(function(img){
+    img.style.cursor='zoom-in';
+    img.addEventListener('click',function(){
+        document.getElementById('lb-img').src=this.src;
+        document.getElementById('lightbox').classList.add('active');
+    });
+});
+</script>
 </body>
 </html>

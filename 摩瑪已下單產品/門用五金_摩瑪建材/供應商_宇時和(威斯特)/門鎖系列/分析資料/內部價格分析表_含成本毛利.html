@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威思特(VSTE) 內部價格分析表【機密】</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft JhengHei", Arial, sans-serif; background: #1a1a2e; color: #333; line-height: 1.5; font-size: 13px; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #c0392b 0%, #2c3e50 100%); color: white; padding: 25px 20px; text-align: center; margin-bottom: 20px; border-radius: 8px; }
+        header h1 { font-size: 24px; margin-bottom: 8px; }
+        header .confidential { background: #e74c3c; padding: 3px 12px; border-radius: 4px; font-size: 12px; display: inline-block; margin-bottom: 10px; }
+        header p { font-size: 12px; opacity: 0.9; }
+        .info-box { background: #2c3e50; color: white; padding: 15px 20px; border-radius: 8px; margin-bottom: 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .info-item { text-align: center; }
+        .info-item .label { font-size: 11px; opacity: 0.7; }
+        .info-item .value { font-size: 18px; font-weight: bold; color: #f39c12; }
+        .section { background: white; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); overflow: hidden; }
+        .section-title { background: #8e44ad; color: white; padding: 10px 15px; font-size: 16px; font-weight: bold; }
+        .subsection { padding: 12px 15px; border-bottom: 1px solid #eee; }
+        .subsection:last-child { border-bottom: none; }
+        .subsection-title { font-size: 14px; color: #8e44ad; margin-bottom: 8px; font-weight: bold; }
+        .product-info { background: #f8f9fa; padding: 10px; border-radius: 6px; margin-bottom: 10px; font-size: 12px; }
+        .product-info strong { color: #2c3e50; }
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 11px; margin-right: 5px; }
+        .tag-material { background: #3498db; color: white; }
+        .tag-feature { background: #27ae60; color: white; }
+        .tag-compare { background: #e67e22; color: white; }
+        table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        th { background: #34495e; color: white; padding: 8px 5px; text-align: center; font-weight: bold; font-size: 11px; }
+        td { padding: 6px 5px; border-bottom: 1px solid #eee; text-align: center; }
+        tr:hover { background: #ecf0f1; }
+        .cost { color: #2980b9; }
+        .price { color: #c0392b; font-weight: bold; }
+        .profit { font-weight: bold; }
+        .profit-high { color: #27ae60; }
+        .profit-mid { color: #f39c12; }
+        .profit-low { color: #e74c3c; }
+        .compare-section { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px; border-radius: 0 8px 8px 0; }
+        .compare-section h4 { color: #856404; margin-bottom: 10px; }
+        .compare-table { background: white; }
+        .compare-table th { background: #ffc107; color: #333; }
+        .summary-section { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px; border-radius: 0 8px 8px 0; }
+        .summary-section h4 { color: #155724; margin-bottom: 10px; }
+        .note-section { background: #f8d7da; border-left: 4px solid #dc3545; padding: 15px 20px; margin-top: 20px; border-radius: 0 8px 8px 0; }
+        .note-section h3 { color: #721c24; margin-bottom: 10px; }
+        .note-section ul { margin-left: 20px; color: #721c24; font-size: 12px; }
+        footer { text-align: center; padding: 15px; color: #95a5a6; font-size: 11px; }
+        @media print {
+            body { background: white; font-size: 11px; }
+            .container { max-width: 100%; }
+            .section { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="confidential">內部機密文件</div>
+            <h1>威思特(VSTE) 內部價格分析表</h1>
+            <p>更新日期：2025-01-12 ｜ 匯率：1 RMB = 5 TWD ｜ 運費：100 TWD/kg ｜ 牌價倍率：28.53</p>
+        </header>
+
+        <div class="info-box">
+            <div class="info-item">
+                <div class="label">匯率</div>
+                <div class="value">1:5</div>
+            </div>
+            <div class="info-item">
+                <div class="label">運費</div>
+                <div class="value">$100/kg</div>
+            </div>
+            <div class="info-item">
+                <div class="label">平均毛利率</div>
+                <div class="value">75-82%</div>
+            </div>
+            <div class="info-item">
+                <div class="label">產品總項數</div>
+                <div class="value">80+</div>
+            </div>
+        </div>
+
+        <!-- 一、門鎖類 -->
+        <div class="section">
+            <div class="section-title">一、門鎖類</div>
+
+            <div class="subsection">
+                <div class="subsection-title">T86 系列（意式60免釘鎖體）</div>
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金+不鏽鋼</span>
+                    <span class="tag tag-feature">免釘安裝</span>
+                    <span class="tag tag-feature">靜音鎖舌</span>
+                    <span class="tag tag-feature">可換色片</span>
+                    <br><br>
+                    <strong>材質：</strong>鋅合金把手 + 304不鏽鋼鎖體 + 鋁合金面板<br>
+                    <strong>特色：</strong>意式設計、60mm免釘鎖體、可更換彩色面板、適合各種室內門<br>
+                    <strong>適用：</strong>木門、鋁框門、室內房間門
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th>
+                        <th>顏色</th>
+                        <th>重量(kg)</th>
+                        <th>成本(RMB)</th>
+                        <th>成本(TWD)</th>
+                        <th>運費(TWD)</th>
+                        <th>總成本</th>
+                        <th>牌價</th>
+                        <th>毛利</th>
+                        <th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>T86-YN</td><td>啞鎳單色</td><td>1.2</td>
+                        <td class="cost">￥150</td><td>$750</td><td>$120</td><td>$870</td>
+                        <td class="price">$4,280</td><td>$3,410</td><td class="profit profit-high">79.7%</td>
+                    </tr>
+                    <tr>
+                        <td>T86-HL</td><td>黑鎳拉絲</td><td>1.2</td>
+                        <td class="cost">￥150</td><td>$750</td><td>$120</td><td>$870</td>
+                        <td class="price">$4,280</td><td>$3,410</td><td class="profit profit-high">79.7%</td>
+                    </tr>
+                    <tr>
+                        <td>T86-CUS</td><td>羅馬金拉絲</td><td>1.2</td>
+                        <td class="cost">￥165</td><td>$825</td><td>$120</td><td>$945</td>
+                        <td class="price">$4,680</td><td>$3,735</td><td class="profit profit-high">79.8%</td>
+                    </tr>
+                    <tr>
+                        <td>T86色片</td><td>浪花白/綠/粉</td><td>0.05</td>
+                        <td class="cost">￥6</td><td>$30</td><td>$5</td><td>$35</td>
+                        <td class="price">$180</td><td>$145</td><td class="profit profit-high">80.6%</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">T80 系列（意式60免釘鎖體/隱藏鑰匙）</div>
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金+不鏽鋼</span>
+                    <span class="tag tag-feature">隱藏式鑰匙孔</span>
+                    <span class="tag tag-feature">極簡設計</span>
+                    <br><br>
+                    <strong>材質：</strong>鋅合金把手 + 304不鏽鋼鎖體<br>
+                    <strong>特色：</strong>隱藏式鑰匙孔設計、外觀極簡、適合現代風格<br>
+                    <strong>優勢：</strong>比T86更簡潔，無外露鑰匙孔
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>T80-YN</td><td>啞鎳單色</td><td>1.1</td>
+                        <td class="cost">￥135</td><td>$675</td><td>$110</td><td>$785</td>
+                        <td class="price">$3,880</td><td>$3,095</td><td class="profit profit-high">79.8%</td>
+                    </tr>
+                    <tr>
+                        <td>T80-CUS</td><td>羅馬金拉絲</td><td>1.1</td>
+                        <td class="cost">￥150</td><td>$750</td><td>$110</td><td>$860</td>
+                        <td class="price">$4,280</td><td>$3,420</td><td class="profit profit-high">79.9%</td>
+                    </tr>
+                    <tr>
+                        <td>T80-HL</td><td>黑鎳拉絲</td><td>1.1</td>
+                        <td class="cost">￥135</td><td>$675</td><td>$110</td><td>$785</td>
+                        <td class="price">$3,880</td><td>$3,095</td><td class="profit profit-high">79.8%</td>
+                    </tr>
+                    <tr>
+                        <td>T80-HY</td><td>藝術黑</td><td>1.1</td>
+                        <td class="cost">￥135</td><td>$675</td><td>$110</td><td>$785</td>
+                        <td class="price">$3,880</td><td>$3,095</td><td class="profit profit-high">79.8%</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">T61 系列（意式60免釘鎖體）</div>
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金</span>
+                    <span class="tag tag-feature">經典款式</span>
+                    <br><br>
+                    <strong>材質：</strong>鋅合金把手 + 不鏽鋼鎖體<br>
+                    <strong>特色：</strong>經典圓形設計、穩定耐用
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>T61-YN</td><td>啞鎳單色</td><td>1.2</td>
+                        <td class="cost">￥150</td><td>$750</td><td>$120</td><td>$870</td>
+                        <td class="price">$4,280</td><td>$3,410</td><td class="profit profit-high">79.7%</td>
+                    </tr>
+                    <tr>
+                        <td>T61-QH</td><td>黑鋼單色</td><td>1.2</td>
+                        <td class="cost">￥150</td><td>$750</td><td>$120</td><td>$870</td>
+                        <td class="price">$4,280</td><td>$3,410</td><td class="profit profit-high">79.7%</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">T8A 系列（意式60免釘鎖體）</div>
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金</span>
+                    <span class="tag tag-feature">方形把手</span>
+                    <br><br>
+                    <strong>材質：</strong>鋅合金把手 + 不鏽鋼鎖體<br>
+                    <strong>特色：</strong>方形現代設計、線條俐落
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>T8A-YL</td><td>啞鎳拉絲</td><td>1.1</td>
+                        <td class="cost">￥140</td><td>$700</td><td>$110</td><td>$810</td>
+                        <td class="price">$3,980</td><td>$3,170</td><td class="profit profit-high">79.6%</td>
+                    </tr>
+                    <tr>
+                        <td>T8A-HL</td><td>黑鎳拉絲</td><td>1.1</td>
+                        <td class="cost">￥140</td><td>$700</td><td>$110</td><td>$810</td>
+                        <td class="price">$3,980</td><td>$3,170</td><td class="profit profit-high">79.6%</td>
+                    </tr>
+                    <tr>
+                        <td>T8A-HY</td><td>藝術黑</td><td>1.1</td>
+                        <td class="cost">￥140</td><td>$700</td><td>$110</td><td>$810</td>
+                        <td class="price">$3,980</td><td>$3,170</td><td class="profit profit-high">79.6%</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">T52 系列（暢銷款）</div>
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金+不鏽鋼</span>
+                    <span class="tag tag-feature">最暢銷</span>
+                    <span class="tag tag-feature">可選鑰匙</span>
+                    <br><br>
+                    <strong>材質：</strong>高級鋅合金 + 304不鏽鋼鎖體<br>
+                    <strong>特色：</strong>銷量第一、可選帶鑰匙或不帶鑰匙版本<br>
+                    <strong>建議：</strong>主推款，適合大量備貨
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>規格</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>T52</td><td>黑鎳拉絲</td><td>帶鑰匙</td><td>1.2</td>
+                        <td class="cost">￥155</td><td>$775</td><td>$120</td><td>$895</td>
+                        <td class="price">$4,380</td><td>$3,485</td><td class="profit profit-high">79.6%</td>
+                    </tr>
+                    <tr>
+                        <td>T52</td><td>黑鎳拉絲</td><td>不帶鑰匙</td><td>1.1</td>
+                        <td class="cost">￥150</td><td>$750</td><td>$110</td><td>$860</td>
+                        <td class="price">$4,280</td><td>$3,420</td><td class="profit profit-high">79.9%</td>
+                    </tr>
+                    <tr>
+                        <td>T52</td><td>藝術黑</td><td>帶鑰匙</td><td>1.2</td>
+                        <td class="cost">￥155</td><td>$775</td><td>$120</td><td>$895</td>
+                        <td class="price">$4,380</td><td>$3,485</td><td class="profit profit-high">79.6%</td>
+                    </tr>
+                    <tr>
+                        <td>T52</td><td>藝術黑</td><td>不帶鑰匙</td><td>1.1</td>
+                        <td class="cost">￥150</td><td>$750</td><td>$110</td><td>$860</td>
+                        <td class="price">$4,280</td><td>$3,420</td><td class="profit profit-high">79.9%</td>
+                    </tr>
+                    <tr>
+                        <td>T52</td><td>羅馬金拉絲</td><td>帶鑰匙</td><td>1.2</td>
+                        <td class="cost">￥165</td><td>$825</td><td>$120</td><td>$945</td>
+                        <td class="price">$4,680</td><td>$3,735</td><td class="profit profit-high">79.8%</td>
+                    </tr>
+                    <tr>
+                        <td>T52</td><td>羅馬金拉絲</td><td>不帶鑰匙</td><td>1.1</td>
+                        <td class="cost">￥160</td><td>$800</td><td>$110</td><td>$910</td>
+                        <td class="price">$4,580</td><td>$3,670</td><td class="profit profit-high">80.1%</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">A6-529 系列（實木門鎖）</div>
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金+實木</span>
+                    <span class="tag tag-feature">7255磁力鎖體</span>
+                    <span class="tag tag-feature">靜音設計</span>
+                    <br><br>
+                    <strong>材質：</strong>鋅合金底座 + 天然實木把手（橄欖木/黑胡桃木）+ 7255磁力靜音鎖體<br>
+                    <strong>特色：</strong>高端實木質感、磁力靜音鎖體、適合高檔住宅<br>
+                    <strong>定位：</strong>高端產品線，利潤空間大
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>A6-529-YLJ</td><td>啞鎳拉絲+橄欖木</td><td>1.3</td>
+                        <td class="cost">￥168</td><td>$840</td><td>$130</td><td>$970</td>
+                        <td class="price">$4,780</td><td>$3,810</td><td class="profit profit-high">79.7%</td>
+                    </tr>
+                    <tr>
+                        <td>A6-529-HLH</td><td>黑鎳拉絲+黑胡桃木</td><td>1.3</td>
+                        <td class="cost">￥168</td><td>$840</td><td>$130</td><td>$970</td>
+                        <td class="price">$4,780</td><td>$3,810</td><td class="profit profit-high">79.7%</td>
+                    </tr>
+                    <tr>
+                        <td>A6-529-HYH</td><td>藝術黑+黑胡桃木</td><td>1.3</td>
+                        <td class="cost">￥168</td><td>$840</td><td>$130</td><td>$970</td>
+                        <td class="price">$4,780</td><td>$3,810</td><td class="profit profit-high">79.7%</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 台灣市場比較 - 門鎖類 -->
+            <div class="compare-section">
+                <h4>台灣市場比較分析 - 門鎖類</h4>
+                <table class="compare-table">
+                    <tr>
+                        <th>比較項目</th>
+                        <th>威思特 VSTE</th>
+                        <th>台灣本土品牌</th>
+                        <th>進口品牌(歐美)</th>
+                    </tr>
+                    <tr>
+                        <td>價格帶</td>
+                        <td>$3,880-$4,780</td>
+                        <td>$1,500-$3,500</td>
+                        <td>$6,000-$15,000</td>
+                    </tr>
+                    <tr>
+                        <td>材質</td>
+                        <td>鋅合金+304不鏽鋼</td>
+                        <td>鋅合金/鋁合金</td>
+                        <td>黃銅/不鏽鋼</td>
+                    </tr>
+                    <tr>
+                        <td>設計風格</td>
+                        <td>意式現代簡約</td>
+                        <td>傳統實用</td>
+                        <td>歐式古典/現代</td>
+                    </tr>
+                    <tr>
+                        <td>競爭優勢</td>
+                        <td colspan="3">價格介於本土與進口之間，設計感強，CP值高，適合中高端市場</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 二、隱形鎖類 -->
+        <div class="section">
+            <div class="section-title">二、隱形鎖類</div>
+
+            <div class="subsection">
+                <div class="subsection-title">AY-61 / AY-119 / AY-T58 / AY-40 系列</div>
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金</span>
+                    <span class="tag tag-feature">隱形設計</span>
+                    <span class="tag tag-feature">極簡風格</span>
+                    <br><br>
+                    <strong>材質：</strong>鋅合金面板 + 隱形鎖體<br>
+                    <strong>特色：</strong>外觀完全隱藏鎖具、適合極簡風格、無門把設計<br>
+                    <strong>應用：</strong>隱形門、暗門、儲藏室門、衣櫃門
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>AY-61-YN</td><td>啞鎳單色</td><td>0.6</td>
+                        <td class="cost">￥90</td><td>$450</td><td>$60</td><td>$510</td>
+                        <td class="price">$2,580</td><td>$2,070</td><td class="profit profit-high">80.2%</td>
+                    </tr>
+                    <tr>
+                        <td>AY-61-QH</td><td>黑鋼單色</td><td>0.6</td>
+                        <td class="cost">￥90</td><td>$450</td><td>$60</td><td>$510</td>
+                        <td class="price">$2,580</td><td>$2,070</td><td class="profit profit-high">80.2%</td>
+                    </tr>
+                    <tr>
+                        <td>AY-119-YL</td><td>啞鎳拉絲</td><td>0.4</td>
+                        <td class="cost">￥60</td><td>$300</td><td>$40</td><td>$340</td>
+                        <td class="price">$1,680</td><td>$1,340</td><td class="profit profit-high">79.8%</td>
+                    </tr>
+                    <tr>
+                        <td>AY-119-HL</td><td>黑鎳拉絲</td><td>0.4</td>
+                        <td class="cost">￥60</td><td>$300</td><td>$40</td><td>$340</td>
+                        <td class="price">$1,680</td><td>$1,340</td><td class="profit profit-high">79.8%</td>
+                    </tr>
+                    <tr>
+                        <td>AY-T58-HYH</td><td>藝術黑</td><td>0.6</td>
+                        <td class="cost">￥90</td><td>$450</td><td>$60</td><td>$510</td>
+                        <td class="price">$2,580</td><td>$2,070</td><td class="profit profit-high">80.2%</td>
+                    </tr>
+                    <tr>
+                        <td>AY-T58-HLF</td><td>黑鎳拉絲</td><td>0.6</td>
+                        <td class="cost">￥90</td><td>$450</td><td>$60</td><td>$510</td>
+                        <td class="price">$2,580</td><td>$2,070</td><td class="profit profit-high">80.2%</td>
+                    </tr>
+                    <tr>
+                        <td>AY-40-HY</td><td>藝術黑</td><td>0.4</td>
+                        <td class="cost">￥58</td><td>$290</td><td>$40</td><td>$330</td>
+                        <td class="price">$1,680</td><td>$1,350</td><td class="profit profit-high">80.4%</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="compare-section">
+                <h4>台灣市場比較分析 - 隱形鎖類</h4>
+                <p><strong>市場現況：</strong>台灣隱形鎖市場尚未成熟，主要由設計師指定使用。本土品牌選擇少，多為大陸進口。</p>
+                <p><strong>競爭優勢：</strong>威思特隱形鎖設計精緻、價格合理，適合設計師通路推廣。</p>
+                <p><strong>目標客群：</strong>室內設計師、裝修公司、高端住宅業主</p>
+            </div>
+        </div>
+
+        <!-- 三、滑門鎖類 -->
+        <div class="section">
+            <div class="section-title">三、滑門鎖類</div>
+
+            <div class="subsection">
+                <div class="subsection-title">WY11 / Y09 系列</div>
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金+不鏽鋼</span>
+                    <span class="tag tag-feature">滑門專用</span>
+                    <span class="tag tag-feature">嵌入式設計</span>
+                    <br><br>
+                    <strong>材質：</strong>鋅合金把手 + 不鏽鋼鎖體<br>
+                    <strong>特色：</strong>專為滑門/推拉門設計、嵌入式安裝、不影響門片厚度<br>
+                    <strong>應用：</strong>穀倉門、推拉門、衛浴門
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>WY11-CUS</td><td>羅馬金拉絲</td><td>0.8</td>
+                        <td class="cost">￥115</td><td>$575</td><td>$80</td><td>$655</td>
+                        <td class="price">$980</td><td>$325</td><td class="profit profit-mid">33.2%</td>
+                    </tr>
+                    <tr>
+                        <td>WY11-HL</td><td>黑鎳拉絲</td><td>0.8</td>
+                        <td class="cost">￥100</td><td>$500</td><td>$80</td><td>$580</td>
+                        <td class="price">$880</td><td>$300</td><td class="profit profit-mid">34.1%</td>
+                    </tr>
+                    <tr>
+                        <td>WY11-HY</td><td>藝術黑</td><td>0.8</td>
+                        <td class="cost">￥100</td><td>$500</td><td>$80</td><td>$580</td>
+                        <td class="price">$880</td><td>$300</td><td class="profit profit-mid">34.1%</td>
+                    </tr>
+                    <tr>
+                        <td>Y09-HY</td><td>藝術黑</td><td>1.0</td>
+                        <td class="cost">￥185</td><td>$925</td><td>$100</td><td>$1,025</td>
+                        <td class="price">$1,480</td><td>$455</td><td class="profit profit-mid">30.7%</td>
+                    </tr>
+                    <tr>
+                        <td>Y09-HL</td><td>黑鎳拉絲</td><td>1.0</td>
+                        <td class="cost">￥200</td><td>$1,000</td><td>$100</td><td>$1,100</td>
+                        <td class="price">$1,580</td><td>$480</td><td class="profit profit-mid">30.4%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 四、合頁類 -->
+        <div class="section">
+            <div class="section-title">四、合頁類</div>
+
+            <div class="subsection">
+                <div class="subsection-title">三維隱藏合頁系列（極窄/免開槽/液壓）</div>
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金+鋼</span>
+                    <span class="tag tag-feature">三維調節</span>
+                    <span class="tag tag-feature">液壓緩衝</span>
+                    <span class="tag tag-feature">隱藏式</span>
+                    <br><br>
+                    <strong>材質：</strong>高強度鋅合金 + 鋼製軸心 + 液壓緩衝器<br>
+                    <strong>特色：</strong>完全隱藏、三維可調（上下/左右/前後）、液壓緩衝靜音關門<br>
+                    <strong>承重：</strong>2液壓+1承重配置，適合40-60KG門扇<br>
+                    <strong>定位：</strong>高端產品，適合設計師指定
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>極窄隱藏三維合頁</td><td>黑鎳拉絲</td><td>1.5</td>
+                        <td class="cost">￥670</td><td>$3,350</td><td>$150</td><td>$3,500</td>
+                        <td class="price">$19,080</td><td>$15,580</td><td class="profit profit-high">81.7%</td>
+                    </tr>
+                    <tr>
+                        <td>極窄隱藏三維合頁</td><td>藝術黑</td><td>1.5</td>
+                        <td class="cost">￥670</td><td>$3,350</td><td>$150</td><td>$3,500</td>
+                        <td class="price">$19,080</td><td>$15,580</td><td class="profit profit-high">81.7%</td>
+                    </tr>
+                    <tr>
+                        <td>免開槽隱藏三維合頁</td><td>黑鎳拉絲</td><td>1.4</td>
+                        <td class="cost">￥610</td><td>$3,050</td><td>$140</td><td>$3,190</td>
+                        <td class="price">$17,380</td><td>$14,190</td><td class="profit profit-high">81.6%</td>
+                    </tr>
+                    <tr>
+                        <td>免開槽隱藏三維合頁</td><td>藝術黑</td><td>1.4</td>
+                        <td class="cost">￥610</td><td>$3,050</td><td>$140</td><td>$3,190</td>
+                        <td class="price">$17,380</td><td>$14,190</td><td class="profit profit-high">81.6%</td>
+                    </tr>
+                    <tr>
+                        <td>三維調節隱藏液壓合頁</td><td>黑鎳拉絲</td><td>1.8</td>
+                        <td class="cost">￥785</td><td>$3,925</td><td>$180</td><td>$4,105</td>
+                        <td class="price">$22,380</td><td>$18,275</td><td class="profit profit-high">81.7%</td>
+                    </tr>
+                    <tr>
+                        <td>三維調節隱藏液壓合頁</td><td>藝術黑</td><td>1.8</td>
+                        <td class="cost">￥785</td><td>$3,925</td><td>$180</td><td>$4,105</td>
+                        <td class="price">$22,380</td><td>$18,275</td><td class="profit profit-high">81.7%</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">5寸合頁 / 三維調節60KG / 4寸意式平開合頁</div>
+                <div class="product-info">
+                    <span class="tag tag-material">不鏽鋼</span>
+                    <span class="tag tag-feature">液壓緩衝</span>
+                    <span class="tag tag-feature">標準規格</span>
+                    <br><br>
+                    <strong>材質：</strong>304不鏽鋼 / 鋅合金<br>
+                    <strong>特色：</strong>標準規格、易於安裝、適合一般室內門
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>5寸液壓緩衝合頁</td><td>太空黑/灰</td><td>0.5</td>
+                        <td class="cost">￥82</td><td>$410</td><td>$50</td><td>$460</td>
+                        <td class="price">$2,380</td><td>$1,920</td><td class="profit profit-high">80.7%</td>
+                    </tr>
+                    <tr>
+                        <td>5寸承重合頁</td><td>太空黑/灰</td><td>0.4</td>
+                        <td class="cost">￥36</td><td>$180</td><td>$40</td><td>$220</td>
+                        <td class="price">$1,080</td><td>$860</td><td class="profit profit-high">79.6%</td>
+                    </tr>
+                    <tr>
+                        <td>三維調節隱藏合頁60KG</td><td>卡奇米/羅馬金</td><td>0.35</td>
+                        <td class="cost">￥72</td><td>$360</td><td>$35</td><td>$395</td>
+                        <td class="price">$2,080</td><td>$1,685</td><td class="profit profit-high">81.0%</td>
+                    </tr>
+                    <tr>
+                        <td>三維調節隱藏合頁60KG</td><td>黑鎳拉絲</td><td>0.35</td>
+                        <td class="cost">￥66</td><td>$330</td><td>$35</td><td>$365</td>
+                        <td class="price">$1,880</td><td>$1,515</td><td class="profit profit-high">80.6%</td>
+                    </tr>
+                    <tr>
+                        <td>三維調節隱藏合頁60KG</td><td>藝術黑</td><td>0.35</td>
+                        <td class="cost">￥60</td><td>$300</td><td>$35</td><td>$335</td>
+                        <td class="price">$1,680</td><td>$1,345</td><td class="profit profit-high">80.1%</td>
+                    </tr>
+                    <tr>
+                        <td>4寸意式平開合頁</td><td>鋼拉絲</td><td>0.2</td>
+                        <td class="cost">￥18</td><td>$90</td><td>$20</td><td>$110</td>
+                        <td class="price">$480</td><td>$370</td><td class="profit profit-mid">77.1%</td>
+                    </tr>
+                    <tr>
+                        <td>4寸意式平開合頁</td><td>金拉絲/黑鎳</td><td>0.2</td>
+                        <td class="cost">￥26</td><td>$130</td><td>$20</td><td>$150</td>
+                        <td class="price">$780</td><td>$630</td><td class="profit profit-high">80.8%</td>
+                    </tr>
+                    <tr>
+                        <td>4寸意式平開合頁</td><td>藝術白</td><td>0.2</td>
+                        <td class="cost">￥30</td><td>$150</td><td>$20</td><td>$170</td>
+                        <td class="price">$880</td><td>$710</td><td class="profit profit-high">80.7%</td>
+                    </tr>
+                    <tr>
+                        <td>4寸意式平開合頁</td><td>藝術黑</td><td>0.2</td>
+                        <td class="cost">￥24</td><td>$120</td><td>$20</td><td>$140</td>
+                        <td class="price">$680</td><td>$540</td><td class="profit profit-high">79.4%</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="compare-section">
+                <h4>台灣市場比較分析 - 合頁類</h4>
+                <table class="compare-table">
+                    <tr>
+                        <th>比較項目</th>
+                        <th>威思特 VSTE</th>
+                        <th>台灣常見品牌</th>
+                        <th>歐洲品牌(SIMONSWERK等)</th>
+                    </tr>
+                    <tr>
+                        <td>隱藏合頁價格</td>
+                        <td>$17,380-$22,380/套</td>
+                        <td>$8,000-$15,000/套</td>
+                        <td>$25,000-$50,000/套</td>
+                    </tr>
+                    <tr>
+                        <td>普通合頁價格</td>
+                        <td>$480-$2,380/片</td>
+                        <td>$200-$800/片</td>
+                        <td>$1,500-$5,000/片</td>
+                    </tr>
+                    <tr>
+                        <td>品質定位</td>
+                        <td>中高端</td>
+                        <td>中低端</td>
+                        <td>頂級</td>
+                    </tr>
+                    <tr>
+                        <td>競爭優勢</td>
+                        <td colspan="3">品質接近歐洲品牌，價格僅1/2-1/3，適合追求CP值的設計師</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 五、門吸類 -->
+        <div class="section">
+            <div class="section-title">五、門吸類</div>
+
+            <div class="subsection">
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金</span>
+                    <span class="tag tag-feature">液壓緩衝</span>
+                    <span class="tag tag-feature">靜音設計</span>
+                    <br><br>
+                    <strong>材質：</strong>鋅合金本體 + 橡膠緩衝墊<br>
+                    <strong>特色：</strong>Y829液壓款可緩衝吸附、W806經濟實用款
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>Y829液壓門吸</td><td>藝術黑/啞白/黑鎳</td><td>0.25</td>
+                        <td class="cost">￥46</td><td>$230</td><td>$25</td><td>$255</td>
+                        <td class="price">$1,280</td><td>$1,025</td><td class="profit profit-high">80.1%</td>
+                    </tr>
+                    <tr>
+                        <td>W806門吸</td><td>鋼拉絲/黑鎳/藝術黑</td><td>0.15</td>
+                        <td class="cost">￥18</td><td>$90</td><td>$15</td><td>$105</td>
+                        <td class="price">$480</td><td>$375</td><td class="profit profit-mid">78.1%</td>
+                    </tr>
+                    <tr>
+                        <td>W806門吸</td><td>金拉絲/卡其米</td><td>0.15</td>
+                        <td class="cost">￥20</td><td>$100</td><td>$15</td><td>$115</td>
+                        <td class="price">$580</td><td>$465</td><td class="profit profit-high">80.2%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 六、地吸類 -->
+        <div class="section">
+            <div class="section-title">六、地吸類</div>
+
+            <div class="subsection">
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金+磁鐵</span>
+                    <span class="tag tag-feature">防風設計</span>
+                    <span class="tag tag-feature">隱藏安裝</span>
+                    <br><br>
+                    <strong>材質：</strong>鋅合金外殼 + 強力磁鐵<br>
+                    <strong>特色：</strong>828防風款適合通風處、Y02明裝款易安裝、104暗孔款完全隱藏
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>828防風地吸</td><td>鋼拉絲/黑鎳/藝術黑</td><td>0.3</td>
+                        <td class="cost">￥40</td><td>$200</td><td>$30</td><td>$230</td>
+                        <td class="price">$1,180</td><td>$950</td><td class="profit profit-high">80.5%</td>
+                    </tr>
+                    <tr>
+                        <td>828防風地吸</td><td>金拉絲</td><td>0.3</td>
+                        <td class="cost">￥45</td><td>$225</td><td>$30</td><td>$255</td>
+                        <td class="price">$1,280</td><td>$1,025</td><td class="profit profit-high">80.1%</td>
+                    </tr>
+                    <tr>
+                        <td>Y02明裝地吸</td><td>鋼拉絲/黑鎳/藝術黑</td><td>0.2</td>
+                        <td class="cost">￥30</td><td>$150</td><td>$20</td><td>$170</td>
+                        <td class="price">$880</td><td>$710</td><td class="profit profit-high">80.7%</td>
+                    </tr>
+                    <tr>
+                        <td>Y02明裝地吸</td><td>金拉絲/藝術白</td><td>0.2</td>
+                        <td class="cost">￥35</td><td>$175</td><td>$20</td><td>$195</td>
+                        <td class="price">$980</td><td>$785</td><td class="profit profit-high">80.1%</td>
+                    </tr>
+                    <tr>
+                        <td>104暗孔地吸</td><td>卡其米/金拉絲</td><td>0.1</td>
+                        <td class="cost">￥16</td><td>$80</td><td>$10</td><td>$90</td>
+                        <td class="price">$480</td><td>$390</td><td class="profit profit-high">81.3%</td>
+                    </tr>
+                    <tr>
+                        <td>104暗孔地吸</td><td>鋼拉絲/青古銅/黑鎳/藝術黑</td><td>0.1</td>
+                        <td class="cost">￥13</td><td>$65</td><td>$10</td><td>$75</td>
+                        <td class="price">$380</td><td>$305</td><td class="profit profit-high">80.3%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 七、門檔類 -->
+        <div class="section">
+            <div class="section-title">七、門檔類</div>
+
+            <div class="subsection">
+                <div class="product-info">
+                    <span class="tag tag-material">鋅合金+橡膠</span>
+                    <span class="tag tag-feature">防撞設計</span>
+                    <br><br>
+                    <strong>材質：</strong>鋅合金本體 + 橡膠緩衝頭<br>
+                    <strong>特色：</strong>防止門把撞牆、保護牆面
+                </div>
+                <table>
+                    <tr>
+                        <th>型號</th><th>顏色</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>008系列</td><td>鋼拉絲/黑鎳/藝術黑/金拉絲</td><td>0.08</td>
+                        <td class="cost">￥12</td><td>$60</td><td>$8</td><td>$68</td>
+                        <td class="price">$380</td><td>$312</td><td class="profit profit-high">82.1%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 八、其他配件 -->
+        <div class="section">
+            <div class="section-title">八、其他配件</div>
+
+            <div class="subsection">
+                <table>
+                    <tr>
+                        <th>型號</th><th>規格</th><th>重量</th><th>成本(RMB)</th><th>成本(TWD)</th><th>運費</th><th>總成本</th><th>牌價</th><th>毛利</th><th>毛利率</th>
+                    </tr>
+                    <tr>
+                        <td>自動升降門底靜音條</td><td>砂銀</td><td>0.5</td>
+                        <td class="cost">￥72</td><td>$360</td><td>$50</td><td>$410</td>
+                        <td class="price">$2,080</td><td>$1,670</td><td class="profit profit-high">80.3%</td>
+                    </tr>
+                    <tr>
+                        <td>AAS液壓中軸</td><td>150KG</td><td>3.5</td>
+                        <td class="cost">￥633</td><td>$3,165</td><td>$350</td><td>$3,515</td>
+                        <td class="price">$18,080</td><td>$14,565</td><td class="profit profit-high">80.6%</td>
+                    </tr>
+                    <tr>
+                        <td>HDS反彈器</td><td>明裝帶磁</td><td>0.02</td>
+                        <td class="cost">￥3</td><td>$15</td><td>$2</td><td>$17</td>
+                        <td class="price">$80</td><td>$63</td><td class="profit profit-mid">78.8%</td>
+                    </tr>
+                    <tr>
+                        <td>LAMP碰珠</td><td>黑色</td><td>0.03</td>
+                        <td class="cost">￥33</td><td>$165</td><td>$3</td><td>$168</td>
+                        <td class="price">$980</td><td>$812</td><td class="profit profit-high">82.9%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 綜合分析 -->
+        <div class="section">
+            <div class="section-title">綜合分析與建議</div>
+
+            <div class="summary-section">
+                <h4>毛利率分析</h4>
+                <table>
+                    <tr>
+                        <th>產品類別</th>
+                        <th>平均毛利率</th>
+                        <th>利潤空間評估</th>
+                        <th>建議策略</th>
+                    </tr>
+                    <tr>
+                        <td>門鎖類</td>
+                        <td class="profit profit-high">79.6-80.1%</td>
+                        <td>優秀</td>
+                        <td>主力推廣，可適度給經銷商折扣</td>
+                    </tr>
+                    <tr>
+                        <td>隱形鎖類</td>
+                        <td class="profit profit-high">79.8-80.4%</td>
+                        <td>優秀</td>
+                        <td>設計師通路主推</td>
+                    </tr>
+                    <tr>
+                        <td>滑門鎖類</td>
+                        <td class="profit profit-mid">30.4-34.1%</td>
+                        <td>一般</td>
+                        <td>低價策略搶市場，搭配穀倉門五金</td>
+                    </tr>
+                    <tr>
+                        <td>高端合頁</td>
+                        <td class="profit profit-high">81.6-81.7%</td>
+                        <td>極優</td>
+                        <td>利潤最高，重點培養</td>
+                    </tr>
+                    <tr>
+                        <td>一般合頁</td>
+                        <td class="profit profit-mid">77.1-80.8%</td>
+                        <td>良好</td>
+                        <td>搭配門鎖銷售</td>
+                    </tr>
+                    <tr>
+                        <td>門吸/地吸/門檔</td>
+                        <td class="profit profit-high">78.1-82.1%</td>
+                        <td>優秀</td>
+                        <td>配件類，搭售為主</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="compare-section">
+                <h4>經銷商折扣建議</h4>
+                <table class="compare-table">
+                    <tr>
+                        <th>經銷等級</th>
+                        <th>建議折扣</th>
+                        <th>折後毛利率</th>
+                        <th>備註</th>
+                    </tr>
+                    <tr>
+                        <td>一般經銷商</td>
+                        <td>牌價 × 0.7</td>
+                        <td>約 71%</td>
+                        <td>小量進貨</td>
+                    </tr>
+                    <tr>
+                        <td>重點經銷商</td>
+                        <td>牌價 × 0.6</td>
+                        <td>約 66%</td>
+                        <td>穩定配合</td>
+                    </tr>
+                    <tr>
+                        <td>大型專案</td>
+                        <td>牌價 × 0.5</td>
+                        <td>約 58%</td>
+                        <td>建案/飯店等大量採購</td>
+                    </tr>
+                    <tr>
+                        <td>底線價格</td>
+                        <td>牌價 × 0.4</td>
+                        <td>約 48%</td>
+                        <td>特殊情況，需主管核准</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 備註 -->
+        <div class="note-section">
+            <h3>重要備註</h3>
+            <ul>
+                <li><strong>本文件為內部機密，請勿外流</strong></li>
+                <li>匯率：1 RMB = 5 TWD（實際匯率波動需定期調整）</li>
+                <li>運費：以每公斤 NT$100 計算（海運+報關+內陸運輸）</li>
+                <li>重量為估算值，實際以出貨為準</li>
+                <li>毛利率計算：(牌價 - 總成本) / 牌價 × 100%</li>
+                <li>建議每季檢視成本結構，適時調整牌價</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>威思特(VSTE) 內部價格分析表 | 更新日期：2025-01-12 | 【內部機密】</p>
+        </footer>
+    </div>
+</body>
+</html>

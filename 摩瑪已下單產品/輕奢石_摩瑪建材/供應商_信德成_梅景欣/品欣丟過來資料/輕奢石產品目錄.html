@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信德成輕奢石產品目錄 - 詳細規格</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .brand-info {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .brand-info h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .brand-info p {
+            color: #555;
+            line-height: 1.8;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .stat-card .label {
+            color: #666;
+            margin-top: 5px;
+        }
+        .products-section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 25px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        .product-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+        .product-header .product-id {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .product-header h3 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        .product-header .original-name {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+        .product-body {
+            padding: 25px;
+        }
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .spec-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        .spec-item .spec-label {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        .spec-item .spec-value {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .spec-item.highlight {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+        }
+        .spec-item.weight-highlight {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+        }
+        .detail-section {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        .detail-row .label {
+            color: #666;
+        }
+        .detail-row .value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .features {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f0f4f8;
+            border-radius: 10px;
+        }
+        .features h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .features li {
+            padding: 5px 0;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .features li::before {
+            content: "✓ ";
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .category-section {
+            margin-top: 40px;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .category-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #9b59b6;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #f8f9fa;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: #f8f9fa;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .spec-grid {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>信德成輕奢石產品目錄</h1>
+            <p>SANTERSON MCM Flexible Stone - 台灣總代理產品規格總覽</p>
+        </header>
+
+        <div class="brand-info">
+            <h2>品牌資訊</h2>
+            <p><strong>供應商：</strong>信德成實業有限公司 (SANTERSON CHINA INDUSTRY CO.,LTD)</p>
+            <p><strong>地址：</strong>佛山市順德區龍江鎮寶涌工業大道西區一路8號萬洋眾創城二期B2棟101A</p>
+            <p><strong>聯繫方式：</strong>+86 139-2821-4007 / +86 180-2493-2201</p>
+            <p><strong>產品類型：</strong>MCM軟瓷大板（柔性飾面磚）</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="number">15</div>
+                <div class="label">產品款式</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">3.36</div>
+                <div class="label">單片面積 (㎡)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">16~25</div>
+                <div class="label">單片重量範圍 (kg)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">3~6</div>
+                <div class="label">厚度 (mm)</div>
+            </div>
+        </div>
+
+        <section class="products-section">
+            <h2>產品詳細規格</h2>
+            <div class="product-grid">
+
+                <!-- 產品 1 -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <span class="product-id">#01</span>
+                        <h3>大理白花</h3>
+                        <div class="original-name">原廠型號：大花白</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">16 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">382 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">4.76 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>經典大花白大理石紋理</li>
+                                <li>適用於室內外牆面裝飾</li>
+                                <li>柔性可彎曲，適應曲面施工</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 2 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);">
+                        <span class="product-id">#02</span>
+                        <h3>極地冰岩</h3>
+                        <div class="original-name">原廠型號：卡拉拉白</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">16 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">382 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">4.76 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>義大利卡拉拉白色調</li>
+                                <li>細緻優雅紋理</li>
+                                <li>適合高端空間裝飾</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 3 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);">
+                        <span class="product-id">#03</span>
+                        <h3>礦黑岩板</h3>
+                        <div class="original-name">原廠型號：古奇黑</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">16 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">382 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">4.76 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>深邃黑色礦石質感</li>
+                                <li>現代極簡風格首選</li>
+                                <li>耐髒易清潔</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 4 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
+                        <span class="product-id">#04</span>
+                        <h3>維多玄岩</h3>
+                        <div class="original-name">原廠型號：新維多利亞</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">16 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">382 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">4.76 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>維多利亞風格石紋</li>
+                                <li>優雅復古氣息</li>
+                                <li>適合歐式裝潢風格</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 5 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);">
+                        <span class="product-id">#05</span>
+                        <h3>幻境潘朵拉</h3>
+                        <div class="original-name">原廠型號：頂級潘多拉</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">16 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">382 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">4.76 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>頂級潘多拉石紋設計</li>
+                                <li>夢幻色彩紋理交織</li>
+                                <li>高端藝術空間首選</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 6 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #1e272e 0%, #485460 100%);">
+                        <span class="product-id">#06</span>
+                        <h3>玄武墨黑</h3>
+                        <div class="original-name">原廠型號：午夜-潛龍騰淵</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">21 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">425 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">6.25 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>午夜深黑色調</li>
+                                <li>潛龍紋理設計</li>
+                                <li>高級質感呈現</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 7 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #ffeaa7 0%, #dfe6e9 100%); color: #2d3436;">
+                        <span class="product-id">#07</span>
+                        <h3>義式金絲</h3>
+                        <div class="original-name">原廠型號：義大利白花金</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">16 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">382 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">4.76 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>義大利白花金紋理</li>
+                                <li>金絲細紋點綴</li>
+                                <li>奢華典雅風格</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 8 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%); color: #2d3436;">
+                        <span class="product-id">#08</span>
+                        <h3>羅馬洞石-米</h3>
+                        <div class="original-name">原廠型號：羅馬大洞石米白色</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">20 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">293 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">5.95 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>經典羅馬洞石紋理</li>
+                                <li>米白色溫潤質感</li>
+                                <li>適合地中海風格</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 9 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);">
+                        <span class="product-id">#09</span>
+                        <h3>羅馬金砂-黃</h3>
+                        <div class="original-name">原廠型號：羅馬柱黃色</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">25 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">425 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">7.44 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>羅馬柱黃色調</li>
+                                <li>金砂質感紋理</li>
+                                <li>古典歐式風格</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 10 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);">
+                        <span class="product-id">#10</span>
+                        <h3>流沙琥珀</h3>
+                        <div class="original-name">原廠型號：砂岩米棕色</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">20 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">425 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">5.95 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>砂岩米棕色調</li>
+                                <li>流沙琥珀般溫潤</li>
+                                <li>自然質樸風格</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 11 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #2d3436 0%, #000000 100%);">
+                        <span class="product-id">#11</span>
+                        <h3>碳燒木-黑</h3>
+                        <div class="original-name">原廠型號：鋸台木紋黑色</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">22 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">432 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">6.55 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>鋸台木紋黑色設計</li>
+                                <li>碳燒復古質感</li>
+                                <li>工業風格首選</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 12 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #b8860b 0%, #8b4513 100%);">
+                        <span class="product-id">#12</span>
+                        <h3>水洗鏽金</h3>
+                        <div class="original-name">原廠型號：毛面水洗面鏽石板</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">19 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">476 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">5.65 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>毛面水洗鏽石質感</li>
+                                <li>金屬鏽蝕復古風</li>
+                                <li>獨特藝術表現力</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 13 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #b2bec3 0%, #636e72 100%);">
+                        <span class="product-id">#13</span>
+                        <h3>水泥澆鑄-米白</h3>
+                        <div class="original-name">原廠型號：水泥澆筑板米白色</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">23 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">338 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">6.85 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>水泥澆鑄紋理</li>
+                                <li>清水模質感呈現</li>
+                                <li>現代簡約風格</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 14 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);">
+                        <span class="product-id">#14</span>
+                        <h3>卡斯灰鑽</h3>
+                        <div class="original-name">原廠型號：卡斯蘭</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">21 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">497 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">6.25 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>卡斯蘭灰色紋理</li>
+                                <li>鑽石般閃耀質感</li>
+                                <li>高端奢華定位</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 產品 15 -->
+                <div class="product-card">
+                    <div class="product-header" style="background: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%); color: #2d3436;">
+                        <span class="product-id">#15</span>
+                        <h3>編織岩-米白</h3>
+                        <div class="original-name">原廠型號：麻編米白色</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="spec-grid">
+                            <div class="spec-item highlight">
+                                <div class="spec-label">規格尺寸</div>
+                                <div class="spec-value">1200 × 2800 mm</div>
+                            </div>
+                            <div class="spec-item highlight">
+                                <div class="spec-label">單片面積</div>
+                                <div class="spec-value">3.36 ㎡</div>
+                            </div>
+                            <div class="spec-item weight-highlight">
+                                <div class="spec-label">單片重量</div>
+                                <div class="spec-value">22 kg</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">原廠單價</div>
+                                <div class="spec-value">405 RMB/㎡</div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="label">寬度</span>
+                                <span class="value">1200 mm (120 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">長度</span>
+                                <span class="value">2800 mm (280 cm)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">厚度</span>
+                                <span class="value">3~6 mm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">重量密度</span>
+                                <span class="value">6.55 kg/㎡</span>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <h4>產品特性</h4>
+                            <ul>
+                                <li>麻編紋理設計</li>
+                                <li>米白色自然調性</li>
+                                <li>北歐簡約風格</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 規格總覽表格 -->
+        <section class="category-section">
+            <h2>產品規格總覽表</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>序號</th>
+                        <th>產品名稱</th>
+                        <th>原廠型號</th>
+                        <th>規格 (mm)</th>
+                        <th>面積 (㎡)</th>
+                        <th>重量 (kg/片)</th>
+                        <th>原廠單價 (RMB/㎡)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>大理白花</td><td>大花白</td><td>1200 × 2800</td><td>3.36</td><td><strong>16</strong></td><td>382</td></tr>
+                    <tr><td>2</td><td>極地冰岩</td><td>卡拉拉白</td><td>1200 × 2800</td><td>3.36</td><td><strong>16</strong></td><td>382</td></tr>
+                    <tr><td>3</td><td>礦黑岩板</td><td>古奇黑</td><td>1200 × 2800</td><td>3.36</td><td><strong>16</strong></td><td>382</td></tr>
+                    <tr><td>4</td><td>維多玄岩</td><td>新維多利亞</td><td>1200 × 2800</td><td>3.36</td><td><strong>16</strong></td><td>382</td></tr>
+                    <tr><td>5</td><td>幻境潘朵拉</td><td>頂級潘多拉</td><td>1200 × 2800</td><td>3.36</td><td><strong>16</strong></td><td>382</td></tr>
+                    <tr><td>6</td><td>玄武墨黑</td><td>午夜-潛龍騰淵</td><td>1200 × 2800</td><td>3.36</td><td><strong>21</strong></td><td>425</td></tr>
+                    <tr><td>7</td><td>義式金絲</td><td>義大利白花金</td><td>1200 × 2800</td><td>3.36</td><td><strong>16</strong></td><td>382</td></tr>
+                    <tr><td>8</td><td>羅馬洞石-米</td><td>羅馬大洞石米白色</td><td>1200 × 2800</td><td>3.36</td><td><strong>20</strong></td><td>293</td></tr>
+                    <tr><td>9</td><td>羅馬金砂-黃</td><td>羅馬柱黃色</td><td>1200 × 2800</td><td>3.36</td><td><strong>25</strong></td><td>425</td></tr>
+                    <tr><td>10</td><td>流沙琥珀</td><td>砂岩米棕色</td><td>1200 × 2800</td><td>3.36</td><td><strong>20</strong></td><td>425</td></tr>
+                    <tr><td>11</td><td>碳燒木-黑</td><td>鋸台木紋黑色</td><td>1200 × 2800</td><td>3.36</td><td><strong>22</strong></td><td>432</td></tr>
+                    <tr><td>12</td><td>水洗鏽金</td><td>毛面水洗面鏽石板</td><td>1200 × 2800</td><td>3.36</td><td><strong>19</strong></td><td>476</td></tr>
+                    <tr><td>13</td><td>水泥澆鑄-米白</td><td>水泥澆筑板米白色</td><td>1200 × 2800</td><td>3.36</td><td><strong>23</strong></td><td>338</td></tr>
+                    <tr><td>14</td><td>卡斯灰鑽</td><td>卡斯蘭</td><td>1200 × 2800</td><td>3.36</td><td><strong>21</strong></td><td>497</td></tr>
+                    <tr><td>15</td><td>編織岩-米白</td><td>麻編米白色</td><td>1200 × 2800</td><td>3.36</td><td><strong>22</strong></td><td>405</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 產品技術規格 -->
+        <section class="category-section">
+            <h2>產品技術規格說明</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 10px;">材質成分</h4>
+                    <p style="color: #555; line-height: 1.8;">MCM軟瓷（Modified Clay Material），主要成分為改性無機粉料、水性樹脂乳液及各種添加劑，經特殊工藝複合而成的柔性飾面材料。</p>
+                </div>
+                <div style="background: #fff3e0; padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 10px;">重量規格</h4>
+                    <p style="color: #555; line-height: 1.8;">
+                        <strong>統一規格：</strong>1200 × 2800 mm<br>
+                        <strong>單片面積：</strong>3.36 ㎡<br>
+                        <strong>重量範圍：</strong>16 ~ 25 kg/片<br>
+                        <strong>重量密度：</strong>4.76 ~ 7.44 kg/㎡
+                    </p>
+                </div>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 10px;">適用範圍</h4>
+                    <p style="color: #555; line-height: 1.8;">室內外牆面裝飾、電視背景牆、玄關裝飾、商業空間、展示空間、曲面牆體包覆、柱體裝飾等。</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 10px;">產品優勢</h4>
+                    <p style="color: #555; line-height: 1.8;">
+                        • 重量輕（僅天然石材1/10）<br>
+                        • 柔性可彎曲<br>
+                        • 防火阻燃<br>
+                        • 環保無毒<br>
+                        • 施工便捷
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>信德成輕奢石產品目錄 | 台灣總代理</p>
+            <p>資料整合日期：2025年</p>
+        </footer>
+    </div>
+</body>
+</html>

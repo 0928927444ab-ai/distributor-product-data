@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物流比較 - 和穎國際 vs 飛翔物流</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft JhengHei", "微軟正黑體", sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        h2 {
+            color: #34495e;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #2c3e50;
+            font-size: 20px;
+        }
+
+        /* 比較卡片 */
+        .compare-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .card {
+            border-radius: 12px;
+            padding: 25px;
+            color: #fff;
+        }
+        .card.heying {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+        .card.feixiang {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .card-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .card-item:last-child {
+            border-bottom: none;
+        }
+        .card-item .label {
+            opacity: 0.9;
+        }
+        .card-item .value {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* 表格 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 14px 12px;
+            text-align: center;
+        }
+        th {
+            background: #34495e;
+            color: #fff;
+            font-weight: 600;
+        }
+        th.heying {
+            background: #3498db;
+        }
+        th.feixiang {
+            background: #e74c3c;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        tr:hover {
+            background: #eef5fc;
+        }
+        .highlight {
+            background: #fff3cd !important;
+            font-weight: bold;
+        }
+
+        /* 價格強調 */
+        .price-blue {
+            color: #3498db;
+            font-weight: bold;
+        }
+        .price-red {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* 建議框 */
+        .recommendation {
+            background: #e8f6e8;
+            border-left: 4px solid #27ae60;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .recommendation h3 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        .recommendation ul {
+            padding-left: 20px;
+        }
+        .recommendation li {
+            margin: 8px 0;
+        }
+
+        /* 公式框 */
+        .formula-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .formula-box {
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .formula-box.heying {
+            background: #e8f4fc;
+            border: 2px solid #3498db;
+        }
+        .formula-box.feixiang {
+            background: #fdf2f2;
+            border: 2px solid #e74c3c;
+        }
+        .formula-box h4 {
+            margin-bottom: 10px;
+        }
+        .formula-box.heying h4 {
+            color: #3498db;
+        }
+        .formula-box.feixiang h4 {
+            color: #e74c3c;
+        }
+        .formula {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            background: #fff;
+            border-radius: 4px;
+        }
+
+        /* 情境表格 */
+        .scenario-table th:first-child {
+            background: #34495e;
+        }
+
+        .winner {
+            background: #d5f4e6 !important;
+            font-weight: bold;
+        }
+        .winner::after {
+            content: " ✓";
+            color: #27ae60;
+        }
+
+        .note {
+            background: #ffeaa7;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #95a5a6;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>物流比較 - 和穎國際 vs 飛翔物流</h1>
+        <p class="subtitle">分析日期：2025-01-14 ｜ 樂莫集團內部教育訓練</p>
+
+        <!-- 總覽比較卡片 -->
+        <h2>一、基本資訊比較</h2>
+        <div class="compare-cards">
+            <div class="card heying">
+                <h3>和穎國際集運</h3>
+                <div class="card-item">
+                    <span class="label">計費方式</span>
+                    <span class="value">按材積 (m³)</span>
+                </div>
+                <div class="card-item">
+                    <span class="label">運費單價</span>
+                    <span class="value">3,000 NT/m³</span>
+                </div>
+                <div class="card-item">
+                    <span class="label">目的港口</span>
+                    <span class="value">台中</span>
+                </div>
+                <div class="card-item">
+                    <span class="label">適合貨品</span>
+                    <span class="value">輕量大體積</span>
+                </div>
+                <div class="card-item">
+                    <span class="label">統計批次</span>
+                    <span class="value">7 批</span>
+                </div>
+                <div class="card-item">
+                    <span class="label">總運費支出</span>
+                    <span class="value">59,330 NT</span>
+                </div>
+            </div>
+            <div class="card feixiang">
+                <h3>飛翔物流</h3>
+                <div class="card-item">
+                    <span class="label">計費方式</span>
+                    <span class="value">按重量 (KG)</span>
+                </div>
+                <div class="card-item">
+                    <span class="label">運費單價</span>
+                    <span class="value">25~55 NT/KG</span>
+                </div>
+                <div class="card-item">
+                    <span class="label">目的港口</span>
+                    <span class="value">台灣各地</span>
+                </div>
+                <div class="card-item">
+                    <span class="label">適合貨品</span>
+                    <span class="value">重量型小體積</span>
+                </div>
+                <div class="card-item">
+                    <span class="label">統計批次</span>
+                    <span class="value">5 批</span>
+                </div>
+                <div class="card-item">
+                    <span class="label">總運費支出</span>
+                    <span class="value">12,565 NT</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 計費公式比較 -->
+        <h2>二、計費公式比較</h2>
+        <div class="formula-compare">
+            <div class="formula-box heying">
+                <h4>和穎國際</h4>
+                <div class="formula">材積(m³) × 3,000 + 額外費用</div>
+            </div>
+            <div class="formula-box feixiang">
+                <h4>飛翔物流</h4>
+                <div class="formula">重量(KG) × 25~55 + 派送費</div>
+            </div>
+        </div>
+
+        <!-- 詳細比較表格 -->
+        <h2>三、詳細項目比較</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>比較項目</th>
+                    <th class="heying">和穎國際</th>
+                    <th class="feixiang">飛翔物流</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>計費單位</strong></td>
+                    <td class="price-blue">材積 (m³)</td>
+                    <td class="price-red">重量 (KG)</td>
+                </tr>
+                <tr>
+                    <td><strong>基本單價</strong></td>
+                    <td class="price-blue">3,000 NT/m³</td>
+                    <td class="price-red">25 NT/KG (FAC/FAH)<br>55 NT/KG (XB)</td>
+                </tr>
+                <tr>
+                    <td><strong>額外費用</strong></td>
+                    <td>稅金、叉車費、堆高機費、服務費</td>
+                    <td>台灣派送費 (800~1,200)</td>
+                </tr>
+                <tr>
+                    <td><strong>額外費用佔比</strong></td>
+                    <td>約 37.5%</td>
+                    <td>約 23.9%</td>
+                </tr>
+                <tr>
+                    <td><strong>主要貨品</strong></td>
+                    <td>軟石、浴室門、家具、五金</td>
+                    <td>合頁、鋁材、淋浴門配件</td>
+                </tr>
+                <tr>
+                    <td><strong>優勢</strong></td>
+                    <td>大型輕量貨品划算</td>
+                    <td>小型重物划算</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 情境模擬 -->
+        <h2>四、運費情境模擬</h2>
+        <p style="color:#666; margin-bottom:15px;">假設不同貨品類型，比較兩家運費差異：</p>
+        <table class="scenario-table">
+            <thead>
+                <tr>
+                    <th>貨品情境</th>
+                    <th>規格</th>
+                    <th class="heying">和穎 (NT)</th>
+                    <th class="feixiang">飛翔 (NT)</th>
+                    <th>建議選擇</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>五金合頁</strong><br>(重量型)</td>
+                    <td>80 KG / 0.1 m³</td>
+                    <td>300</td>
+                    <td class="winner">2,000</td>
+                    <td class="price-blue">和穎</td>
+                </tr>
+                <tr>
+                    <td><strong>鋁材長料</strong><br>(長型)</td>
+                    <td>20 KG / 0.05 m³</td>
+                    <td>150</td>
+                    <td>500 + 派送</td>
+                    <td class="price-blue">和穎</td>
+                </tr>
+                <tr>
+                    <td><strong>軟石板材</strong><br>(大型輕量)</td>
+                    <td>50 KG / 1.0 m³</td>
+                    <td>3,000</td>
+                    <td class="winner">1,250</td>
+                    <td class="price-red">飛翔</td>
+                </tr>
+                <tr>
+                    <td><strong>淋浴門</strong><br>(大型重量)</td>
+                    <td>100 KG / 0.5 m³</td>
+                    <td class="winner">1,500</td>
+                    <td>2,500</td>
+                    <td class="price-blue">和穎</td>
+                </tr>
+                <tr>
+                    <td><strong>門鎖五金</strong><br>(小型重物)</td>
+                    <td>50 KG / 0.08 m³</td>
+                    <td class="winner">240</td>
+                    <td>1,250</td>
+                    <td class="price-blue">和穎</td>
+                </tr>
+                <tr>
+                    <td><strong>展示架</strong><br>(大型輕量)</td>
+                    <td>30 KG / 2.0 m³</td>
+                    <td>6,000</td>
+                    <td class="winner">750</td>
+                    <td class="price-red">飛翔</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 損益平衡點 -->
+        <h2>五、損益平衡點分析</h2>
+        <div class="note">
+            <strong>關鍵公式：</strong>當 材積(m³) × 3,000 = 重量(KG) × 25 時，兩家運費相等<br><br>
+            <strong>換算：</strong>1 m³ 的貨品，若重量 < 120 KG → 選和穎較划算<br>
+            <strong>換算：</strong>1 m³ 的貨品，若重量 > 120 KG → 選飛翔較划算
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>密度 (KG/m³)</th>
+                    <th>說明</th>
+                    <th>建議物流</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>< 120</td>
+                    <td>輕量型（泡棉、展架、塑膠製品）</td>
+                    <td class="price-blue"><strong>和穎國際</strong></td>
+                </tr>
+                <tr class="highlight">
+                    <td>= 120</td>
+                    <td>損益平衡點</td>
+                    <td>兩者相同</td>
+                </tr>
+                <tr>
+                    <td>> 120</td>
+                    <td>重量型（五金、金屬、石材）</td>
+                    <td class="price-red"><strong>飛翔物流</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 選擇建議 -->
+        <h2>六、選擇建議</h2>
+        <div class="recommendation">
+            <h3>貨品類型建議</h3>
+            <ul>
+                <li><strong>五金配件（合頁、門鎖、滑軌）</strong>→ 密度高，建議 <span class="price-red">飛翔物流</span></li>
+                <li><strong>軟石、輕奢石板材</strong>→ 大面積輕量，建議 <span class="price-blue">和穎國際</span></li>
+                <li><strong>淋浴門、玻璃製品</strong>→ 中等密度，需個案比較</li>
+                <li><strong>展示架、貨架</strong>→ 體積大重量輕，建議 <span class="price-blue">和穎國際</span></li>
+                <li><strong>鋁型材（長料）</strong>→ 需派送費，建議 <span class="price-blue">和穎國際</span></li>
+                <li><strong>木門整門</strong>→ 大型重量，建議個案報價比較</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            <strong>注意事項：</strong>
+            <ul style="margin-top:10px; padding-left:20px;">
+                <li>以上比較基於現有資料，實際費用請以報價為準</li>
+                <li>飛翔物流 XB 系列單價較高（55 NT/KG），需確認適用條件</li>
+                <li>和穎國際額外費用較多，需計入總成本評估</li>
+                <li>建議大宗貨品先向兩家詢價再決定</li>
+            </ul>
+        </div>
+
+        <footer>
+            樂莫集團 - 內部教育訓練資料 ｜ 製表日期：2025-01-14
+        </footer>
+    </div>
+</body>
+</html>

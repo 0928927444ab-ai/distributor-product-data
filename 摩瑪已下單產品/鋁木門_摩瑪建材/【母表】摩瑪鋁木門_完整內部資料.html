@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摩瑪鋁木門 完整內部資料【母表】</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e8e8e8; line-height: 1.6; padding: 20px; min-height: 100vh;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header {
+            background: linear-gradient(135deg, #5D4037 0%, #3E2723 100%);
+            color: white; padding: 30px; border-radius: 15px;
+            margin-bottom: 30px; text-align: center;
+            box-shadow: 0 10px 40px rgba(93, 64, 55, 0.3);
+        }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .warning-badge {
+            background: rgba(0,0,0,0.3); padding: 10px 20px;
+            border-radius: 25px; display: inline-block; margin-top: 15px; font-weight: bold;
+        }
+        .section {
+            background: rgba(255,255,255,0.05); border-radius: 15px;
+            padding: 25px; margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .section h2 {
+            color: #ffd700; font-size: 1.5em; margin-bottom: 20px;
+            padding-bottom: 10px; border-bottom: 2px solid rgba(255,215,0,0.3);
+        }
+        .section h3 { color: #87ceeb; font-size: 1.2em; margin: 20px 0 15px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        th { background: rgba(255,215,0,0.15); color: #ffd700; font-weight: 600; font-size: 0.85em; }
+        tr:hover { background: rgba(255,255,255,0.05); }
+        .highlight { color: #00ff88; font-weight: bold; }
+        .price { color: #ffd700; font-weight: bold; }
+        td.right, th.right { text-align: right; }
+        .formula-box {
+            background: rgba(0,0,0,0.3); padding: 15px 20px; border-radius: 10px;
+            margin: 15px 0; border-left: 4px solid #ffd700;
+        }
+        .info-box {
+            background: rgba(135,206,235,0.1); padding: 15px 20px; border-radius: 10px;
+            margin: 15px 0; border-left: 4px solid #87ceeb;
+        }
+        .tip-box {
+            background: rgba(0,255,136,0.1); padding: 15px 20px; border-radius: 10px;
+            margin: 15px 0; border-left: 4px solid #00ff88;
+        }
+        .warning-box {
+            background: rgba(255,107,107,0.1); padding: 15px 20px; border-radius: 10px;
+            margin: 15px 0; border-left: 4px solid #ff6b6b;
+        }
+        .supplier-info {
+            background: rgba(93,64,55,0.15); border: 1px solid rgba(93,64,55,0.3);
+            padding: 20px; border-radius: 10px; margin-bottom: 15px;
+        }
+        .status-badge {
+            display: inline-block; padding: 5px 12px; border-radius: 15px;
+            font-size: 0.85em; font-weight: bold;
+        }
+        .status-shipped { background: #00ff88; color: #000; }
+        .status-pending { background: #ffd700; color: #000; }
+        .status-draft { background: #888; color: #fff; }
+        .grid-2 {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 25px;
+        }
+        .card {
+            background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .card h4 { color: #87ceeb; margin-bottom: 15px; font-size: 1.1em; }
+        .card ul { list-style: none; padding: 0; }
+        .card li { padding: 8px 0; padding-left: 25px; position: relative; }
+        .card li::before { content: "\2022"; position: absolute; left: 0; color: #ffd700; }
+        .footer {
+            text-align: center; padding: 30px; margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1); color: #888;
+        }
+        .footer .company { font-size: 1.2em; color: #ffd700; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>摩瑪鋁木門 完整內部資料</h1>
+            <p>樂莫集團 摩瑪建材 | www.themore-tw.com</p>
+            <div class="warning-badge">機密文件 - 僅供內部使用，嚴禁外流</div>
+        </div>
+
+        <!-- 統計卡片 -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 30px;">
+            <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,255,136,0.1)); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,215,0,0.3);">
+                <div style="font-size: 2em; color: #ffd700; font-weight: bold;">2</div>
+                <div style="color: #888; margin-top: 5px;">供應商</div>
+            </div>
+            <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,255,136,0.1)); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,215,0,0.3);">
+                <div style="font-size: 2em; color: #00ff88; font-weight: bold;">2系列</div>
+                <div style="color: #888; margin-top: 5px;">1300高端 / 1800極簡</div>
+            </div>
+            <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,255,136,0.1)); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,215,0,0.3);">
+                <div style="font-size: 2em; color: #87ceeb; font-weight: bold;">16張</div>
+                <div style="color: #888; margin-top: 5px;">產品+工廠照片</div>
+            </div>
+        </div>
+
+        <!-- ====== LINE@ QR Code ====== -->
+        <div class="section">
+            <h2>📱 加入摩瑪建材 LINE@</h2>
+            <p style="margin-bottom:16px;">掃描 QR Code 加入好友，享最新優惠與產品資訊</p>
+            <div style="text-align:center;">
+                <img src="../LINE@%20QR扣.jpg" alt="摩瑪建材 LINE@ QR Code" style="max-width:200px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.1);">
+                <div style="margin-top:8px; font-weight:700;">摩瑪建材 LINE@</div>
+            </div>
+            <div class="warning-box">享有任何折扣前，須先加入 LINE@</div>
+        </div>
+
+        <!-- 供應商資訊 -->
+        <div class="section">
+            <h2>供應商資訊</h2>
+
+            <div class="supplier-info">
+                <h3>潤創威 (梅經綸)</h3>
+                <table>
+                    <tr><td style="width:120px;color:#ffd700">品牌</td><td>潤創威</td></tr>
+                    <tr><td style="color:#ffd700">聯絡人</td><td>梅經綸</td></tr>
+                    <tr><td style="color:#ffd700">產品範圍</td><td>無漆實木門、極簡木門、全屋定制</td></tr>
+                    <tr><td style="color:#ffd700">系列分級</td><td>1300系列（高端旗艦版） / 1800系列（極簡家居）</td></tr>
+                    <tr><td style="color:#ffd700">合約狀態</td><td><span class="status-badge status-shipped">已簽約</span> 授權代理合同</td></tr>
+                </table>
+            </div>
+
+            <div class="supplier-info">
+                <h3>致凱美學 (鋒哥)</h3>
+                <table>
+                    <tr><td style="width:120px;color:#ffd700">品牌</td><td>致凱美學</td></tr>
+                    <tr><td style="color:#ffd700">聯絡人</td><td>鋒哥</td></tr>
+                    <tr><td style="color:#ffd700">產品範圍</td><td>木門組</td></tr>
+                    <tr><td style="color:#ffd700">狀態</td><td>洽談中，目前僅有產品圖片(1張)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 產品型錄 -->
+        <div class="section">
+            <h2>產品型錄</h2>
+
+            <h3>1300系列 - 高端旗艦版</h3>
+            <div class="info-box">
+                無漆實木門，主打高端市場。
+            </div>
+            <table>
+                <tr><th>檔案</th><th>說明</th></tr>
+                <tr><td>润创威--高端旗舰版无漆实木门.pdf</td><td>旗艦版完整型錄</td></tr>
+                <tr><td>润创威（2025中英国际版） 改.pdf</td><td>2025中英文國際版型錄</td></tr>
+            </table>
+
+            <h3>1800系列 - 極簡家居</h3>
+            <div class="info-box">
+                極簡風格木門 + 全屋定制方案。
+            </div>
+            <table>
+                <tr><th>檔案</th><th>說明</th></tr>
+                <tr><td>润创威-木门+全屋定制.pdf</td><td>木門+全屋定制綜合型錄</td></tr>
+                <tr><td>润创威-极简家居木门系列.pdf</td><td>極簡家居木門系列</td></tr>
+            </table>
+        </div>
+
+        <!-- 報價 -->
+        <div class="section">
+            <h2>報價資訊</h2>
+            <div class="formula-box">
+                <strong>最新報價檔案：</strong>詹总-報價單.pdf<br>
+                <span style="color:#888">存放路徑：供應商_潤創威/木門組/報價單/</span>
+            </div>
+        </div>
+
+        <!-- 訂單記錄 -->
+        <div class="section">
+            <h2>訂單記錄</h2>
+            <table>
+                <tr><th>批次</th><th>日期</th><th>狀態</th><th>內容</th><th>檔案</th></tr>
+                <tr>
+                    <td>正式下單</td>
+                    <td>2025-12-01</td>
+                    <td><span class="status-badge status-shipped">已出貨</span></td>
+                    <td>台灣鋁木門訂單</td>
+                    <td>台湾铝木门20251206.xlsx</td>
+                </tr>
+                <tr>
+                    <td>集運</td>
+                    <td>2025-11-18</td>
+                    <td><span class="status-badge status-shipped">已出貨</span></td>
+                    <td>集運配送</td>
+                    <td>樂莫-詹家騏集運單JY251118.xlsx</td>
+                </tr>
+                <tr>
+                    <td>樣品</td>
+                    <td>2025-09</td>
+                    <td><span class="status-badge status-shipped">已確認</span></td>
+                    <td>門組樣品(含修訂版)</td>
+                    <td>門組樣品.docx / 門組樣品-1.docx</td>
+                </tr>
+                <tr>
+                    <td>草稿</td>
+                    <td>2025-09</td>
+                    <td><span class="status-badge status-draft">待確認</span></td>
+                    <td>初版樣品訂單(多版本)</td>
+                    <td>樣品訂單-台湾9-13 ~ 9-14(確認版).xlsx</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 合約文件 -->
+        <div class="section">
+            <h2>合約文件</h2>
+            <table>
+                <tr><th>檔案</th><th>說明</th></tr>
+                <tr><td>授權代理合同.docx</td><td>繁體版授權代理合同</td></tr>
+                <tr><td>授权代理合同 (2).docx</td><td>簡體版授權代理合同</td></tr>
+                <tr><td>合同第一頁.png / 第二頁.jpg / 第三頁.png</td><td>簽約合同掃描頁面</td></tr>
+            </table>
+        </div>
+
+        <!-- 產品圖片 -->
+        <div class="section">
+            <h2>產品圖片資料</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>產品圖片 (8張)</h4>
+                    <ul>
+                        <li>001.png ~ 004.png（產品正面照）</li>
+                        <li>01.png ~ 02.png（產品側面照）</li>
+                        <li>03.jpg ~ 04.jpg（安裝效果照）</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>工廠做門內容 (8張)</h4>
+                    <ul>
+                        <li>IMG_1240.JPG / IMG_1241.JPG</li>
+                        <li>工廠製程照片 x 6（hash命名.jpg）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 檔案路徑 -->
+        <div class="section">
+            <h2>檔案路徑總覽</h2>
+            <div class="info-box">
+                <strong>根目錄：</strong>鋁木門_摩瑪建材/<br><br>
+                <code style="color:#87ceeb">
+                鋁木門_摩瑪建材/<br>
+                &nbsp;&nbsp;【母表】摩瑪鋁木門_完整內部資料.html<br>
+                &nbsp;&nbsp;供應商_潤創威/<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;木門組/<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;報價單/ -- 詹总報價單.pdf<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;產品圖片/ -- 8張 + 工廠做門內容/(8張)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;訂單/<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20251201下單資料/ -- 台湾铝木门20251206.xlsx<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;草稿-待確認/ -- 4檔(樣品訂單各版本)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;合約文件/ -- 授權代理合同(5檔)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型錄/<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型錄-1300/ -- 高端旗艦(2檔)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型錄-1800/ -- 極簡家居(2檔)<br>
+                &nbsp;&nbsp;供應商_致凱美學/<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;木門組/<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;產品圖片/ -- 1張<br>
+                </code>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="company">摩瑪建材有限公司</div>
+            <p>最後更新：2026-01-26 | 本文件由系統自動產生</p>
+        </div>
+    </div>
+</body>
+</html>
