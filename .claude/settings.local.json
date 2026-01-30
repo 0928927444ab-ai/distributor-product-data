@@ -34,7 +34,21 @@
       "Bash(gh:*)",
       "Bash(winget install:*)",
       "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" --version)",
-      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" auth status)"
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" auth status)",
+      "Bash(powershell.exe -Command \"Get-ChildItem -Path ''C:\\\\Users\\\\詹家騏\\\\Desktop\\\\摩瑪建材產品線\\\\摩瑪已下單產品\\\\淋浴門_摩瑪建材'' -Recurse | Sort-Object FullName | ForEach-Object { if\\($_PSIsContainer\\) { $size = ''<DIR>'' } else { $size = ''{0,10:N1} KB'' -f \\($_Length/1KB\\) }; ''{0}  {1}'' -f $size, $_FullName }\")",
+      "Bash(powershell.exe -NoProfile -Command \"Get-ChildItem -Path ''C:\\\\Users\\\\詹家騏\\\\Desktop\\\\摩瑪建材產品線\\\\摩瑪已下單產品\\\\淋浴門_摩瑪建材'' -Recurse | Sort-Object FullName | ForEach-Object { if\\($_.PSIsContainer\\) { Write-Output \\(''<DIR>  '' + $_.FullName\\) } else { Write-Output \\(\\([math]::Round\\($_.Length/1KB,1\\)\\).ToString\\(\\).PadLeft\\(10\\) + '' KB  '' + $_.FullName\\) } }\")",
+      "Bash(powershell.exe -NoProfile -File -:*)",
+      "Bash(powershell.exe -NoProfile -Command \"[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; Get-ChildItem -Path ''C:\\\\Users\\\\詹家騏\\\\Desktop\\\\摩瑪建材產品線\\\\摩瑪已下單產品\\\\淋浴門_摩瑪建材'' -Recurse | Sort-Object FullName | Format-Table @{N=''Type'';E={if\\(\\\\`$_PSIsContainer\\){''DIR''}else{''File''}}}, @{N=''SizeKB'';E={if\\(\\\\`$_PSIsContainer\\){''''}else{[math]::Round\\(\\\\`$_Length/1KB,1\\)}}}, FullName -AutoSize -Wrap\")",
+      "Bash(cmd.exe:*)",
+      "Bash(where:*)",
+      "mcp__ide__executeCode",
+      "Bash(Start-Process \"c:\\\\Users\\\\詹家騏\\\\Desktop\\\\摩瑪建材產品線\\\\摩瑪已下單產品\\\\門用五金_摩瑪建材\\\\【母表】摩瑪門用五金\\(威斯特\\)_完整內部資料_家騏調整.html\")",
+      "Bash(git -C \"c:\\\\Users\\\\詹家騏\\\\Desktop\\\\摩瑪建材產品線\" status)",
+      "Bash(git -C \"c:\\\\Users\\\\詹家騏\\\\Desktop\\\\摩瑪建材產品線\" log --oneline -5)",
+      "Bash(git -C \"c:\\\\Users\\\\詹家騏\\\\Desktop\\\\摩瑪建材產品線\" status --short)",
+      "Bash(done)",
+      "Bash(ren:*)",
+      "Bash(git config:*)"
     ]
   }
 }
