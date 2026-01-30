@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摩瑪基礎五金（威斯特）完整內部資料【母表】</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft JhengHei", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            border-bottom: 3px solid #c9a227;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            font-size: 22px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .confidential {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px 16px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+            font-size: 14px;
+        }
+        .note-blue {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px 0;
+            font-size: 13px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 8px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        tr:hover {
+            background: #e8f4f8;
+        }
+        td:first-child, td:nth-child(2) {
+            text-align: left;
+        }
+        .price {
+            color: #27ae60;
+            font-weight: 600;
+        }
+        .cost {
+            color: #e67e22;
+        }
+        .stock-low {
+            background: #ffebee !important;
+            color: #c62828;
+            font-weight: bold;
+        }
+        .stock-ok {
+            color: #2e7d32;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ccc, transparent);
+            margin: 40px 0;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .summary-table th {
+            background: linear-gradient(135deg, #27ae60, #219a52);
+        }
+        .pricing-table th {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+        }
+        .section-7tier th {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        .section-4tier th {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; padding: 20px; }
+            table { font-size: 11px; }
+            th, td { padding: 6px 4px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>摩瑪基礎五金（威斯特）完整內部資料【母表】</h1>
+
+        <div class="confidential">
+            <strong>機密文件 - 僅供內部使用，嚴禁外流</strong><br>
+            樂莫集團 摩瑪建材 | www.themore-tw.com
+        </div>
+
+        <h2>定價體系</h2>
+
+        <h3>計算基準</h3>
+        <table>
+            <tr><th style="width:120px">項目</th><th>內容</th></tr>
+            <tr><td>匯率</td><td>1 RMB = 5 TWD</td></tr>
+            <tr><td>運費</td><td>$65/kg（大陸內部$15 + 大陸到台灣$50）</td></tr>
+        </table>
+
+        <h3>客戶層級與價格階梯（七層折數）</h3>
+        <div class="note note-blue">適用於：暗鉸鏈、明合頁</div>
+        <table class="pricing-table">
+            <tr>
+                <th>#</th>
+                <th>層級名稱</th>
+                <th>折數</th>
+                <th>消費門檻/資格條件</th>
+            </tr>
+            <tr><td>1</td><td>牌價（一般消費者）</td><td>10折</td><td>無門檻</td></tr>
+            <tr><td>2</td><td>門市滿額優惠A</td><td>-</td><td>單次消費滿$5,000，折$300</td></tr>
+            <tr><td>3</td><td>門市滿額優惠B</td><td>-</td><td>單次消費滿$10,000，折$800</td></tr>
+            <tr><td>4</td><td>門市滿額優惠C</td><td>9折</td><td>單次消費滿$15,000</td></tr>
+            <tr><td>5</td><td>設計師/工程行</td><td>7.5折</td><td>憑乙級技術士證照裝修</td></tr>
+            <tr><td>6</td><td>建材/五金行/BNI會員</td><td>6折</td><td>憑營利事業登記證或BNI會員</td></tr>
+            <tr><td>7</td><td>專案價</td><td>5折</td><td>單筆滿額$500,000以上</td></tr>
+            <tr><td>8</td><td>建材行專案價</td><td>4.5折</td><td>建材/五金行+單筆$500,000以上</td></tr>
+            <tr><td>9</td><td>經銷商</td><td>3.5折</td><td>另行洽談</td></tr>
+        </table>
+
+        <h3>客戶層級與價格階梯（四層折數）</h3>
+        <div class="note note-blue">適用於：一般合頁、門擋、門吸、靜音條</div>
+        <table class="pricing-table">
+            <tr>
+                <th>#</th>
+                <th>層級名稱</th>
+                <th>折數</th>
+                <th>消費門檻/資格條件</th>
+            </tr>
+            <tr><td>1</td><td>牌價（一般消費者）</td><td>10折</td><td>無門檻</td></tr>
+            <tr><td>2</td><td>門市滿額優惠A</td><td>-</td><td>單次消費滿$5,000，折$300</td></tr>
+            <tr><td>3</td><td>門市滿額優惠B</td><td>-</td><td>單次消費滿$10,000，折$800</td></tr>
+            <tr><td>4</td><td>門市滿額優惠C</td><td>9折</td><td>單次消費滿$15,000</td></tr>
+            <tr><td>6</td><td>建材/五金行/BNI會員</td><td>8折</td><td>同行價</td></tr>
+            <tr><td>9</td><td>經銷商</td><td>5折</td><td>另行洽談</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>暗鉸鏈（隱藏式）七層價目表</h2>
+        <div class="note">絞鏈：是隱藏的 ｜ 門市兩個滿額贈 ｜ 七層價格結構</div>
+
+        <h3>V-S3D 免開槽隱藏三維系列</h3>
+        <table class="section-7tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>類型</th>
+                <th>承重</th>
+                <th>門厚</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>7.5折</th>
+                <th>6折</th>
+                <th>5折</th>
+                <th>4.5折</th>
+                <th>3.5折</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>V-S3D-HL</td><td>免開_三維緩衝十字暗絞鏈S3D_黑鎳</td><td>液壓十字</td><td>20kg</td><td>35-60</td><td>黑鎳絲</td><td class="cost">￥253</td><td>$1,337</td><td class="price">$6,380</td><td>$5,742</td><td>$4,785</td><td>$3,828</td><td>$3,190</td><td>$2,871</td><td>$2,233</td><td class="stock-low">2</td></tr>
+            <tr><td>V-S3D-HL</td><td>免開_三維承重十字暗絞鏈S3D_黑鎳</td><td>承重十字</td><td>20kg</td><td>35-60</td><td>黑鎳絲</td><td class="cost">￥104</td><td>$572</td><td class="price">$3,380</td><td>$3,042</td><td>$2,535</td><td>$2,028</td><td>$1,690</td><td>$1,521</td><td>$1,183</td><td class="stock-low">1</td></tr>
+            <tr><td>V-S3D-HY</td><td>免開_三維緩衝十字暗絞鏈S3D_啞黑</td><td>液壓十字</td><td>20kg</td><td>35-60</td><td>啞黑</td><td class="cost">￥253</td><td>$1,337</td><td class="price">$6,380</td><td>$5,742</td><td>$4,785</td><td>$3,828</td><td>$3,190</td><td>$2,871</td><td>$2,233</td><td class="stock-low">2</td></tr>
+            <tr><td>V-S3D-HY</td><td>免開_三維承重十字暗絞鏈S3D_啞黑</td><td>承重十字</td><td>20kg</td><td>35-60</td><td>啞黑</td><td class="cost">￥104</td><td>$572</td><td class="price">$3,380</td><td>$3,042</td><td>$2,535</td><td>$2,028</td><td>$1,690</td><td>$1,521</td><td>$1,183</td><td class="stock-low">1</td></tr>
+        </table>
+
+        <h3>V-N3D 極窄隱藏三維系列</h3>
+        <table class="section-7tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>類型</th>
+                <th>承重</th>
+                <th>門厚</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>7.5折</th>
+                <th>6折</th>
+                <th>5折</th>
+                <th>4.5折</th>
+                <th>3.5折</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>V-N3D-HL</td><td>半開_三維緩衝十字暗絞鏈N3D_黑鎳</td><td>液壓十字</td><td>25kg</td><td>35-60</td><td>黑鎳絲</td><td class="cost">￥277</td><td>$1,457</td><td class="price">$6,180</td><td>$5,562</td><td>$4,635</td><td>$3,708</td><td>$3,090</td><td>$2,781</td><td>$2,163</td><td class="stock-low">2</td></tr>
+            <tr><td>V-N3D-HL</td><td>半開_三維承重十字暗絞鏈N3D_黑鎳</td><td>承重十字</td><td>25kg</td><td>35-60</td><td>黑鎳絲</td><td class="cost">￥116</td><td>$632</td><td class="price">$3,180</td><td>$2,862</td><td>$2,385</td><td>$1,908</td><td>$1,590</td><td>$1,431</td><td>$1,113</td><td class="stock-low">1</td></tr>
+            <tr><td>V-N3D-HY</td><td>半開_三維緩衝十字暗絞鏈N3D_啞黑</td><td>液壓十字</td><td>25kg</td><td>35-60</td><td>啞黑</td><td class="cost">￥277</td><td>$1,457</td><td class="price">$6,180</td><td>$5,562</td><td>$4,635</td><td>$3,708</td><td>$3,090</td><td>$2,781</td><td>$2,163</td><td class="stock-low">2</td></tr>
+            <tr><td>V-N3D-HY</td><td>半開_三維承重十字暗絞鏈N3D_啞黑</td><td>承重十字</td><td>25kg</td><td>35-60</td><td>啞黑</td><td class="cost">￥116</td><td>$632</td><td class="price">$3,180</td><td>$2,862</td><td>$2,385</td><td>$1,908</td><td>$1,590</td><td>$1,431</td><td>$1,113</td><td class="stock-low">1</td></tr>
+        </table>
+
+        <h3>V-H3D 三維調節隱藏系列</h3>
+        <table class="section-7tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>類型</th>
+                <th>承重</th>
+                <th>門厚</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>7.5折</th>
+                <th>6折</th>
+                <th>5折</th>
+                <th>4.5折</th>
+                <th>3.5折</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>V-H3D-HL</td><td>全開_三維緩衝十字暗絞鏈H3D_黑鎳</td><td>液壓十字</td><td>30kg</td><td>42-60</td><td>黑鎳絲</td><td class="cost">￥325</td><td>$1,697</td><td class="price">$5,980</td><td>$5,382</td><td>$4,485</td><td>$3,588</td><td>$2,990</td><td>$2,691</td><td>$2,093</td><td class="stock-low">2</td></tr>
+            <tr><td>V-H3D-HL</td><td>全開_三維承重十字暗絞鏈H3D_黑鎳</td><td>承重十字</td><td>30kg</td><td>42-60</td><td>黑鎳絲</td><td class="cost">￥135</td><td>$727</td><td class="price">$2,980</td><td>$2,682</td><td>$2,235</td><td>$1,788</td><td>$1,490</td><td>$1,341</td><td>$1,043</td><td class="stock-low">1</td></tr>
+            <tr><td>V-H3D-HY</td><td>全開_三維緩衝十字暗絞鏈H3D_啞黑</td><td>液壓十字</td><td>30kg</td><td>42-60</td><td>啞黑</td><td class="cost">￥325</td><td>$1,697</td><td class="price">$5,980</td><td>$5,382</td><td>$4,485</td><td>$3,588</td><td>$2,990</td><td>$2,691</td><td>$2,093</td><td class="stock-low">2</td></tr>
+            <tr><td>V-H3D-HY</td><td>全開_三維承重十字暗絞鏈H3D_啞黑</td><td>承重十字</td><td>30kg</td><td>42-60</td><td>啞黑</td><td class="cost">￥135</td><td>$727</td><td class="price">$2,980</td><td>$2,682</td><td>$2,235</td><td>$1,788</td><td>$1,490</td><td>$1,341</td><td>$1,043</td><td class="stock-low">1</td></tr>
+        </table>
+
+        <h3>V-60K 三維調節隱藏合頁60KG系列</h3>
+        <table class="section-7tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>類型</th>
+                <th>承重</th>
+                <th>門厚</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>7.5折</th>
+                <th>6折</th>
+                <th>5折</th>
+                <th>4.5折</th>
+                <th>3.5折</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>V-60K-KQ</td><td>普_三維十字暗絞鏈60K_卡其</td><td>一般十字</td><td>30kg</td><td>36-55</td><td>卡其</td><td class="cost">￥72</td><td>$425</td><td class="price">$1,480</td><td>$1,332</td><td>$1,110</td><td>$888</td><td>$740</td><td>$666</td><td>$518</td><td class="stock-ok">4</td></tr>
+            <tr><td>V-60K-CUS</td><td>普_三維十字暗絞鏈60K_金絲</td><td>一般十字</td><td>30kg</td><td>36-55</td><td>金絲</td><td class="cost">￥72</td><td>$425</td><td class="price">$1,480</td><td>$1,332</td><td>$1,110</td><td>$888</td><td>$740</td><td>$666</td><td>$518</td><td class="stock-ok">4</td></tr>
+            <tr><td>V-60K-HL</td><td>普_三維十字暗絞鏈60K_黑鎳</td><td>一般十字</td><td>30kg</td><td>36-55</td><td>黑鎳絲</td><td class="cost">￥66</td><td>$395</td><td class="price">$1,380</td><td>$1,242</td><td>$1,035</td><td>$828</td><td>$690</td><td>$621</td><td>$483</td><td class="stock-ok">4</td></tr>
+            <tr><td>V-60K-HY</td><td>普_三維十字暗絞鏈60K_啞黑</td><td>一般十字</td><td>30kg</td><td>36-55</td><td>啞黑</td><td class="cost">￥60</td><td>$365</td><td class="price">$1,280</td><td>$1,152</td><td>$960</td><td>$768</td><td>$640</td><td>$576</td><td>$448</td><td class="stock-ok">4</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>明合頁（外露式）七層價目表</h2>
+        <div class="note">合頁：是外露的 ｜ 門市兩個滿額贈 ｜ 七層價格結構</div>
+
+        <h3>ST-5H/5B 五吋合頁系列</h3>
+        <table class="section-7tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>類型</th>
+                <th>承重</th>
+                <th>門厚</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>7.5折</th>
+                <th>6折</th>
+                <th>5折</th>
+                <th>4.5折</th>
+                <th>3.5折</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>ST-5H-TKH</td><td>五吋_自動回歸合頁5H_黑</td><td>液壓合頁</td><td>25kg</td><td>35-55</td><td>太空黑</td><td class="cost">￥82</td><td>$475</td><td class="price">$1,680</td><td>$1,512</td><td>$1,260</td><td>$1,008</td><td>$840</td><td>$756</td><td>$588</td><td class="stock-ok">24</td></tr>
+            <tr><td>ST-5H-TKG</td><td>五吋_自動回歸合頁5H_灰</td><td>液壓合頁</td><td>25kg</td><td>35-55</td><td>太空灰</td><td class="cost">￥82</td><td>$475</td><td class="price">$1,680</td><td>$1,512</td><td>$1,260</td><td>$1,008</td><td>$840</td><td>$756</td><td>$588</td><td class="stock-ok">10</td></tr>
+            <tr><td>ST-5B-TKH</td><td>五吋_承重合頁5B_黑</td><td>承重合頁</td><td>25kg</td><td>35-55</td><td>太空黑</td><td class="cost">￥36</td><td>$245</td><td class="price">$880</td><td>$792</td><td>$660</td><td>$528</td><td>$440</td><td>$396</td><td>$308</td><td class="stock-ok">4</td></tr>
+            <tr><td>ST-5B-TKG</td><td>五吋_承重合頁5B_灰</td><td>承重合頁</td><td>25kg</td><td>35-55</td><td>太空灰</td><td class="cost">￥36</td><td>$245</td><td class="price">$880</td><td>$792</td><td>$660</td><td>$528</td><td>$440</td><td>$396</td><td>$308</td><td class="stock-low">2</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>一般合頁（外露式）四層價目表</h2>
+        <div class="note">合頁：是外露的 ｜ 門市兩個滿額贈 ｜ 四層價格結構（簡化版）</div>
+
+        <h3>ST-4I 四吋意式平開合頁系列</h3>
+        <table class="section-4tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>類型</th>
+                <th>承重</th>
+                <th>門厚</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>8折(同行)</th>
+                <th>5折(經銷)</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>ST-4I-GS</td><td>四吋_極簡合頁兩片_白鐵</td><td>一般合頁</td><td>20kg</td><td>30-45</td><td>鋼絲</td><td class="cost">￥18</td><td>$113</td><td class="price">$268</td><td>$241</td><td>$214</td><td>$134</td><td class="stock-ok">5</td></tr>
+            <tr><td>ST-4I-CUS</td><td>四吋_極簡合頁兩片_金絲</td><td>一般合頁</td><td>20kg</td><td>30-45</td><td>金絲</td><td class="cost">￥26</td><td>$153</td><td class="price">$368</td><td>$331</td><td>$294</td><td>$184</td><td class="stock-ok">5</td></tr>
+            <tr><td>ST-4I-YB</td><td>四吋_極簡合頁兩片_啞白</td><td>一般合頁</td><td>20kg</td><td>30-45</td><td>啞白</td><td class="cost">￥30</td><td>$173</td><td class="price">$408</td><td>$367</td><td>$326</td><td>$204</td><td class="stock-ok">5</td></tr>
+            <tr><td>ST-4I-HL</td><td>四吋_極簡合頁兩片_黑鎳</td><td>一般合頁</td><td>20kg</td><td>30-45</td><td>黑鎳絲</td><td class="cost">￥26</td><td>$153</td><td class="price">$368</td><td>$331</td><td>$294</td><td>$184</td><td class="stock-ok">15</td></tr>
+            <tr><td>ST-4I-HY</td><td>四吋_極簡合頁兩片_啞黑</td><td>一般合頁</td><td>20kg</td><td>30-45</td><td>啞黑</td><td class="cost">￥24</td><td>$143</td><td class="price">$338</td><td>$304</td><td>$270</td><td>$169</td><td class="stock-ok">15</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>門擋、門吸、靜音條 四層價目表</h2>
+        <div class="note">門市兩個滿額贈 ｜ 四層價格結構（簡化版）</div>
+
+        <h3>W-829 液壓緩衝門吸系列</h3>
+        <table class="section-4tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>8折(同行)</th>
+                <th>5折(經銷)</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>W-829-HY</td><td>緩衝地吸829_啞黑</td><td>啞黑</td><td class="cost">￥46</td><td>$263</td><td class="price">$628</td><td>$565</td><td>$502</td><td>$314</td><td class="stock-ok">10</td></tr>
+            <tr><td>W-829-YB</td><td>緩衝地吸829_啞白</td><td>啞白</td><td class="cost">￥46</td><td>$263</td><td class="price">$628</td><td>$565</td><td>$502</td><td>$314</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-829-HL</td><td>緩衝地吸829_黑鎳</td><td>黑鎳絲</td><td class="cost">￥46</td><td>$263</td><td class="price">$628</td><td>$565</td><td>$502</td><td>$314</td><td class="stock-ok">10</td></tr>
+        </table>
+
+        <h3>W-806 基礎磁吸門吸系列</h3>
+        <table class="section-4tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>8折(同行)</th>
+                <th>5折(經銷)</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>W-806-GS</td><td>基礎磁吸806_白鐵</td><td>鋼絲</td><td class="cost">￥18</td><td>$123</td><td class="price">$288</td><td>$259</td><td>$230</td><td>$144</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-806-HL</td><td>基礎磁吸806_黑鎳</td><td>黑鎳絲</td><td class="cost">￥18</td><td>$123</td><td class="price">$288</td><td>$259</td><td>$230</td><td>$144</td><td class="stock-ok">15</td></tr>
+            <tr><td>W-806-HY</td><td>基礎磁吸806_啞黑</td><td>啞黑</td><td class="cost">￥18</td><td>$123</td><td class="price">$288</td><td>$259</td><td>$230</td><td>$144</td><td class="stock-ok">15</td></tr>
+            <tr><td>W-806-CUS</td><td>基礎磁吸806_金絲</td><td>金絲</td><td class="cost">￥20</td><td>$133</td><td class="price">$318</td><td>$286</td><td>$254</td><td>$159</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-806-KQ</td><td>基礎磁吸806_卡其</td><td>卡其</td><td class="cost">￥20</td><td>$133</td><td class="price">$318</td><td>$286</td><td>$254</td><td>$159</td><td class="stock-ok">5</td></tr>
+        </table>
+
+        <h3>W-828 防風地吸系列</h3>
+        <table class="section-4tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>8折(同行)</th>
+                <th>5折(經銷)</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>W-828-GS</td><td>防風地吸828_白鐵</td><td>鋼絲</td><td class="cost">￥40</td><td>$233</td><td class="price">$558</td><td>$502</td><td>$446</td><td>$279</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-828-CUS</td><td>防風地吸828_金絲</td><td>金絲</td><td class="cost">￥45</td><td>$258</td><td class="price">$618</td><td>$556</td><td>$494</td><td>$309</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-828-HL</td><td>防風地吸828_黑鎳</td><td>黑鎳絲</td><td class="cost">￥40</td><td>$233</td><td class="price">$558</td><td>$502</td><td>$446</td><td>$279</td><td class="stock-ok">10</td></tr>
+            <tr><td>W-828-HY</td><td>防風地吸828_啞黑</td><td>啞黑</td><td class="cost">￥40</td><td>$233</td><td class="price">$558</td><td>$502</td><td>$446</td><td>$279</td><td class="stock-ok">10</td></tr>
+        </table>
+
+        <h3>W-Y02 明裝磁吸地吸系列</h3>
+        <table class="section-4tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>8折(同行)</th>
+                <th>5折(經銷)</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>W-Y02-GS</td><td>明裝磁吸02_白鐵</td><td>鋼絲</td><td class="cost">￥30</td><td>$183</td><td class="price">$438</td><td>$394</td><td>$350</td><td>$219</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-Y02-HL</td><td>明裝磁吸02_黑鎳</td><td>黑鎳絲</td><td class="cost">￥30</td><td>$183</td><td class="price">$438</td><td>$394</td><td>$350</td><td>$219</td><td class="stock-ok">10</td></tr>
+            <tr><td>W-Y02-HY</td><td>明裝磁吸02_啞黑</td><td>啞黑</td><td class="cost">￥30</td><td>$183</td><td class="price">$438</td><td>$394</td><td>$350</td><td>$219</td><td class="stock-ok">10</td></tr>
+            <tr><td>W-Y02-CUS</td><td>明裝磁吸02_金絲</td><td>金絲</td><td class="cost">￥35</td><td>$208</td><td class="price">$498</td><td>$448</td><td>$398</td><td>$249</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-Y02-YB</td><td>明裝磁吸02_啞白</td><td>啞白</td><td class="cost">￥35</td><td>$208</td><td class="price">$498</td><td>$448</td><td>$398</td><td>$249</td><td class="stock-ok">5</td></tr>
+        </table>
+
+        <h3>W-104 磁鐵門擋系列</h3>
+        <table class="section-4tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>8折(同行)</th>
+                <th>5折(經銷)</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>W-104-KQ</td><td>磁鐵門擋104_卡其</td><td>卡其</td><td class="cost">￥16</td><td>$113</td><td class="price">$268</td><td>$241</td><td>$214</td><td>$134</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-104-CUS</td><td>磁鐵門擋104_金絲</td><td>金絲</td><td class="cost">￥16</td><td>$113</td><td class="price">$268</td><td>$241</td><td>$214</td><td>$134</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-104-GS</td><td>磁鐵門擋104_白鐵</td><td>鋼絲</td><td class="cost">￥13</td><td>$98</td><td class="price">$238</td><td>$214</td><td>$190</td><td>$119</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-104-GT</td><td>磁鐵門擋104_古銅</td><td>古銅</td><td class="cost">￥13</td><td>$98</td><td class="price">$238</td><td>$214</td><td>$190</td><td>$119</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-104-HL</td><td>磁鐵門擋104_黑鎳</td><td>黑鎳絲</td><td class="cost">￥13</td><td>$98</td><td class="price">$238</td><td>$214</td><td>$190</td><td>$119</td><td class="stock-ok">15</td></tr>
+            <tr><td>W-104-HY</td><td>磁鐵門擋104_啞黑</td><td>啞黑</td><td class="cost">￥13</td><td>$98</td><td class="price">$238</td><td>$214</td><td>$190</td><td>$119</td><td class="stock-ok">15</td></tr>
+        </table>
+
+        <h3>W-008 橡膠門擋系列</h3>
+        <table class="section-4tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>8折(同行)</th>
+                <th>5折(經銷)</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>W-008-GS</td><td>橡膠門擋008_白鐵</td><td>鋼絲</td><td class="cost">￥12</td><td>$93</td><td class="price">$218</td><td>$196</td><td>$174</td><td>$109</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-008-HL</td><td>橡膠門擋008_黑鎳</td><td>黑鎳絲</td><td class="cost">￥12</td><td>$93</td><td class="price">$218</td><td>$196</td><td>$174</td><td>$109</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-008-HY</td><td>橡膠門擋008_啞黑</td><td>啞黑</td><td class="cost">￥12</td><td>$93</td><td class="price">$218</td><td>$196</td><td>$174</td><td>$109</td><td class="stock-ok">5</td></tr>
+            <tr><td>W-008-CUS</td><td>橡膠門擋008_金絲</td><td>金絲</td><td class="cost">￥12</td><td>$93</td><td class="price">$218</td><td>$196</td><td>$174</td><td>$109</td><td class="stock-ok">5</td></tr>
+        </table>
+
+        <h3>JYT-SY 靜音條</h3>
+        <table class="section-4tier">
+            <tr>
+                <th>原廠型號</th>
+                <th>摩瑪品名</th>
+                <th>顏色</th>
+                <th>成本(￥)</th>
+                <th>含運成本</th>
+                <th>牌價</th>
+                <th>9折</th>
+                <th>8折(同行)</th>
+                <th>5折(經銷)</th>
+                <th>庫存</th>
+            </tr>
+            <tr><td>JYT-SY</td><td>門下靜音條</td><td>砂銀</td><td class="cost">￥72</td><td>$425</td><td class="price">$998</td><td>$898</td><td>$798</td><td>$499</td><td class="stock-ok">5</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>產品分類說明</h2>
+
+        <h3>絞鏈 vs 合頁</h3>
+        <table>
+            <tr>
+                <th>類型</th>
+                <th>說明</th>
+                <th>適用產品系列</th>
+            </tr>
+            <tr><td><strong>絞鏈（暗鉸鏈）</strong></td><td>隱藏式安裝，門關閉後看不到五金</td><td>V-S3D、V-N3D、V-H3D、V-60K</td></tr>
+            <tr><td><strong>合頁（明合頁）</strong></td><td>外露式安裝，可見於門邊</td><td>ST-5H、ST-5B、ST-4I</td></tr>
+        </table>
+
+        <h3>價格結構說明</h3>
+        <table>
+            <tr>
+                <th>結構類型</th>
+                <th>折數層級</th>
+                <th>適用產品</th>
+            </tr>
+            <tr><td><strong>七層價格</strong></td><td>牌價→9折→7.5折→6折→5折→4.5折→3.5折</td><td>暗鉸鏈、明合頁（高單價產品）</td></tr>
+            <tr><td><strong>四層價格</strong></td><td>牌價→9折→8折(同行)→5折(經銷)</td><td>一般合頁、門擋、門吸、靜音條</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>庫存總覽</h2>
+        <table class="summary-table">
+            <tr>
+                <th>產品類別</th>
+                <th>總SKU數</th>
+                <th>總庫存量</th>
+            </tr>
+            <tr><td>暗鉸鏈 V 系列</td><td>16</td><td>32</td></tr>
+            <tr><td>明合頁 ST-5 系列</td><td>4</td><td>40</td></tr>
+            <tr><td>一般合頁 ST-4I 系列</td><td>5</td><td>45</td></tr>
+            <tr><td>門吸 W 系列</td><td>23</td><td>195</td></tr>
+            <tr><td>門擋 W 系列</td><td>10</td><td>70</td></tr>
+            <tr><td>靜音條 JYT</td><td>1</td><td>5</td></tr>
+            <tr style="background:#e8f5e9; font-weight:bold;"><td>合計</td><td>59</td><td>387</td></tr>
+        </table>
+
+        <div class="footer">
+            <p><strong>樂莫集團 - 摩瑪建材</strong></p>
+            <p>統一編號：45880923</p>
+            <p>台中市北屯區軍福十九路476號 台中南興店</p>
+            <p>www.themore-tw.com</p>
+            <hr style="margin: 20px auto; width: 200px;">
+            <p>文件更新日期：2026-01-30</p>
+            <p>資料來源：【母表】摩瑪基礎五金(威斯特)_完整內部資料 - 家騏調整.xlsx</p>
+            <p>版本：v1.0 母表</p>
+        </div>
+    </div>
+</body>
+</html>
