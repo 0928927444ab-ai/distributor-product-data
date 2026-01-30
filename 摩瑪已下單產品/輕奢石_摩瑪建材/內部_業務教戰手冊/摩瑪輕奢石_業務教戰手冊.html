@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>摩瑪輕奢石 業務作戰手冊</title>
+    <title>摩瑪輕奢石 業務教戰手冊</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -81,10 +81,6 @@
             background: rgba(206,147,216,0.1); padding: 15px 20px; border-radius: 10px;
             margin: 12px 0; border-left: 4px solid #ce93d8; font-style: italic;
         }
-        .attack-box {
-            background: rgba(255,107,107,0.08); padding: 15px 20px; border-radius: 10px;
-            margin: 12px 0; border-left: 4px solid #ff6b6b;
-        }
         ol.steps { padding-left: 20px; }
         ol.steps li { padding: 6px 0; }
         .footer {
@@ -103,73 +99,123 @@
     <div class="container">
 
         <div class="header">
-            <h1>摩瑪輕奢石 業務作戰手冊</h1>
+            <h1>摩瑪輕奢石 業務教戰手冊</h1>
             <p>樂莫集團 摩瑪建材 | www.themore-tw.com</p>
-            <div class="warning-badge">機密文件 - 含定價策略，僅供內部使用，嚴禁外流</div>
+            <div class="warning-badge">機密文件 - 僅供內部使用，嚴禁外流</div>
+        </div>
+
+        <!-- 統計卡片 -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin-bottom: 30px;">
+            <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,255,136,0.1)); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,215,0,0.3);">
+                <div style="font-size: 2em; color: #ffd700; font-weight: bold;">15</div>
+                <div style="color: #888; margin-top: 5px;">產品款式</div>
+            </div>
+            <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,255,136,0.1)); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,215,0,0.3);">
+                <div style="font-size: 2em; color: #00ff88; font-weight: bold;">108片</div>
+                <div style="color: #888; margin-top: 5px;">大板庫存</div>
+            </div>
+            <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,255,136,0.1)); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,215,0,0.3);">
+                <div style="font-size: 2em; color: #87ceeb; font-weight: bold;">1200×2800</div>
+                <div style="color: #888; margin-top: 5px;">統一規格(mm)</div>
+            </div>
+            <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,255,136,0.1)); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,215,0,0.3);">
+                <div style="font-size: 2em; color: #ce93d8; font-weight: bold;">$9,900~$13,900</div>
+                <div style="color: #888; margin-top: 5px;">建議售價區間</div>
+            </div>
+        </div>
+
+        <!-- LINE@ QR Code -->
+        <div class="section">
+            <h2>📱 加入摩瑪建材 LINE@</h2>
+            <p style="margin-bottom:16px;">掃描 QR Code 加入好友，享最新優惠與產品資訊</p>
+            <div style="text-align:center;">
+                <img src="../../LINE@%20QR扣.jpg" alt="摩瑪建材 LINE@ QR Code" style="max-width:200px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.1);">
+                <div style="margin-top:8px; font-weight:700;">摩瑪建材 LINE@</div>
+            </div>
+            <div class="warning-box">享有任何折扣前，須先加入 LINE@</div>
         </div>
 
         <!-- 產品型號對照表 -->
         <div class="section">
             <h2>產品型號對照表</h2>
+            <div class="info-box">台灣出貨統一尺寸：<span class="highlight">1200 × 2800 mm</span></div>
             <div style="overflow-x:auto;">
             <table>
-                <tr><th class="center">序號</th><th>摩瑪名稱</th><th>原廠型號</th><th class="center">台灣規格(mm)</th><th class="center">厚度</th><th class="center">重量(KG)</th><th>定位</th></tr>
-                <tr><td class="center">1</td><td><strong>羅馬洞石-米</strong></td><td>羅馬大洞石米白色</td><td class="center">1200×2800</td><td class="center">4mm</td><td class="center">19</td><td>洞石紋理（熱銷款）</td></tr>
-                <tr><td class="center">2</td><td><strong>幻境潘朵拉</strong></td><td>頂級潘多拉</td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>灰色系</td></tr>
-                <tr><td class="center">3</td><td><strong>水洗鏽金</strong></td><td>毛面水洗面鏽石板</td><td class="center">1200×2800</td><td class="center">4mm</td><td class="center">19</td><td>鏽石紋理</td></tr>
-                <tr><td class="center">4</td><td><strong>水泥澆鑄-米白</strong></td><td>水泥澆筑板米白色</td><td class="center">1200×2800</td><td class="center">5mm</td><td class="center">21</td><td>水泥質感</td></tr>
-                <tr><td class="center">5</td><td><strong>大理白花</strong></td><td>大花白</td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>經典白紋</td></tr>
-                <tr><td class="center">6</td><td><strong>義式金絲</strong></td><td>義大利白花金</td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>金絲紋理</td></tr>
-                <tr><td class="center">7</td><td><strong>羅馬金砂-黃</strong></td><td>羅馬柱黃色</td><td class="center">1200×2800</td><td class="center">6mm</td><td class="center">23</td><td>金黃紋理</td></tr>
-                <tr><td class="center">8</td><td><strong>流沙琥珀</strong></td><td>砂岩米棕色</td><td class="center">1200×2800</td><td class="center">5mm</td><td class="center">21</td><td>砂岩紋理</td></tr>
-                <tr><td class="center">9</td><td><strong>編織岩-米白</strong></td><td>麻編米白色</td><td class="center">1200×2800</td><td class="center">5mm</td><td class="center">20</td><td>編織紋理</td></tr>
-                <tr><td class="center">10</td><td><strong>碳燒木-黑</strong></td><td>鋸台木紋黑色</td><td class="center">1200×2800</td><td class="center">6mm</td><td class="center">23</td><td>木紋系列</td></tr>
-                <tr><td class="center">11</td><td><strong>礦黑岩板</strong></td><td>古奇黑</td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>黑色系</td></tr>
-                <tr><td class="center">12</td><td><strong>卡斯灰鑽</strong></td><td>卡斯蘭</td><td class="center">1200×2800</td><td class="center">4mm</td><td class="center">20</td><td>頂級灰紋</td></tr>
-                <tr><td class="center">13</td><td><strong>玄武墨黑</strong></td><td>午夜-潛龍騰淵</td><td class="center">1200×2800</td><td class="center">6mm</td><td class="center">21</td><td>黑色系進階</td></tr>
-                <tr><td class="center">14</td><td><strong>極地冰岩</strong></td><td>卡拉拉白</td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>經典白紋</td></tr>
-                <tr><td class="center">15</td><td><strong>維多玄岩</strong></td><td>新維多利亞</td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>灰色系</td></tr>
+                <tr>
+                    <th class="center">序號</th><th>摩瑪名稱</th>
+                    <th class="center">台灣規格(mm)</th><th class="center">厚度</th>
+                    <th class="center">重量(KG)</th><th>定位</th>
+                </tr>
+                <tr><td class="center">1</td><td><strong>羅馬洞石-米</strong></td><td class="center">1200×2800</td><td class="center">4mm</td><td class="center">19</td><td>洞石紋理（熱銷款）</td></tr>
+                <tr><td class="center">2</td><td><strong>幻境潘朵拉</strong></td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>灰色系</td></tr>
+                <tr><td class="center">3</td><td><strong>水洗鏽金</strong></td><td class="center">1200×2800</td><td class="center">4mm</td><td class="center">19</td><td>鏽石紋理</td></tr>
+                <tr><td class="center">4</td><td><strong>水泥澆鑄-米白</strong></td><td class="center">1200×2800</td><td class="center">5mm</td><td class="center">21</td><td>水泥質感</td></tr>
+                <tr><td class="center">5</td><td><strong>大理白花</strong></td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>經典白紋</td></tr>
+                <tr><td class="center">6</td><td><strong>義式金絲</strong></td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>金絲紋理</td></tr>
+                <tr><td class="center">7</td><td><strong>羅馬金砂-黃</strong></td><td class="center">1200×2800</td><td class="center">6mm</td><td class="center">23</td><td>金黃紋理</td></tr>
+                <tr><td class="center">8</td><td><strong>流沙琥珀</strong></td><td class="center">1200×2800</td><td class="center">5mm</td><td class="center">21</td><td>砂岩紋理</td></tr>
+                <tr><td class="center">9</td><td><strong>編織岩-米白</strong></td><td class="center">1200×2800</td><td class="center">5mm</td><td class="center">20</td><td>編織紋理</td></tr>
+                <tr><td class="center">10</td><td><strong>碳燒木-黑</strong></td><td class="center">1200×2800</td><td class="center">6mm</td><td class="center">23</td><td>木紋系列</td></tr>
+                <tr><td class="center">11</td><td><strong>礦黑岩板</strong></td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>黑色系</td></tr>
+                <tr><td class="center">12</td><td><strong>卡斯灰鑽</strong></td><td class="center">1200×2800</td><td class="center">4mm</td><td class="center">20</td><td>頂級灰紋</td></tr>
+                <tr><td class="center">13</td><td><strong>玄武墨黑</strong></td><td class="center">1200×2800</td><td class="center">6mm</td><td class="center">21</td><td>黑色系進階</td></tr>
+                <tr><td class="center">14</td><td><strong>極地冰岩</strong></td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>經典白紋</td></tr>
+                <tr><td class="center">15</td><td><strong>維多玄岩</strong></td><td class="center">1200×2800</td><td class="center">3mm</td><td class="center">16</td><td>灰色系</td></tr>
             </table>
             </div>
-            <div class="info-box">台灣出貨統一尺寸：<strong>1200 × 2800 mm</strong>（原廠為3000，台灣裁切至2800）</div>
         </div>
 
-        <!-- 定價分級 -->
+        <!-- 各層級售價總表 -->
         <div class="section">
-            <h2>定價分級</h2>
-            <table>
-                <tr><th class="center">等級</th><th>款式</th><th class="center">牌價</th></tr>
-                <tr><td class="center"><span class="status-badge" style="background:#4CAF50;color:#fff;">經濟款</span></td><td>羅馬洞石-米</td><td class="center price">$9,900</td></tr>
-                <tr><td class="center"><span class="status-badge" style="background:#2196F3;color:#fff;">標準款</span></td><td>幻境潘朵拉、大理白花、義式金絲、礦黑岩板、極地冰岩、維多玄岩</td><td class="center price">$10,900</td></tr>
-                <tr><td class="center"><span class="status-badge" style="background:#2196F3;color:#fff;">標準款</span></td><td>水泥澆鑄-米白</td><td class="center price">$11,900</td></tr>
-                <tr><td class="center"><span class="status-badge" style="background:#FF9800;color:#fff;">進階款</span></td><td>編織岩-米白、流沙琥珀、玄武墨黑</td><td class="center price">$12,900</td></tr>
-                <tr><td class="center"><span class="status-badge" style="background:#9C27B0;color:#fff;">頂級款</span></td><td>水洗鏽金、碳燒木-黑、羅馬金砂-黃、卡斯灰鑽</td><td class="center price">$13,900</td></tr>
-            </table>
-        </div>
+            <h2>各層級售價總表</h2>
+            <div class="info-box">依據【定價標準_基礎設定】統一定價體系，<span class="highlight">不設底價，最低實際折扣為經銷商 3.5 折</span><br>享有任何折扣前，須先加入 <strong>摩瑪建材 LINE@</strong></div>
 
-        <!-- 定價標準 — 客戶層級與折數 -->
-        <div class="section">
-            <h2>定價標準 — 客戶層級與折數</h2>
-            <div class="info-box">此區塊依據《摩瑪建材 — 定價標準（基礎設定）》套用，所有金額皆為<strong>含稅金額</strong>。享有任何折扣前，須先加入<strong>摩瑪建材 LINE@</strong></div>
+            <h3>客戶層級與折數</h3>
             <table>
                 <tr><th class="center">#</th><th>層級名稱</th><th class="center">折數</th><th>消費門檻 / 資格條件</th></tr>
-                <tr><td class="center">1</td><td><strong>牌價</strong>（一般消費者）</td><td class="center">10 折</td><td>無門檻</td></tr>
-                <tr><td class="center">2</td><td><strong>門市滿額優惠 A</strong></td><td class="center">折 $300</td><td>單次消費滿 $5,000</td></tr>
-                <tr><td class="center">3</td><td><strong>門市滿額優惠 B</strong></td><td class="center">折 $800</td><td>單次消費滿 $10,000</td></tr>
-                <tr><td class="center">4</td><td><strong>門市滿額優惠 C</strong></td><td class="center">9 折</td><td>單次消費滿 $15,000</td></tr>
-                <tr><td class="center">5</td><td><strong>設計師 / 工程行</strong></td><td class="center">7.5 折</td><td>憑乙級技術士證照裝修（設計 &amp; 裝修）</td></tr>
-                <tr><td class="center">6</td><td><strong>建材 / 五金行 / BNI 會員</strong></td><td class="center">6 折</td><td>憑營利事業登記證（建材或五金相關行業）或 BNI 大台中南區綠燈會員</td></tr>
-                <tr><td class="center">7</td><td><strong>專案價</strong></td><td class="center">5 折</td><td>單筆滿額 $500,000 以上（折後含稅價）</td></tr>
-                <tr><td class="center">8</td><td><strong>建材行專案價</strong></td><td class="center">4.5 折</td><td>建材 / 五金行資格 + 單筆滿額 $500,000 以上（折後含稅價）</td></tr>
-                <tr><td class="center">9</td><td><strong>經銷商</strong></td><td class="center">3.5 折</td><td>見下方經銷資格說明</td></tr>
+                <tr><td class="center">1</td><td>牌價（一般消費者）</td><td class="center">10 折</td><td>無門檻</td></tr>
+                <tr><td class="center">2</td><td>門市滿額優惠 A</td><td class="center">—</td><td>單次消費滿 $5,000，折 $300</td></tr>
+                <tr><td class="center">3</td><td>門市滿額優惠 B</td><td class="center">—</td><td>單次消費滿 $10,000，折 $800</td></tr>
+                <tr><td class="center">4</td><td>門市滿額優惠 C</td><td class="center">9 折</td><td>單次消費滿 $15,000</td></tr>
+                <tr><td class="center">5</td><td>設計師 / 工程行</td><td class="center">7.5 折</td><td>憑乙級技術士證照裝修（設計 & 裝修）</td></tr>
+                <tr><td class="center">6</td><td>建材 / 五金行 / BNI 會員</td><td class="center">6 折</td><td>憑營利事業登記證（建材或五金相關行業）或 BNI 大台中南區綠燈會員</td></tr>
+                <tr><td class="center">7</td><td>專案價</td><td class="center">5 折</td><td>單筆滿額 $500,000 以上（折後含稅價）</td></tr>
+                <tr><td class="center">8</td><td>建材行專案價</td><td class="center">4.5 折</td><td>建材 / 五金行資格 + 單筆滿額 $500,000 以上（折後含稅價）</td></tr>
+                <tr><td class="center">9</td><td>經銷商</td><td class="center">3.5 折</td><td>見【定價標準_基礎設定】經銷商制度</td></tr>
             </table>
+
+            <h3>各產品各層級售價明細（單片 / TWD）</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <tr>
+                    <th>摩瑪名稱</th><th class="right">牌價(10折)</th>
+                    <th class="right">9折</th><th class="right">7.5折</th><th class="right">6折</th>
+                    <th class="right">5折</th><th class="right">4.5折</th><th class="right">3.5折</th>
+                </tr>
+                <tr><td>羅馬洞石-米</td><td class="right price">$9,900</td><td class="right">$8,910</td><td class="right">$7,425</td><td class="right">$5,940</td><td class="right">$4,950</td><td class="right">$4,455</td><td class="right">$3,465</td></tr>
+                <tr><td>幻境潘朵拉</td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
+                <tr><td>水洗鏽金</td><td class="right price">$13,900</td><td class="right">$12,510</td><td class="right">$10,425</td><td class="right">$8,340</td><td class="right">$6,950</td><td class="right">$6,255</td><td class="right">$4,865</td></tr>
+                <tr><td>水泥澆鑄-米白</td><td class="right price">$11,900</td><td class="right">$10,710</td><td class="right">$8,925</td><td class="right">$7,140</td><td class="right">$5,950</td><td class="right">$5,355</td><td class="right">$4,165</td></tr>
+                <tr><td>大理白花</td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
+                <tr><td>義式金絲</td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
+                <tr><td>羅馬金砂-黃</td><td class="right price">$13,900</td><td class="right">$12,510</td><td class="right">$10,425</td><td class="right">$8,340</td><td class="right">$6,950</td><td class="right">$6,255</td><td class="right">$4,865</td></tr>
+                <tr><td>流沙琥珀</td><td class="right price">$12,900</td><td class="right">$11,610</td><td class="right">$9,675</td><td class="right">$7,740</td><td class="right">$6,450</td><td class="right">$5,805</td><td class="right">$4,515</td></tr>
+                <tr><td>編織岩-米白</td><td class="right price">$12,900</td><td class="right">$11,610</td><td class="right">$9,675</td><td class="right">$7,740</td><td class="right">$6,450</td><td class="right">$5,805</td><td class="right">$4,515</td></tr>
+                <tr><td>碳燒木-黑</td><td class="right price">$13,900</td><td class="right">$12,510</td><td class="right">$10,425</td><td class="right">$8,340</td><td class="right">$6,950</td><td class="right">$6,255</td><td class="right">$4,865</td></tr>
+                <tr><td>礦黑岩板</td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
+                <tr><td>卡斯灰鑽</td><td class="right price">$13,900</td><td class="right">$12,510</td><td class="right">$10,425</td><td class="right">$8,340</td><td class="right">$6,950</td><td class="right">$6,255</td><td class="right">$4,865</td></tr>
+                <tr><td>玄武墨黑</td><td class="right price">$12,900</td><td class="right">$11,610</td><td class="right">$9,675</td><td class="right">$7,740</td><td class="right">$6,450</td><td class="right">$5,805</td><td class="right">$4,515</td></tr>
+                <tr><td>極地冰岩</td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
+                <tr><td>維多玄岩</td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
+            </table>
+            </div>
 
             <h3>議價規則</h3>
             <div class="tip-box">
                 <ul style="list-style:none; padding:0;">
                     <li style="padding:4px 0;">&#8226; 享有任何折扣前，須先加入 <strong>摩瑪建材 LINE@</strong></li>
                     <li style="padding:4px 0;">&#8226; 一般客人先報 <strong>牌價</strong> → 滿 $5,000 折 $300 / 滿 $10,000 折 $800 / 滿 $15,000 享 9 折</li>
-                    <li style="padding:4px 0;">&#8226; 設計師 / 工程行須出示<strong>乙級技術士證照裝修</strong>（設計 &amp; 裝修），方可享 7.5 折</li>
+                    <li style="padding:4px 0;">&#8226; 設計師 / 工程行須出示<strong>乙級技術士證照裝修</strong>（設計 & 裝修），方可享 7.5 折</li>
                     <li style="padding:4px 0;">&#8226; 建材 / 五金行須憑<strong>營利事業登記證</strong>（建材或五金相關行業），或為 <strong>BNI 大台中南區綠燈會員</strong>，方可享 6 折</li>
                     <li style="padding:4px 0;">&#8226; 專案價須 <strong>單筆滿額 $500,000 以上</strong> 方可適用 5 折</li>
                     <li style="padding:4px 0;">&#8226; 建材 / 五金行具備資格者，<strong>單筆滿額 $500,000 以上</strong>（折後含稅價）可享建材行專案價 <strong>4.5 折</strong></li>
@@ -179,207 +225,20 @@
             </div>
         </div>
 
-        <!-- 經銷商制度 -->
+        <!-- 定價分級 -->
         <div class="section">
-            <h2>經銷商制度</h2>
-            <h3>資格條件（符合任一即適用）</h3>
-
-            <h4>條件一：樂莫集團相關企業 — 摩研、摩築、莫爾睿</h4>
-            <table>
-                <tr><th>項目</th><th>內容</th></tr>
-                <tr><td>門檻</td><td>全品項每月叫貨額達 <strong>$100,000</strong>（折扣後含稅價）</td></tr>
-                <tr><td>結算週期</td><td><strong>月結算</strong>，每月 1 日結算上月叫貨額</td></tr>
-                <tr><td>叫貨計價</td><td>期間叫貨以 <strong>5 折</strong>計</td></tr>
-                <tr><td>達標退差</td><td>結算達標後退 <strong>1.5 折</strong>價差（最終 <strong>3.5 折</strong>）</td></tr>
-            </table>
-
-            <h4>條件二：購買經銷權</h4>
-            <p style="color:#ce93d8;margin:10px 0;"><strong>品牌經銷（全品項）</strong></p>
-            <table>
-                <tr><th>項目</th><th>內容</th></tr>
-                <tr><td>門檻</td><td>全品項年度達 <strong>$5,000,000</strong>（折扣後含稅價）</td></tr>
-                <tr><td>保證金</td><td><strong>$1,000,000</strong></td></tr>
-                <tr><td>結算週期</td><td><strong>年度結算</strong>，每年 1 月 1 日結算上年度叫貨額</td></tr>
-                <tr><td>叫貨計價</td><td>期間叫貨以 <strong>5 折</strong>計</td></tr>
-                <tr><td>達標退差</td><td>結算達標後退 <strong>1.5 折</strong>價差</td></tr>
-            </table>
-
-            <p style="color:#ce93d8;margin:10px 0;"><strong>產品經銷（單品項）</strong></p>
-            <table>
-                <tr><th>項目</th><th>內容</th></tr>
-                <tr><td>門檻</td><td>單品項年度達 <strong>$800,000</strong>（折扣後含稅價）</td></tr>
-                <tr><td>保證金</td><td><strong>$250,000</strong></td></tr>
-                <tr><td>結算週期</td><td><strong>年度結算</strong>，每年 1 月 1 日結算上年度叫貨額</td></tr>
-                <tr><td>叫貨計價</td><td>期間叫貨以 <strong>5 折</strong>計</td></tr>
-                <tr><td>達標退差</td><td>結算達標後退 <strong>1.5 折</strong>價差</td></tr>
-            </table>
-
-            <h3>簽約與保證金</h3>
-            <div class="info-box">
-                <ul style="list-style:none; padding:0;">
-                    <li style="padding:4px 0;">&#8226; 經銷合約<strong>每年簽約一次</strong>，到期前 30 天通知續約</li>
-                    <li style="padding:4px 0;">&#8226; 保證金：品牌經銷 <strong>$1,000,000</strong> ／ 產品經銷 <strong>$250,000</strong>（可抵扣最後一批貨款）</li>
-                    <li style="padding:4px 0;">&#8226; 保證金於合約正常結束且無欠款時<strong>全額退還</strong></li>
-                </ul>
-            </div>
-
-            <h3>達標評估</h3>
-            <div class="info-box">
-                <ul style="list-style:none; padding:0;">
-                    <li style="padding:4px 0;">&#8226; 品牌經銷 &amp; 產品經銷：<strong>年度結算</strong>（每年 1 月 1 日結算上年度）</li>
-                    <li style="padding:4px 0;">&#8226; 樂莫集團企業：<strong>月度結算</strong>（每月 1 日結算上月）</li>
-                    <li style="padding:4px 0;">&#8226; 每季提供一次達標進度通知，方便經銷商自行追蹤</li>
-                </ul>
-            </div>
-
-            <h3>未達標處理</h3>
-            <div class="warning-box">
-                <ul style="list-style:none; padding:0;">
-                    <li style="padding:4px 0;">&#8226; 年度未達標 → 合約到期後<strong>不予續約</strong>，恢復為專案價 5 折</li>
-                    <li style="padding:4px 0;">&#8226; 不設寬限期，不設降級過渡</li>
-                    <li style="padding:4px 0;">&#8226; 合約期間內維持叫貨 5 折不變，不中途調整</li>
-                </ul>
-            </div>
-
-            <h3>重新申請</h3>
-            <div class="info-box">
-                <ul style="list-style:none; padding:0;">
-                    <li style="padding:4px 0;">&#8226; 被取消後滿 <strong>6 個月</strong>可重新申請</li>
-                    <li style="padding:4px 0;">&#8226; 需重新繳交保證金、重新簽約</li>
-                </ul>
-            </div>
-
-            <h3>違約條款</h3>
-            <div class="warning-box">
-                <p>&#9888;&#65039; 合約期間內若有<strong>退票、欠款逾 30 天</strong>，得立即終止合約</p>
-                <p>&#9888;&#65039; 終止時保證金優先抵扣欠款，餘額退還</p>
-            </div>
-        </div>
-
-        <!-- 各層級售價一覽表 -->
-        <div class="section">
-            <h2>各層級售價一覽表</h2>
-            <div class="info-box">各層級售價 = 牌價 × 對應折數（含稅），門市滿額 A/B 為定額折抵</div>
+            <h2>定價分級</h2>
+            <div class="info-box">各層級售價依【定價標準_基礎設定】統一折數計算。所有金額皆為含稅金額。</div>
             <div style="overflow-x:auto;">
             <table>
-                <tr><th>摩瑪名稱</th><th class="right">牌價(10折)</th><th class="right">9折</th><th class="right">7.5折</th><th class="right">6折</th><th class="right">5折</th><th class="right">4.5折</th><th class="right">3.5折</th></tr>
-                <tr><td><strong>羅馬洞石-米</strong></td><td class="right price">$9,900</td><td class="right">$8,910</td><td class="right">$7,425</td><td class="right">$5,940</td><td class="right">$4,950</td><td class="right">$4,455</td><td class="right">$3,465</td></tr>
-                <tr><td><strong>幻境潘朵拉</strong></td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
-                <tr><td><strong>水洗鏽金</strong></td><td class="right price">$13,900</td><td class="right">$12,510</td><td class="right">$10,425</td><td class="right">$8,340</td><td class="right">$6,950</td><td class="right">$6,255</td><td class="right">$4,865</td></tr>
-                <tr><td><strong>水泥澆鑄-米白</strong></td><td class="right price">$11,900</td><td class="right">$10,710</td><td class="right">$8,925</td><td class="right">$7,140</td><td class="right">$5,950</td><td class="right">$5,355</td><td class="right">$4,165</td></tr>
-                <tr><td><strong>大理白花</strong></td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
-                <tr><td><strong>義式金絲</strong></td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
-                <tr><td><strong>羅馬金砂-黃</strong></td><td class="right price">$13,900</td><td class="right">$12,510</td><td class="right">$10,425</td><td class="right">$8,340</td><td class="right">$6,950</td><td class="right">$6,255</td><td class="right">$4,865</td></tr>
-                <tr><td><strong>流沙琥珀</strong></td><td class="right price">$12,900</td><td class="right">$11,610</td><td class="right">$9,675</td><td class="right">$7,740</td><td class="right">$6,450</td><td class="right">$5,805</td><td class="right">$4,515</td></tr>
-                <tr><td><strong>編織岩-米白</strong></td><td class="right price">$12,900</td><td class="right">$11,610</td><td class="right">$9,675</td><td class="right">$7,740</td><td class="right">$6,450</td><td class="right">$5,805</td><td class="right">$4,515</td></tr>
-                <tr><td><strong>碳燒木-黑</strong></td><td class="right price">$13,900</td><td class="right">$12,510</td><td class="right">$10,425</td><td class="right">$8,340</td><td class="right">$6,950</td><td class="right">$6,255</td><td class="right">$4,865</td></tr>
-                <tr><td><strong>礦黑岩板</strong></td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
-                <tr><td><strong>卡斯灰鑽</strong></td><td class="right price">$13,900</td><td class="right">$12,510</td><td class="right">$10,425</td><td class="right">$8,340</td><td class="right">$6,950</td><td class="right">$6,255</td><td class="right">$4,865</td></tr>
-                <tr><td><strong>玄武墨黑</strong></td><td class="right price">$12,900</td><td class="right">$11,610</td><td class="right">$9,675</td><td class="right">$7,740</td><td class="right">$6,450</td><td class="right">$5,805</td><td class="right">$4,515</td></tr>
-                <tr><td><strong>極地冰岩</strong></td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
-                <tr><td><strong>維多玄岩</strong></td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
+                <tr><th class="center">等級</th><th>款式</th><th class="right">牌價(10折)</th><th class="right">9折</th><th class="right">7.5折</th><th class="right">6折</th><th class="right">5折</th><th class="right">4.5折</th><th class="right">3.5折</th></tr>
+                <tr><td class="center"><span class="status-badge" style="background:#4CAF50;color:#fff;">經濟款</span></td><td>羅馬洞石-米</td><td class="right price">$9,900</td><td class="right">$8,910</td><td class="right">$7,425</td><td class="right">$5,940</td><td class="right">$4,950</td><td class="right">$4,455</td><td class="right">$3,465</td></tr>
+                <tr><td class="center"><span class="status-badge" style="background:#2196F3;color:#fff;">標準款</span></td><td>幻境潘朵拉、大理白花、義式金絲、礦黑岩板、極地冰岩、維多玄岩</td><td class="right price">$10,900</td><td class="right">$9,810</td><td class="right">$8,175</td><td class="right">$6,540</td><td class="right">$5,450</td><td class="right">$4,905</td><td class="right">$3,815</td></tr>
+                <tr><td class="center"><span class="status-badge" style="background:#2196F3;color:#fff;">標準款</span></td><td>水泥澆鑄-米白</td><td class="right price">$11,900</td><td class="right">$10,710</td><td class="right">$8,925</td><td class="right">$7,140</td><td class="right">$5,950</td><td class="right">$5,355</td><td class="right">$4,165</td></tr>
+                <tr><td class="center"><span class="status-badge" style="background:#FF9800;color:#fff;">進階款</span></td><td>編織岩-米白、流沙琥珀、玄武墨黑</td><td class="right price">$12,900</td><td class="right">$11,610</td><td class="right">$9,675</td><td class="right">$7,740</td><td class="right">$6,450</td><td class="right">$5,805</td><td class="right">$4,515</td></tr>
+                <tr><td class="center"><span class="status-badge" style="background:#9C27B0;color:#fff;">頂級款</span></td><td>水洗鏽金、碳燒木-黑、羅馬金砂-黃、卡斯灰鑽</td><td class="right price">$13,900</td><td class="right">$12,510</td><td class="right">$10,425</td><td class="right">$8,340</td><td class="right">$6,950</td><td class="right">$6,255</td><td class="right">$4,865</td></tr>
             </table>
             </div>
-            <table style="margin-top:10px;">
-                <tr><th>層級對應</th><th class="center">一般消費者</th><th class="center">滿$15,000</th><th class="center">設計師/工程行</th><th class="center">建材五金行/BNI</th><th class="center">專案價</th><th class="center">建材行專案</th><th class="center">經銷商</th></tr>
-            </table>
-        </div>
-
-        <!-- 成本與毛利分析 -->
-        <div class="section">
-            <h2>成本與毛利分析</h2>
-
-            <h3>完整成本表</h3>
-            <div style="overflow-x:auto;">
-            <table>
-                <tr><th>摩瑪名稱</th><th class="right">單價(RMB/片)</th><th class="right">產品成本(NT)</th><th class="right">總成本(NT)</th><th class="right">建議售價</th><th class="right">毛利(NT)</th><th class="right">毛利率</th></tr>
-                <tr><td>羅馬洞石-米</td><td class="right">293</td><td class="right">$1,465</td><td class="right"><strong>$2,605</strong></td><td class="right price">$9,900</td><td class="right highlight">$7,295</td><td class="right">280%</td></tr>
-                <tr><td>幻境潘朵拉</td><td class="right">382</td><td class="right">$1,910</td><td class="right"><strong>$2,870</strong></td><td class="right price">$10,900</td><td class="right highlight">$8,030</td><td class="right">280%</td></tr>
-                <tr><td>水洗鏽金</td><td class="right">476</td><td class="right">$2,380</td><td class="right"><strong>$3,520</strong></td><td class="right price">$13,900</td><td class="right highlight">$10,380</td><td class="right">295%</td></tr>
-                <tr><td>水泥澆鑄-米白</td><td class="right">338</td><td class="right">$1,690</td><td class="right"><strong>$2,950</strong></td><td class="right price">$11,900</td><td class="right highlight">$8,950</td><td class="right">303%</td></tr>
-                <tr><td>大理白花</td><td class="right">382</td><td class="right">$1,910</td><td class="right"><strong>$2,870</strong></td><td class="right price">$10,900</td><td class="right highlight">$8,030</td><td class="right">280%</td></tr>
-                <tr><td>義式金絲</td><td class="right">382</td><td class="right">$1,910</td><td class="right"><strong>$2,870</strong></td><td class="right price">$10,900</td><td class="right highlight">$8,030</td><td class="right">280%</td></tr>
-                <tr><td>羅馬金砂-黃</td><td class="right">425</td><td class="right">$2,125</td><td class="right"><strong>$3,505</strong></td><td class="right price">$13,900</td><td class="right highlight">$10,395</td><td class="right">297%</td></tr>
-                <tr><td>流沙琥珀</td><td class="right">425</td><td class="right">$2,125</td><td class="right"><strong>$3,385</strong></td><td class="right price">$12,900</td><td class="right highlight">$9,515</td><td class="right">281%</td></tr>
-                <tr><td>編織岩-米白</td><td class="right">405</td><td class="right">$2,025</td><td class="right"><strong>$3,225</strong></td><td class="right price">$12,900</td><td class="right highlight">$9,675</td><td class="right">300%</td></tr>
-                <tr><td>碳燒木-黑</td><td class="right">432</td><td class="right">$2,160</td><td class="right"><strong>$3,540</strong></td><td class="right price">$13,900</td><td class="right highlight">$10,360</td><td class="right">293%</td></tr>
-                <tr><td>礦黑岩板</td><td class="right">382</td><td class="right">$1,910</td><td class="right"><strong>$2,870</strong></td><td class="right price">$10,900</td><td class="right highlight">$8,030</td><td class="right">280%</td></tr>
-                <tr><td>卡斯灰鑽</td><td class="right">497</td><td class="right">$2,485</td><td class="right"><strong>$3,685</strong></td><td class="right price">$13,900</td><td class="right highlight">$10,215</td><td class="right">277%</td></tr>
-                <tr><td>玄武墨黑</td><td class="right">425</td><td class="right">$2,125</td><td class="right"><strong>$3,385</strong></td><td class="right price">$12,900</td><td class="right highlight">$9,515</td><td class="right">281%</td></tr>
-                <tr><td>極地冰岩</td><td class="right">382</td><td class="right">$1,910</td><td class="right"><strong>$2,870</strong></td><td class="right price">$10,900</td><td class="right highlight">$8,030</td><td class="right">280%</td></tr>
-                <tr><td>維多玄岩</td><td class="right">382</td><td class="right">$1,910</td><td class="right"><strong>$2,870</strong></td><td class="right price">$10,900</td><td class="right highlight">$8,030</td><td class="right">280%</td></tr>
-            </table>
-            </div>
-            <div class="formula-box"><strong>成本公式：</strong>產品成本 = 單價(RMB/片) × 5（匯率） ／ 運費 = 重量(KG) × 60 NT/KG ／ 總成本 = 產品成本 + 運費</div>
-
-            <h3>各層級毛利分析（單片 / TWD）</h3>
-            <div style="overflow-x:auto;">
-            <table>
-                <tr><th>摩瑪名稱</th><th class="right">成本</th><th class="right">牌價毛利</th><th class="right">9折毛利</th><th class="right">7.5折毛利</th><th class="right">6折毛利</th><th class="right">5折毛利</th><th class="right">4.5折毛利</th><th class="right">3.5折毛利</th></tr>
-                <tr><td>羅馬洞石-米</td><td class="right">$2,605</td><td class="right highlight">$7,295</td><td class="right">$6,305</td><td class="right">$4,820</td><td class="right">$3,335</td><td class="right">$2,345</td><td class="right">$1,850</td><td class="right">$860</td></tr>
-                <tr><td>幻境潘朵拉</td><td class="right">$2,870</td><td class="right highlight">$8,030</td><td class="right">$6,940</td><td class="right">$5,305</td><td class="right">$3,670</td><td class="right">$2,580</td><td class="right">$2,035</td><td class="right">$945</td></tr>
-                <tr><td>水洗鏽金</td><td class="right">$3,520</td><td class="right highlight">$10,380</td><td class="right">$8,990</td><td class="right">$6,905</td><td class="right">$4,820</td><td class="right">$3,430</td><td class="right">$2,735</td><td class="right">$1,345</td></tr>
-                <tr><td>水泥澆鑄-米白</td><td class="right">$2,950</td><td class="right highlight">$8,950</td><td class="right">$7,760</td><td class="right">$5,975</td><td class="right">$4,190</td><td class="right">$3,000</td><td class="right">$2,405</td><td class="right">$1,215</td></tr>
-                <tr><td>大理白花</td><td class="right">$2,870</td><td class="right highlight">$8,030</td><td class="right">$6,940</td><td class="right">$5,305</td><td class="right">$3,670</td><td class="right">$2,580</td><td class="right">$2,035</td><td class="right">$945</td></tr>
-                <tr><td>義式金絲</td><td class="right">$2,870</td><td class="right highlight">$8,030</td><td class="right">$6,940</td><td class="right">$5,305</td><td class="right">$3,670</td><td class="right">$2,580</td><td class="right">$2,035</td><td class="right">$945</td></tr>
-                <tr><td>羅馬金砂-黃</td><td class="right">$3,505</td><td class="right highlight">$10,395</td><td class="right">$9,005</td><td class="right">$6,920</td><td class="right">$4,835</td><td class="right">$3,445</td><td class="right">$2,750</td><td class="right">$1,360</td></tr>
-                <tr><td>流沙琥珀</td><td class="right">$3,385</td><td class="right highlight">$9,515</td><td class="right">$8,225</td><td class="right">$6,290</td><td class="right">$4,355</td><td class="right">$3,065</td><td class="right">$2,420</td><td class="right">$1,130</td></tr>
-                <tr><td>編織岩-米白</td><td class="right">$3,225</td><td class="right highlight">$9,675</td><td class="right">$8,385</td><td class="right">$6,450</td><td class="right">$4,515</td><td class="right">$3,225</td><td class="right">$2,580</td><td class="right">$1,290</td></tr>
-                <tr><td>碳燒木-黑</td><td class="right">$3,540</td><td class="right highlight">$10,360</td><td class="right">$8,970</td><td class="right">$6,885</td><td class="right">$4,800</td><td class="right">$3,410</td><td class="right">$2,715</td><td class="right">$1,325</td></tr>
-                <tr><td>礦黑岩板</td><td class="right">$2,870</td><td class="right highlight">$8,030</td><td class="right">$6,940</td><td class="right">$5,305</td><td class="right">$3,670</td><td class="right">$2,580</td><td class="right">$2,035</td><td class="right">$945</td></tr>
-                <tr><td>卡斯灰鑽</td><td class="right">$3,685</td><td class="right highlight">$10,215</td><td class="right">$8,825</td><td class="right">$6,740</td><td class="right">$4,655</td><td class="right">$3,265</td><td class="right">$2,570</td><td class="right">$1,180</td></tr>
-                <tr><td>玄武墨黑</td><td class="right">$3,385</td><td class="right highlight">$9,515</td><td class="right">$8,225</td><td class="right">$6,290</td><td class="right">$4,355</td><td class="right">$3,065</td><td class="right">$2,420</td><td class="right">$1,130</td></tr>
-                <tr><td>極地冰岩</td><td class="right">$2,870</td><td class="right highlight">$8,030</td><td class="right">$6,940</td><td class="right">$5,305</td><td class="right">$3,670</td><td class="right">$2,580</td><td class="right">$2,035</td><td class="right">$945</td></tr>
-                <tr><td>維多玄岩</td><td class="right">$2,870</td><td class="right highlight">$8,030</td><td class="right">$6,940</td><td class="right">$5,305</td><td class="right">$3,670</td><td class="right">$2,580</td><td class="right">$2,035</td><td class="right">$945</td></tr>
-            </table>
-            </div>
-        </div>
-
-        <!-- 促銷與組合方案 -->
-        <div class="section">
-            <h2>促銷與組合方案</h2>
-            <div class="info-box">依據定價標準促銷手段，以下為輕奢石產品線適用方案（依活動需求彈性啟用）</div>
-
-            <h3>拉新客</h3>
-            <table>
-                <tr><th>手段</th><th>內容</th><th>目的</th></tr>
-                <tr><td><strong>首購優惠</strong></td><td>加入 LINE@ 首次消費折 $500</td><td>推動 LINE@ 註冊，累積客戶名單</td></tr>
-                <tr><td><strong>介紹獎勵</strong></td><td>舊客介紹新客成交，舊客獲 $300 購物金</td><td>口碑擴散，低成本獲客</td></tr>
-            </table>
-
-            <h3>提升客單價</h3>
-            <table>
-                <tr><th>手段</th><th>內容</th><th>目的</th></tr>
-                <tr><td><strong>輕奢石 + 施工套餐</strong></td><td>購買輕奢石 + 施工安裝 套餐價（合計折 $1,000）</td><td>鎖定「材料+施工」整套成交</td></tr>
-                <tr><td><strong>加購優惠</strong></td><td>購買 3 片以上，加購片享 9 折</td><td>推動多片連購、大面積施作</td></tr>
-                <tr><td><strong>跨品項組合</strong></td><td>輕奢石 + 門用五金 / 電子鎖 同購享額外折 $500</td><td>帶動跨品項銷售</td></tr>
-            </table>
-
-            <h3>提升回購率</h3>
-            <table>
-                <tr><th>手段</th><th>內容</th><th>目的</th></tr>
-                <tr><td><strong>回購折扣</strong></td><td>30 天內回購再折 $300</td><td>縮短回購週期</td></tr>
-                <tr><td><strong>LINE@ 專屬券</strong></td><td>每月推播限時折價券</td><td>維持互動，帶動回流</td></tr>
-            </table>
-
-            <h3>節日促銷備案（平時不啟用）</h3>
-            <table>
-                <tr><th>促銷手段</th><th>內容</th><th>適用時機</th></tr>
-                <tr><td>首購優惠</td><td>加入 LINE@ 首次消費折 $500（滿2000可用）</td><td>開幕期、週年慶</td></tr>
-                <tr><td>滿額贈品</td><td>滿 $20,000 送施工配件組</td><td>母親節、父親節、年終</td></tr>
-                <tr><td>限時閃促</td><td>庫存品 85 折，限時 7 天</td><td>季末清庫存</td></tr>
-                <tr><td>福袋組合</td><td>低動銷品搭配熱銷品組福袋</td><td>農曆年、雙 11</td></tr>
-                <tr><td>儲值方案</td><td>儲值 $50,000 送 $4,000 / 儲值 $100,000 送 $10,000</td><td>週年慶、年終</td></tr>
-            </table>
-
-            <h3>LINE@ 標籤分眾行銷</h3>
-            <table>
-                <tr><th>客戶標籤</th><th>推播內容</th></tr>
-                <tr><td><strong>一般消費者</strong></td><td>滿額活動、季節促銷、新品上市</td></tr>
-                <tr><td><strong>設計師 / 工程行</strong></td><td>新品速報、樣品申請、帶客回饋提醒</td></tr>
-                <tr><td><strong>建材 / 五金行</strong></td><td>量大優惠、組合套餐、庫存快訊</td></tr>
-                <tr><td><strong>經銷商</strong></td><td>達標進度通知、新品預購、獨家活動</td></tr>
-            </table>
         </div>
 
         <!-- 產品特色比較表 -->
@@ -387,27 +246,23 @@
             <h2>產品特色比較表</h2>
             <div style="overflow-x:auto;">
             <table>
-                <tr><th>產品名稱</th><th>紋理類型</th><th>色調</th><th class="center">厚度</th><th class="center">重量(KG)</th><th class="center">室內壁面</th><th class="center">地面/桌面</th><th class="center">戶外</th><th>潮濕區域</th></tr>
-                <tr><td>幻境潘朵拉</td><td>大理石紋</td><td>灰白紋理</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>大理白花</td><td>大理石紋</td><td>白底灰紋</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>義式金絲</td><td>大理石紋</td><td>白底金絲</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>礦黑岩板</td><td>岩板紋</td><td>純黑</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>極地冰岩</td><td>大理石紋</td><td>純白細紋</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>維多玄岩</td><td>大理石紋</td><td>灰色系</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>羅馬洞石-米</td><td>洞石紋</td><td>米白</td><td class="center">4mm</td><td class="center">19</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>水洗鏽金</td><td>鏽石紋</td><td>鏽金</td><td class="center">4mm</td><td class="center">19</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>卡斯灰鑽</td><td>大理石紋</td><td>高級灰</td><td class="center">4mm</td><td class="center">20</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>水泥澆鑄-米白</td><td>水泥紋</td><td>米白</td><td class="center">5mm</td><td class="center">21</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>流沙琥珀</td><td>砂岩紋</td><td>米棕</td><td class="center">5mm</td><td class="center">21</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>編織岩-米白</td><td>編織紋</td><td>米白</td><td class="center">5mm</td><td class="center">20</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>羅馬金砂-黃</td><td>洞石紋</td><td>金黃</td><td class="center">6mm</td><td class="center">23</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>碳燒木-黑</td><td>木紋</td><td>黑色</td><td class="center">6mm</td><td class="center">23</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td>○ 需搭配泥作工法</td></tr>
-                <tr><td>玄武墨黑</td><td>岩板紋</td><td>深黑</td><td class="center">6mm</td><td class="center">21</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td>○ 需搭配泥作工法</td></tr>
+                <tr><th>產品名稱</th><th>紋理類型</th><th>色調</th><th class="center">厚度</th><th class="center">重量(KG)</th><th class="center">室內壁面</th><th class="center">地面/桌面</th><th class="center">戶外</th><th class="center">潮濕區域</th></tr>
+                <tr><td>幻境潘朵拉</td><td>大理石紋</td><td>灰白紋理</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>大理白花</td><td>大理石紋</td><td>白底灰紋</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>義式金絲</td><td>大理石紋</td><td>白底金絲</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>礦黑岩板</td><td>岩板紋</td><td>純黑</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>極地冰岩</td><td>大理石紋</td><td>純白細紋</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>維多玄岩</td><td>大理石紋</td><td>灰色系</td><td class="center">3mm</td><td class="center">16</td><td class="center">○</td><td class="center">✕</td><td class="center">✕</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>羅馬洞石-米</td><td>洞石紋</td><td>米白</td><td class="center">4mm</td><td class="center">19</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>水洗鏽金</td><td>鏽石紋</td><td>鏽金</td><td class="center">4mm</td><td class="center">19</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>卡斯灰鑽</td><td>大理石紋</td><td>高級灰</td><td class="center">4mm</td><td class="center">20</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>水泥澆鑄-米白</td><td>水泥紋</td><td>米白</td><td class="center">5mm</td><td class="center">21</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>流沙琥珀</td><td>砂岩紋</td><td>米棕</td><td class="center">5mm</td><td class="center">21</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>編織岩-米白</td><td>編織紋</td><td>米白</td><td class="center">5mm</td><td class="center">20</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>羅馬金砂-黃</td><td>洞石紋</td><td>金黃</td><td class="center">6mm</td><td class="center">23</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>碳燒木-黑</td><td>木紋</td><td>黑色</td><td class="center">6mm</td><td class="center">23</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td class="center">○ 需搭配泥作工法</td></tr>
+                <tr><td>玄武墨黑</td><td>岩板紋</td><td>深黑</td><td class="center">6mm</td><td class="center">21</td><td class="center">○</td><td class="center">✕</td><td class="center">○</td><td class="center">○ 需搭配泥作工法</td></tr>
             </table>
-            </div>
-            <div class="info-box">
-                <strong>3mm 系列（6款）：</strong>室內壁面專用，不可用於戶外<br>
-                <strong>4~6mm 系列（9款）：</strong>室內外皆可，戶外需搭配泥作工法
             </div>
         </div>
 
@@ -424,23 +279,25 @@
 
             <h3>安裝費用</h3>
             <table>
-                <tr><th>施工類型</th><th class="center">單價</th><th>說明</th></tr>
-                <tr><td><strong>平面施工</strong></td><td class="center">NT$2,500/㎡</td><td>含美容處理</td></tr>
-                <tr><td><strong>弧形施工</strong></td><td class="center">NT$3,200/㎡</td><td>含美容處理</td></tr>
+                <tr><th>施工類型</th><th class="right">單價</th><th>說明</th></tr>
+                <tr><td><strong>平面施工</strong></td><td class="right price">NT$1,000/㎡</td><td>不含美容處理</td></tr>
+                <tr><td><strong>弧形施工</strong></td><td class="right price">NT$1,500/㎡</td><td>不含美容處理</td></tr>
             </table>
-            <div class="info-box">
-                <strong>最低施工量：5㎡ 起接</strong><br>
-                每片施工費參考（以1200×2800 = 3.36㎡計算）：平面 <strong>NT$8,400/片</strong> ／ 弧形 <strong>NT$10,752/片</strong>
+            <div class="info-box"><strong>最低施工量：5㎡ 起接</strong></div>
+            <div class="formula-box">
+                <strong>每片施工費參考</strong>（以1200×2800 = 3.36㎡計算）：<br>
+                平面：3.36㎡ × $1,000 = <span class="price">NT$3,360/片</span><br>
+                弧形：3.36㎡ × $1,500 = <span class="price">NT$5,040/片</span>
             </div>
 
-            <h3>美容處理種類</h3>
-            <p style="margin-bottom:10px;">施工費用已包含以下四大美容項目：</p>
+            <h3>美容費用</h3>
+            <div class="info-box">美容處理依實際需求另計，以下為各項單價</div>
             <table>
-                <tr><th class="center">編號</th><th>美容種類</th><th>說明</th></tr>
-                <tr><td class="center">1</td><td><strong>連紋密接</strong></td><td>相鄰板材紋路對花連續，接縫密合處理</td></tr>
-                <tr><td class="center">2</td><td><strong>不連紋密接</strong></td><td>相鄰板材不對花，接縫密合處理</td></tr>
-                <tr><td class="center">3</td><td><strong>陽角美容</strong></td><td>牆面外角（凸角）收邊修飾處理</td></tr>
-                <tr><td class="center">4</td><td><strong>磁磚美縫</strong></td><td>板材間縫隙填縫劑填補與修飾</td></tr>
+                <tr><th class="center">編號</th><th>美容種類</th><th class="right">單價</th><th>說明</th></tr>
+                <tr><td class="center">1</td><td><strong>陽角收邊</strong></td><td class="right price">NT$800/米</td><td>牆面外角（凸角）收邊修飾處理</td></tr>
+                <tr><td class="center">2</td><td><strong>連紋密接</strong></td><td class="right price">NT$1,200/米</td><td>相鄰板材紋路對花連續，接縫密合處理</td></tr>
+                <tr><td class="center">3</td><td><strong>不連紋密接</strong></td><td class="right price">NT$1,000/米</td><td>相鄰板材不對花，接縫密合處理</td></tr>
+                <tr><td class="center">4</td><td><strong>磁磚美縫</strong></td><td class="right price">NT$800/米</td><td>板材間縫隙填縫劑填補與修飾</td></tr>
             </table>
 
             <h3>施工方式（詳細 SOP）</h3>
@@ -461,14 +318,14 @@
             <h4>二、適用基底</h4>
             <table>
                 <tr><th>基底類型</th><th class="center">是否適用</th><th>備註</th></tr>
-                <tr><td>水泥砂漿面</td><td class="center">✓ 適用</td><td>需平整、乾燥、無粉化</td></tr>
-                <tr><td>水泥板</td><td class="center">✓ 適用</td><td>最佳基底</td></tr>
-                <tr><td>木夾板（合板）</td><td class="center">✓ 適用</td><td>需固定穩固、無變形</td></tr>
-                <tr><td>石膏板</td><td class="center">✓ 適用</td><td>需確認承重</td></tr>
-                <tr><td>既有磁磚面</td><td class="center">✓ 適用</td><td>需打磨或塗佈界面劑</td></tr>
-                <tr><td>金屬面</td><td class="center">✓ 適用</td><td>需除鏽、塗佈界面劑</td></tr>
-                <tr><td>油漆面</td><td class="center">△ 視情況</td><td>需打磨去除光滑面</td></tr>
-                <tr><td>壁紙面</td><td class="center">✗ 不適用</td><td>需先移除壁紙</td></tr>
+                <tr><td>水泥砂漿面</td><td class="center"><span class="highlight">&#10003; 適用</span></td><td>需平整、乾燥、無粉化</td></tr>
+                <tr><td>水泥板</td><td class="center"><span class="highlight">&#10003; 適用</span></td><td>最佳基底</td></tr>
+                <tr><td>木夾板（合板）</td><td class="center"><span class="highlight">&#10003; 適用</span></td><td>需固定穩固、無變形</td></tr>
+                <tr><td>石膏板</td><td class="center"><span class="highlight">&#10003; 適用</span></td><td>需確認承重</td></tr>
+                <tr><td>既有磁磚面</td><td class="center"><span class="highlight">&#10003; 適用</span></td><td>需打磨或塗佈界面劑</td></tr>
+                <tr><td>金屬面</td><td class="center"><span class="highlight">&#10003; 適用</span></td><td>需除鏽、塗佈界面劑</td></tr>
+                <tr><td>油漆面</td><td class="center"><span style="color:#ffd700;">&#9651; 視情況</span></td><td>需打磨去除光滑面</td></tr>
+                <tr><td>壁紙面</td><td class="center"><span style="color:#ff6b6b;">&#10007; 不適用</span></td><td>需先移除壁紙</td></tr>
             </table>
 
             <h4>三、黏貼膠材</h4>
@@ -495,28 +352,11 @@
 
             <h4>五、施工注意事項</h4>
             <div class="warning-box">
-                <ul style="list-style:none; padding:0;">
-                    <li style="padding:4px 0;">&#8226; <strong>溫度要求：</strong>施工環境溫度建議 5°C～35°C</li>
-                    <li style="padding:4px 0;">&#8226; <strong>濕度要求：</strong>基底含水率需低於8%</li>
-                    <li style="padding:4px 0;">&#8226; <strong>弧面施工：</strong>可利用熱風槍輔助加熱軟化（建議40~60°C），提高彎曲貼合度</li>
-                    <li style="padding:4px 0;">&#8226; <strong>大板搬運：</strong>建議兩人以上搬運，避免折彎損壞</li>
-                    <li style="padding:4px 0;">&#8226; <strong>裁切方向：</strong>正面朝上裁切，避免崩邊</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 為什麼選擇摩瑪輕奢石 -->
-        <div class="section">
-            <h2>為什麼選擇摩瑪輕奢石？</h2>
-            <div class="grid-2">
-                <div class="card"><h4>✓ 超輕量</h4><p>最輕每片只有16公斤，比傳統磁磚輕75%以上</p></div>
-                <div class="card"><h4>✓ 大尺寸</h4><p>1200×2800mm 大板，一片做完一面電視牆</p></div>
-                <div class="card"><h4>✓ 超薄施工</h4><p>最薄3mm，可直接覆貼在原有牆面，免打掉重做</p></div>
-                <div class="card"><h4>✓ 可彎曲</h4><p>軟瓷材質可貼合弧面，傳統磁磚做不到</p></div>
-                <div class="card"><h4>✓ 5年產品保固</h4><p>業界最長，售後有保障</p></div>
-                <div class="card"><h4>✓ 專業施工團隊</h4><p>自有工班，品質服務一條龍</p></div>
-                <div class="card"><h4>✓ 15種紋理</h4><p>從洞石到木紋，滿足各種設計風格</p></div>
-                <div class="card"><h4>✓ 價格帶完整</h4><p>$9,900~$13,900 涵蓋各預算</p></div>
+                <strong>溫度要求：</strong>施工環境溫度建議 5°C～35°C<br>
+                <strong>濕度要求：</strong>基底含水率需低於8%<br>
+                <strong>弧面施工：</strong>可利用熱風槍輔助加熱軟化（建議40~60°C），提高彎曲貼合度<br>
+                <strong>大板搬運：</strong>建議兩人以上搬運，避免折彎損壞<br>
+                <strong>裁切方向：</strong>正面朝上裁切，避免崩邊
             </div>
         </div>
 
@@ -529,34 +369,13 @@
                 <tr><th>比較項目</th><th class="center">摩瑪輕奢石</th><th class="center">傳統磁磚</th><th class="center">進口大板</th></tr>
                 <tr><td>重量</td><td class="center highlight">~5.5kg/㎡</td><td class="center">~20kg/㎡</td><td class="center">~25kg/㎡</td></tr>
                 <tr><td>厚度</td><td class="center highlight">3~6mm</td><td class="center">10-12mm</td><td class="center">6-12mm</td></tr>
-                <tr><td>可彎曲</td><td class="center highlight">✓ 可</td><td class="center">✗ 不可</td><td class="center">✗ 不可</td></tr>
+                <tr><td>可彎曲</td><td class="center highlight">&#10003; 可</td><td class="center" style="color:#ff6b6b;">&#10007; 不可</td><td class="center" style="color:#ff6b6b;">&#10007; 不可</td></tr>
                 <tr><td>施工難度</td><td class="center highlight">低</td><td class="center">高</td><td class="center">高</td></tr>
-                <tr><td>價格/㎡</td><td class="center highlight">~$3,500</td><td class="center"><em>待補充</em></td><td class="center"><em>待補充</em></td></tr>
+                <tr><td>價格/㎡</td><td class="center">~$3,500</td><td class="center"><em>待補充</em></td><td class="center"><em>待補充</em></td></tr>
             </table>
 
             <h3>價格對比</h3>
-            <table>
-                <tr><th>摩瑪產品</th><th class="center">摩瑪售價/片</th><th class="center">vs</th><th>競品方案</th><th class="center">競品價格</th><th>摩瑪優勢</th></tr>
-                <tr><td>經濟款（洞石）</td><td class="center price">$9,900</td><td class="center">vs</td><td>傳統磁磚同面積（3.36㎡）</td><td class="center">~$10,000~15,000</td><td>更輕、更薄、免泥作</td></tr>
-                <tr><td>標準款（大理石紋）</td><td class="center price">$10,900</td><td class="center">vs</td><td>進口大理石薄板（3.36㎡）</td><td class="center">~$25,000~40,000</td><td>省 50% 以上</td></tr>
-                <tr><td>頂級款（特殊紋理）</td><td class="center price">$13,900</td><td class="center">vs</td><td>進口大板同面積</td><td class="center">~$30,000~50,000</td><td>省 50% 以上</td></tr>
-            </table>
-        </div>
-
-        <!-- 多品類競品全面對比 -->
-        <div class="section">
-            <h2>多品類競品全面對比</h2>
-            <div style="overflow-x:auto;">
-            <table>
-                <tr><th>品類</th><th>代表品牌</th><th class="center">價格/㎡</th><th class="center">重量/㎡</th><th class="center">可彎曲</th><th>施工方式</th><th>摩瑪優勢</th></tr>
-                <tr style="background:rgba(0,255,136,0.08);"><td><strong>摩瑪輕奢石</strong></td><td>摩瑪 MOMA</td><td class="center price">~$3,500</td><td class="center">~5.5kg</td><td class="center">✓</td><td>專用膠黏貼</td><td><strong>最高CP值</strong></td></tr>
-                <tr><td>傳統磁磚</td><td>冠軍、白馬</td><td class="center">$2,000~5,000</td><td class="center">~20kg</td><td class="center">✗</td><td>泥作濕式</td><td>更輕、免泥作</td></tr>
-                <tr><td>進口大板</td><td>義大利/西班牙</td><td class="center">$8,000~15,000</td><td class="center">~25kg</td><td class="center">✗</td><td>專業泥作</td><td>省50%+、更輕</td></tr>
-                <tr><td>薄板磁磚</td><td>LAMINAM等</td><td class="center">$5,000~10,000</td><td class="center">~7kg</td><td class="center">微彎</td><td>專用膠</td><td>更便宜、花色多</td></tr>
-                <tr><td>石皮板</td><td>各品牌</td><td class="center">$3,000~6,000</td><td class="center">~3kg</td><td class="center">✓</td><td>專用膠</td><td>更大尺寸、更厚實</td></tr>
-            </table>
-            </div>
-            <div class="tip-box"><strong>結論：</strong>摩瑪輕奢石在「大尺寸+輕量+可彎曲+高質感」的組合中，價格最具競爭力</div>
+            <div class="info-box"><em>待補充：主要競品品牌（冠軍磁磚、白馬磁磚、進口大板等）的價格對比</em></div>
         </div>
 
         <!-- 銷售話術建議 -->
@@ -572,68 +391,11 @@
             <h3>施工優勢</h3>
             <div class="speech-box">「最薄只有3mm的超薄設計，可以直接貼在原有牆面上，不需要打掉重做，省時省錢」</div>
 
-            <h3>彎曲優勢</h3>
-            <div class="speech-box">「軟瓷材質可以貼合弧形牆面和圓柱，傳統磁磚和大板完全做不到，設計師最愛這個功能」</div>
-
             <h3>價格優勢</h3>
-            <div class="speech-box">「同樣3.36平方米的面積，進口大板要$25,000起跳，摩瑪只要$9,900起，省一半以上」</div>
+            <div class="speech-box" style="opacity:0.6;"><em>待補充與競品的價格比較話術</em></div>
 
-            <h3>保固優勢</h3>
-            <div class="speech-box">「我們提供5年產品保固、1年施工保固，市場上最長的保固期，售後有保障」</div>
-        </div>
-
-        <!-- 客戶異議處理話術 -->
-        <div class="section">
-            <h2>客戶異議處理話術</h2>
-            <p style="margin-bottom:15px;">常見客戶疑慮與應對方式</p>
-            <table>
-                <tr><th>客戶說</th><th>你這樣回應</th></tr>
-                <tr><td><strong>「中國製的品質不放心」</strong></td><td>「理解您的顧慮。其實很多高端建材都是中國製造的，重點是品牌的品管把關。摩瑪提供<strong>5年產品保固</strong>，有任何問題我們負責到底，而且是在地服務團隊。」</td></tr>
-                <tr><td><strong>「傳統磁磚比較耐用」</strong></td><td>「傳統磁磚確實也很耐用，但重量是我們的4倍，施工要泥作師傅、工期也長。摩瑪輕奢石<strong>5年保固</strong>，日常壁面使用壽命跟磁磚一樣長，而且更輕更好施工。」</td></tr>
-                <tr><td><strong>「太貴了」</strong></td><td>「以一面3.36㎡的電視牆來算，材料$9,900起、施工$8,400，<strong>總共$18,300就能擁有大板石材牆面</strong>。請進口大板光材料就要$30,000以上，還不含施工。」</td></tr>
-                <tr><td><strong>「沒聽過這個品牌」</strong></td><td>「摩瑪建材是樂莫集團旗下品牌，專注做建材代理。我們敢給<strong>5年保固</strong>，就是對品質有信心。歡迎到門市摸摸實品，質感說明一切。」</td></tr>
-                <tr><td><strong>「我再考慮看看」</strong></td><td>「沒問題，裝修是大事。不過我們可以<strong>免費帶樣品到府</strong>，在您家實際比對看效果如何？反正不用錢，看了再決定？」</td></tr>
-                <tr><td><strong>「能不能再便宜？」</strong></td><td>「目前消費<strong>滿 $15,000 享 9 折</strong>，如果您是設計師或工程行，出示證照可享更優惠的價格。要不要先加入我們 LINE@ 了解完整優惠？」</td></tr>
-            </table>
-        </div>
-
-        <!-- 常見問題 FAQ -->
-        <div class="section">
-            <h2>常見問題 FAQ</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h4>Q1：輕奢石是什麼材質？</h4>
-                    <p>輕奢石是一種以天然石粉、泥土為基材，經高溫燒結而成的軟瓷大板。具有天然石材質感，但重量僅為傳統磁磚的 1/4。</p>
-                </div>
-                <div class="card">
-                    <h4>Q2：可以用在浴室嗎？</h4>
-                    <p>可以。輕奢石可用於潮濕區域，但需搭配泥作工法施工，確保防水層完整。</p>
-                </div>
-                <div class="card">
-                    <h4>Q3：可以用在戶外嗎？</h4>
-                    <p>4mm 以上的系列（9款）可用於戶外，需搭配泥作工法。3mm 系列（6款）僅限室內使用。</p>
-                </div>
-                <div class="card">
-                    <h4>Q4：可以貼在弧形牆面嗎？</h4>
-                    <p>可以。軟瓷材質具有彈性，可貼合弧面和圓柱。弧形施工費用為 NT$3,200/㎡。</p>
-                </div>
-                <div class="card">
-                    <h4>Q5：施工要多久？</h4>
-                    <p>以一面 3.36㎡ 的電視牆為例，專業師傅約半天可完成（含美容處理）。大面積施工依現場狀況而定。</p>
-                </div>
-                <div class="card">
-                    <h4>Q6：可以自己 DIY 嗎？</h4>
-                    <p>建議由專業人員施工，以確保品質和保固權益。DIY 施工不在施工保固範圍內。</p>
-                </div>
-                <div class="card">
-                    <h4>Q7：會不會褪色？</h4>
-                    <p>輕奢石經高溫燒結，色彩穩定。室內正常使用情況下，產品保固5年不褪色。</p>
-                </div>
-                <div class="card">
-                    <h4>Q8：可以貼在原有磁磚上嗎？</h4>
-                    <p>可以。既有磁磚面需先打磨或塗佈界面劑，再以專用膠黏貼即可，不需要打掉原有磁磚。</p>
-                </div>
-            </div>
+            <h3>環保優勢</h3>
+            <div class="speech-box" style="opacity:0.6;"><em>待補充環保認證、材質說明等</em></div>
         </div>
 
         <!-- SWOT 分析 -->
@@ -646,7 +408,6 @@
                         <li><strong>超輕量</strong> - 16~23kg/片，比傳統磁磚輕75%以上</li>
                         <li><strong>大尺寸</strong> - 1.2m×2.8m減少接縫</li>
                         <li><strong>易施工</strong> - 3~6mm薄板可直接覆貼</li>
-                        <li><strong>超高毛利</strong> - 牌價毛利率約280~303%</li>
                         <li><strong>價格帶完整</strong> - $9,900~$13,900涵蓋各預算</li>
                         <li><strong>庫存充足</strong> - 108片大板+11片小樣</li>
                     </ul>
@@ -680,29 +441,20 @@
             </div>
         </div>
 
-        <!-- 競品攻擊點 -->
-        <div class="section">
-            <h2>競品攻擊點（僅限內部話術）</h2>
-            <div class="warning-box">&#9888;&#65039; <strong>攻擊要點，對外請委婉表達。記住：點到為止，重點是帶回摩瑪的優勢</strong></div>
-            <table>
-                <tr><th>競品品類</th><th>主要弱點</th><th>內部攻擊話術</th></tr>
-                <tr><td><strong>傳統磁磚</strong></td><td>重、施工慢、不可彎曲</td><td>「傳統磁磚一片 3.36㎡ 要 70 公斤以上，搬上樓還要請吊車。我們 16 公斤，兩個人就能搬，施工半天搞定。」</td></tr>
-                <tr><td><strong>進口大板</strong></td><td>貴、重、脆</td><td>「進口大板一片 $25,000 起跳，還很重很脆、施工風險高。摩瑪同面積 $9,900 起，省一半以上，而且可以彎曲不怕裂。」</td></tr>
-                <tr><td><strong>薄板磁磚</strong></td><td>貴、選擇少</td><td>「進口薄板一㎡ $5,000~$10,000，花色還很少。摩瑪有15種紋理，一㎡只要 $3,500 左右。」</td></tr>
-                <tr><td><strong>中國直購</strong></td><td>無售後、無保固</td><td>「淘寶買確實便宜，但運費自己付、破損自己扛、施工找不到人。我們是<strong>5年保固、在地服務</strong>，壞了我們負責。」</td></tr>
-                <tr><td><strong>石皮板</strong></td><td>太薄易破、紋理單一</td><td>「石皮板只有1~2mm，大面積容易翹。我們3~6mm更扎實，紋理也更豐富，大板氣勢完全不同。」</td></tr>
-            </table>
-        </div>
-
         <!-- 庫存與訂單狀態 -->
         <div class="section">
             <h2>庫存與訂單狀態</h2>
+            <div class="info-box">資料來源：20251208最終版清單</div>
 
-            <h3>台灣現有庫存（大板 108 片）</h3>
+            <h3>大板庫存（108片）</h3>
             <div style="overflow-x:auto;">
             <table>
-                <tr><th class="center">序</th><th>摩瑪名稱</th><th class="center">庫存(片)</th><th class="center">重量(KG)</th><th class="center">總重(KG)</th><th class="right">建議售價</th><th class="center">庫存狀態</th></tr>
-                <tr><td class="center">1</td><td>羅馬洞石-米</td><td class="center"><strong>30</strong></td><td class="center">19</td><td class="center">570</td><td class="right price">$9,900</td><td class="center"><span class="status-badge status-hot">熱銷款</span></td></tr>
+                <tr>
+                    <th class="center">序</th><th>摩瑪名稱</th><th class="center">庫存(片)</th>
+                    <th class="center">重量(KG)</th><th class="center">總重(KG)</th>
+                    <th class="right">建議售價</th><th class="center">庫存狀態</th>
+                </tr>
+                <tr><td class="center">1</td><td>羅馬洞石-米</td><td class="center highlight"><strong>30</strong></td><td class="center">19</td><td class="center">570</td><td class="right price">$9,900</td><td class="center"><span class="status-badge status-hot">熱銷款</span></td></tr>
                 <tr><td class="center">2</td><td>幻境潘朵拉</td><td class="center"><strong>12</strong></td><td class="center">16</td><td class="center">192</td><td class="right price">$10,900</td><td class="center"><span class="status-badge status-ok">充足</span></td></tr>
                 <tr><td class="center">3</td><td>水洗鏽金</td><td class="center"><strong>7</strong></td><td class="center">19</td><td class="center">133</td><td class="right price">$13,900</td><td class="center"><span class="status-badge status-ok">充足</span></td></tr>
                 <tr><td class="center">4</td><td>水泥澆鑄-米白</td><td class="center"><strong>7</strong></td><td class="center">21</td><td class="center">147</td><td class="right price">$11,900</td><td class="center"><span class="status-badge status-ok">充足</span></td></tr>
@@ -717,47 +469,65 @@
                 <tr><td class="center">13</td><td>玄武墨黑</td><td class="center"><strong>4</strong></td><td class="center">21</td><td class="center">84</td><td class="right price">$12,900</td><td class="center"><span class="status-badge status-low">偏低</span></td></tr>
                 <tr><td class="center">14</td><td>極地冰岩</td><td class="center"><strong>1</strong></td><td class="center">16</td><td class="center">16</td><td class="right price">$10,900</td><td class="center"><span class="status-badge status-critical">庫存少</span></td></tr>
                 <tr><td class="center">15</td><td>維多玄岩</td><td class="center"><strong>1</strong></td><td class="center">16</td><td class="center">16</td><td class="right price">$10,900</td><td class="center"><span class="status-badge status-critical">庫存少</span></td></tr>
-                <tr style="font-weight:bold;"><td></td><td><strong>合計</strong></td><td class="center"><strong>108片</strong></td><td></td><td class="center"><strong>2,052 KG</strong></td><td></td><td></td></tr>
+                <tr style="background: rgba(255,215,0,0.1); font-weight: bold;">
+                    <td></td><td>合計</td><td class="center">108片</td><td></td><td class="center">2,052 KG</td><td></td><td></td>
+                </tr>
             </table>
             </div>
 
-            <h3>庫存價值總覽</h3>
+            <h3>600×1200 小樣清單（11片）</h3>
             <table>
-                <tr><th>項目</th><th>數值</th></tr>
-                <tr><td>大板庫存</td><td>108片</td></tr>
-                <tr><td>小樣庫存</td><td>11片</td></tr>
-                <tr><td><strong>總庫存</strong></td><td><strong>119片</strong></td></tr>
-                <tr><td>總重量</td><td>2,052 KG</td></tr>
-                <tr><td>成本價值</td><td>約 NT$330,000</td></tr>
-                <tr><td>建議售價總值</td><td>約 NT$1,260,000</td></tr>
+                <tr><th class="center">序號</th><th>品名</th><th>規格</th><th class="center">數量</th></tr>
+                <tr><td class="center">S1</td><td>雲砂洞石棕黃</td><td>600×1200</td><td class="center">1</td></tr>
+                <tr><td class="center">S2</td><td>午夜木紋淺棕</td><td>600×1200</td><td class="center">1</td></tr>
+                <tr><td class="center">S3</td><td>午夜木紋棕</td><td>600×1200</td><td class="center">1</td></tr>
+                <tr><td class="center">S4</td><td>羅馬柱水晶潘多拉</td><td>600×1200</td><td class="center">1</td></tr>
+                <tr><td class="center">S5</td><td>羅馬柱灰色</td><td>600×1200</td><td class="center">1</td></tr>
+                <tr><td class="center">S6</td><td>麻編（土黃/橘紅/灰）</td><td>600×1200</td><td class="center">3</td></tr>
+                <tr><td class="center">S7</td><td>鋸台木紋（米白/深灰/黃木）</td><td>600×1200</td><td class="center">3</td></tr>
+                <tr style="background: rgba(255,215,0,0.1); font-weight: bold;">
+                    <td></td><td>合計</td><td></td><td class="center">11片</td>
+                </tr>
             </table>
+
+            <h3>庫存總覽</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 15px;">
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="color: #888; font-size: 0.9em;">大板庫存</div>
+                    <div style="font-size: 1.8em; color: #ffd700; font-weight: bold;">108片</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="color: #888; font-size: 0.9em;">小樣庫存</div>
+                    <div style="font-size: 1.8em; color: #87ceeb; font-weight: bold;">11片</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="color: #888; font-size: 0.9em;">總庫存</div>
+                    <div style="font-size: 1.8em; color: #00ff88; font-weight: bold;">119片</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="color: #888; font-size: 0.9em;">總重量</div>
+                    <div style="font-size: 1.8em; color: #ce93d8; font-weight: bold;">2,052 KG</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="color: #888; font-size: 0.9em;">建議售價總值</div>
+                    <div style="font-size: 1.8em; color: #ffd700; font-weight: bold;">~NT$1,260,000</div>
+                </div>
+            </div>
         </div>
 
         <!-- 目標客群 TA 分析 -->
         <div class="section">
             <h2>目標客群 TA 分析</h2>
-            <div style="overflow-x:auto;">
             <table>
-                <tr><th>客群類型</th><th>推薦產品</th><th>痛點</th><th>銷售切入點</th></tr>
-                <tr><td><strong>室內設計師</strong></td><td>全系列</td><td>想要獨特材質、大尺寸、客戶預算有限</td><td>「設計師價7.5折、免費帶樣品、15種紋理任選」</td></tr>
-                <tr><td><strong>一般住家</strong></td><td>大理白花、極地冰岩、羅馬洞石</td><td>想要大板石材牆但預算不夠</td><td>「$9,900起就能做一面大板電視牆，省一半以上」</td></tr>
-                <tr><td><strong>商業空間</strong></td><td>礦黑岩板、卡斯灰鑽</td><td>大面積裝修、趕工期</td><td>「一片3.36㎡快速施工、批量專案價」</td></tr>
-                <tr><td><strong>建設公司</strong></td><td>標準款系列</td><td>成本控制、品質穩定、交期準時</td><td>「專案報價5折、庫存充足、長期合作」</td></tr>
-                <tr><td><strong>裝修公司</strong></td><td>全系列</td><td>施工方便、選擇多、價格好議</td><td>「施工只要半天、設計師價7.5折、技術支援」</td></tr>
-                <tr><td><strong>飯店/民宿</strong></td><td>羅馬洞石-米、水泥澆鑄-米白</td><td>大面積翻新、趕營業</td><td>「比傳統磁磚快3倍施工、免敲掉直接貼」</td></tr>
+                <tr><th>TA</th><th>需求重點</th><th>推薦產品</th><th>銷售重點</th></tr>
+                <tr><td><strong>室內設計師</strong></td><td>獨特材質、大尺寸、搭配性</td><td>全系列</td><td>設計師價7.5折、樣品支援</td></tr>
+                <tr><td><strong>一般住家</strong></td><td>美觀、CP值、施工方便</td><td>大理白花、極地冰岩、羅馬洞石</td><td>價格優勢、輕裝修概念</td></tr>
+                <tr><td><strong>商業空間</strong></td><td>大面積、耐用、快速施工</td><td>礦黑岩板、卡斯灰鑽</td><td>批量價格、施工效率</td></tr>
+                <tr><td><strong>建設公司</strong></td><td>成本控制、品質穩定</td><td>標準款系列</td><td>專案報價、長期合作</td></tr>
+                <tr><td><strong>裝修公司</strong></td><td>施工便利、多樣選擇</td><td>全系列</td><td>技術支援、庫存充足</td></tr>
             </table>
-            </div>
         </div>
 
-        <!-- LINE@ -->
-        <div class="section" style="text-align:center;">
-            <h2>加入摩瑪建材 LINE@</h2>
-            <p>掃描 QR Code 加入好友，享最新優惠與產品資訊</p>
-            <p style="margin-top:15px;"><strong>摩瑪建材 LINE@</strong></p>
-            <div class="info-box">享有任何折扣前，須先加入 LINE@</div>
-        </div>
-
-        <!-- Footer -->
         <div class="footer">
             <div class="company">樂莫集團 - 摩瑪建材</div>
             <p>統一編號：45880923</p>
@@ -765,9 +535,8 @@
             <p>www.themore-tw.com</p>
             <br>
             <p style="color:#666;">文件更新日期：2026-01-28</p>
-            <p style="color:#666;">版本：v1.1 業務作戰手冊（依據母表 v1.8 + 定價標準基礎設定）</p>
+            <p style="color:#666;">版本：v1.0 業務教戰手冊</p>
         </div>
-
     </div>
 </body>
 </html>

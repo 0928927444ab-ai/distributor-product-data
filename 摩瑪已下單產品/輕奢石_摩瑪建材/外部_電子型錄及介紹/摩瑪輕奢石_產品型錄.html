@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摩瑪輕奢石 產品型錄</title>
+    <style>
+        :root {
+            --primary: #8B7355;
+            --primary-dark: #6B5344;
+            --accent: #C9A962;
+            --bg: #FAFAF8;
+            --card-bg: #FFFFFF;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #E8E4DE;
+            --success: #4A7C59;
+            --warning: #B8860B;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 50px 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(107, 83, 68, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .header .tagline {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+
+        .header .company {
+            font-size: 0.95em;
+            opacity: 0.85;
+        }
+
+        /* Section */
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+
+        .section h2 {
+            color: var(--primary);
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h3 {
+            color: var(--primary-dark);
+            font-size: 1.15em;
+            margin: 25px 0 15px 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.92em;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        th:first-child { border-radius: 8px 0 0 0; }
+        th:last-child { border-radius: 0 8px 0 0; }
+
+        tr:hover { background: #FAF8F5; }
+
+        .price {
+            color: var(--warning);
+            font-weight: 700;
+            font-size: 1.05em;
+        }
+
+        .text-center { text-align: center; }
+
+        /* LINE CTA */
+        .line-cta {
+            background: linear-gradient(135deg, #00B900 0%, #009900 100%);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .line-cta h3 {
+            color: white;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+        }
+
+        .line-cta p {
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .qr-code {
+            background: white;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 15px;
+            border-radius: 12px;
+            object-fit: contain;
+            padding: 10px;
+        }
+
+        /* Tier Cards */
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tier-card {
+            background: #FAF8F5;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .tier-card .tier-name {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .tier-card .tier-price {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        /* Compare Table */
+        .compare-table th {
+            text-align: center;
+        }
+
+        .compare-table td:not(:first-child) {
+            text-align: center;
+        }
+
+        .check { color: var(--success); font-weight: bold; }
+        .cross { color: #C75050; }
+
+        /* Notes */
+        .note {
+            background: #FFF9E6;
+            border-left: 4px solid var(--accent);
+            padding: 12px 18px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 0.9em;
+            border-top: 1px solid var(--border);
+            margin-top: 20px;
+        }
+
+        .footer .company-name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .section { padding: 20px; }
+            table { font-size: 0.85em; }
+            th, td { padding: 10px 8px; }
+        }
+
+        /* 列印樣式 */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            @page {
+                size: A4 landscape;
+                margin: 8mm 12mm;
+            }
+
+            body {
+                padding: 0;
+                background: white;
+                font-size: 9pt;
+                line-height: 1.4;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            .header {
+                background: linear-gradient(135deg, #8B7355 0%, #6B5344 100%) !important;
+                padding: 15px 20px;
+                margin-bottom: 12px;
+                border-radius: 6px;
+                box-shadow: none;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+                margin-bottom: 5px;
+            }
+
+            .header .tagline, .header .company {
+                font-size: 0.9em;
+                margin-bottom: 3px;
+            }
+
+            .section {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                padding: 12px 15px;
+                margin-bottom: 10px;
+                page-break-inside: avoid;
+            }
+
+            .section h2 {
+                font-size: 1.05em;
+                margin-bottom: 10px;
+                padding-bottom: 6px;
+            }
+
+            .section h3 {
+                font-size: 0.95em;
+                margin: 12px 0 8px 0;
+            }
+
+            table {
+                font-size: 8pt;
+                margin: 8px 0;
+            }
+
+            th {
+                background: linear-gradient(135deg, #8B7355 0%, #6B5344 100%) !important;
+                color: white !important;
+            }
+
+            th, td {
+                padding: 5px 8px;
+            }
+
+            /* 首個 LINE CTA 精簡化 */
+            .line-cta:first-of-type {
+                background: linear-gradient(135deg, #00B900 0%, #009900 100%) !important;
+                padding: 12px 20px;
+                margin-bottom: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .line-cta:first-of-type h3 {
+                font-size: 1em;
+                margin: 0;
+            }
+
+            .line-cta:first-of-type p {
+                margin: 0;
+                font-size: 0.85em;
+            }
+
+            .qr-code {
+                width: 80px;
+                height: 80px;
+                padding: 5px;
+            }
+
+            /* 隱藏底部重複的 LINE CTA */
+            .line-cta:last-of-type {
+                display: none !important;
+            }
+
+            .tier-grid {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 8px;
+                margin: 10px 0;
+            }
+
+            .tier-card {
+                background: #FAF8F5 !important;
+                flex: 1;
+                padding: 10px;
+                border-radius: 6px;
+            }
+
+            .tier-card .tier-name {
+                font-size: 0.85em;
+                margin-bottom: 4px;
+            }
+
+            .tier-card .tier-price {
+                font-size: 1.1em;
+            }
+
+            .tier-card > div:last-child {
+                font-size: 0.75em !important;
+                margin-top: 4px !important;
+            }
+
+            .note {
+                background: #FFF9E6 !important;
+                padding: 8px 12px;
+                margin: 8px 0;
+                font-size: 0.85em;
+            }
+
+            .check { color: #4A7C59 !important; }
+            .cross { color: #C75050 !important; }
+            .price { color: #B8860B !important; }
+
+            .footer {
+                margin-top: 10px;
+                padding: 12px;
+                font-size: 0.8em;
+            }
+
+            .footer .company-name {
+                font-size: 1em;
+                margin-bottom: 5px;
+            }
+
+            .footer p {
+                margin: 2px 0;
+            }
+
+            tr:hover {
+                background: transparent !important;
+            }
+
+            /* 允許產品特色表格跨頁 */
+            .section:has(.compare-table) {
+                page-break-inside: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>摩瑪輕奢石</h1>
+            <p class="tagline">輕量・大尺寸・可彎曲 — 新世代壁面裝飾材料</p>
+            <p class="company">樂莫集團 摩瑪建材 | www.themore-tw.com</p>
+        </div>
+
+        <!-- LINE CTA -->
+        <div class="line-cta">
+            <h3>📱 加入摩瑪建材 LINE@</h3>
+            <p>掃描 QR Code 加入好友，享最新優惠與產品資訊</p>
+            <img src="../../LINE@%20QR扣.jpg" alt="摩瑪建材 LINE@ QR Code" class="qr-code">
+            <p><strong>摩瑪建材 LINE@</strong></p>
+        </div>
+
+        <!-- 產品總覽 -->
+        <div class="section">
+            <h2>📋 產品總覽</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="text-center">序號</th>
+                        <th>產品名稱</th>
+                        <th>紋理類型</th>
+                        <th>色調</th>
+                        <th class="text-center">厚度</th>
+                        <th class="text-center">建議售價</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="text-center">1</td><td><strong>羅馬洞石-米</strong></td><td>洞石紋</td><td>米白</td><td class="text-center">4mm</td><td class="text-center price">$9,900</td></tr>
+                    <tr><td class="text-center">2</td><td><strong>幻境潘朵拉</strong></td><td>大理石紋</td><td>灰白紋理</td><td class="text-center">3mm</td><td class="text-center price">$10,900</td></tr>
+                    <tr><td class="text-center">3</td><td><strong>水洗鏽金</strong></td><td>鏽石紋</td><td>鏽金</td><td class="text-center">4mm</td><td class="text-center price">$13,900</td></tr>
+                    <tr><td class="text-center">4</td><td><strong>水泥澆鑄-米白</strong></td><td>水泥紋</td><td>米白</td><td class="text-center">5mm</td><td class="text-center price">$11,900</td></tr>
+                    <tr><td class="text-center">5</td><td><strong>大理白花</strong></td><td>大理石紋</td><td>白底灰紋</td><td class="text-center">3mm</td><td class="text-center price">$10,900</td></tr>
+                    <tr><td class="text-center">6</td><td><strong>義式金絲</strong></td><td>大理石紋</td><td>白底金絲</td><td class="text-center">3mm</td><td class="text-center price">$10,900</td></tr>
+                    <tr><td class="text-center">7</td><td><strong>羅馬金砂-黃</strong></td><td>洞石紋</td><td>金黃</td><td class="text-center">6mm</td><td class="text-center price">$13,900</td></tr>
+                    <tr><td class="text-center">8</td><td><strong>流沙琥珀</strong></td><td>砂岩紋</td><td>米棕</td><td class="text-center">5mm</td><td class="text-center price">$12,900</td></tr>
+                    <tr><td class="text-center">9</td><td><strong>編織岩-米白</strong></td><td>編織紋</td><td>米白</td><td class="text-center">5mm</td><td class="text-center price">$12,900</td></tr>
+                    <tr><td class="text-center">10</td><td><strong>碳燒木-黑</strong></td><td>木紋</td><td>黑色</td><td class="text-center">6mm</td><td class="text-center price">$13,900</td></tr>
+                    <tr><td class="text-center">11</td><td><strong>礦黑岩板</strong></td><td>岩板紋</td><td>純黑</td><td class="text-center">3mm</td><td class="text-center price">$10,900</td></tr>
+                    <tr><td class="text-center">12</td><td><strong>卡斯灰鑽</strong></td><td>大理石紋</td><td>高級灰</td><td class="text-center">4mm</td><td class="text-center price">$13,900</td></tr>
+                    <tr><td class="text-center">13</td><td><strong>玄武墨黑</strong></td><td>岩板紋</td><td>深黑</td><td class="text-center">6mm</td><td class="text-center price">$12,900</td></tr>
+                    <tr><td class="text-center">14</td><td><strong>極地冰岩</strong></td><td>大理石紋</td><td>純白細紋</td><td class="text-center">3mm</td><td class="text-center price">$10,900</td></tr>
+                    <tr><td class="text-center">15</td><td><strong>維多玄岩</strong></td><td>大理石紋</td><td>灰色系</td><td class="text-center">3mm</td><td class="text-center price">$10,900</td></tr>
+                </tbody>
+            </table>
+            <div class="note">
+                以上售價皆為含稅金額 ／ 統一規格：<strong>1200 × 2800 mm</strong>
+            </div>
+        </div>
+
+        <!-- 定價分級 -->
+        <div class="section">
+            <h2>💎 定價分級</h2>
+            <div class="tier-grid">
+                <div class="tier-card">
+                    <div class="tier-name">經濟款</div>
+                    <div class="tier-price">$9,900</div>
+                    <div style="font-size:0.85em;color:#666;margin-top:8px;">羅馬洞石-米</div>
+                </div>
+                <div class="tier-card">
+                    <div class="tier-name">標準款</div>
+                    <div class="tier-price">$10,900</div>
+                    <div style="font-size:0.85em;color:#666;margin-top:8px;">6款可選</div>
+                </div>
+                <div class="tier-card">
+                    <div class="tier-name">標準款</div>
+                    <div class="tier-price">$11,900</div>
+                    <div style="font-size:0.85em;color:#666;margin-top:8px;">水泥澆鑄-米白</div>
+                </div>
+                <div class="tier-card">
+                    <div class="tier-name">進階款</div>
+                    <div class="tier-price">$12,900</div>
+                    <div style="font-size:0.85em;color:#666;margin-top:8px;">3款可選</div>
+                </div>
+                <div class="tier-card">
+                    <div class="tier-name">頂級款</div>
+                    <div class="tier-price">$13,900</div>
+                    <div style="font-size:0.85em;color:#666;margin-top:8px;">4款可選</div>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="text-center">等級</th>
+                        <th>款式</th>
+                        <th class="text-center">牌價</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="text-center">經濟款</td><td>羅馬洞石-米</td><td class="text-center price">$9,900</td></tr>
+                    <tr><td class="text-center">標準款</td><td>幻境潘朵拉、大理白花、義式金絲、礦黑岩板、極地冰岩、維多玄岩</td><td class="text-center price">$10,900</td></tr>
+                    <tr><td class="text-center">標準款</td><td>水泥澆鑄-米白</td><td class="text-center price">$11,900</td></tr>
+                    <tr><td class="text-center">進階款</td><td>編織岩-米白、流沙琥珀、玄武墨黑</td><td class="text-center price">$12,900</td></tr>
+                    <tr><td class="text-center">頂級款</td><td>水洗鏽金、碳燒木-黑、羅馬金砂-黃、卡斯灰鑽</td><td class="text-center price">$13,900</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 產品特色比較表 -->
+        <div class="section">
+            <h2>📊 產品特色比較表</h2>
+            <div style="overflow-x:auto;">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>產品名稱</th>
+                        <th>紋理類型</th>
+                        <th>色調</th>
+                        <th>厚度</th>
+                        <th>重量(KG)</th>
+                        <th>室內壁面</th>
+                        <th>地面/桌面</th>
+                        <th>戶外</th>
+                        <th>潮濕區域</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>幻境潘朵拉</td><td>大理石紋</td><td>灰白紋理</td><td>3mm</td><td>16</td><td class="check">○</td><td class="cross">✕</td><td class="cross">✕</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>大理白花</td><td>大理石紋</td><td>白底灰紋</td><td>3mm</td><td>16</td><td class="check">○</td><td class="cross">✕</td><td class="cross">✕</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>義式金絲</td><td>大理石紋</td><td>白底金絲</td><td>3mm</td><td>16</td><td class="check">○</td><td class="cross">✕</td><td class="cross">✕</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>礦黑岩板</td><td>岩板紋</td><td>純黑</td><td>3mm</td><td>16</td><td class="check">○</td><td class="cross">✕</td><td class="cross">✕</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>極地冰岩</td><td>大理石紋</td><td>純白細紋</td><td>3mm</td><td>16</td><td class="check">○</td><td class="cross">✕</td><td class="cross">✕</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>維多玄岩</td><td>大理石紋</td><td>灰色系</td><td>3mm</td><td>16</td><td class="check">○</td><td class="cross">✕</td><td class="cross">✕</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>羅馬洞石-米</td><td>洞石紋</td><td>米白</td><td>4mm</td><td>19</td><td class="check">○</td><td class="cross">✕</td><td class="check">○</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>水洗鏽金</td><td>鏽石紋</td><td>鏽金</td><td>4mm</td><td>19</td><td class="check">○</td><td class="cross">✕</td><td class="check">○</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>卡斯灰鑽</td><td>大理石紋</td><td>高級灰</td><td>4mm</td><td>20</td><td class="check">○</td><td class="cross">✕</td><td class="check">○</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>水泥澆鑄-米白</td><td>水泥紋</td><td>米白</td><td>5mm</td><td>21</td><td class="check">○</td><td class="cross">✕</td><td class="check">○</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>流沙琥珀</td><td>砂岩紋</td><td>米棕</td><td>5mm</td><td>21</td><td class="check">○</td><td class="cross">✕</td><td class="check">○</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>編織岩-米白</td><td>編織紋</td><td>米白</td><td>5mm</td><td>20</td><td class="check">○</td><td class="cross">✕</td><td class="check">○</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>羅馬金砂-黃</td><td>洞石紋</td><td>金黃</td><td>6mm</td><td>23</td><td class="check">○</td><td class="cross">✕</td><td class="check">○</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>碳燒木-黑</td><td>木紋</td><td>黑色</td><td>6mm</td><td>23</td><td class="check">○</td><td class="cross">✕</td><td class="check">○</td><td>○ 需搭配泥作工法</td></tr>
+                    <tr><td>玄武墨黑</td><td>岩板紋</td><td>深黑</td><td>6mm</td><td>21</td><td class="check">○</td><td class="cross">✕</td><td class="check">○</td><td>○ 需搭配泥作工法</td></tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!-- 服務與安裝 -->
+        <div class="section">
+            <h2>🔧 服務與安裝</h2>
+
+            <h3>保固條款</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>保固類型</th>
+                        <th class="text-center">年限</th>
+                        <th>保固範圍</th>
+                        <th>不保固項目</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>產品保固</strong></td><td class="text-center">5年</td><td>產品本體龜裂、脫層、褪色等材質瑕疵</td><td>人為損壞、不當使用、自然災害</td></tr>
+                    <tr><td><strong>施工保固</strong></td><td class="text-center">1年</td><td>黏貼脫落、翹邊、空鼓等施工問題</td><td>非本司施工、基底問題、二次裝修損壞</td></tr>
+                </tbody>
+            </table>
+
+            <h3>安裝費用</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>施工類型</th>
+                        <th class="text-center">單價</th>
+                        <th>說明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>平面施工</strong></td><td class="text-center price">NT$1,000/㎡</td><td>不含美容處理</td></tr>
+                    <tr><td><strong>弧形施工</strong></td><td class="text-center price">NT$1,500/㎡</td><td>不含美容處理</td></tr>
+                </tbody>
+            </table>
+            <div class="note">
+                <strong>最低施工量：5㎡ 起接</strong>
+            </div>
+
+            <h3>美容費用</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>美容種類</th>
+                        <th class="text-center">單價</th>
+                        <th>說明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>陽角收邊</strong></td><td class="text-center price">NT$800/米</td><td>牆面外角收邊修飾</td></tr>
+                    <tr><td><strong>連紋密接</strong></td><td class="text-center price">NT$1,200/米</td><td>相鄰板材紋路對花處理</td></tr>
+                    <tr><td><strong>不連紋密接</strong></td><td class="text-center price">NT$1,000/米</td><td>相鄰板材接縫密合處理</td></tr>
+                    <tr><td><strong>磁磚美縫</strong></td><td class="text-center price">NT$800/米</td><td>接縫填縫劑填補修飾</td></tr>
+                </tbody>
+            </table>
+
+            <h3>適用基底</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>基底類型</th>
+                        <th class="text-center">是否適用</th>
+                        <th>備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>水泥砂漿面</td><td class="text-center check">✓ 適用</td><td>需平整、乾燥、無粉化</td></tr>
+                    <tr><td>水泥板</td><td class="text-center check">✓ 適用</td><td>最佳基底</td></tr>
+                    <tr><td>木夾板（合板）</td><td class="text-center check">✓ 適用</td><td>需固定穩固、無變形</td></tr>
+                    <tr><td>石膏板</td><td class="text-center check">✓ 適用</td><td>需確認承重</td></tr>
+                    <tr><td>既有磁磚面</td><td class="text-center check">✓ 適用</td><td>需打磨或塗佈界面劑</td></tr>
+                    <tr><td>金屬面</td><td class="text-center check">✓ 適用</td><td>需除鏽、塗佈界面劑</td></tr>
+                    <tr><td>油漆面</td><td class="text-center" style="color:#B8860B;">△ 視情況</td><td>需打磨去除光滑面</td></tr>
+                    <tr><td>壁紙面</td><td class="text-center cross">✗ 不適用</td><td>需先移除壁紙</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 競品比較 -->
+        <div class="section">
+            <h2>⚖️ 競品比較分析</h2>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>比較項目</th>
+                        <th>摩瑪輕奢石</th>
+                        <th>傳統磁磚</th>
+                        <th>進口大板</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>重量</td><td class="check"><strong>~5.5kg/㎡</strong></td><td>~20kg/㎡</td><td>~25kg/㎡</td></tr>
+                    <tr><td>厚度</td><td class="check"><strong>3~6mm</strong></td><td>10-12mm</td><td>6-12mm</td></tr>
+                    <tr><td>可彎曲</td><td class="check"><strong>✓ 可</strong></td><td class="cross">✗ 不可</td><td class="cross">✗ 不可</td></tr>
+                    <tr><td>施工難度</td><td class="check"><strong>低</strong></td><td>高</td><td>高</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- LINE CTA Bottom -->
+        <div class="line-cta">
+            <h3>📱 加入摩瑪建材 LINE@</h3>
+            <p>掃描 QR Code 加入好友，享最新優惠與產品資訊</p>
+            <img src="../../LINE@%20QR扣.jpg" alt="摩瑪建材 LINE@ QR Code" class="qr-code">
+            <p><strong>摩瑪建材 LINE@</strong></p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="company-name">樂莫集團 - 摩瑪建材</div>
+            <p>統一編號：45880923</p>
+            <p>台中市北屯區軍福十九路476號 台中南興店</p>
+            <p>www.themore-tw.com</p>
+            <p style="margin-top:15px;color:#999;">產品型錄 | 2026-01-28</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摩瑪滑門五金 業務教戰手冊</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a2e, #0a0a0a);
+            color: #e8e8e8;
+            line-height: 1.7;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* Confidential Badge */
+        .confidential-badge {
+            background: #c0392b;
+            color: #fff;
+            text-align: center;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1em;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(192, 57, 43, 0.4);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2a2a4e 50%, #1a1a2e 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        .header h1 {
+            font-size: 2.4em;
+            margin-bottom: 12px;
+            color: #ffd700;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+        }
+        .header .subtitle { font-size: 1em; opacity: 0.85; margin-bottom: 6px; color: #ccc; }
+        .header .date { font-size: 0.85em; opacity: 0.6; color: #aaa; }
+
+        /* Table of Contents */
+        .toc {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 25px 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        .toc h3 { color: #ffd700; margin-bottom: 15px; font-size: 1.3em; }
+        .toc ul { list-style: none; padding: 0; columns: 2; column-gap: 30px; }
+        .toc li { padding: 5px 0; break-inside: avoid; }
+        .toc a { color: #00d4ff; text-decoration: none; transition: color 0.2s; }
+        .toc a:hover { color: #ffd700; text-decoration: underline; }
+
+        /* Sections */
+        .section {
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+        }
+        .section h2 {
+            color: #ffd700;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        .section h3 {
+            color: #ffa500;
+            font-size: 1.15em;
+            margin: 22px 0 14px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(255, 165, 0, 0.2);
+        }
+        .section h4 {
+            color: #00d4ff;
+            font-size: 1.05em;
+            margin: 16px 0 10px 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.93em;
+        }
+        th, td {
+            padding: 11px 14px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        th {
+            background: #2a2a4e;
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        td { background: rgba(26, 26, 46, 0.5); }
+        tr:hover td { background: rgba(255, 215, 0, 0.1); }
+        td.center, th.center { text-align: center; }
+        td.right, th.right { text-align: right; }
+
+        /* Highlighted values */
+        .green { color: #00ff88; font-weight: bold; }
+        .red { color: #ff6b6b; font-weight: bold; }
+        .gold { color: #ffd700; font-weight: bold; }
+        .cyan { color: #00d4ff; font-weight: bold; }
+        .orange { color: #ffa500; font-weight: bold; }
+        .bold { font-weight: bold; }
+
+        /* Blockquotes */
+        blockquote, .quote-box {
+            border-left: 3px solid #ffd700;
+            background: rgba(255, 215, 0, 0.05);
+            padding: 14px 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 14px 0;
+            font-size: 0.95em;
+        }
+
+        /* Info/Tip/Warning boxes */
+        .info-box {
+            background: rgba(0, 212, 255, 0.08);
+            padding: 14px 20px;
+            border-radius: 10px;
+            margin: 14px 0;
+            border-left: 4px solid #00d4ff;
+        }
+        .tip-box {
+            background: rgba(0, 255, 136, 0.08);
+            padding: 14px 20px;
+            border-radius: 10px;
+            margin: 14px 0;
+            border-left: 4px solid #00ff88;
+        }
+        .warning-box {
+            background: rgba(255, 107, 107, 0.08);
+            padding: 14px 20px;
+            border-radius: 10px;
+            margin: 14px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+        .formula-box {
+            background: rgba(0, 0, 0, 0.35);
+            padding: 14px 20px;
+            border-radius: 10px;
+            margin: 14px 0;
+            border-left: 4px solid #ffd700;
+        }
+
+        /* Speech / Talk boxes */
+        .speech-box {
+            background: rgba(0, 212, 255, 0.06);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 12px 0;
+            border-left: 4px solid #00d4ff;
+            font-style: italic;
+        }
+        .attack-box {
+            background: rgba(255, 107, 107, 0.06);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 12px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+        .objection-q {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.02em;
+            margin: 20px 0 8px 0;
+        }
+
+        /* SWOT Grid */
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        .swot-card {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .swot-card h4 {
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .swot-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .swot-card li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95em;
+        }
+        .swot-card li::before {
+            content: "\2022";
+            position: absolute;
+            left: 0;
+        }
+        .swot-s { border-left: 4px solid #00ff88; }
+        .swot-s h4 { color: #00ff88; }
+        .swot-s li::before { color: #00ff88; }
+        .swot-w { border-left: 4px solid #ff6b6b; }
+        .swot-w h4 { color: #ff6b6b; }
+        .swot-w li::before { color: #ff6b6b; }
+        .swot-o { border-left: 4px solid #00d4ff; }
+        .swot-o h4 { color: #00d4ff; }
+        .swot-o li::before { color: #00d4ff; }
+        .swot-t { border-left: 4px solid #ffa500; }
+        .swot-t h4 { color: #ffa500; }
+        .swot-t li::before { color: #ffa500; }
+
+        /* Status Badges */
+        .badge-green {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.82em;
+            font-weight: bold;
+            background: #00ff88;
+            color: #000;
+        }
+        .badge-red {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.82em;
+            font-weight: bold;
+            background: #ff6b6b;
+            color: #fff;
+        }
+        .badge-gold {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.82em;
+            font-weight: bold;
+            background: #ffd700;
+            color: #000;
+        }
+        .badge-cyan {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.82em;
+            font-weight: bold;
+            background: #00d4ff;
+            color: #000;
+        }
+
+        /* Ordered list for strategy */
+        ol.strategy { padding-left: 22px; }
+        ol.strategy li { padding: 5px 0; }
+
+        /* Horizontal rule */
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255, 215, 0, 0.15);
+            margin: 30px 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+        }
+        .footer .company {
+            font-size: 1.2em;
+            color: #ffd700;
+            margin-bottom: 8px;
+        }
+        .footer a { color: #00d4ff; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.6em; }
+            .toc ul { columns: 1; }
+            .swot-grid { grid-template-columns: 1fr; }
+            table { font-size: 0.82em; }
+            th, td { padding: 8px 8px; }
+            .section { padding: 18px; }
+        }
+        @media print {
+            body { background: #fff; color: #333; }
+            .section { border: 1px solid #ddd; }
+            th { background: #f0f0f0; color: #333; }
+            td { background: #fff; color: #333; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Confidential Badge -->
+        <div class="confidential-badge">
+            &#9888;&#65039; 機密文件 &mdash; 僅供業務人員內部使用，嚴禁外流
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1>摩瑪滑門五金 業務教戰手冊</h1>
+            <div class="subtitle">樂莫集團 摩瑪建材 | 歐派克完美系統 + 百妥適幽靈門/摺疊門</div>
+            <div class="date">更新日期：2026-01-28 | 版本：v1.0 業務教戰手冊</div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>目錄</h3>
+            <ul>
+                <li><a href="#architecture">產品系統架構</a></li>
+                <li><a href="#pricing">五層定價表</a></li>
+                <li><a href="#cost">成本結構與毛利分析</a></li>
+                <li><a href="#floor">底價參考</a></li>
+                <li><a href="#negotiation">議價策略</a></li>
+                <li><a href="#config">門型配置規則</a></li>
+                <li><a href="#examples">完整方案報價範例</a></li>
+                <li><a href="#speech">銷售話術</a></li>
+                <li><a href="#competitor">競品比較</a></li>
+                <li><a href="#attack">競品攻擊點</a></li>
+                <li><a href="#objection">異議處理</a></li>
+                <li><a href="#swot">SWOT 分析</a></li>
+                <li><a href="#ta">目標客群 TA</a></li>
+                <li><a href="#inventory">庫存狀態</a></li>
+                <li><a href="#cross">跨品線搭售建議</a></li>
+                <li><a href="#install">安裝費用</a></li>
+                <li><a href="#shipment">出貨記錄</a></li>
+            </ul>
+        </div>
+
+        <!-- ====== 產品系統架構 ====== -->
+        <div class="section" id="architecture">
+            <h2>產品系統架構</h2>
+            <p style="margin-bottom:14px;">摩瑪滑門五金採「<strong class="gold">三大系統 + 淘汰品出清</strong>」架構，涵蓋五大門型。</p>
+
+            <div class="quote-box">
+                <strong>重要：</strong> 五金套裝 = 純五金配件（吊輪+阻尼），不含門板、不含軌道。<br>
+                軌道按台尺計價，另行報價。門板由客戶自備或搭配鋁木門產品線。
+            </div>
+
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>系統</th>
+                        <th>品牌</th>
+                        <th>核心特色</th>
+                        <th>門型</th>
+                        <th class="center">牌價範圍</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="green">系統一：歐派克完美系統</strong></td>
+                        <td>OPK</td>
+                        <td>一軌道三場景</td>
+                        <td>單門/聯動/口袋門</td>
+                        <td class="center gold">$4,300~$6,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="green">系統二：幽靈門</strong></td>
+                        <td>百妥適</td>
+                        <td>無軌道・雙向緩衝・隱藏式</td>
+                        <td>幽靈門</td>
+                        <td class="center gold">$9,500~$11,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="green">系統三：摺疊門</strong></td>
+                        <td>百妥適</td>
+                        <td>無下軌・多折門</td>
+                        <td>摺疊門</td>
+                        <td class="center gold">$28,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color:#999;">淘汰品出清</strong></td>
+                        <td>百妥適</td>
+                        <td>賣完不補</td>
+                        <td>聯動/口袋門</td>
+                        <td class="center" style="color:#999;">$200~$6,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!-- ====== 五層定價表 ====== -->
+        <div class="section" id="pricing">
+            <h2>五層定價表</h2>
+
+            <h3>定價規則</h3>
+            <div class="formula-box">
+                <strong class="gold">五層結構：</strong> 牌價(100%) &rarr; 設計師價(7折) &rarr; BNI價(6折) &rarr; 建商價(5折) &rarr; 經銷價(3.5折)<br><br>
+                <strong class="gold">成本公式：</strong> 進貨(RMB) &times; 5（匯率）+ 重量(kg) &times; 40（運費）= 總成本
+            </div>
+
+            <h3>系統一：歐派克完美系統</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>型號</th>
+                        <th>產品</th>
+                        <th class="center">進貨(&yen;)</th>
+                        <th class="center">經銷3.5折</th>
+                        <th class="center">建商5折</th>
+                        <th class="center">BNI 6折</th>
+                        <th class="center">設計師7折</th>
+                        <th class="center">牌價</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="cyan">M-SD01</td>
+                        <td>單門套裝</td>
+                        <td class="center red">&yen;99</td>
+                        <td class="center">$1,500</td>
+                        <td class="center">$2,150</td>
+                        <td class="center">$2,580</td>
+                        <td class="center">$3,010</td>
+                        <td class="center gold">$4,300</td>
+                    </tr>
+                    <tr>
+                        <td class="cyan">M-LD40</td>
+                        <td>三聯互動40框</td>
+                        <td class="center red">&yen;115</td>
+                        <td class="center">$1,750</td>
+                        <td class="center">$2,500</td>
+                        <td class="center">$3,000</td>
+                        <td class="center">$3,500</td>
+                        <td class="center gold">$5,000</td>
+                    </tr>
+                    <tr>
+                        <td class="cyan">M-LD46</td>
+                        <td>多聯互動4046</td>
+                        <td class="center red">&yen;140</td>
+                        <td class="center">$2,100</td>
+                        <td class="center">$3,000</td>
+                        <td class="center">$3,600</td>
+                        <td class="center">$4,200</td>
+                        <td class="center gold">$6,000</td>
+                    </tr>
+                    <tr>
+                        <td class="cyan">M-PD01</td>
+                        <td>口袋門反彈器</td>
+                        <td class="center red">&yen;98</td>
+                        <td class="center">$1,500</td>
+                        <td class="center">$2,150</td>
+                        <td class="center">$2,580</td>
+                        <td class="center">$3,010</td>
+                        <td class="center gold">$4,300</td>
+                    </tr>
+                    <tr>
+                        <td class="cyan">M-LK01</td>
+                        <td>聯動固定件</td>
+                        <td class="center red">&yen;11</td>
+                        <td class="center">$175</td>
+                        <td class="center">$250</td>
+                        <td class="center">$300</td>
+                        <td class="center">$350</td>
+                        <td class="center gold">$500</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>系統二：百妥適幽靈門</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>型號</th>
+                        <th>產品</th>
+                        <th class="center">進貨(&yen;)</th>
+                        <th class="center">經銷3.5折</th>
+                        <th class="center">建商5折</th>
+                        <th class="center">BNI 6折</th>
+                        <th class="center">設計師7折</th>
+                        <th class="center">牌價</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="cyan">M-GD01</td>
+                        <td>標準款(1.2m)</td>
+                        <td class="center red">&yen;220</td>
+                        <td class="center">$3,300</td>
+                        <td class="center">$4,750</td>
+                        <td class="center">$5,700</td>
+                        <td class="center">$6,650</td>
+                        <td class="center gold">$9,500</td>
+                    </tr>
+                    <tr>
+                        <td class="cyan">M-GD02</td>
+                        <td>加寬款(1.5m)</td>
+                        <td class="center red">&yen;255</td>
+                        <td class="center">$3,850</td>
+                        <td class="center">$5,500</td>
+                        <td class="center">$6,600</td>
+                        <td class="center">$7,700</td>
+                        <td class="center gold">$11,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>系統三：百妥適摺疊門</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>型號</th>
+                        <th>產品</th>
+                        <th class="center">進貨(&yen;)</th>
+                        <th class="center">經銷3.5折</th>
+                        <th class="center">建商5折</th>
+                        <th class="center">BNI 6折</th>
+                        <th class="center">設計師7折</th>
+                        <th class="center">牌價</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="cyan">M-FD</td>
+                        <td>摺疊門完整一組</td>
+                        <td class="center red">&yen;650</td>
+                        <td class="center">$9,800</td>
+                        <td class="center">$14,000</td>
+                        <td class="center">$16,800</td>
+                        <td class="center">$19,600</td>
+                        <td class="center gold">$28,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <div class="quote-box">
+                摺疊門一組 = 配件(&yen;450) + 上軌(&yen;170) + 收口條&times;2(&yen;30) = <strong class="red">&yen;650</strong>
+            </div>
+
+            <h3>軌道定價（另計）</h3>
+            <div class="info-box">
+                軌道屬「鋁型材」產品線，按台尺計價，與五金套裝分開報價。
+            </div>
+
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>軌道型號</th>
+                        <th class="center">成本/尺</th>
+                        <th class="center">牌價/尺(&times;2.5)</th>
+                        <th class="center">協力價/尺(&times;2)</th>
+                        <th>用途</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="cyan">YZ100A04 單軌道</td>
+                        <td class="center red">$47</td>
+                        <td class="center gold">$118</td>
+                        <td class="center">$94</td>
+                        <td>歐派克系統主軌道</td>
+                    </tr>
+                    <tr>
+                        <td class="cyan">TM-OPK-A101 吊輪滑軌</td>
+                        <td class="center red">$66</td>
+                        <td class="center gold">$165</td>
+                        <td class="center">$132</td>
+                        <td>OPK裝飾蓋專用軌</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!-- ====== 成本結構與毛利分析 ====== -->
+        <div class="section" id="cost">
+            <h2>成本結構與毛利分析</h2>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>型號</th>
+                        <th class="center">進貨(&yen;)</th>
+                        <th class="center">貨價(NT)</th>
+                        <th class="center">運費</th>
+                        <th class="center">總成本</th>
+                        <th class="center">經銷價</th>
+                        <th class="center">經銷毛利率</th>
+                        <th class="center">牌價</th>
+                        <th class="center">牌價毛利率</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M-SD01 單門</td>
+                        <td class="center red">&yen;99</td>
+                        <td class="center">$495</td>
+                        <td class="center">$120</td>
+                        <td class="center red">$615</td>
+                        <td class="center">$1,500</td>
+                        <td class="center green">144%</td>
+                        <td class="center gold">$4,300</td>
+                        <td class="center green">599%</td>
+                    </tr>
+                    <tr>
+                        <td>M-LD40 三聯</td>
+                        <td class="center red">&yen;115</td>
+                        <td class="center">$575</td>
+                        <td class="center">$140</td>
+                        <td class="center red">$715</td>
+                        <td class="center">$1,750</td>
+                        <td class="center green">145%</td>
+                        <td class="center gold">$5,000</td>
+                        <td class="center green">599%</td>
+                    </tr>
+                    <tr>
+                        <td>M-LD46 多聯</td>
+                        <td class="center red">&yen;140</td>
+                        <td class="center">$700</td>
+                        <td class="center">$160</td>
+                        <td class="center red">$860</td>
+                        <td class="center">$2,100</td>
+                        <td class="center green">144%</td>
+                        <td class="center gold">$6,000</td>
+                        <td class="center green">598%</td>
+                    </tr>
+                    <tr>
+                        <td>M-PD01 口袋</td>
+                        <td class="center red">&yen;98</td>
+                        <td class="center">$490</td>
+                        <td class="center">$120</td>
+                        <td class="center red">$610</td>
+                        <td class="center">$1,500</td>
+                        <td class="center green">146%</td>
+                        <td class="center gold">$4,300</td>
+                        <td class="center green">605%</td>
+                    </tr>
+                    <tr>
+                        <td>M-LK01 固定件</td>
+                        <td class="center red">&yen;11</td>
+                        <td class="center">$55</td>
+                        <td class="center">$15</td>
+                        <td class="center red">$70</td>
+                        <td class="center">$175</td>
+                        <td class="center green">150%</td>
+                        <td class="center gold">$500</td>
+                        <td class="center green">614%</td>
+                    </tr>
+                    <tr>
+                        <td>M-GD01 幽靈標準</td>
+                        <td class="center red">&yen;220</td>
+                        <td class="center">$1,100</td>
+                        <td class="center">$200</td>
+                        <td class="center red">$1,300</td>
+                        <td class="center">$3,300</td>
+                        <td class="center green">154%</td>
+                        <td class="center gold">$9,500</td>
+                        <td class="center green">631%</td>
+                    </tr>
+                    <tr>
+                        <td>M-GD02 幽靈加寬</td>
+                        <td class="center red">&yen;255</td>
+                        <td class="center">$1,275</td>
+                        <td class="center">$220</td>
+                        <td class="center red">$1,495</td>
+                        <td class="center">$3,850</td>
+                        <td class="center green">157%</td>
+                        <td class="center gold">$11,000</td>
+                        <td class="center green">636%</td>
+                    </tr>
+                    <tr>
+                        <td>M-FD 摺疊門</td>
+                        <td class="center red">&yen;650</td>
+                        <td class="center">$3,250</td>
+                        <td class="center">$450</td>
+                        <td class="center red">$3,700</td>
+                        <td class="center">$9,800</td>
+                        <td class="center green">165%</td>
+                        <td class="center gold">$28,000</td>
+                        <td class="center green">657%</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <div class="tip-box">
+                <strong class="green">牌價毛利率 600%+，經銷價仍有 144%~165%。</strong> 這是全產品線中毛利最高的品類。
+            </div>
+        </div>
+
+        <!-- ====== 底價參考 ====== -->
+        <div class="section" id="floor">
+            <h2>底價參考（成本&times;1.2，確保 20% 毛利）</h2>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>型號</th>
+                        <th class="center">牌價</th>
+                        <th class="center">經銷3.5折</th>
+                        <th class="center">成本</th>
+                        <th class="center">底價(20%毛利)</th>
+                        <th class="center">底價折數</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M-SD01 單門</td>
+                        <td class="center gold">$4,300</td>
+                        <td class="center">$1,500</td>
+                        <td class="center red">$615</td>
+                        <td class="center red">$738</td>
+                        <td class="center">1.7折</td>
+                    </tr>
+                    <tr>
+                        <td>M-LD40 三聯</td>
+                        <td class="center gold">$5,000</td>
+                        <td class="center">$1,750</td>
+                        <td class="center red">$715</td>
+                        <td class="center red">$858</td>
+                        <td class="center">1.7折</td>
+                    </tr>
+                    <tr>
+                        <td>M-LD46 多聯</td>
+                        <td class="center gold">$6,000</td>
+                        <td class="center">$2,100</td>
+                        <td class="center red">$860</td>
+                        <td class="center red">$1,032</td>
+                        <td class="center">1.7折</td>
+                    </tr>
+                    <tr>
+                        <td>M-PD01 口袋</td>
+                        <td class="center gold">$4,300</td>
+                        <td class="center">$1,500</td>
+                        <td class="center red">$610</td>
+                        <td class="center red">$732</td>
+                        <td class="center">1.7折</td>
+                    </tr>
+                    <tr>
+                        <td>M-GD01 幽靈標準</td>
+                        <td class="center gold">$9,500</td>
+                        <td class="center">$3,300</td>
+                        <td class="center red">$1,300</td>
+                        <td class="center red">$1,560</td>
+                        <td class="center">1.6折</td>
+                    </tr>
+                    <tr>
+                        <td>M-GD02 幽靈加寬</td>
+                        <td class="center gold">$11,000</td>
+                        <td class="center">$3,850</td>
+                        <td class="center red">$1,495</td>
+                        <td class="center red">$1,794</td>
+                        <td class="center">1.6折</td>
+                    </tr>
+                    <tr>
+                        <td>M-FD 摺疊門</td>
+                        <td class="center gold">$28,000</td>
+                        <td class="center">$9,800</td>
+                        <td class="center red">$3,700</td>
+                        <td class="center red">$4,440</td>
+                        <td class="center">1.6折</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <div class="warning-box">
+                <strong class="red">底價為絕對機密，僅限高階主管參考。</strong> 不設底價制度，經銷 3.5 折為最低對外折數。
+            </div>
+        </div>
+
+        <!-- ====== 議價策略 ====== -->
+        <div class="section" id="negotiation">
+            <h2>議價策略</h2>
+            <ol class="strategy">
+                <li><strong class="gold">報牌價</strong> &rarr; 客戶殺價</li>
+                <li><strong>讓到設計師價(7折)</strong> &rarr; 一般設計師合作</li>
+                <li><strong class="orange">BNI價(6折)</strong> &rarr; BNI會員專屬</li>
+                <li><strong class="green">建商價(5折)</strong> &rarr; 建設公司/批量案</li>
+                <li><strong class="red">經銷價(3.5折)</strong> &rarr; 長期經銷合作夥伴</li>
+            </ol>
+        </div>
+
+        <!-- ====== 門型配置規則 ====== -->
+        <div class="section" id="config">
+            <h2>門型配置規則（五金組合）</h2>
+
+            <div class="info-box">
+                不同門型需要搭配不同五金套裝，報價時務必按以下規則組合。
+            </div>
+
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>門型</th>
+                        <th>五金配置</th>
+                        <th class="center">進貨合計(&yen;)</th>
+                        <th class="center">牌價合計</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>單門</strong></td>
+                        <td>M-SD01 &times; 1</td>
+                        <td class="center red">&yen;99</td>
+                        <td class="center gold">$4,300</td>
+                    </tr>
+                    <tr>
+                        <td><strong>三聯互動（3扇）</strong></td>
+                        <td>M-SD01 &times; 2 + M-LD40 &times; 1</td>
+                        <td class="center red">&yen;313</td>
+                        <td class="center gold">$13,600</td>
+                    </tr>
+                    <tr>
+                        <td><strong>四聯互動（4扇）</strong></td>
+                        <td>M-SD01 &times; 2 + M-LD46 &times; 2</td>
+                        <td class="center red">&yen;478</td>
+                        <td class="center gold">$20,600</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2+0聯動（口袋式2扇）</strong></td>
+                        <td>M-SD01 &times; 1 + M-LD40 &times; 1 + M-LK01 &times; 1</td>
+                        <td class="center red">&yen;225</td>
+                        <td class="center gold">$9,800</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3+0聯動（口袋式3扇）</strong></td>
+                        <td>M-SD01 &times; 1 + M-LD46 &times; 2 + M-LK01 &times; 1</td>
+                        <td class="center red">&yen;390</td>
+                        <td class="center gold">$16,800</td>
+                    </tr>
+                    <tr>
+                        <td><strong>口袋門（單扇收牆內）</strong></td>
+                        <td>M-PD01 &times; 1</td>
+                        <td class="center red">&yen;98</td>
+                        <td class="center gold">$4,300</td>
+                    </tr>
+                    <tr>
+                        <td><strong>幽靈門</strong></td>
+                        <td>M-GD01 或 M-GD02 &times; 1</td>
+                        <td class="center red">&yen;220/&yen;255</td>
+                        <td class="center gold">$9,500/$11,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>摺疊門</strong></td>
+                        <td>M-FD 整組 &times; 1</td>
+                        <td class="center red">&yen;650</td>
+                        <td class="center gold">$28,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <div class="quote-box">
+                以上不含軌道，軌道按門洞寬度另計（單門約 7~8 尺，聯動門依扇數遞增）。
+            </div>
+        </div>
+
+        <!-- ====== 完整方案報價範例 ====== -->
+        <div class="section" id="examples">
+            <h2>完整方案報價範例（五金 + 軌道）</h2>
+
+            <h3>範例一：一扇單門滑門</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>品項</th>
+                        <th class="center">數量</th>
+                        <th class="center">牌價單價</th>
+                        <th class="center">小計</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M-SD01 單門套裝</td>
+                        <td class="center">1套</td>
+                        <td class="center">$4,300</td>
+                        <td class="center">$4,300</td>
+                    </tr>
+                    <tr>
+                        <td>軌道 YZ100A04</td>
+                        <td class="center">8尺</td>
+                        <td class="center">$118/尺</td>
+                        <td class="center">$944</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align:right;"><strong class="gold">合計</strong></td>
+                        <td class="center gold">$5,244</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>範例二：三聯互動門（3扇）</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>品項</th>
+                        <th class="center">數量</th>
+                        <th class="center">牌價單價</th>
+                        <th class="center">小計</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M-SD01 單門套裝</td>
+                        <td class="center">2套</td>
+                        <td class="center">$4,300</td>
+                        <td class="center">$8,600</td>
+                    </tr>
+                    <tr>
+                        <td>M-LD40 三聯互動套裝</td>
+                        <td class="center">1套</td>
+                        <td class="center">$5,000</td>
+                        <td class="center">$5,000</td>
+                    </tr>
+                    <tr>
+                        <td>軌道 YZ100A04</td>
+                        <td class="center">18尺</td>
+                        <td class="center">$118/尺</td>
+                        <td class="center">$2,124</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align:right;"><strong class="gold">合計</strong></td>
+                        <td class="center gold">$15,724</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>範例三：幽靈門</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>品項</th>
+                        <th class="center">數量</th>
+                        <th class="center">牌價單價</th>
+                        <th class="center">小計</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M-GD01 幽靈門標準款</td>
+                        <td class="center">1套</td>
+                        <td class="center">$9,500</td>
+                        <td class="center">$9,500</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align:right;"><strong class="gold">合計（無需軌道）</strong></td>
+                        <td class="center gold">$9,500</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!-- ====== 銷售話術 ====== -->
+        <div class="section" id="speech">
+            <h2>銷售話術</h2>
+
+            <h3>一軌三用（歐派克核心賣點）</h3>
+            <div class="speech-box">
+                「我們的滑門系統最大特色是<strong class="green">一條軌道通用三種場景</strong>&mdash;&mdash;單門、聯動門、口袋門都用同一條軌道，只要換不同配件就好。設計師不用煩惱選什麼軌道，施工師傅也不用學三套系統，庫存備一種軌道就夠了。」
+            </div>
+
+            <h3>價格優勢</h3>
+            <div class="speech-box">
+                「同等品質的滑門五金，市面上動輒 $8,000~$15,000 一套，我們 <strong class="green">$4,300</strong> 就能做到雙緩衝滑門，CP 值非常高。」
+            </div>
+
+            <h3>幽靈門 &mdash; 隱形設計</h3>
+            <div class="speech-box">
+                「幽靈門是目前設計師最愛用的隱形門，完全不需要地軌，雙向開合，關起來跟牆面融為一體。我們 <strong class="green">$9,500</strong> 一套，市面上同等品質至少 $10,000 起跳。」
+            </div>
+
+            <h3>摺疊門 &mdash; 空間最大化</h3>
+            <div class="speech-box">
+                「無下軌的摺疊門，不用擔心地面凸起絆倒，打開後整面牆都是通道，最適合客餐廳之間的彈性隔間。」
+            </div>
+
+            <h3>對比話術（AAS美爵）</h3>
+            <div class="speech-box">
+                「AAS美爵是我們同體系的高階品牌，如果客戶預算充裕可以推薦。但歐派克系統已經能滿足 95% 的居家需求，<strong class="green">價格只要 AAS 的三分之一</strong>。」
+            </div>
+
+            <h3>配套推薦（跨品線）</h3>
+            <div class="speech-box">
+                「滑門裝好之後，門鎖、鉸鏈、門吸我們也都有全系列。VSTE 威斯特的 WY11 滑門鎖專門搭配穀倉門使用，同色系一次搞定。」
+            </div>
+        </div>
+
+        <!-- ====== 競品比較 ====== -->
+        <div class="section" id="competitor">
+            <h2>競品比較</h2>
+
+            <h3>價格對比（牌價）</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>比較項目</th>
+                        <th class="center">摩瑪（歐派克）</th>
+                        <th class="center">AAS美爵</th>
+                        <th class="center">台灣品牌</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>雙緩衝單門</td>
+                        <td class="center green">$4,300</td>
+                        <td class="center">~$6,000</td>
+                        <td class="center red">$8,000~$15,000</td>
+                    </tr>
+                    <tr>
+                        <td>聯動門系統</td>
+                        <td class="center green">$5,000~$6,000</td>
+                        <td class="center">~$15,000</td>
+                        <td class="center red">$15,000~$25,000</td>
+                    </tr>
+                    <tr>
+                        <td>口袋門方案</td>
+                        <td class="center green">$4,300</td>
+                        <td class="center">~$8,000</td>
+                        <td class="center red">$10,000~$20,000</td>
+                    </tr>
+                    <tr>
+                        <td>幽靈門</td>
+                        <td class="center green">$9,500</td>
+                        <td class="center">~$9,000</td>
+                        <td class="center red">$10,000~$18,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>規格對比</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>比較項目</th>
+                        <th class="center">摩瑪（歐派克）</th>
+                        <th class="center">AAS美爵</th>
+                        <th class="center">台灣常見品牌</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>承重能力</td>
+                        <td class="center">65~80KG</td>
+                        <td class="center">80~150KG</td>
+                        <td class="center">60~100KG</td>
+                    </tr>
+                    <tr>
+                        <td>緩衝方式</td>
+                        <td class="center green">中阻尼雙緩衝</td>
+                        <td class="center">線性雙緩衝</td>
+                        <td class="center red">單緩衝為主</td>
+                    </tr>
+                    <tr>
+                        <td>軌道通用性</td>
+                        <td class="center green">三場景共軌</td>
+                        <td class="center">部分通用</td>
+                        <td class="center red">多為專用軌</td>
+                    </tr>
+                    <tr>
+                        <td>價位</td>
+                        <td class="center"><span class="badge-green">平價高CP</span></td>
+                        <td class="center">中高價</td>
+                        <td class="center">中高價</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!-- ====== 競品攻擊點 ====== -->
+        <div class="section" id="attack">
+            <h2>競品攻擊點</h2>
+
+            <h3>1. 台灣品牌太貴</h3>
+            <div class="attack-box">
+                「台灣市面上的滑門五金一套動輒 $8,000~$15,000，我們只要 <strong class="green">$4,300</strong> 就做到雙緩衝。品質都是鋁合金軌道+尼龍吊輪，核心材料一樣，只是品牌溢價不同。」
+            </div>
+
+            <h3>2. 一般品牌沒有一軌三用</h3>
+            <div class="attack-box">
+                「大多數品牌的單門、聯動門、口袋門是三套不同系統，換門型就要換軌道。我們歐派克<strong class="green">一條軌道通用三種場景</strong>，裝修彈性最高。」
+            </div>
+
+            <h3>3. 淘寶自買風險</h3>
+            <div class="attack-box">
+                「淘寶買滑門五金看起來便宜，但軌道、吊輪、阻尼要自己配，買錯規格退不了。我們提供<strong class="green">完整方案&mdash;&mdash;五金+軌道+安裝一站搞定</strong>，還有保固。」
+            </div>
+
+            <h3>4. AAS美爵太高端</h3>
+            <div class="attack-box">
+                「AAS 是我們同體系的高階品牌，品質當然更好，但價格也是 3 倍。<strong class="green">95% 的居家滑門用歐派克就夠了</strong>，省下來的預算可以升級門板材質。」
+            </div>
+        </div>
+
+        <!-- ====== 異議處理 ====== -->
+        <div class="section" id="objection">
+            <h2>異議處理</h2>
+
+            <p class="objection-q">「滑門五金不就是吊輪嗎，幹嘛這麼貴？」</p>
+            <div class="speech-box">
+                「一般吊輪沒有緩衝，推到底砰的一聲。我們的是<strong class="green">雙緩衝系統</strong>&mdash;&mdash;推到底跟拉出來都有靜音緩衝，用起來完全不同。而且 $4,300 含全套五金（吊輪+中阻尼+安裝配件），不是只有吊輪。」
+            </div>
+
+            <p class="objection-q">「中國的五金品質我擔心」</p>
+            <div class="speech-box">
+                「全世界 90% 以上的滑門五金都是中國生產的，包括很多歐洲品牌。重點在品控標準&mdash;&mdash;歐派克是佛山的專業五金廠，品質通過多項認證。我們有 <strong class="green">1 年保固</strong>，有問題直接處理。」
+            </div>
+
+            <p class="objection-q">「幽靈門 $9,500 太貴」</p>
+            <div class="speech-box">
+                「幽靈門是完全無軌道的雙向緩衝系統，技術含量比普通滑門高很多。市面上同等品質至少 $10,000 起跳，國外品牌更是 $15,000 以上。<strong class="green">$9,500 是設計師最推的性價比選擇</strong>。」
+            </div>
+
+            <p class="objection-q">「我只需要單門，聯動太複雜」</p>
+            <div class="speech-box">
+                「沒問題，M-SD01 單門套裝 $4,300 就搞定。不過建議留意我們的<strong class="green">一軌三用</strong>&mdash;&mdash;如果以後想加門或改聯動，同一條軌道直接擴充，不用重新施工。」
+            </div>
+
+            <p class="objection-q">「可以只買五金不裝軌道嗎？」</p>
+            <div class="speech-box">
+                「可以，五金跟軌道是分開報價的。如果您已經有合適的軌道（中軌道型），可以只買五金套裝。不過建議用我們的配套軌道，品質跟尺寸最合。」
+            </div>
+        </div>
+
+        <!-- ====== SWOT 分析 ====== -->
+        <div class="section" id="swot">
+            <h2>SWOT 分析</h2>
+
+            <div class="swot-grid">
+                <!-- Strengths -->
+                <div class="swot-card swot-s">
+                    <h4><span class="badge-green">S</span> Strengths 優勢</h4>
+                    <ul>
+                        <li><strong>超高 CP 值</strong> &mdash; 牌價僅市場行情的 1/3~1/5</li>
+                        <li><strong>一軌三用</strong> &mdash; 歐派克獨特的中軌道通用系統</li>
+                        <li><strong>產品線完整</strong> &mdash; 單門/聯動/口袋/幽靈/摺疊五大門型齊全</li>
+                        <li><strong>超高毛利</strong> &mdash; 牌價毛利率 600%+，經銷價仍有 144%+</li>
+                        <li><strong>庫存已備</strong> &mdash; 50套歐派克 + 幽靈門 + 摺疊門已到貨</li>
+                        <li><strong>五層定價</strong> &mdash; 靈活應對不同客群與通路</li>
+                    </ul>
+                </div>
+
+                <!-- Weaknesses -->
+                <div class="swot-card swot-w">
+                    <h4><span class="badge-red">W</span> Weaknesses 劣勢</h4>
+                    <ul>
+                        <li><strong>品牌知名度低</strong> &mdash; 歐派克、百妥適在台灣無知名度</li>
+                        <li><strong>產地中國</strong> &mdash; 部分客戶有產地偏好</li>
+                        <li><strong>承重較低</strong> &mdash; 歐派克系統最高 80KG，大型門扇受限</li>
+                        <li><strong>安裝技術</strong> &mdash; 需培訓本地安裝師傅</li>
+                    </ul>
+                </div>
+
+                <!-- Opportunities -->
+                <div class="swot-card swot-o">
+                    <h4><span class="badge-cyan">O</span> Opportunities 機會</h4>
+                    <ul>
+                        <li><strong>隱形門趨勢</strong> &mdash; 幽靈門、口袋門需求快速成長</li>
+                        <li><strong>輕裝修市場</strong> &mdash; 滑門改造需求增加</li>
+                        <li><strong>設計師合作</strong> &mdash; 對新型五金接受度高</li>
+                        <li><strong>建案配套</strong> &mdash; 建設公司大量採購滑門五金</li>
+                        <li><strong>AAS 升級路線</strong> &mdash; 入門客戶未來可升級 AAS 美爵</li>
+                    </ul>
+                </div>
+
+                <!-- Threats -->
+                <div class="swot-card swot-t">
+                    <h4><span class="badge-gold">T</span> Threats 威脅</h4>
+                    <ul>
+                        <li><strong>進口品牌競爭</strong> &mdash; Hafele、Hettich 等歐系品牌</li>
+                        <li><strong>台灣在地品牌</strong> &mdash; 已有通路與口碑</li>
+                        <li><strong>淘寶直購</strong> &mdash; 客戶自行採購低價五金</li>
+                        <li><strong>仿冒品</strong> &mdash; 廉價五金影響市場信任</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== 目標客群 TA ====== -->
+        <div class="section" id="ta">
+            <h2>目標客群 TA</h2>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>客群</th>
+                        <th>需求重點</th>
+                        <th>推薦產品</th>
+                        <th class="center">適用價格層</th>
+                        <th>銷售重點</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>室內設計師</strong></td>
+                        <td>隱形設計、多樣門型</td>
+                        <td>幽靈門、口袋門、摺疊門</td>
+                        <td class="center">設計師7折</td>
+                        <td>樣品支援、技術圖面</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BNI 會員</strong></td>
+                        <td>品質穩定、合理價格</td>
+                        <td>全系列</td>
+                        <td class="center">BNI 6折</td>
+                        <td>會員專屬價、轉介紹</td>
+                    </tr>
+                    <tr>
+                        <td><strong>一般住家</strong></td>
+                        <td>CP值、好推好滑</td>
+                        <td>M-SD01單門</td>
+                        <td class="center">牌價</td>
+                        <td>價格優勢、雙緩衝靜音</td>
+                    </tr>
+                    <tr>
+                        <td><strong>裝修公司</strong></td>
+                        <td>成本控制、通用性</td>
+                        <td>歐派克全系列</td>
+                        <td class="center">建商5折</td>
+                        <td>一軌三用省庫存</td>
+                    </tr>
+                    <tr>
+                        <td><strong>建設公司</strong></td>
+                        <td>大量採購、配套服務</td>
+                        <td>歐派克系統</td>
+                        <td class="center">建商5折</td>
+                        <td>專案報價、統一安裝</td>
+                    </tr>
+                    <tr>
+                        <td><strong>經銷夥伴</strong></td>
+                        <td>長期合作、穩定利潤</td>
+                        <td>全系列</td>
+                        <td class="center">經銷3.5折</td>
+                        <td>獨家區域、教育訓練</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <div class="tip-box">
+                <strong class="green">主力戰場：</strong> 室內設計師 + 一般住家翻修為最高毛利客群（設計師價或牌價），建設公司為走量客群。
+            </div>
+        </div>
+
+        <!-- ====== 庫存狀態 ====== -->
+        <div class="section" id="inventory">
+            <h2>庫存狀態</h2>
+
+            <h3>系統一：歐派克（已到貨）</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>型號</th>
+                        <th>門型</th>
+                        <th class="center">庫存</th>
+                        <th class="center">單價(&yen;)</th>
+                        <th class="center">庫存成本(&yen;)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="cyan">M-SD01</td>
+                        <td>單門</td>
+                        <td class="center">25套</td>
+                        <td class="center red">&yen;99</td>
+                        <td class="center red">&yen;2,475</td>
+                    </tr>
+                    <tr>
+                        <td class="cyan">M-LD40(左)</td>
+                        <td>聯動</td>
+                        <td class="center">5套</td>
+                        <td class="center red">&yen;115</td>
+                        <td class="center red">&yen;575</td>
+                    </tr>
+                    <tr>
+                        <td class="cyan">M-LD40(右)</td>
+                        <td>聯動</td>
+                        <td class="center">5套</td>
+                        <td class="center red">&yen;115</td>
+                        <td class="center red">&yen;575</td>
+                    </tr>
+                    <tr>
+                        <td class="cyan">M-LD46(左)</td>
+                        <td>聯動</td>
+                        <td class="center">5套</td>
+                        <td class="center red">&yen;140</td>
+                        <td class="center red">&yen;700</td>
+                    </tr>
+                    <tr>
+                        <td class="cyan">M-LD46(右)</td>
+                        <td>聯動</td>
+                        <td class="center">5套</td>
+                        <td class="center red">&yen;140</td>
+                        <td class="center red">&yen;700</td>
+                    </tr>
+                    <tr>
+                        <td class="cyan">M-PD01</td>
+                        <td>口袋門</td>
+                        <td class="center">5套</td>
+                        <td class="center red">&yen;98</td>
+                        <td class="center red">&yen;490</td>
+                    </tr>
+                    <tr>
+                        <td>配件</td>
+                        <td>&mdash;</td>
+                        <td class="center">批量</td>
+                        <td class="center">&mdash;</td>
+                        <td class="center red">&yen;295</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>系統二/三 + 淘汰品</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>型號</th>
+                        <th class="center">庫存</th>
+                        <th class="center">庫存成本(&yen;)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M-GD01 幽靈門(1.2m)</td>
+                        <td class="center">1套</td>
+                        <td class="center red">&yen;220</td>
+                    </tr>
+                    <tr>
+                        <td>M-FD 摺疊門整組</td>
+                        <td class="center">1組</td>
+                        <td class="center red">&yen;650</td>
+                    </tr>
+                    <tr>
+                        <td>淘汰品 YG231 系列</td>
+                        <td class="center">多項</td>
+                        <td class="center red">&yen;2,195</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>庫存價值總覽</h3>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>項目</th>
+                        <th class="center">成本(&yen;)</th>
+                        <th class="center">成本(NT)</th>
+                        <th class="center">牌價總值(NT)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>歐派克系統</td>
+                        <td class="center red">&yen;5,810</td>
+                        <td class="center red">$29,050</td>
+                        <td class="center gold">$232,500</td>
+                    </tr>
+                    <tr>
+                        <td>幽靈門</td>
+                        <td class="center red">&yen;220</td>
+                        <td class="center red">$1,100</td>
+                        <td class="center gold">$9,500</td>
+                    </tr>
+                    <tr>
+                        <td>摺疊門</td>
+                        <td class="center red">&yen;650</td>
+                        <td class="center red">$3,250</td>
+                        <td class="center gold">$28,000</td>
+                    </tr>
+                    <tr>
+                        <td>淘汰品出清</td>
+                        <td class="center red">&yen;2,195</td>
+                        <td class="center red">$10,975</td>
+                        <td class="center">~$15,000</td>
+                    </tr>
+                    <tr style="border-top: 2px solid #ffd700;">
+                        <td><strong class="gold">總計</strong></td>
+                        <td class="center red"><strong>&yen;8,875</strong></td>
+                        <td class="center red"><strong>$44,375</strong></td>
+                        <td class="center gold"><strong>~$285,000</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!-- ====== 跨品線搭售建議 ====== -->
+        <div class="section" id="cross">
+            <h2>跨品線搭售建議</h2>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>客戶需求</th>
+                        <th>滑門五金</th>
+                        <th>搭配品線</th>
+                        <th class="center">合計估值(牌價)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>全屋滑門</td>
+                        <td>歐派克全系列</td>
+                        <td>+ 鋁型材（軌道）+ 鋁木門（門板）</td>
+                        <td class="center gold">$30K~$80K</td>
+                    </tr>
+                    <tr>
+                        <td>隱形門設計</td>
+                        <td>幽靈門</td>
+                        <td>+ 門用五金（AY隱藏門鎖）</td>
+                        <td class="center gold">$12K~$20K</td>
+                    </tr>
+                    <tr>
+                        <td>穀倉門</td>
+                        <td>M-SD01</td>
+                        <td>+ 門用五金（WY11滑門鎖）+ 鋁型材（軌道）</td>
+                        <td class="center gold">$8K~$12K</td>
+                    </tr>
+                    <tr>
+                        <td>建案整批</td>
+                        <td>歐派克批量</td>
+                        <td>+ 門用五金 + 基礎五金</td>
+                        <td class="center">依量議價</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!-- ====== 安裝費用 ====== -->
+        <div class="section" id="install">
+            <h2>安裝費用</h2>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>門型</th>
+                        <th class="center">安裝費</th>
+                        <th>備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>單門滑門</td>
+                        <td class="center gold">$3,000</td>
+                        <td>含軌道安裝+調試</td>
+                    </tr>
+                    <tr>
+                        <td>聯動門(3扇)</td>
+                        <td class="center gold">$5,000</td>
+                        <td>需精密校正</td>
+                    </tr>
+                    <tr>
+                        <td>口袋門</td>
+                        <td class="center gold">$5,000~$8,000</td>
+                        <td>視牆體工程而定</td>
+                    </tr>
+                    <tr>
+                        <td>幽靈門</td>
+                        <td class="center gold">$4,000</td>
+                        <td>隱藏式安裝</td>
+                    </tr>
+                    <tr>
+                        <td>摺疊門</td>
+                        <td class="center gold">$6,000</td>
+                        <td>多折校正</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <div class="quote-box">
+                安裝費為建議價格，可依案件規模調整。
+            </div>
+        </div>
+
+        <!-- ====== 出貨記錄 ====== -->
+        <div class="section" id="shipment">
+            <h2>出貨記錄</h2>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>型號</th>
+                        <th class="center">數量</th>
+                        <th>客戶</th>
+                        <th>備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&mdash;</td>
+                        <td>&mdash;</td>
+                        <td class="center">&mdash;</td>
+                        <td>&mdash;</td>
+                        <td>尚無出貨記錄</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!-- ====== Footer ====== -->
+        <div class="footer">
+            <div class="company">樂莫集團 - 摩瑪建材</div>
+            <div>統一編號：45880923</div>
+            <div>台中市北屯區軍福十九路476號 台中南興店</div>
+            <div><a href="https://www.themore-tw.com" target="_blank">www.themore-tw.com</a></div>
+            <hr style="border-color: rgba(255,255,255,0.08); margin: 15px 0;">
+            <div style="font-size: 0.85em;">文件更新日期：2026-01-28 | 版本：v1.0 業務教戰手冊</div>
+        </div>
+
+    </div>
+</body>
+</html>
